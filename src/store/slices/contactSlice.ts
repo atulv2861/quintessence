@@ -1,0 +1,67 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+interface ContactFormData {
+  name: string
+  email: string
+  phone: string
+  subject: string
+  message: string
+  company: string
+}
+
+interface ContactState {
+  formData: ContactFormData
+  isSubmitting: boolean
+  submitStatus: 'idle' | 'success' | 'error'
+  errorMessage: string
+}
+
+const initialFormData: ContactFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+  company: '',
+}
+
+const initialState: ContactState = {
+  formData: initialFormData,
+  isSubmitting: false,
+  submitStatus: 'idle',
+  errorMessage: '',
+}
+
+const contactSlice = createSlice({
+  name: 'contact',
+  initialState,
+  reducers: {
+    updateFormField: (state, action: PayloadAction<{ field: keyof ContactFormData; value: string }>) => {
+      state.formData[action.payload.field] = action.payload.value
+    },
+    resetForm: (state) => {
+      state.formData = initialFormData
+      state.submitStatus = 'idle'
+      state.errorMessage = ''
+    },
+    setSubmitting: (state, action: PayloadAction<boolean>) => {
+      state.isSubmitting = action.payload
+    },
+    setSubmitStatus: (state, action: PayloadAction<'idle' | 'success' | 'error'>) => {
+      state.submitStatus = action.payload
+    },
+    setErrorMessage: (state, action: PayloadAction<string>) => {
+      state.errorMessage = action.payload
+    },
+  },
+})
+
+export const {
+  updateFormField,
+  resetForm,
+  setSubmitting,
+  setSubmitStatus,
+  setErrorMessage,
+} = contactSlice.actions
+
+export default contactSlice.reducer
