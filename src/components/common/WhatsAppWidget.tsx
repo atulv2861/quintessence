@@ -21,3 +21,4 @@ const WhatsAppWidget: React.FC = () => {
 }
 
 export default WhatsAppWidget
+

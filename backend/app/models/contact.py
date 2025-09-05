@@ -22,3 +22,4 @@ class ContactInquiry(BaseModel):
     response = Column(Text)  # Admin response
     responded_at = Column(DateTime)
     responded_by = Column(Integer)  # User ID who responded
+

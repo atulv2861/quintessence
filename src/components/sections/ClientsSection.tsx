@@ -29,7 +29,7 @@ const ClientsSection: React.FC = () => {
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Our Clients
+            Our Clients111
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>

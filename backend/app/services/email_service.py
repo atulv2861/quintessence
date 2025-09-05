@@ -99,3 +99,4 @@ class EmailService:
         except Exception as e:
             print(f"Error sending auto-reply: {e}")
             return False
+

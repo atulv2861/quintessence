@@ -684,3 +684,4 @@ class ServiceService:
 ```
 
 This comprehensive API design provides a solid foundation for the Quintessence Consultants website backend with proper data models, schemas, and endpoints for both public and admin functionality.
+

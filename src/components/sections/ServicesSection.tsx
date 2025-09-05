@@ -16,7 +16,7 @@ const ServicesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => (
+          {SERVICES.map((service) => (
             <div
               key={service.id}
               className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
@@ -24,12 +24,13 @@ const ServicesSection: React.FC = () => {
               <div className="mb-6">
                 <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-2 flex items-center justify-center">
+                    <div className="w-full h-full bg-blue-100 rounded-full mx-auto mb-0 flex items-center justify-center">
                       <span className="text-2xl">
-                        {index === 0 ? '🏥' : index === 1 ? '⚡' : index === 2 ? '🩺' : '✅'}
+                        {/* {index === 0 ? '🏥' : index === 1 ? '⚡' : index === 2 ? '🩺' : '✅'} */}
+                        <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-lg" />
                       </span>
                     </div>
-                    <p className="text-gray-500 text-sm font-medium">Service Image</p>
+                    {/* <p className="text-gray-500 text-sm font-medium">Service Image</p> */}
                   </div>
                 </div>
               </div>

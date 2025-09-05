@@ -45,3 +45,4 @@ class ContactService:
         self.db.commit()
         self.db.refresh(db_inquiry)
         return db_inquiry
+

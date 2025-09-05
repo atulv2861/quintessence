@@ -75,13 +75,12 @@ const AboutPage: React.FC = () => {
             {/* Image and Quote */}
             <div className="space-y-6">
               <div className="relative">
-                <div className="w-full h-96 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-2xl">👨‍⚕️</span>
-                    </div>
-                    <p className="text-gray-500 font-medium">Dr. Nitin Garg</p>
-                  </div>
+                <div className="w-full h-96 rounded-lg shadow-lg overflow-hidden mb-4 bg-gray-100">
+                  <img 
+                    src="/images/hero/nitin-garg.png" 
+                    alt="Dr. Nitin Garg" 
+                    className="w-full h-full object-cover object-center" 
+                  />
                 </div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-20"></div>
               </div>

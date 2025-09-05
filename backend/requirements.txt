@@ -14,3 +14,4 @@ sendgrid==6.10.0
 aiofiles==23.2.1
 pillow==10.1.0
 python-slugify==8.0.1
+
