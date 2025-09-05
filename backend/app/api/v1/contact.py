@@ -35,3 +35,4 @@ async def get_contact_inquiries(
     """Get all contact inquiries (admin only)"""
     contact_service = ContactService(db)
     return await contact_service.get_inquiries(skip=skip, limit=limit)
+

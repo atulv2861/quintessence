@@ -32,3 +32,4 @@ async def get_service_by_slug(
     if not service:
         raise HTTPException(status_code=404, detail="Service not found")
     return service
+

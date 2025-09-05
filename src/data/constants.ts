@@ -42,6 +42,7 @@ export const SERVICES: Service[] = [
   {
     id: '1',
     title: 'Integrated Architectural and MEP Planning',
+    image: '/images/services/planning-and-desigining.jpg',
     description: 'By conducting a comprehensive review and making necessary modifications, we ensure that the architectural drawings accurately reflect the desired concept brief.',
     detailedDescription: 'Our integrated approach combines architectural design with Mechanical, Electrical, and Plumbing (MEP) systems to create seamless healthcare facilities. We ensure optimal space utilization, efficient workflow, and compliance with healthcare standards.',
     icon: 'Building2',
@@ -58,6 +59,7 @@ export const SERVICES: Service[] = [
   {
     id: '2',
     title: 'Creating Tailored and Specialized Services',
+    image: '/images/services/tailored-and-specialized-services-design.jpg',
     description: 'The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM.',
     detailedDescription: 'We specialize in designing and implementing Medical Gas Pipeline Systems (MGPS) that meet HTM guidelines. Our services ensure safe, efficient, and compliant medical gas delivery throughout healthcare facilities.',
     icon: 'Zap',
@@ -74,6 +76,7 @@ export const SERVICES: Service[] = [
   {
     id: '3',
     title: 'Optimized Hospital Equipment Planning',
+    image: '/images/services/hospital-equipment-planning.jpeg',
     description: 'Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility.',
     detailedDescription: 'Our systematic approach to hospital equipment planning ensures optimal placement, efficient utilization, and seamless integration of medical equipment. We consider workflow, maintenance, and future expansion needs.',
     icon: 'Stethoscope',
@@ -90,6 +93,7 @@ export const SERVICES: Service[] = [
   {
     id: '4',
     title: 'Pre-commissioning and Commissioning Activities',
+    image: '/images/services/pre-commissioning.jpg',
     description: 'Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins.',
     detailedDescription: 'We provide comprehensive pre-commissioning and commissioning services to ensure smooth facility startup. Our systematic approach covers testing, validation, staff training, and operational readiness.',
     icon: 'CheckCircle',

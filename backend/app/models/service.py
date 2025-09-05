@@ -15,3 +15,4 @@ class Service(BaseModel):
     sort_order = Column(Integer, default=0)
     meta_title = Column(String)
     meta_description = Column(String)
+
