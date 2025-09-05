@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Navigation, Globe, Video, Calendar, Zap, Shield, Heart } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 
 const ContactPage: React.FC = () => {
@@ -31,63 +31,73 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Gradient Background */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-teal-500">
-        {/* Animated Background Elements */}
+      {/* Hero Section with Modern Design */}
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Advanced Background Elements */}
         <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-lg rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-ping"></div>
-          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-white/5 rounded-full animate-pulse"></div>
+          {/* Floating geometric shapes with different animations */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/20 rounded-lg rotate-45 animate-bounce"></div>
+          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/20 rounded-full animate-ping"></div>
+          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 left-1/2 w-8 h-8 bg-yellow-500/30 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-1/3 right-1/2 w-14 h-14 bg-green-500/20 rounded-lg rotate-12 animate-pulse"></div>
           
-          {/* Gradient orbs */}
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-pink-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
+          {/* Gradient orbs with blur effects */}
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-pink-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-teal-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/5 to-blue-400/5 rounded-full blur-3xl animate-pulse"></div>
+          
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 min-h-screen flex items-center">
           <div className="container-custom">
             <div className="text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
-                <span className="text-white font-medium">Let's Connect</span>
+              <div className="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
+                <span className="text-white font-medium text-lg">Let's Connect</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+              <h1 className="text-7xl md:text-9xl font-bold text-white mb-8 leading-tight">
                 Get in
-                <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Touch
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <p className="text-2xl md:text-3xl text-white/90 max-w-4xl mx-auto mb-16 leading-relaxed">
                 Ready to transform your healthcare infrastructure? Let's start the conversation and bring your vision to life.
               </p>
               
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              {/* Enhanced CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-8 justify-center">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="group bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3"
+                  className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 text-lg"
                 >
-                  <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
+                  <MessageCircle className="w-7 h-7 group-hover:animate-bounce" />
                   <span>Chat on WhatsApp</span>
                 </button>
                 <a
                   href="#contact-form"
-                  className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-3"
+                  className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-4 text-lg"
                 >
-                  <Send className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                  <Send className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" />
                   <span>Send Message</span>
                 </a>
+                <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-4 text-lg">
+                  <Video className="w-7 h-7 group-hover:animate-pulse" />
+                  <span>Video Call</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Enhanced scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-4 bg-white/50 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
@@ -292,129 +302,287 @@ const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container-custom py-20">
+      {/* Interactive Map Section */}
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/10 rounded-lg rotate-45 animate-bounce"></div>
+          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/10 rounded-full animate-ping"></div>
+          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/5 rounded-full animate-pulse"></div>
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-600 rounded-full mb-6">
-              <span className="font-medium">Find Us</span>
+            <div className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+              <span className="text-white font-medium">Find Us</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Visit Our
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Office
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Located in the heart of New Delhi, our office is easily accessible and ready to welcome you for in-person consultations.
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-              {/* Map Section - Takes 2/3 of the width */}
-              <div className="lg:col-span-2">
-                <div className="h-96 lg:h-full">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.123456789!2d77.123456789!3d28.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjQiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Quintessence Medical Consultants Location"
-                  ></iframe>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Interactive Map Card */}
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold text-white">Interactive Map</h3>
+                  <div className="flex space-x-2">
+                    <button className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+                      <Navigation className="w-5 h-5 text-white" />
+                    </button>
+                    <button className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+                      <Globe className="w-5 h-5 text-white" />
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="relative rounded-2xl overflow-hidden mb-6">
+                  <div className="h-80 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <MapPin className="w-10 h-10 text-white" />
+                      </div>
+                      <p className="text-white font-medium">Interactive Map</p>
+                      <p className="text-white/70 text-sm mt-2">Click to explore our location</p>
+                    </div>
+                  </div>
+                  
+                  {/* Map Overlay Controls */}
+                  <div className="absolute top-4 right-4 flex flex-col space-y-2">
+                    <button className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+                      <span className="text-white text-sm">+</span>
+                    </button>
+                    <button className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+                      <span className="text-white text-sm">-</span>
+                    </button>
+                  </div>
+                  
+                  {/* Location Pin */}
+                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                      📍 Our Office
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/10 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-white">2.5km</div>
+                    <div className="text-white/70 text-sm">From Metro</div>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-white">15min</div>
+                    <div className="text-white/70 text-sm">Drive Time</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced Contact Info */}
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                    <MessageCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Let's Talk</h3>
+                </div>
+                <p className="text-white/90 leading-relaxed mb-8">
+                  Feel free to reach out to us through the contact information provided below. We value your inquiries, feedback, and collaboration opportunities.
+                </p>
+
+                <div className="space-y-6">
+                  <div className="group flex items-start space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Office Address</h4>
+                      <p className="text-white/80 leading-relaxed">
+                        606, GDITL Northex Tower, A-09<br />
+                        Netaji Subhash Place, Pitampura<br />
+                        New Delhi - 110034
+                      </p>
+                      <button className="mt-2 text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center space-x-1">
+                        <Navigation className="w-4 h-4" />
+                        <span>Get Directions</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="group flex items-start space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Phone Numbers</h4>
+                      <div className="space-y-2">
+                        <a href="tel:01141664694" className="block text-white/80 hover:text-green-400 transition-colors">011 41664694</a>
+                        <a href="tel:+919728392333" className="block text-white/80 hover:text-green-400 transition-colors">+91 9728392333</a>
+                        <a href="tel:+919812692333" className="block text-white/80 hover:text-green-400 transition-colors">+91 9812692333</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="group flex items-start space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Mail className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Email Address</h4>
+                      <div className="space-y-2">
+                        <a href="mailto:nitingargha@gmail.com" className="block text-white/80 hover:text-purple-400 transition-colors">nitingargha@gmail.com</a>
+                        <a href="mailto:nitdoc@gmail.com" className="block text-white/80 hover:text-purple-400 transition-colors">nitdoc@gmail.com</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="group flex items-start space-x-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Working Hours</h4>
+                      <p className="text-white/80">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                      <p className="text-white/60 text-sm mt-1">Sunday: Closed</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Contact Info Section - Takes 1/3 of the width */}
-              <div className="bg-gradient-to-br from-white to-gray-50 p-8 lg:p-12">
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Let's Talk</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Feel free to reach out to us through the contact information provided below. We value your inquiries, feedback, and collaboration opportunities. With a wealth of knowledge in diverse domains such as medicine, hospital administration, quality assurance, and healthcare project management, our team is here to assist you.
-                    </p>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-4 h-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
-                        <p className="text-gray-700 text-sm">
-                          D-10, 2nd Floor, Sector-3, Rohini, Delhi-110085
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-4 h-4 text-green-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                        <p className="text-gray-700 text-sm">+91-9810000000</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-4 h-4 text-purple-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                        <p className="text-gray-700 text-sm">info@quintessenceconsultants.in</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-4 h-4 text-orange-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Working Hours</h4>
-                        <p className="text-gray-700 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {/* Quick Actions */}
+              <div className="grid grid-cols-2 gap-4">
+                <button className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                  <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
+                  <span>WhatsApp</span>
+                </button>
+                <button className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                  <Video className="w-5 h-5 group-hover:animate-pulse" />
+                  <span>Video Call</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-600 rounded-full mb-6">
+              <span className="font-medium">Why Choose Us</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Experience the
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Difference
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We're not just consultants; we're your partners in creating healthcare infrastructure that transforms lives.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">16+ Years Experience</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Decades of expertise in healthcare infrastructure planning and design.
+              </p>
+            </div>
+
+            <div className="group text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">NABH Certified</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Certified professionals ensuring compliance with international standards.
+              </p>
+            </div>
+
+            <div className="group text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Fast Turnaround</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Quick response times and efficient project delivery without compromising quality.
+              </p>
+            </div>
+
+            <div className="group text-center p-8 bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Patient-Centric</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Every design decision prioritizes patient comfort and healthcare outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500">
-        <div className="container-custom text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your
-            <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
-              Healthcare Infrastructure?
-            </span>
-          </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Let's discuss your project and see how we can help you create world-class healthcare facilities that make a difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button
-              onClick={handleWhatsAppClick}
-              className="group bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3"
-            >
-              <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
-              <span>Chat on WhatsApp</span>
-            </button>
-            <a
-              href="#contact-form"
-              className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-3"
-            >
-              <Send className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
-              <span>Send Message</span>
-            </a>
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-lg rotate-45 animate-bounce"></div>
+          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-ping"></div>
+          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-white/5 rounded-full animate-pulse"></div>
+        </div>
+
+        <div className="container-custom text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <span className="text-white font-medium">Ready to Start?</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Transform Your
+              <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                Healthcare Infrastructure?
+              </span>
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+              Let's discuss your project and see how we can help you create world-class healthcare facilities that make a difference.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button
+                onClick={handleWhatsAppClick}
+                className="group bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3"
+              >
+                <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
+                <span>Chat on WhatsApp</span>
+              </button>
+              <a
+                href="#contact-form"
+                className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-3"
+              >
+                <Send className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Send Message</span>
+              </a>
+              <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-3">
+                <Calendar className="w-6 h-6 group-hover:animate-pulse" />
+                <span>Schedule Call</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>

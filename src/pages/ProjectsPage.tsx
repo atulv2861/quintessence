@@ -1,18 +1,33 @@
-import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import React, { useState } from 'react'
+import { ArrowRight, MapPin, Building, Users, Calendar, Award, Eye, Heart, Share2, ExternalLink, Grid, List } from 'lucide-react'
 
 const ProjectsPage: React.FC = () => {
+  const [selectedFilter, setSelectedFilter] = useState('all')
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+
   const projects = [
     {
       id: 1,
       title: "All India Institute of Medical Sciences (AIIMS), Delhi",
+      location: "New Delhi, India",
       beds: "2000 Bedded Hospital",
       area: "10,00,000 Sq. Mtr. (Approx.)",
       client: "ARCOP",
+      status: "Completed",
+      year: "2023",
+      category: "Super Specialty",
+      description: "A state-of-the-art medical facility featuring advanced healthcare infrastructure with cutting-edge technology and patient-centric design.",
+      features: ["Emergency Services", "ICU Units", "Operation Theaters", "Diagnostic Center", "Research Labs"],
       images: [
         "/images/projects/aiims-1.jpg",
         "/images/projects/aiims-2.jpg"
-      ]
+      ],
+      stats: {
+        views: 1250,
+        likes: 89,
+        shares: 23
+      }
     },
     {
       id: 2,
@@ -21,10 +36,20 @@ const ProjectsPage: React.FC = () => {
       beds: "750 Bedded Hospital",
       area: "70,000 Sq. Mtr (Approx.)",
       client: "ARCOP",
+      status: "In Progress",
+      year: "2024",
+      category: "Multi-Specialty",
+      description: "Modern healthcare complex designed with sustainable architecture and advanced medical technology integration.",
+      features: ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics"],
       images: [
         "/images/projects/jwalapuri-1.jpg",
         "/images/projects/jwalapuri-2.jpg"
-      ]
+      ],
+      stats: {
+        views: 980,
+        likes: 67,
+        shares: 18
+      }
     },
     {
       id: 3,
@@ -33,111 +58,518 @@ const ProjectsPage: React.FC = () => {
       beds: "400 Bedded Hospital",
       area: "22,000 Sq. Mtr. (Approx.)",
       client: "HKSD Sarvodya Healthcare",
+      status: "Completed",
+      year: "2022",
+      category: "Health City",
+      description: "Comprehensive health city featuring multiple specialty centers and wellness facilities in a single campus.",
+      features: ["Wellness Center", "Diagnostic Hub", "Rehabilitation", "Mental Health", "Community Health"],
       images: [
         "/images/projects/sarvesh-1.jpg",
         "/images/projects/sarvesh-2.jpg"
-      ]
+      ],
+      stats: {
+        views: 756,
+        likes: 45,
+        shares: 12
+      }
+    },
+    {
+      id: 4,
+      title: "Metro Healthcare Complex",
+      location: "Gurgaon, Haryana",
+      beds: "500 Bedded Hospital",
+      area: "45,000 Sq. Mtr. (Approx.)",
+      client: "Metro Healthcare Group",
+      status: "Planning",
+      year: "2025",
+      category: "Multi-Specialty",
+      description: "Next-generation healthcare facility with smart building technology and AI-powered patient care systems.",
+      features: ["Smart ICU", "Telemedicine", "Robotic Surgery", "Digital Health", "Green Building"],
+      images: [
+        "/images/projects/metro-1.jpg",
+        "/images/projects/metro-2.jpg"
+      ],
+      stats: {
+        views: 634,
+        likes: 52,
+        shares: 15
+      }
+    },
+    {
+      id: 5,
+      title: "Rural Health Mission Center",
+      location: "Bihar, India",
+      beds: "150 Bedded Hospital",
+      area: "15,000 Sq. Mtr. (Approx.)",
+      client: "Government of Bihar",
+      status: "Completed",
+      year: "2021",
+      category: "Rural Healthcare",
+      description: "Community-focused healthcare facility designed to serve rural populations with essential medical services.",
+      features: ["Primary Care", "Maternal Health", "Child Health", "Emergency Care", "Community Outreach"],
+      images: [
+        "/images/projects/rural-1.jpg",
+        "/images/projects/rural-2.jpg"
+      ],
+      stats: {
+        views: 892,
+        likes: 61,
+        shares: 28
+      }
+    },
+    {
+      id: 6,
+      title: "International Medical Center",
+      location: "Mumbai, Maharashtra",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "International Healthcare Ltd.",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/international-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
     }
   ]
 
+  const categories = ['all', ...Array.from(new Set(projects.map(project => project.category)))]
+
+  const filteredProjects = projects.filter(project => {
+    const matchesCategory = selectedFilter === 'all' || project.category === selectedFilter || project.status === selectedFilter
+    return matchesCategory
+  })
+
+  const formatNumber = (num: number) => {
+    return num.toLocaleString()
+  }
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Hospital Background */}
-      <section className="relative h-96 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-          {/* Placeholder for hospital complex background */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gray-600 rounded-t-full"></div>
-            <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-gray-500 rounded-t-lg"></div>
-            <div className="absolute bottom-0 right-1/4 w-1/4 h-1/3 bg-gray-400 rounded-t-lg"></div>
-            <div className="absolute top-1/4 right-1/3 w-8 h-8 bg-yellow-400 rounded-full opacity-50"></div>
-          </div>
+      {/* Hero Section with Interactive Background */}
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/20 rounded-lg rotate-45 animate-bounce"></div>
+          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/20 rounded-full animate-ping"></div>
+          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/10 rounded-full animate-pulse"></div>
+          
+          {/* Gradient orbs */}
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-pink-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex items-center">
+        <div className="relative z-10 min-h-screen flex items-center">
           <div className="container-custom">
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                PROJECTS
+              <div className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8">
+                <span className="text-white font-medium">Portfolio Showcase</span>
+              </div>
+              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+                Our
+                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Projects
+                </span>
               </h1>
-              <p className="text-xl text-white max-w-3xl mx-auto">
-                Some of the projects attributed to me.
+              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+                Discover our portfolio of innovative healthcare infrastructure projects that are transforming the future of medical facilities.
               </p>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div className="text-center group">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Building className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
+                  <div className="text-white/70">Projects</div>
+                </div>
+                <div className="text-center group">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">4,350</div>
+                  <div className="text-white/70">Total Beds</div>
+                </div>
+                <div className="text-center group">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">12.5M</div>
+                  <div className="text-white/70">Sq. Mtr.</div>
+                </div>
+                <div className="text-center group">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Calendar className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">16+</div>
+                  <div className="text-white/70">Years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Filter and View Controls */}
+      <section className="py-12 bg-gradient-to-r from-gray-50 to-blue-50">
+        <div className="container-custom">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => setSelectedFilter('all')}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  selectedFilter === 'all'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
+                    : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
+                }`}
+              >
+                All Projects
+              </button>
+              {categories.slice(1).map(category => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedFilter(category)}
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    selectedFilter === category
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
+                      : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-600 font-medium">View:</span>
+              <div className="flex bg-white rounded-lg p-1 border border-gray-200">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'grid'
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <Grid className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => setViewMode('list')}
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'list'
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <List className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Grid/List */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          {projects.map((project, index) => (
-            <div key={project.id} className={`mb-20 ${index > 0 ? 'border-t border-gray-200 pt-20' : ''}`}>
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                {/* Project Details */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div>
-                    <h2 className="text-blue-600 text-lg font-semibold mb-4">PROJECTS</h2>
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-600 rounded-full mb-6">
+              <span className="font-medium">Portfolio</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Featured
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Projects
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our diverse portfolio of healthcare infrastructure projects that showcase innovation, excellence, and impact.
+            </p>
+          </div>
+
+          {viewMode === 'grid' ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                >
+                  {/* Project Image */}
+                  <div className="relative overflow-hidden">
+                    <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <Building className="w-10 h-10 text-white" />
+                        </div>
+                        <p className="text-white font-medium">Project Image</p>
+                      </div>
+                    </div>
+                    
+                    {/* Status Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        project.status === 'Completed' 
+                          ? 'bg-green-500 text-white' 
+                          : project.status === 'In Progress'
+                          ? 'bg-yellow-500 text-white'
+                          : 'bg-blue-500 text-white'
+                      }`}>
+                        {project.status}
+                      </span>
+                    </div>
+
+                    {/* Category Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300 ${
+                      hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                    }`}>
+                      <div className="flex space-x-4">
+                        <button className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                          <Eye className="w-6 h-6 text-white" />
+                        </button>
+                        <button className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                          <Heart className="w-6 h-6 text-white" />
+                        </button>
+                        <button className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                          <Share2 className="w-6 h-6 text-white" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-2 text-sm text-gray-500">
+                        <MapPin className="w-4 h-4" />
+                        <span>{project.location}</span>
+                      </div>
+                      <div className="text-sm text-gray-500">{project.year}</div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
                       {project.title}
                     </h3>
-                    {project.location && (
-                      <h4 className="text-2xl font-bold text-gray-900 mb-6">
-                        {project.location}
-                      </h4>
-                    )}
-                  </div>
 
-                  <div className="space-y-3">
-                    <p className="text-gray-700">
-                      <span className="font-semibold">No. of Beds:</span> {project.beds}
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                      {project.description}
                     </p>
-                    <p className="text-gray-700">
-                      <span className="font-semibold">Area:</span> {project.area}
-                    </p>
-                    <p className="text-gray-700">
-                      <span className="font-semibold">Client:</span> {project.client}
-                    </p>
-                  </div>
 
-                  <button className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
-                    <span>See Project</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Project Images */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  {/* Main Image */}
-                  <div className="relative">
-                    <div className="w-full h-80 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-2xl">🏥</span>
-                        </div>
-                        <p className="text-gray-500 font-medium">Project Image 1</p>
+                    {/* Project Stats */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="text-center p-3 bg-gray-50 rounded-lg">
+                        <div className="text-lg font-bold text-blue-600">{project.beds}</div>
+                        <div className="text-xs text-gray-500">Capacity</div>
+                      </div>
+                      <div className="text-center p-3 bg-gray-50 rounded-lg">
+                        <div className="text-lg font-bold text-purple-600">{project.area}</div>
+                        <div className="text-xs text-gray-500">Area</div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Secondary Image */}
-                  <div className="relative">
-                    <div className="w-full h-64 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-20 h-20 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <span className="text-xl">🏢</span>
-                        </div>
-                        <p className="text-gray-500 font-medium">Project Image 2</p>
+                    {/* Features */}
+                    <div className="mb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {project.features.slice(0, 3).map((feature, index) => (
+                          <span
+                            key={index}
+                            className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                        {project.features.length > 3 && (
+                          <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs font-medium">
+                            +{project.features.length - 3} more
+                          </span>
+                        )}
                       </div>
                     </div>
+
+                    {/* Engagement Stats */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                        <div className="flex items-center space-x-1">
+                          <Eye className="w-4 h-4" />
+                          <span>{formatNumber(project.stats.views)}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Heart className="w-4 h-4" />
+                          <span>{project.stats.likes}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Share2 className="w-4 h-4" />
+                          <span>{project.stats.shares}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Action Button */}
+                    <button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                      <span>View Details</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div className="space-y-8">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden">
+                      <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <Building className="w-8 h-8 text-white" />
+                          </div>
+                          <p className="text-white font-medium text-sm">Project Image</p>
+                        </div>
+                      </div>
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          project.status === 'Completed' 
+                            ? 'bg-green-500 text-white' 
+                            : project.status === 'In Progress'
+                            ? 'bg-yellow-500 text-white'
+                            : 'bg-blue-500 text-white'
+                        }`}>
+                          {project.status}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Project Details */}
+                    <div className="lg:col-span-2 p-8">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                            <MapPin className="w-4 h-4" />
+                            <span>{project.location}</span>
+                            <span>•</span>
+                            <span>{project.year}</span>
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <span className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                          {project.category}
+                        </span>
+                      </div>
+
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div className="text-center p-3 bg-gray-50 rounded-lg">
+                          <div className="text-lg font-bold text-blue-600">{project.beds}</div>
+                          <div className="text-xs text-gray-500">Capacity</div>
+                        </div>
+                        <div className="text-center p-3 bg-gray-50 rounded-lg">
+                          <div className="text-lg font-bold text-purple-600">{project.area}</div>
+                          <div className="text-xs text-gray-500">Area</div>
+                        </div>
+                        <div className="text-center p-3 bg-gray-50 rounded-lg">
+                          <div className="text-lg font-bold text-green-600">{project.client}</div>
+                          <div className="text-xs text-gray-500">Client</div>
+                        </div>
+                        <div className="text-center p-3 bg-gray-50 rounded-lg">
+                          <div className="text-lg font-bold text-orange-600">{formatNumber(project.stats.views)}</div>
+                          <div className="text-xs text-gray-500">Views</div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-wrap gap-2">
+                          {project.features.slice(0, 4).map((feature, index) => (
+                            <span
+                              key={index}
+                              className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                        <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                          <span>View Details</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500">
+        <div className="container-custom text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <span className="text-white font-medium">Let's Build Together</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Start Your
+              <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                Next Project?
+              </span>
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+              Join the ranks of healthcare organizations that trust us to deliver world-class infrastructure solutions. Let's discuss your vision and make it a reality.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button className="group bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-3">
+                <span>Start a Project</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+              <button className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-3">
+                <span>View Portfolio</span>
+                <ExternalLink className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
