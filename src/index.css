@@ -32,6 +32,33 @@
     @apply bg-transparent hover:bg-primary-600 text-primary-600 hover:text-white font-medium py-3 px-6 rounded-lg border border-primary-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
   }
   
+  .btn-3d {
+    @apply relative bg-gradient-to-b from-primary-500 to-primary-700 text-white font-bold py-1.5 px-3 sm:py-2 sm:px-4 rounded-md border-2 border-primary-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-xs sm:text-sm;
+    box-shadow: 
+      0 3px 0 #1e40af,
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+  }
+  
+  .btn-3d:hover {
+    @apply bg-gradient-to-b from-primary-600 to-primary-800;
+    box-shadow: 
+      0 1px 0 #1e40af,
+      0 3px 6px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(2px);
+  }
+  
+  .btn-3d:active {
+    @apply bg-gradient-to-b from-primary-700 to-primary-900;
+    box-shadow: 
+      0 1px 0 #1e40af,
+      0 2px 4px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(2px);
+  }
+  
   .card {
     @apply bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden;
   }

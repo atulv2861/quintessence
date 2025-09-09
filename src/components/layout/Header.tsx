@@ -36,30 +36,6 @@ const Header: React.FC = () => {
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="bg-primary-600 text-white py-2">
-        <div className="container-custom">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
-            <div className="flex items-center space-x-4 mb-2 sm:mb-0">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span>{CONTACT_INFO.email}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>{CONTACT_INFO.phone}</span>
-              </div>
-            </div>
-            <button
-              onClick={handleConsultationClick}
-              className="bg-white text-primary-600 px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
-            >
-              FREE CONSULTATION
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <header className={`sticky top-0 z-30 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-white'
@@ -106,6 +82,14 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
+              
+              {/* 3D FREE CONSULTATION Button */}
+              <button
+                onClick={handleConsultationClick}
+                className="btn-3d ml-4"
+              >
+                FREE CONSULTATION
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
