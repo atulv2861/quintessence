@@ -15,11 +15,11 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <div className="bg-primary-600 text-white p-2 rounded-lg">
-                <span className="font-bold text-xl">QMC</span>
+                <span className="font-bold text-xl">SHC</span>
               </div>
               <div>
-                <div className="font-bold text-xl">QMC</div>
-                <div className="text-sm text-gray-400">Quintessence Medical Consultants</div>
+                <div className="font-bold text-xl">SHC</div>
+                <div className="text-sm text-gray-400">Seven Healer counsultancy Pvt.Ltd</div>
               </div>
             </div>
             <p className="text-gray-300 mb-6">

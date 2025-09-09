@@ -37,7 +37,7 @@ class EmailService:
             {inquiry.message}
             
             ---
-            This inquiry was submitted through the Quintessence Medical Consultants website.
+            This inquiry was submitted through the Seven Healer counsultancy Pvt.Ltd website.
             """
             
             msg.attach(MIMEText(body, 'plain'))
@@ -63,13 +63,13 @@ class EmailService:
             msg = MIMEMultipart()
             msg['From'] = self.from_email
             msg['To'] = inquiry.email
-            msg['Subject'] = "Thank you for contacting Quintessence Medical Consultants"
+            msg['Subject'] = "Thank you for contacting Seven Healer counsultancy Pvt.Ltd"
             
             # Create email body
             body = f"""
             Dear {inquiry.name},
             
-            Thank you for contacting Quintessence Medical Consultants. We have received your inquiry regarding "{inquiry.subject}".
+            Thank you for contacting Seven Healer counsultancy Pvt.Ltd. We have received your inquiry regarding "{inquiry.subject}".
             
             Our team will review your message and get back to you within 24 hours.
             
@@ -78,7 +78,7 @@ class EmailService:
             - {settings.CONTACT_PHONE_2}
             
             Best regards,
-            Quintessence Medical Consultants Team
+            Seven Healer counsultancy Pvt.Ltd Team
             
             ---
             This is an automated response. Please do not reply to this email.

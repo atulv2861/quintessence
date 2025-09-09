@@ -6,20 +6,20 @@ export const WHATSAPP_NUMBER = '+919812692333'
 export const WHATSAPP_MESSAGE = 'Hello! I would like to know more about your healthcare consulting services.'
 
 // Contact Information
-export const CONTACT_EMAIL = 'Info@quintessenceconsultants.in'
+export const CONTACT_EMAIL = 'Info@sevenhealerconsultants.in'
 export const CONTACT_PHONE = '011 41664694'
 export const CONTACT_PHONE_2 = '+91 9812692333'
 export const CONTACT_PHONE_3 = '+91 9728392333'
 
 // Social Media Links
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/quintessenceconsultants',
+  facebook: 'https://facebook.com/sevenhealerconsultants',
   linkedin: 'https://linkedin.com/company/quintessence-consultants',
-  email: 'Info@quintessenceconsultants.in'
+  email: 'Info@sevenhealerconsultants.in'
 }
 
 // Company Information
-export const COMPANY_NAME = 'Quintessence Medical Consultants'
+export const COMPANY_NAME = 'Seven Healer counsultancy Pvt.Ltd'
 export const COMPANY_TAGLINE = 'Transforming Healthcare Infrastructure'
 
 // Animation Delays

@@ -1,6 +1,6 @@
 # Quintessence Consultants Website Clone
 
-A complete clone of the [Quintessence Consultants website](https://quintessenceconsultants.in/) built with modern web technologies.
+A complete clone of the [Quintessence Consultants website](https://sevenhealerconsultants.in/) built with modern web technologies.
 
 ## 🏗️ Tech Stack
 
@@ -249,9 +249,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support and questions:
-- Email: info@quintessenceconsultants.in
+- Email: info@sevenhealerconsultants.in
 - Phone: +91 9812692333
-- Website: https://quintessenceconsultants.in/
+- Website: https://sevenhealerconsultants.in/
 
 ## 🙏 Acknowledgments
 

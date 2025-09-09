@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10MB
     
     # CORS
-    ALLOWED_ORIGINS: list = ["http://localhost:3000", "https://quintessenceconsultants.in"]
+    ALLOWED_ORIGINS: list = ["http://localhost:3000", "https://sevenhealerconsultants.in"]
     
     class Config:
         env_file = ".env"
