@@ -114,15 +114,6 @@ const ServicesSection: React.FC = () => {
               )
             })}
           </div>
-          
-          {/* Scroll Indicator */}
-          <div className="text-center mt-4">
-            <p className="text-sm text-gray-500 flex items-center justify-center space-x-2">
-              <span>←</span>
-              <span>Scroll to see more services</span>
-              <span>→</span>
-            </p>
-          </div>
         </div>
 
         {/* Feature Highlights */}

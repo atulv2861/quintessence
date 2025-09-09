@@ -91,9 +91,9 @@ const ClientsSection: React.FC = () => {
             {/* PWD Delhi Government */}
             <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.1s'}}>
               <div className="mb-4">
-                <div className="h-20 w-20 bg-white border-2 border-gray-800 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="h-20 w-24 bg-white border-2 border-gray-800 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <span className="text-white text-sm">🌍</span>
                     </div>
                     <span className="text-gray-600 text-xs font-bold">PWD</span>
@@ -108,9 +108,9 @@ const ClientsSection: React.FC = () => {
             {/* PWD Delhi Government (Tractor) */}
             <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.2s'}}>
               <div className="mb-4">
-                <div className="h-20 w-20 bg-white border-2 border-gray-800 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="h-20 w-24 bg-white border-2 border-gray-800 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <span className="text-white text-sm">🚜</span>
                     </div>
                     <span className="text-gray-600 text-xs font-bold">PWD</span>
@@ -125,7 +125,7 @@ const ClientsSection: React.FC = () => {
             {/* DDF Consultants */}
             <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.3s'}}>
               <div className="mb-4">
-                <div className="h-20 w-28 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="h-20 w-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <div className="flex space-x-1">
                     <div className="w-5 h-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-sm"></div>
                     <div className="w-5 h-5 bg-gray-400 rounded-sm"></div>
@@ -142,7 +142,7 @@ const ClientsSection: React.FC = () => {
             {/* Dexterous Designers */}
             <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.4s'}}>
               <div className="mb-4">
-                <div className="h-20 w-28 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <div className="h-20 w-24 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center">
                     <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center mr-2">
                       <span className="text-white text-sm font-bold">d</span>
