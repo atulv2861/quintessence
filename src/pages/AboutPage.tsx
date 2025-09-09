@@ -8,6 +8,28 @@ const AboutPage: React.FC = () => {
   const formatNumber = (num: number) => {
     return num.toLocaleString()
   }
+  // const ourClients = [
+  //   {
+  //     name: 'HKSD Health City',
+  //     title: 'HKSD',
+  //     logo: '/images/clients/hksd-health-city.jpg'
+  //   },
+  //   {
+  //     name: 'PWD Delhi Government',
+  //     title: 'PWD',
+  //     logo: '/images/clients/pwd-delhi-government.jpg'
+  //   },
+  //   {
+  //     name: 'DDF Consultants Private Limited',
+  //     title: 'DDF',
+  //     logo: '/images/clients/ddf-consultants.jpg'
+  //   },
+  //   {
+  //     name: 'Dexterous Designers & Associates',
+  //     title: 'Dexterous',
+  //     logo: '/images/clients/dexterous-designers.jpg'
+  //   }
+  // ]
 
   return (
     <div className="min-h-screen">
@@ -260,7 +282,7 @@ const AboutPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-            {/* HKSD Health City */}
+            {/* HKSD Health City */}            
             <div className="flex flex-col items-center p-4 hover:bg-white rounded-lg transition-colors duration-200">
               <div className="mb-4">
                 <div className="h-16 w-20 bg-white border border-gray-200 rounded flex items-center justify-center">
@@ -276,6 +298,7 @@ const AboutPage: React.FC = () => {
                 HKSD Health City
               </p>
             </div>
+           
 
             {/* PWD Delhi Government */}
             <div className="flex flex-col items-center p-4 hover:bg-white rounded-lg transition-colors duration-200">
