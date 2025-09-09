@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Navigation, Globe, Video, Calendar, Zap, Shield, Heart } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Navigation, Globe, Video, Zap, Shield, Heart } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 
 const ContactPage: React.FC = () => {
