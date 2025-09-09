@@ -1,4 +1,4 @@
-# Quintessence Consultants Website - Project Structure
+# Seven Healer Consultants Website - Project Structure
 
 ## Recommended Tech Stack
 
@@ -30,7 +30,7 @@
 ## Folder Structure
 
 ```
-quintessence-website/
+Seven Healer-website/
 ├── frontend/                          # React.js + TypeScript frontend
 │   ├── public/
 │   │   ├── index.html
@@ -357,7 +357,7 @@ VITE_API_BASE_URL=http://localhost:8000
 VITE_WHATSAPP_NUMBER=+919812692333
 
 # Backend (.env)
-DATABASE_URL=postgresql://user:password@localhost/quintessence
+DATABASE_URL=postgresql://user:password@localhost/Seven Healer
 SECRET_KEY=your-secret-key
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
@@ -365,4 +365,4 @@ EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-app-password
 ```
 
-This structure provides a scalable, maintainable foundation for cloning the Quintessence Consultants website with modern development practices.
+This structure provides a scalable, maintainable foundation for cloning the Seven Healer Consultants website with modern development practices.

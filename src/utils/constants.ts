@@ -14,7 +14,7 @@ export const CONTACT_PHONE_3 = '+91 9728392333'
 // Social Media Links
 export const SOCIAL_LINKS = {
   facebook: 'https://facebook.com/sevenhealerconsultants',
-  linkedin: 'https://linkedin.com/company/quintessence-consultants',
+  linkedin: 'https://linkedin.com/company/Seven Healer-consultants',
   email: 'Info@sevenhealerconsultants.in'
 }
 
@@ -38,7 +38,7 @@ export const VALIDATION_RULES = {
 
 // Local Storage Keys
 export const STORAGE_KEYS = {
-  USER_PREFERENCES: 'quintessence_user_preferences',
-  FORM_DATA: 'quintessence_form_data',
-  THEME: 'quintessence_theme'
+  USER_PREFERENCES: 'Seven Healer_user_preferences',
+  FORM_DATA: 'Seven Healer_form_data',
+  THEME: 'Seven Healer_theme'
 }

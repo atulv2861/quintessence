@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Heart, Shield, Award, Target, Stethoscope, Building } from 'lucide-react'
 import { openConsultationModal } from '../../store/slices/uiSlice'
 
 const HeroSection: React.FC = () => {
@@ -61,23 +61,35 @@ const HeroSection: React.FC = () => {
   const slides = [
     {
       title: "OPTIMIZED HOSPITAL EQUIPMENT PLANNING",
+      subtitle: "Advanced Medical Solutions",
       description: "Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility.",
-      image: "/images/hero/hero1.webp"
+      image: "/images/hero/hero1.webp",
+      icon: Stethoscope,
+      color: "from-blue-600 to-blue-800"
     },
     {
       title: "HEALTHCARE INFRASTRUCTURE DESIGN", 
+      subtitle: "Modern Medical Facilities",
       description: "Comprehensive healthcare infrastructure design that ensures optimal patient care, staff efficiency, and regulatory compliance in modern medical facilities.",
-      image: "/images/hero/hero2.jpg"
+      image: "/images/hero/hero2.jpg",
+      icon: Building,
+      color: "from-purple-600 to-purple-800"
     },
     {
       title: "MEP SYSTEMS INTEGRATION",
+      subtitle: "Seamless Operations",
       description: "Advanced Mechanical, Electrical, and Plumbing systems integration for healthcare facilities ensuring seamless operations and patient safety.",
-      image: "/images/hero/hero3.webp"
+      image: "/images/hero/hero3.webp",
+      icon: Shield,
+      color: "from-green-600 to-green-800"
     },
     {
       title: "PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES",
+      subtitle: "Quality Assurance",
       description: "Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility.",
-      image: "/images/hero/hero4.jpg"
+      image: "/images/hero/hero4.jpg",
+      icon: Award,
+      color: "from-orange-600 to-orange-800"
     }
   ]
 
@@ -85,82 +97,75 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Hospital Equipment Background */}
+      {/* Modern Medical Background */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${currentSlideData.image})`,
-          backgroundBlendMode: 'overlay'
         }}
       >
-        {/* Hospital Room Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-100/80 to-transparent"></div>
+        {/* Gradient Overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.color} opacity-90`}></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
         
-        {/* Medical Equipment Placeholders */}
-        <div className="absolute inset-0 opacity-30">
-          {/* Hospital Bed */}
-          <div className="absolute bottom-20 right-1/3 w-32 h-20 bg-white rounded-lg shadow-lg animate-pulse">
-            <div className="absolute top-2 left-2 w-28 h-16 bg-blue-100 rounded animate-pulse"></div>
-            <div className="absolute top-1 right-1 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+        {/* Floating Medical Icons */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 animate-float">
+            <Heart className="w-16 h-16 text-white" />
           </div>
-          
-          {/* Medical Monitor */}
-          <div className="absolute top-1/3 right-1/4 w-16 h-12 bg-gray-800 rounded-lg animate-bounce">
-            <div className="absolute top-1 left-1 w-14 h-10 bg-green-400 rounded opacity-50 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 animate-pulse"></div>
+          <div className="absolute top-40 right-32 animate-pulse-slow">
+            <Shield className="w-12 h-12 text-white" />
           </div>
-          
-          {/* IV Pole */}
-          <div className="absolute top-1/4 right-1/3 w-1 h-24 bg-gray-600 animate-pulse">
-            <div className="absolute top-0 left-0 w-8 h-8 bg-blue-200 rounded-full animate-bounce"></div>
-            <div className="absolute top-8 left-0 w-6 h-6 bg-blue-300 rounded-full animate-ping"></div>
+          <div className="absolute bottom-40 left-32 animate-rotate-slow">
+            <Target className="w-14 h-14 text-white" />
           </div>
-          
-          {/* Surgical Lights */}
-          <div className="absolute top-10 left-1/2 w-20 h-20 bg-white rounded-full shadow-lg opacity-60 animate-pulse">
-            <div className="absolute top-2 left-2 w-16 h-16 bg-yellow-100 rounded-full animate-pulse"></div>
-            <div className="absolute top-6 left-6 w-8 h-8 bg-yellow-200 rounded-full animate-ping"></div>
+          <div className="absolute bottom-20 right-20 animate-float" style={{animationDelay: '2s'}}>
+            <Award className="w-10 h-10 text-white" />
           </div>
-          
-          {/* Medical Cart with Laptop */}
-          <div className="absolute bottom-32 left-1/4 w-20 h-16 bg-white rounded-lg shadow-lg animate-bounce">
-            <div className="absolute top-1 left-1 w-18 h-12 bg-gray-200 rounded"></div>
-            <div className="absolute top-2 left-2 w-16 h-8 bg-blue-300 rounded opacity-70 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 animate-pulse"></div>
-          </div>
-          
-          {/* Window */}
-          <div className="absolute top-1/4 left-1/3 w-24 h-16 bg-blue-200 rounded-lg opacity-40 animate-pulse">
-            <div className="absolute top-1 left-1 w-22 h-14 bg-blue-300 rounded animate-pulse"></div>
-            <div className="absolute top-2 left-2 w-20 h-12 bg-blue-400 rounded animate-pulse"></div>
-          </div>
-          
-          {/* Floor Pattern */}
-          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-200 to-transparent opacity-30"></div>
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Modern Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl group"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-800 p-4 rounded-full shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl group backdrop-blur-sm"
       >
         <ChevronLeft className="w-6 h-6 group-hover:animate-pulse" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl group"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-800 p-4 rounded-full shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl group backdrop-blur-sm"
       >
         <ChevronRight className="w-6 h-6 group-hover:animate-pulse" />
       </button>
 
-      {/* Content */}
+      {/* Modern Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="container-custom">
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
+            {/* Icon and Subtitle */}
+            <div 
+              className={`flex items-center space-x-4 mb-6 transition-all duration-500 transform ${
+                isVisible 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-8 opacity-0'
+              }`}
+              style={{
+                animationDelay: isVisible ? '0.1s' : '0s'
+              }}
+            >
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <currentSlideData.icon className="w-8 h-8 text-white" />
+              </div>
+              <span className="text-blue-200 text-lg font-semibold tracking-wider">
+                {currentSlideData.subtitle}
+              </span>
+            </div>
+
+            {/* Main Title */}
             <h1 
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg transition-all duration-500 transform ${
+              className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
@@ -171,8 +176,10 @@ const HeroSection: React.FC = () => {
             >
               {currentSlideData.title}
             </h1>
+
+            {/* Description */}
             <p 
-              className={`text-lg md:text-xl text-white mb-8 leading-relaxed drop-shadow-md max-w-xl transition-all duration-500 transform ${
+              className={`text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed drop-shadow-lg max-w-3xl transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
@@ -183,9 +190,10 @@ const HeroSection: React.FC = () => {
             >
               {currentSlideData.description}
             </p>
-            <button
-              onClick={handleConsultationClick}
-              className={`bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-all duration-500 shadow-lg border-2 border-gray-300 transform hover:scale-105 hover:shadow-xl ${
+
+            {/* CTA Buttons */}
+            <div 
+              className={`flex flex-col sm:flex-row gap-4 transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
@@ -194,21 +202,29 @@ const HeroSection: React.FC = () => {
                 animationDelay: isVisible ? '0.6s' : '0s'
               }}
             >
-              READ MORE
-            </button>
+              <button
+                onClick={handleConsultationClick}
+                className="btn-3d text-lg px-8 py-4"
+              >
+                FREE CONSULTATION
+              </button>
+              <button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl">
+                LEARN MORE
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+      {/* Modern Pagination Dots */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-4">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
               index === currentSlide 
-                ? 'bg-white shadow-lg animate-pulse' 
+                ? 'bg-white shadow-xl animate-pulse w-8' 
                 : 'bg-white/50 hover:bg-white/70'
             }`}
           />

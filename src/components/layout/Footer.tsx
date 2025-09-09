@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} <span className="font-semibold">QUINTESSENCE</span> All rights reserved.
+              © {currentYear} <span className="font-semibold">Seven Healer</span> All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
