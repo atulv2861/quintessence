@@ -1,6 +1,6 @@
-# Quintessence Consultants Website Clone
+# Seven Healer Consultants Website Clone
 
-A complete clone of the [Quintessence Consultants website](https://sevenhealerconsultants.in/) built with modern web technologies.
+A complete clone of the [Seven Healer Consultants website](https://sevenhealerconsultants.in/) built with modern web technologies.
 
 ## 🏗️ Tech Stack
 
@@ -27,7 +27,7 @@ A complete clone of the [Quintessence Consultants website](https://sevenhealerco
 ## 📁 Project Structure
 
 ```
-quintessence-website/
+Seven Healer-website/
 ├── frontend/          # React.js + TypeScript frontend
 ├── backend/           # FastAPI Python backend
 ├── docs/              # Documentation
@@ -46,7 +46,7 @@ quintessence-website/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd quintessence-website
+   cd Seven Healer-website
    ```
 
 2. **Backend Setup**
@@ -129,7 +129,7 @@ VITE_GOOGLE_ANALYTICS_ID=your-ga-id
 
 #### Backend (.env)
 ```bash
-DATABASE_URL=postgresql://user:password@localhost/quintessence
+DATABASE_URL=postgresql://user:password@localhost/Seven Healer
 SECRET_KEY=your-secret-key-here
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
@@ -255,11 +255,11 @@ For support and questions:
 
 ## 🙏 Acknowledgments
 
-- Original website design by Quintessence Consultants
+- Original website design by Seven Healer Consultants
 - Icons from Heroicons
 - Images from Unsplash
 - Fonts from Google Fonts
 
 ---
 
-**Note:** This is a clone project for educational purposes. All content and branding belong to Quintessence Consultants.
+**Note:** This is a clone project for educational purposes. All content and branding belong to Seven Healer Consultants.

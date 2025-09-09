@@ -1,4 +1,4 @@
-# Quintessence Consultants Website - API Endpoints & Data Models
+# Seven Healer Consultants Website - API Endpoints & Data Models
 
 ## Backend API Design (FastAPI + Python)
 
@@ -9,7 +9,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Database
-    DATABASE_URL: str = "postgresql://user:password@localhost/quintessence"
+    DATABASE_URL: str = "postgresql://user:password@localhost/Seven Healer"
     
     # Security
     SECRET_KEY: str
@@ -683,5 +683,5 @@ class ServiceService:
         return db_service
 ```
 
-This comprehensive API design provides a solid foundation for the Quintessence Consultants website backend with proper data models, schemas, and endpoints for both public and admin functionality.
+This comprehensive API design provides a solid foundation for the Seven Healer Consultants website backend with proper data models, schemas, and endpoints for both public and admin functionality.
 

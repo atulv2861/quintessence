@@ -222,7 +222,7 @@ export const FAQS: FAQ[] = [
   },
   {
     id: '3',
-    question: 'How many projects has Quintessence completed?',
+    question: 'How many projects has Seven Healer completed?',
     answer: 'We have completed 25+ projects covering over 1.4 million square meters of healthcare infrastructure, planning for 19,474+ beds across various healthcare facilities.',
     category: 'projects',
     sortOrder: 3
@@ -299,7 +299,7 @@ export const NAV_ITEMS: NavItem[] = [
 // Social Media Links
 export const SOCIAL_LINKS = {
   facebook: 'https://facebook.com/sevenhealerconsultants',
-  linkedin: 'https://linkedin.com/company/quintessence-consultants',
+  linkedin: 'https://linkedin.com/company/Seven Healer-consultants',
   email: 'Info@sevenhealerconsultants.in'
 }
 

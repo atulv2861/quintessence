@@ -1,4 +1,4 @@
-# Quintessence Consultants Website Analysis & Cloning Documentation
+# Seven Healer Consultants Website Analysis & Cloning Documentation
 
 ## Website Overview
 

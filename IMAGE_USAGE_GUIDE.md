@@ -1,4 +1,4 @@
-# 📸 Image Usage Guide for Quintessence Website
+# 📸 Image Usage Guide for Seven Healer Website
 
 ## 🗂️ **Public Folder Structure**
 
