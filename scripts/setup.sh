@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Quintessence Medical Consultants - Setup Script
+# Seven Healer counsultancy Pvt.Ltd - Setup Script
 
-echo "🏥 Setting up Quintessence Medical Consultants project..."
+echo "🏥 Setting up Seven Healer counsultancy Pvt.Ltd project..."
 
 # Create necessary directories
 echo "📁 Creating directories..."

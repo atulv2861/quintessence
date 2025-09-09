@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     EMAIL_PORT: int = 587
     EMAIL_USER: str = "your-email@gmail.com"
     EMAIL_PASSWORD: str = "your-app-password"
-    EMAIL_FROM: str = "noreply@quintessenceconsultants.in"
+    EMAIL_FROM: str = "noreply@sevenhealerconsultants.in"
     
     # File Upload
     UPLOAD_DIR: str = "static/uploads"
@@ -26,11 +26,11 @@ class Settings(BaseSettings):
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:5173",
-        "https://quintessenceconsultants.in"
+        "https://sevenhealerconsultants.in"
     ]
     
     # App Settings
-    APP_NAME: str = "Quintessence Medical Consultants"
+    APP_NAME: str = "Seven Healer counsultancy Pvt.Ltd"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = False
     

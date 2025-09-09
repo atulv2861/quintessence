@@ -69,11 +69,11 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <div className="bg-primary-600 text-white p-2 rounded-lg">
-                <span className="font-bold text-xl">QMC</span>
+                <span className="font-bold text-xl">SHC</span>
               </div>
               <div className="hidden sm:block">
-                <div className="font-bold text-xl text-gray-900">QMC</div>
-                <div className="text-sm text-gray-600">Quintessence Medical Consultants</div>
+                <div className="font-bold text-xl text-gray-900">SHC</div>
+                <div className="text-sm text-gray-600">Seven Healer counsultancy Pvt.Ltd</div>
               </div>
             </Link>
 

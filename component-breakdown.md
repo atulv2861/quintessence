@@ -16,7 +16,7 @@ interface HeaderProps {
 ```
 
 **Features:**
-- Logo (QMC)
+- Logo (SHC)
 - Main navigation menu
 - Contact information display
 - "FREE CONSULTATION" CTA button

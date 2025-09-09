@@ -8,8 +8,8 @@ from app.core.config import settings
 from app.api.v1 import auth, blog, projects, services, testimonials, faqs, contact
 
 app = FastAPI(
-    title="Quintessence Medical Consultants API",
-    description="API for Quintessence Medical Consultants website",
+    title="Seven Healer counsultancy Pvt.Ltd API",
+    description="API for Seven Healer counsultancy Pvt.Ltd website",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
@@ -41,7 +41,7 @@ app.include_router(contact.router, prefix="/api/v1/contact", tags=["Contact"])
 @app.get("/")
 async def root():
     return {
-        "message": "Quintessence Medical Consultants API",
+        "message": "Seven Healer counsultancy Pvt.Ltd API",
         "version": "1.0.0",
         "docs": "/docs"
     }

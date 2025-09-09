@@ -2,8 +2,8 @@
 
 ## Website Overview
 
-**URL:** https://quintessenceconsultants.in/  
-**Company:** Quintessence Medical Consultants (QMC)  
+**URL:** https://sevenhealerconsultants.in/  
+**Company:** Seven Healer counsultancy Pvt.Ltd (SHC)  
 **Industry:** Healthcare Infrastructure Consulting  
 
 ## Business Analysis
@@ -30,7 +30,7 @@
 
 ### Contact Information
 - **Address:** 606, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034
-- **Email:** Info@quintessenceconsultants.in
+- **Email:** Info@sevenhealerconsultants.in
 - **Phone:** 011 41664694, +91 9812692333, +91 9728392333
 
 ## Website Structure Analysis
@@ -52,7 +52,7 @@ Home
 ### Page Components Identified
 
 #### 1. Header/Navigation
-- Logo: "QMC"
+- Logo: "SHC"
 - Main navigation menu
 - Contact information (email, phone)
 - CTA button: "FREE CONSULTATION"

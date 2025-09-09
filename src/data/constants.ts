@@ -2,7 +2,7 @@ import { Service, Project, Testimonial, FAQ, ContactInfo, CompanyInfo, NavItem }
 
 // Company Information
 export const COMPANY_INFO: CompanyInfo = {
-  name: 'Quintessence Medical Consultants',
+  name: 'Seven Healer counsultancy Pvt.Ltd',
   tagline: 'Transforming Healthcare Infrastructure',
   description: 'We are a consulting company dedicated to transforming the future of health across the entire continuum of care.',
   founder: {
@@ -31,7 +31,7 @@ export const COMPANY_INFO: CompanyInfo = {
 // Contact Information
 export const CONTACT_INFO: ContactInfo = {
   address: '606, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034',
-  email: 'Info@quintessenceconsultants.in',
+  email: 'Info@sevenhealerconsultants.in',
   phone: '011 41664694',
   phone2: '+91 9812692333',
   phone3: '+91 9728392333'
@@ -208,7 +208,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQS: FAQ[] = [
   {
     id: '1',
-    question: 'What services does Quintessence Medical Consultants offer?',
+    question: 'What services does Seven Healer counsultancy Pvt.Ltd offer?',
     answer: 'We offer comprehensive healthcare infrastructure consulting services including integrated architectural and MEP planning, specialized services like MGPS design, hospital equipment planning, and pre-commissioning/commissioning activities.',
     category: 'services',
     sortOrder: 1
@@ -244,7 +244,7 @@ export const FAQS: FAQ[] = [
   {
     id: '6',
     question: 'How can I get a consultation?',
-    answer: 'You can contact us through our website contact form, call us at +91 9812692333, or email us at Info@quintessenceconsultants.in for a free consultation.',
+    answer: 'You can contact us through our website contact form, call us at +91 9812692333, or email us at Info@sevenhealerconsultants.in for a free consultation.',
     category: 'contact',
     sortOrder: 6
   }
@@ -298,9 +298,9 @@ export const NAV_ITEMS: NavItem[] = [
 
 // Social Media Links
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/quintessenceconsultants',
+  facebook: 'https://facebook.com/sevenhealerconsultants',
   linkedin: 'https://linkedin.com/company/quintessence-consultants',
-  email: 'Info@quintessenceconsultants.in'
+  email: 'Info@sevenhealerconsultants.in'
 }
 
 // WhatsApp Configuration
