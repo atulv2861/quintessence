@@ -143,43 +143,6 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced Call to Action */}
-        <div className="text-center animate-fade-in">
-          <div className="medical-card p-12 max-w-4xl mx-auto relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full -translate-y-20 translate-x-20"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-blue-600/10 rounded-full translate-y-16 -translate-x-16"></div>
-            
-            <div className="relative z-10">
-              {/* Icon */}
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Stethoscope className="w-10 h-10 text-white" />
-              </div>
-              
-              <h4 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ready to Transform Your <span className="medical-text-gradient">Healthcare Infrastructure?</span>
-              </h4>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Let our expert team help you design and implement world-class medical facilities that prioritize patient care, staff efficiency, and operational excellence.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  to="/contact"
-                  className="btn-3d text-lg px-8 py-4"
-                >
-                  GET STARTED TODAY
-                </Link>
-                <Link
-                  to="/about"
-                  className="bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-white font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-blue-200 transform hover:scale-105 hover:shadow-xl"
-                >
-                  LEARN MORE ABOUT US
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

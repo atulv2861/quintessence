@@ -1,13 +1,14 @@
 import React from 'react'
-import { Eye, Building, Bed, FileText, Users, Heart, Shield, Award, Target } from 'lucide-react'
-import { COMPANY_INFO } from '../data/constants'
+import { Eye, Building, Heart, Shield, Award, Target } from 'lucide-react'
+// import { COMPANY_INFO } from '../data/constants' Bed, FileText, Users,
+import StatsSection from '../components/sections/StatsSection'
 
 const AboutPage: React.FC = () => {
-  const { stats } = COMPANY_INFO
+  // const { stats } = COMPANY_INFO
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString()
-  }
+  // const formatNumber = (num: number) => {
+  //   return num.toLocaleString()
+  // }
   // const ourClients = [
   //   {
   //     name: 'HKSD Health City',
@@ -321,7 +322,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Achievements and Milestones */}
-      <section className="section-padding bg-white relative">
+      {/* <section className="section-padding bg-white relative">
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-block mb-4">
@@ -379,7 +380,8 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <StatsSection />
       {/* Our Clients Section */}
       <section className="section-padding medical-section-bg relative">
         <div className="container-custom">
