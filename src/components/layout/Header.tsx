@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Menu, X, Phone, Mail } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { RootState } from '../../store'
 import { toggleMobileMenu, closeMobileMenu, openConsultationModal } from '../../store/slices/uiSlice'
-import { NAV_ITEMS, CONTACT_INFO } from '../../data/constants'
+import { NAV_ITEMS } from '../../data/constants'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
