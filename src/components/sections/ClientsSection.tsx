@@ -1,28 +1,28 @@
 import React from 'react'
 
 const ClientsSection: React.FC = () => {
-  const clients = [
-    {
-      name: 'DDF Consultants Private Limited',
-      logo: '/images/clients/ddf-consultants.jpg'
-    },
-    {
-      name: 'Dexterous Designers & Associates',
-      logo: '/images/clients/dexterous-designers.jpg'
-    },
-    {
-      name: 'ARCOP',
-      logo: '/images/clients/arcop.jpg'
-    },
-    {
-      name: 'SGA DESIGN LAB',
-      logo: '/images/clients/sga-design.jpg'
-    },
-    {
-      name: 'SAA sikka associates architects',
-      logo: '/images/clients/saa-architects.jpg'
-    }
-  ]
+  // const clients = [
+  //   {
+  //     name: 'DDF Consultants Private Limited',
+  //     logo: '/images/clients/ddf-consultants.jpg'
+  //   },
+  //   {
+  //     name: 'Dexterous Designers & Associates',
+  //     logo: '/images/clients/dexterous-designers.jpg'
+  //   },
+  //   {
+  //     name: 'ARCOP',
+  //     logo: '/images/clients/arcop.jpg'
+  //   },
+  //   {
+  //     name: 'SGA DESIGN LAB',
+  //     logo: '/images/clients/sga-design.jpg'
+  //   },
+  //   {
+  //     name: 'SAA sikka associates architects',
+  //     logo: '/images/clients/saa-architects.jpg'
+  //   }
+  // ]
 
   return (
     <>

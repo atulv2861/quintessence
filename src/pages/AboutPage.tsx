@@ -8,28 +8,28 @@ const AboutPage: React.FC = () => {
   const formatNumber = (num: number) => {
     return num.toLocaleString()
   }
-  const ourClients = [
-    {
-      name: 'HKSD Health City',
-      title: 'HKSD',
-      logo: '/images/clients/hksd-health-city.jpg'
-    },
-    {
-      name: 'PWD Delhi Government',
-      title: 'PWD',
-      logo: '/images/clients/pwd-delhi-government.jpg'
-    },
-    {
-      name: 'DDF Consultants Private Limited',
-      title: 'DDF',
-      logo: '/images/clients/ddf-consultants.jpg'
-    },
-    {
-      name: 'Dexterous Designers & Associates',
-      title: 'Dexterous',
-      logo: '/images/clients/dexterous-designers.jpg'
-    }
-  ]
+  // const ourClients = [
+  //   {
+  //     name: 'HKSD Health City',
+  //     title: 'HKSD',
+  //     logo: '/images/clients/hksd-health-city.jpg'
+  //   },
+  //   {
+  //     name: 'PWD Delhi Government',
+  //     title: 'PWD',
+  //     logo: '/images/clients/pwd-delhi-government.jpg'
+  //   },
+  //   {
+  //     name: 'DDF Consultants Private Limited',
+  //     title: 'DDF',
+  //     logo: '/images/clients/ddf-consultants.jpg'
+  //   },
+  //   {
+  //     name: 'Dexterous Designers & Associates',
+  //     title: 'Dexterous',
+  //     logo: '/images/clients/dexterous-designers.jpg'
+  //   }
+  // ]
 
   return (
     <div className="min-h-screen">
