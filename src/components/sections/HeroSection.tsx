@@ -208,7 +208,7 @@ const HeroSection: React.FC = () => {
               >
                 FREE CONSULTATION
               </button>
-              <button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl">
+              <button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl">
                 LEARN MORE
               </button>
             </div>

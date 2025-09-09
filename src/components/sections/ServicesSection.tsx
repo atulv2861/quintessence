@@ -181,10 +181,10 @@ const ServicesSection: React.FC = () => {
                 </Link>
                 <Link
                   to="/about"
-                  className="bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg border border-blue-200 transform hover:scale-105 hover:shadow-xl"
+                  className="bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-white font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-blue-200 transform hover:scale-105 hover:shadow-xl"
                 >
                   LEARN MORE ABOUT US
-              </Link>
+                </Link>
               </div>
             </div>
           </div>
