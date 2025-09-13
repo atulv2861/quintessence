@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Navigation, Globe, Video, Zap, Shield, Heart } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 
 const ContactPage: React.FC = () => {
@@ -7,6 +7,7 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
+    address: '',
     message: ''
   })
 
@@ -185,6 +186,17 @@ const ContactPage: React.FC = () => {
                     required
                   />
                 </div>
+                <div className="group">
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      placeholder="Your Address"
+                      className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300"
+                      required
+                    />
+                  </div>
                 <div className="group">
                   <textarea
                     name="message"
