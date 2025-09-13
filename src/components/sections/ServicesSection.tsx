@@ -4,7 +4,7 @@ import { ArrowRight, Building, Wrench, Shield, CheckCircle, Heart, Award, Target
 import { SERVICES } from '../../data/constants'
 
 const ServicesSection: React.FC = () => {
-  const serviceIcons = [Building, Wrench, Shield, CheckCircle]
+  //const serviceIcons = [Building, Wrench, Shield, CheckCircle]
 
   return (
     <section id="services" className="section-padding medical-section-bg relative overflow-hidden">
