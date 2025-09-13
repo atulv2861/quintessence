@@ -136,12 +136,12 @@ const HeroSection: React.FC = () => {
       </button>
 
       {/* Modern Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-full flex items-center justify-center">
         <div className="container-custom">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl text-center">
             {/* Icon and Subtitle */}
             <div 
-              className={`flex items-center space-x-4 mb-6 transition-all duration-500 transform ${
+              className={`flex items-center justify-center space-x-4 mb-6 transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
@@ -188,7 +188,7 @@ const HeroSection: React.FC = () => {
 
             {/* CTA Buttons */}
             <div 
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-500 transform ${
+              className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
