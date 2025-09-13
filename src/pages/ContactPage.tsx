@@ -48,37 +48,34 @@ const ContactPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-8 border border-white/20">
+              <div className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/20">
                 <span className="text-blue-400 font-medium text-lg">Let's Connect</span>
               </div>
-              <h1 className="text-7xl md:text-9xl font-bold text-white mb-8 leading-tight">
-                Get in
-                <span className="block text-white">
-                  Touch
-                </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Get in Touch
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
                 Ready to transform your healthcare infrastructure? Let's start the conversation and bring your vision to life.
               </p>
               
               {/* Enhanced CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-8 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 text-lg"
+                  className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3 text-base"
                 >
-                  <MessageCircle className="w-7 h-7 group-hover:animate-bounce" />
+                  <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
                   <span>Chat on WhatsApp</span>
                 </button>
                 <a
                   href="#contact-form"
-                  className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-4 text-lg"
+                  className="group bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center space-x-3 text-base"
                 >
-                  <Send className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" />
+                  <Send className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
                   <span>Send Message</span>
                 </a>
-                <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-6 px-12 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-4 text-lg">
-                  <Video className="w-7 h-7 group-hover:animate-pulse" />
+                <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-3 text-base">
+                  <Video className="w-6 h-6 group-hover:animate-pulse" />
                   <span>Video Call</span>
                 </button>
               </div>

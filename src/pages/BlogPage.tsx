@@ -189,7 +189,7 @@ const BlogPage: React.FC = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg transform scale-105'
+                    ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:scale-105'
                 }`}
               >
@@ -205,7 +205,7 @@ const BlogPage: React.FC = () => {
         <section className="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
           <div className="container-custom">
             <div className="text-center mb-16">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-full mb-6">
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full mb-6">
                 <span className="font-medium flex items-center space-x-2">
                   <Star className="w-4 h-4" />
                   <span>Featured</span>
@@ -213,7 +213,7 @@ const BlogPage: React.FC = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Trending
-                <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                   Articles
                 </span>
               </h2>
@@ -229,7 +229,7 @@ const BlogPage: React.FC = () => {
                   className="group bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2"
                 >
                   <div className="relative overflow-hidden">
-                    <div className="w-full h-64 bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center">
+                    <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                       <div className="text-center">
                         <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                           <BookOpen className="w-10 h-10 text-white" />
@@ -238,7 +238,7 @@ const BlogPage: React.FC = () => {
                       </div>
                     </div>
                     <div className="absolute top-6 left-6">
-                      <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2">
+                      <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2">
                         <Star className="w-4 h-4" />
                         <span>Featured</span>
                       </span>
@@ -278,7 +278,7 @@ const BlogPage: React.FC = () => {
                       {post.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium"
+                          className="bg-gradient-to-r from-blue-200 to-blue-300 text-blue-500 px-3 py-1 rounded-full text-sm font-medium"
                         >
                           #{tag}
                         </span>
@@ -298,7 +298,7 @@ const BlogPage: React.FC = () => {
                       </div>
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
+                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
                       >
                         <span>Read More</span>
                         <ArrowRight className="w-4 h-4" />
@@ -316,12 +316,12 @@ const BlogPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-indigo-100 text-indigo-600 rounded-full mb-6">
+            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">All Articles</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Latest
-              <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                 Insights
               </span>
             </h2>
@@ -332,8 +332,8 @@ const BlogPage: React.FC = () => {
 
           {filteredPosts.length === 0 ? (
             <div className="text-center py-20">
-              <div className="w-24 h-24 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Search className="w-12 h-12 text-indigo-500" />
+              <div className="w-24 h-24 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Search className="w-12 h-12 text-blue-500" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">No articles found</h3>
               <p className="text-gray-600 mb-8 max-w-md mx-auto">
@@ -344,7 +344,7 @@ const BlogPage: React.FC = () => {
                   setSearchTerm('')
                   setSelectedCategory('all')
                 }}
-                className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold py-3 px-8 rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-8 rounded-full hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
               >
                 Clear Filters
               </button>
@@ -366,7 +366,7 @@ const BlogPage: React.FC = () => {
                       </div>
                     </div>
                     <div className="absolute top-4 left-4">
-                      <span className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                         {post.category}
                       </span>
                     </div>
@@ -392,7 +392,7 @@ const BlogPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors leading-tight">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors leading-tight">
                       {post.title}
                     </h3>
 
@@ -424,7 +424,7 @@ const BlogPage: React.FC = () => {
                       </div>
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="inline-flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-medium transition-colors group-hover:translate-x-1 transform duration-200"
+                        className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-00 font-medium transition-colors group-hover:translate-x-1 transform duration-200"
                       >
                         <span>Read More</span>
                         <ArrowRight className="w-4 h-4" />
@@ -439,17 +439,17 @@ const BlogPage: React.FC = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
+      <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
         <div className="container-custom text-center">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
               <span className="text-white font-medium">Stay Connected</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Never Miss an
-              <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+              Never Miss an Update
+              {/* <span className="block text-white">
                 Update
-              </span>
+              </span> */}
             </h2>
             <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
               Subscribe to our newsletter for the latest insights on healthcare infrastructure planning and industry trends delivered straight to your inbox.
@@ -458,9 +458,9 @@ const BlogPage: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white placeholder-white/70 focus:ring-4 focus:ring-white/20 focus:border-white/50 transition-all duration-300"
+                className="flex-1 px-6 py-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white placeholder-white/70 focus:ring-4 focus:ring-white/20 focus:border-white/30 transition-all duration-300"
               />
-              <button className="bg-white text-indigo-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+              <button className="bg-white text-blue-400 hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
                 <span>Subscribe</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
