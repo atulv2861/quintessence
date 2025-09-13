@@ -130,7 +130,7 @@
   }
   
   .medical-icon {
-    @apply w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg;
+    @apply w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center text-white shadow-lg;
   }
   
   .medical-text-gradient {

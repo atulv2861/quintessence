@@ -81,14 +81,17 @@ const AboutPage: React.FC = () => {
               {/* Badge */}
               <div className="inline-block mb-8 animate-fade-in">
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3">
-                  <span className="text-blue-200 text-lg font-semibold tracking-wider">ABOUT US</span>
+                  <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
                 </div>
               </div>
 
               {/* Main Title */}
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight animate-slide-up" style={{animationDelay: '0.2s'}}>
                 <span className="block">ABOUT</span>
-                <span className="block bg-gradient-to-r from-blue-300 via-purple-300 to-blue-400 bg-clip-text text-transparent">
+                {/* <span className="block bg-gradient-to-r from-blue-300 via-purple-300 to-blue-400 bg-clip-text text-transparent">
+                  Seven Healer
+                </span> */}
+                <span className="block text-white">
                   Seven Healer
                 </span>
               </h1>
@@ -132,18 +135,18 @@ const AboutPage: React.FC = () => {
             <div className="space-y-8 animate-slide-in-left">
               <div>
                 <div className="inline-block mb-4">
-                  <span className="text-blue-600 text-lg font-semibold tracking-wider">ABOUT US</span>
+                  <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
                 </div>
                 <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                  Who Are <span className="medical-text-gradient">We?</span>
+                  Who Are <span className="text-blue-400">We?</span>
                 </h3>
-                <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-8"></div>
+                <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mb-8"></div>
               </div>
 
               <div className="space-y-6">
                 <div className="medical-card p-8">
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    <span className="font-bold text-blue-600">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-purple-600">16 years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-600">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
+                    <span className="font-bold text-blue-400">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-blue-400">16 years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-400">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
                   </p>
                 </div>
                 
@@ -201,12 +204,12 @@ const AboutPage: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-block mb-4">
-              <span className="text-blue-600 text-lg font-semibold tracking-wider">INTRO</span>
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">INTRO</span>
             </div>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="medical-text-gradient">Vision & Mission</span>
+              Our <span className="text-blue-400">Vision & Mission</span>
             </h3>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -214,7 +217,7 @@ const AboutPage: React.FC = () => {
             <div className="space-y-8 animate-slide-in-left">
               <div className="text-center lg:text-left">
                 <h4 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h4>
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full"></div>
               </div>
               
               <div className="space-y-6">
@@ -256,7 +259,7 @@ const AboutPage: React.FC = () => {
             {/* Vision */}
             <div className="animate-slide-in-right">
               <div className="medical-card p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500"></div>
                 <div className="relative z-10">
                   <div className="w-24 h-24 bg-white rounded-full mx-auto mb-8 flex items-center justify-center animate-pulse-slow">
                     <Eye className="w-12 h-12 text-blue-600" />
@@ -279,18 +282,19 @@ const AboutPage: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-block mb-4">
-              <span className="text-blue-600 text-lg font-semibold tracking-wider">INTRODUCTION</span>
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">INTRODUCTION</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              <span className="medical-text-gradient">INTRODUCTION</span>
+              {/* <span className="medical-text-gradient">INTRODUCTION</span> */}
+              <span className="text-blue-400">INTRODUCTION</span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="medical-card p-8 animate-slide-up">
               <p className="text-gray-700 leading-relaxed text-lg">
-                At <span className="font-bold text-blue-600">Seven Healer</span>, we provide you the ethos of the various aspects and standards of the functionality and process of a hospital. We provide consultancy for hospitals to align and customize the hospital structure with its functional processes in line with national and international quality standards.
+                At <span className="font-bold text-blue-400">Seven Healer</span>, we provide you the ethos of the various aspects and standards of the functionality and process of a hospital. We provide consultancy for hospitals to align and customize the hospital structure with its functional processes in line with national and international quality standards.
               </p>
             </div>
 
@@ -302,19 +306,19 @@ const AboutPage: React.FC = () => {
 
             <div className="medical-card p-8 animate-slide-up" style={{animationDelay: '0.4s'}}>
               <p className="text-gray-700 leading-relaxed text-lg">
-                <span className="font-bold text-blue-600">Seven Healer</span> provide end to end solutions for whole arena of project management from conceptualization and execution to operations and turnkey management. We are known for providing cost-effective solutions that adhere to Standards & Guidelines while addressing all functional aspects, enabling clients to streamline projects and ensure seamless integration.
+                <span className="font-bold text-blue-400">Seven Healer</span> provide end to end solutions for whole arena of project management from conceptualization and execution to operations and turnkey management. We are known for providing cost-effective solutions that adhere to Standards & Guidelines while addressing all functional aspects, enabling clients to streamline projects and ensure seamless integration.
               </p>
             </div>
 
             <div className="medical-card p-8 animate-slide-up" style={{animationDelay: '0.6s'}}>
               <p className="text-gray-700 leading-relaxed text-lg">
-                We extend our expertise in designing of various special services required in healthcare organisations such as <span className="font-semibold text-purple-600">Medical Gas Pipeline System (MGPS)</span>, <span className="font-semibold text-purple-600">Pneumatic Tube Transfer System (PTTS)</span>, <span className="font-semibold text-purple-600">Central Sterile Supply Department (CSSD)</span>, <span className="font-semibold text-purple-600">Nurse Call System (NCS)</span>, <span className="font-semibold text-purple-600">Modular Operation Theatre Complexes (MOT)</span>, Kitchen, laundry.
+                We extend our expertise in designing of various special services required in healthcare organisations such as <span className="font-semibold text-blue-400">Medical Gas Pipeline System (MGPS)</span>, <span className="font-semibold text-blue-400">Pneumatic Tube Transfer System (PTTS)</span>, <span className="font-semibold text-blue-400">Central Sterile Supply Department (CSSD)</span>, <span className="font-semibold text-blue-400">Nurse Call System (NCS)</span>, <span className="font-semibold text-blue-400">Modular Operation Theatre Complexes (MOT)</span>, Kitchen, laundry.
               </p>
             </div>
 
             <div className="medical-card p-8 animate-slide-up" style={{animationDelay: '0.8s'}}>
               <p className="text-gray-700 leading-relaxed text-lg">
-                Audits of the processes both in terms of Quality & Safety, workflow optimization, clinical process improvement, operational improvement etc by applying various operational management techniques is our <span className="font-bold text-blue-600">passion</span>.
+                Audits of the processes both in terms of Quality & Safety, workflow optimization, clinical process improvement, operational improvement etc by applying various operational management techniques is our <span className="font-bold text-blue-400">passion</span>.
               </p>
             </div>
           </div>
@@ -387,12 +391,13 @@ const AboutPage: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-block mb-4">
-              <span className="text-blue-600 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              <span className="medical-text-gradient">Our Clients</span>
+              {/* <span className="medical-text-gradient">Our Clients</span> */}
+              <span className="text-blue-400">Our Clients</span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
