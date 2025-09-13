@@ -18,15 +18,35 @@ const ServicesPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-bg text-white py-20">
-        <div className="container-custom">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive healthcare infrastructure solutions designed to meet the highest standards of quality and efficiency.
-            </p>
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero2.jpg')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container-custom">
+            <div className="max-w-6xl text-center">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+                <span className="text-blue-400 font-medium">Our Services</span>
+              </div>
+              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+                Our
+                <span className="block text-white">
+                  Services
+                </span>
+              </h1>
+              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
+                Comprehensive healthcare infrastructure solutions designed to meet the highest standards of quality and efficiency.
+              </p>
+            </div>
           </div>
         </div>
       </section>

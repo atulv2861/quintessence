@@ -155,65 +155,60 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Interactive Background */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/20 rounded-lg rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/20 rounded-full animate-ping"></div>
-          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/10 rounded-full animate-pulse"></div>
-          
-          {/* Gradient orbs */}
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-pink-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
-          
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero3.webp')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 min-h-screen flex items-center">
+        <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
-            <div className="text-center">
-              <div className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8">
-                <span className="text-white font-medium">Portfolio Showcase</span>
+            <div className="max-w-6xl text-center">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+                <span className="text-blue-400 font-medium">Portfolio Showcase</span>
               </div>
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
                 Our
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="block text-white">
                   Projects
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
                 Discover our portfolio of innovative healthcare infrastructure projects that are transforming the future of medical facilities.
               </p>
               
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Building className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
                   <div className="text-white/70">Projects</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Users className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-white mb-2">4,350</div>
                   <div className="text-white/70">Total Beds</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-white mb-2">12.5M</div>
                   <div className="text-white/70">Sq. Mtr.</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-white mb-2">16+</div>
@@ -242,7 +237,7 @@ const ProjectsPage: React.FC = () => {
                 onClick={() => setSelectedFilter('all')}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedFilter === 'all'
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
+                    ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
                     : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
                 }`}
               >
@@ -254,7 +249,7 @@ const ProjectsPage: React.FC = () => {
                   onClick={() => setSelectedFilter(category)}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     selectedFilter === category
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
                       : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
                   }`}
                 >
@@ -271,7 +266,7 @@ const ProjectsPage: React.FC = () => {
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-md transition-all duration-200 ${
                     viewMode === 'grid'
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
@@ -281,7 +276,7 @@ const ProjectsPage: React.FC = () => {
                   onClick={() => setViewMode('list')}
                   className={`p-2 rounded-md transition-all duration-200 ${
                     viewMode === 'list'
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
@@ -297,12 +292,12 @@ const ProjectsPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-600 rounded-full mb-6">
+            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">Portfolio</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Featured
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                 Projects
               </span>
             </h2>
@@ -322,7 +317,7 @@ const ProjectsPage: React.FC = () => {
                 >
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
-                    <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                    <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                       <div className="text-center">
                         <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                           <Building className="w-10 h-10 text-white" />
@@ -390,11 +385,11 @@ const ProjectsPage: React.FC = () => {
                     {/* Project Stats */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="text-center p-3 bg-gray-50 rounded-lg">
-                        <div className="text-lg font-bold text-blue-600">{project.beds}</div>
+                        <div className="text-lg font-bold text-blue-400">{project.beds}</div>
                         <div className="text-xs text-gray-500">Capacity</div>
                       </div>
                       <div className="text-center p-3 bg-gray-50 rounded-lg">
-                        <div className="text-lg font-bold text-purple-600">{project.area}</div>
+                        <div className="text-lg font-bold text-blue-400">{project.area}</div>
                         <div className="text-xs text-gray-500">Area</div>
                       </div>
                     </div>
@@ -405,7 +400,7 @@ const ProjectsPage: React.FC = () => {
                         {project.features.slice(0, 3).map((feature, index) => (
                           <span
                             key={index}
-                            className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium"
+                            className="bg-gradient-to-r from-blue-100 to-blue-400 text-blue-400 px-2 py-1 rounded-full text-xs font-medium"
                           >
                             {feature}
                           </span>
@@ -437,7 +432,7 @@ const ProjectsPage: React.FC = () => {
                     </div>
 
                     {/* Action Button */}
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                    <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                       <span>View Details</span>
                       <ExternalLink className="w-4 h-4" />
                     </button>
@@ -455,7 +450,7 @@ const ProjectsPage: React.FC = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                     {/* Project Image */}
                     <div className="relative overflow-hidden">
-                      <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                      <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
                         <div className="text-center">
                           <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
                             <Building className="w-8 h-8 text-white" />
@@ -486,11 +481,11 @@ const ProjectsPage: React.FC = () => {
                             <span>•</span>
                             <span>{project.year}</span>
                           </div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors">
                             {project.title}
                           </h3>
                         </div>
-                        <span className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-gradient-to-r from-blue-100 to-blue-400 text-blue-400 px-3 py-1 rounded-full text-sm font-medium">
                           {project.category}
                         </span>
                       </div>
@@ -501,19 +496,19 @@ const ProjectsPage: React.FC = () => {
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                         <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-blue-600">{project.beds}</div>
+                          <div className="text-lg font-bold text-blue-400">{project.beds}</div>
                           <div className="text-xs text-gray-500">Capacity</div>
                         </div>
                         <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-purple-600">{project.area}</div>
+                          <div className="text-lg font-bold text-blue-400">{project.area}</div>
                           <div className="text-xs text-gray-500">Area</div>
                         </div>
                         <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-green-600">{project.client}</div>
+                          <div className="text-lg font-bold text-blue-400">{project.client}</div>
                           <div className="text-xs text-gray-500">Client</div>
                         </div>
                         <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-orange-600">{formatNumber(project.stats.views)}</div>
+                          <div className="text-lg font-bold text-blue-400">{formatNumber(project.stats.views)}</div>
                           <div className="text-xs text-gray-500">Views</div>
                         </div>
                       </div>
@@ -523,13 +518,13 @@ const ProjectsPage: React.FC = () => {
                           {project.features.slice(0, 4).map((feature, index) => (
                             <span
                               key={index}
-                              className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+                              className="bg-gradient-to-r from-blue-100 to-blue-400 text-blue-400 px-3 py-1 rounded-full text-sm font-medium"
                             >
                               {feature}
                             </span>
                           ))}
                         </div>
-                        <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                        <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
                           <span>View Details</span>
                           <ArrowRight className="w-4 h-4" />
                         </button>
@@ -544,7 +539,7 @@ const ProjectsPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500">
+      <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
         <div className="container-custom text-center">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
@@ -552,7 +547,10 @@ const ProjectsPage: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Start Your
-              <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+              {/* <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                Next Project?
+              </span> */}
+              <span className="block text-white">
                 Next Project?
               </span>
             </h2>

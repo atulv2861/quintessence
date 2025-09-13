@@ -32,40 +32,32 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Modern Design */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-        {/* Advanced Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes with different animations */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/20 rounded-lg rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/20 rounded-full animate-ping"></div>
-          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 left-1/2 w-8 h-8 bg-yellow-500/30 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-1/3 right-1/2 w-14 h-14 bg-green-500/20 rounded-lg rotate-12 animate-pulse"></div>
-          
-          {/* Gradient orbs with blur effects */}
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-pink-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-teal-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/5 to-blue-400/5 rounded-full blur-3xl animate-pulse"></div>
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero1.webp')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 min-h-screen flex items-center">
+        <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
-            <div className="text-center">
-              <div className="inline-block px-8 py-3 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
-                <span className="text-white font-medium text-lg">Let's Connect</span>
+            <div className="max-w-6xl text-center">
+              <div className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-8 border border-white/20">
+                <span className="text-blue-400 font-medium text-lg">Let's Connect</span>
               </div>
               <h1 className="text-7xl md:text-9xl font-bold text-white mb-8 leading-tight">
                 Get in
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="block text-white">
                   Touch
                 </span>
               </h1>
-              <p className="text-2xl md:text-3xl text-white/90 max-w-4xl mx-auto mb-16 leading-relaxed">
+              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
                 Ready to transform your healthcare infrastructure? Let's start the conversation and bring your vision to life.
               </p>
               

@@ -128,34 +128,32 @@ const BlogPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Gradient Background */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-lg rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-ping"></div>
-          <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-white/5 rounded-full animate-pulse"></div>
-          
-          {/* Gradient orbs */}
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-pink-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse"></div>
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero4.jpg')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 min-h-screen flex items-center">
+        <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
-            <div className="text-center">
+            <div className="max-w-6xl text-center">
               <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
-                <span className="text-white font-medium">Latest Insights</span>
+                <span className="text-blue-400 font-medium">Latest Insights</span>
               </div>
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
                 Our
-                <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                <span className="block text-white">
                   Blog
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
                 Discover the latest trends, insights, and expert advice on healthcare infrastructure planning and management.
               </p>
               
