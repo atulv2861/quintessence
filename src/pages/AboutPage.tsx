@@ -43,7 +43,7 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Modern Hero Section */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-[70vh] overflow-hidden">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -51,8 +51,8 @@ const AboutPage: React.FC = () => {
             backgroundImage: "url('/images/hero/hero2.jpg')"
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-purple-900/80 to-blue-800/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Animated Medical Icons */}
@@ -75,9 +75,9 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex items-center">
+        <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
-            <div className="max-w-5xl mx-auto text-center">
+            <div className="max-w-6xl text-center">
               {/* Badge */}
               <div className="inline-block mb-8 animate-fade-in">
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3">
@@ -94,12 +94,12 @@ const AboutPage: React.FC = () => {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-xl md:text-2xl lg:text-3xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12 animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto leading-relaxed mb-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
                 We provide you the ethos of the various aspects and standards of the functionality and process of a hospital.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-scale-in" style={{animationDelay: '0.6s'}}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in" style={{animationDelay: '0.6s'}}>
                 <button className="btn-3d text-lg px-8 py-4">
                   FREE CONSULTATION
                 </button>
