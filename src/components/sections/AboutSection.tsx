@@ -23,7 +23,7 @@ const AboutSection: React.FC = () => {
             <div className="space-y-6">
               <div className="medical-card p-8">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  <span className="font-bold text-blue-600">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-purple-600">16 years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-600">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
+                  <span className="font-bold text-blue-400">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-blue-400">16 years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-400">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
                 </p>
               </div>
               
