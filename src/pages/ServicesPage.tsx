@@ -34,19 +34,22 @@ const ServicesPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                 <span className="text-blue-400 font-medium">Our Services</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-                Our
-                <span className="block text-white">
-                  Services
-                </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Our Services
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
                 Comprehensive healthcare infrastructure solutions designed to meet the highest standards of quality and efficiency.
               </p>
             </div>
+          </div>
+        </div>
+         {/* Scroll indicator */}
+         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
