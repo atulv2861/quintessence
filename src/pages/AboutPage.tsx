@@ -79,25 +79,19 @@ const AboutPage: React.FC = () => {
           <div className="container-custom">
             <div className="max-w-6xl text-center">
               {/* Badge */}
-              <div className="inline-block mb-8 animate-fade-in">
+              <div className="inline-block mb-6 animate-fade-in">
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3">
                   <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
                 </div>
               </div>
 
               {/* Main Title */}
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight animate-slide-up" style={{animationDelay: '0.2s'}}>
-                <span className="block">ABOUT</span>
-                {/* <span className="block bg-gradient-to-r from-blue-300 via-purple-300 to-blue-400 bg-clip-text text-transparent">
-                  Seven Healer
-                </span> */}
-                <span className="block text-white">
-                  Seven Healer
-                </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight animate-slide-up" style={{animationDelay: '0.2s'}}>
+                ABOUT Seven Healer
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto leading-relaxed mb-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8 animate-slide-up" style={{animationDelay: '0.4s'}}>
                 We provide you the ethos of the various aspects and standards of the functionality and process of a hospital.
               </p>
 
@@ -109,11 +103,6 @@ const AboutPage: React.FC = () => {
                 <button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl">
                   OUR SERVICES
                 </button>
-              </div>
-
-              {/* Decorative Line */}
-              <div className="mt-12 animate-scale-in" style={{animationDelay: '0.8s'}}>
-                <div className="w-32 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 mx-auto rounded-full"></div>
               </div>
             </div>
           </div>
