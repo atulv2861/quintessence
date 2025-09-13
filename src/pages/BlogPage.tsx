@@ -144,16 +144,13 @@ const BlogPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                 <span className="text-blue-400 font-medium">Latest Insights</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-                Our
-                <span className="block text-white">
-                  Blog
-                </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Our Blog
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
                 Discover the latest trends, insights, and expert advice on healthcare infrastructure planning and management.
               </p>
               
