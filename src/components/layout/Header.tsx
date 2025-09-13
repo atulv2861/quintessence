@@ -44,7 +44,7 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-primary-600 text-white p-2 rounded-lg">
+              <div className="bg-primary-400 text-white p-2 rounded-lg">
                 <span className="font-bold text-xl">SHC</span>
               </div>
               <div className="hidden sm:block">

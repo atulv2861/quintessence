@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
   return (
     <section id="about" className="section-padding medical-section-bg relative">
       <div className="container-custom">
-        <div className="text-center mb-20 animate-fade-in">
+        {/* <div className="text-center mb-20 animate-fade-in">
           <div className="inline-block mb-4">
             <span className="text-blue-600 text-lg font-semibold tracking-wider">ABOUT US</span>
           </div>
@@ -15,6 +15,15 @@ const AboutSection: React.FC = () => {
             Who Are <span className="medical-text-gradient">We?</span>
           </h3>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+        </div> */}
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="inline-block mb-4">
+            <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
+          </div>
+          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Who Are <span className="text-blue-400">We?</span>
+          </h3>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -38,7 +47,7 @@ const AboutSection: React.FC = () => {
               to="/about"
               className="inline-flex items-center space-x-3 text-blue-600 hover:text-blue-700 font-medium transition-all duration-300 group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <ArrowRight className="w-5 h-5 text-white" />
               </div>
               <span className="text-lg">Read More About Our Story</span>
@@ -65,26 +74,26 @@ const AboutSection: React.FC = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 medical-card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Award className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-blue-600 mb-1">16+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-1">16+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               
               <div className="text-center p-4 medical-card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Building className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-purple-600 mb-1">50+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-1">50+</div>
                 <div className="text-sm text-gray-600">Projects</div>
               </div>
               
               <div className="text-center p-4 medical-card group hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-green-600 mb-1">100+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-1">100+</div>
                 <div className="text-sm text-gray-600">Happy Clients</div>
               </div>
             </div>

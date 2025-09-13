@@ -61,12 +61,13 @@ const ClientsSection: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
             <div className="inline-block mb-4">
-              <span className="text-blue-600 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              <span className="medical-text-gradient">Our Clients</span>
+              {/* <span className="medical-text-gradient">Our Clients</span> */}
+              <span className="text-blue-400">Our Clients</span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">

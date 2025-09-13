@@ -22,33 +22,50 @@ const ServicesSection: React.FC = () => {
           {/* Service Badge */}
           <div className="inline-block mb-6">
             <div className="bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-3 shadow-lg">
-              <span className="text-blue-600 text-lg font-semibold tracking-wider">OUR SERVICES</span>
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR SERVICES</span>
             </div>
           </div>
 
           {/* Main Title with Enhanced Styling */}
           <div className="relative mb-8">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            {/* <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
               <span className="block medical-text-gradient">INTEGRATED ARCHITECTURAL</span>
               <span className="block medical-text-gradient">AND MEP PLANNING</span>
               <span className="block text-gray-700 text-xl md:text-2xl lg:text-3xl mt-4">
                 SOLUTIONS FOR SEAMLESS PROJECTS
               </span>
-          </h3>
+            </h3> */}
+             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              <span className="block text-blue-400">INTEGRATED ARCHITECTURAL</span>
+              <span className="block text-blue-400">AND MEP PLANNING</span>
+              <span className="block text-gray-700 text-xl md:text-2xl lg:text-3xl mt-4">
+                SOLUTIONS FOR SEAMLESS PROJECTS
+              </span>
+            </h3>
             
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500/20 rounded-full animate-pulse-slow"></div>
+            {/* <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500/20 rounded-full animate-pulse-slow"></div>
             <div className="absolute -top-2 -right-4 w-6 h-6 bg-purple-500/20 rounded-full animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-blue-400/20 rounded-full animate-pulse-slow" style={{animationDelay: '2s'}}></div> */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-400/20 rounded-full animate-pulse-slow"></div>
+            <div className="absolute -top-2 -right-4 w-6 h-6 bg-blue-400/20 rounded-full animate-pulse-slow" style={{animationDelay: '1s'}}></div>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-blue-400/20 rounded-full animate-pulse-slow" style={{animationDelay: '2s'}}></div>
           </div>
 
           {/* Enhanced Decorative Line */}
-          <div className="flex items-center justify-center space-x-4 mb-8">
+          {/* <div className="flex items-center justify-center space-x-4 mb-8">
             <div className="w-16 h-1 bg-gradient-to-r from-transparent to-blue-600 rounded-full"></div>
             <div className="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
             <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full"></div>
             <div className="w-3 h-3 bg-purple-600 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
             <div className="w-16 h-1 bg-gradient-to-r from-purple-600 to-transparent rounded-full"></div>
+          </div> */}
+          <div className="flex items-center justify-center space-x-4 mb-8">
+            <div className="w-16 h-1 bg-gradient-to-r from-transparent to-blue-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 via-blue-400 to-blue-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-transparent rounded-full"></div>
           </div>
 
           {/* Subtitle */}
@@ -61,7 +78,7 @@ const ServicesSection: React.FC = () => {
         <div className="mb-16">
           <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
             {SERVICES.map((service, index) => {
-              const IconComponent = serviceIcons[index] || Building
+              //const IconComponent = serviceIcons[index] || Building
               return (
             <div
               key={service.id}
@@ -72,11 +89,11 @@ const ServicesSection: React.FC = () => {
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
                   
                   {/* Service Icon */}
-                  <div className="mb-4 relative z-10">
+                  {/* <div className="mb-4 relative z-10">
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                  </div>
+                  </div> */}
                   
                   {/* Service Image */}
                   <div className="mb-4 relative z-10">
@@ -118,8 +135,8 @@ const ServicesSection: React.FC = () => {
 
         {/* Feature Highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="text-center p-6 medical-card group hover:scale-105 transition-transform duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className="text-center p-6 medical-card group hover:scale-105  transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <Heart className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">Patient-Centered Design</h4>
@@ -127,7 +144,7 @@ const ServicesSection: React.FC = () => {
           </div>
           
           <div className="text-center p-6 medical-card group hover:scale-105 transition-transform duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <Award className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h4>
@@ -135,7 +152,7 @@ const ServicesSection: React.FC = () => {
           </div>
           
           <div className="text-center p-6 medical-card group hover:scale-105 transition-transform duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <Target className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-3">Precision Planning</h4>
