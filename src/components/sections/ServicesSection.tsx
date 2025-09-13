@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Building, Wrench, Shield, CheckCircle, Heart, Award, Target } from 'lucide-react'
+import { ArrowRight, Heart, Award, Target } from 'lucide-react'
 import { SERVICES } from '../../data/constants'
 
 const ServicesSection: React.FC = () => {
