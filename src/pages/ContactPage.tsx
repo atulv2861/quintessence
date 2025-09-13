@@ -34,7 +34,7 @@ const ContactPage: React.FC = () => {
       {/* Hero Section with Modern Design */}
       <section className="relative h-[70vh] overflow-hidden">
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/hero/hero1.webp')"
@@ -57,7 +57,7 @@ const ContactPage: React.FC = () => {
               <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
                 Ready to transform your healthcare infrastructure? Let's start the conversation and bring your vision to life.
               </p>
-              
+
               {/* Enhanced CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
@@ -96,28 +96,28 @@ const ContactPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Users className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
               <p className="text-gray-600">Happy Clients</p>
             </div>
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Award className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">25+</h3>
               <p className="text-gray-600">Projects Completed</p>
             </div>
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">16+</h3>
               <p className="text-gray-600">Years Experience</p>
             </div>
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <MessageCircle className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">24/7</h3>
@@ -131,12 +131,12 @@ const ContactPage: React.FC = () => {
       <section id="contact-form" className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-600 rounded-full mb-6">
+            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">Get In Touch</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Let's Start Your
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                 Project Journey
               </span>
             </h2>
@@ -198,7 +198,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3"
+                  className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3"
                 >
                   <Send className="w-6 h-6" />
                   <span>Send Message</span>
@@ -221,7 +221,7 @@ const ContactPage: React.FC = () => {
               <div className="space-y-6">
                 <div className="group bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-blue-200">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -235,9 +235,9 @@ const ContactPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="group bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-green-200">
+                <div className="group bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-green-200">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -251,9 +251,9 @@ const ContactPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="group bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-purple-200">
+                <div className="group bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-purple-200">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -266,9 +266,20 @@ const ContactPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-
+              <div className="group bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-purple-200">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">Working Hours</h4>
+                    <p className="block text-gray-700">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    <p className="block text-gray-700 text-sm mt-1">Sunday: Closed</p>
+                  </div>
+                </div>
+              </div>
               {/* WhatsApp CTA */}
-              <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white">
+              {/* <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                     <MessageCircle className="w-6 h-6" />
@@ -285,22 +296,22 @@ const ContactPage: React.FC = () => {
                   <MessageCircle className="w-5 h-5" />
                   <span>Start Chat</span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </section>
 
       {/* Interactive Map Section */}
-      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        {/* Animated Background Elements */}
+      {/* <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+        
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full animate-pulse"></div>
           <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500/10 rounded-lg rotate-45 animate-bounce"></div>
           <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-pink-500/10 rounded-full animate-ping"></div>
           <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-cyan-500/5 rounded-full animate-pulse"></div>
+
           
-          {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
 
@@ -321,7 +332,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Interactive Map Card */}
+           
             <div className="group">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
                 <div className="flex items-center justify-between mb-6">
@@ -335,7 +346,7 @@ const ContactPage: React.FC = () => {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="relative rounded-2xl overflow-hidden mb-6">
                   <div className="h-80 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                     <div className="text-center">
@@ -346,8 +357,8 @@ const ContactPage: React.FC = () => {
                       <p className="text-white/70 text-sm mt-2">Click to explore our location</p>
                     </div>
                   </div>
+
                   
-                  {/* Map Overlay Controls */}
                   <div className="absolute top-4 right-4 flex flex-col space-y-2">
                     <button className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
                       <span className="text-white text-sm">+</span>
@@ -356,8 +367,8 @@ const ContactPage: React.FC = () => {
                       <span className="text-white text-sm">-</span>
                     </button>
                   </div>
+
                   
-                  {/* Location Pin */}
                   <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
                     <div className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                       📍 Our Office
@@ -378,7 +389,7 @@ const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Enhanced Contact Info */}
+            
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
                 <div className="flex items-center space-x-3 mb-6">
@@ -450,7 +461,7 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Quick Actions */}
+             
               <div className="grid grid-cols-2 gap-4">
                 <button className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
@@ -464,18 +475,18 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-600 rounded-full mb-6">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-100 to-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">Why Choose Us</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Experience the
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Experience the 
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent pl-2">
                 Difference
               </span>
             </h2>
@@ -486,7 +497,7 @@ const ContactPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">16+ Years Experience</h3>
@@ -495,8 +506,8 @@ const ContactPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="group text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">NABH Certified</h3>
@@ -505,8 +516,8 @@ const ContactPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="group text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Fast Turnaround</h3>
@@ -515,8 +526,8 @@ const ContactPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="group text-center p-8 bg-gradient-to-br from-pink-50 to-pink-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="group text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Patient-Centric</h3>
