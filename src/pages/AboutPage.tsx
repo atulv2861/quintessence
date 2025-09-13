@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => {
 
               {/* Main Title */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight animate-slide-up" style={{animationDelay: '0.2s'}}>
-                ABOUT Seven Healer
+                About Seven Healer
               </h1>
 
               {/* Subtitle */}
