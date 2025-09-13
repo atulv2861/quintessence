@@ -62,28 +62,28 @@ const HeroSection: React.FC = () => {
     {
       title: "OPTIMIZED HOSPITAL EQUIPMENT PLANNING",
       subtitle: "Advanced Medical Solutions",
-      description: "Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility.",
+      description: "Strategic planning and arrangement of medical equipment and technology within healthcare facilities for optimal patient care.",
       image: "/images/hero/hero1.webp",
       icon: Stethoscope
     },
     {
       title: "HEALTHCARE INFRASTRUCTURE DESIGN", 
       subtitle: "Modern Medical Facilities",
-      description: "Comprehensive healthcare infrastructure design that ensures optimal patient care, staff efficiency, and regulatory compliance in modern medical facilities.",
+      description: "Comprehensive healthcare infrastructure design ensuring optimal patient care, staff efficiency, and regulatory compliance.",
       image: "/images/hero/hero2.jpg",
       icon: Building
     },
     {
       title: "MEP SYSTEMS INTEGRATION",
       subtitle: "Seamless Operations",
-      description: "Advanced Mechanical, Electrical, and Plumbing systems integration for healthcare facilities ensuring seamless operations and patient safety.",
+      description: "Advanced MEP systems integration for healthcare facilities ensuring seamless operations and enhanced patient safety.",
       image: "/images/hero/hero3.webp",
       icon: Shield
     },
     {
       title: "PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES",
       subtitle: "Quality Assurance",
-      description: "Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility.",
+      description: "Pre-commissioning activities and preparatory steps before the actual commissioning process of hospital facilities.",
       image: "/images/hero/hero4.jpg",
       icon: Award
     }
@@ -138,7 +138,7 @@ const HeroSection: React.FC = () => {
       {/* Modern Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="container-custom">
-          <div className="max-w-4xl text-center">
+          <div className="max-w-5xl text-center">
             {/* Icon and Subtitle */}
             <div 
               className={`flex items-center justify-center space-x-4 mb-6 transition-all duration-500 transform ${
@@ -174,7 +174,7 @@ const HeroSection: React.FC = () => {
 
             {/* Description */}
             <p 
-              className={`text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed drop-shadow-lg max-w-3xl transition-all duration-500 transform ${
+              className={`text-lg md:text-xl text-blue-100 mb-6 leading-relaxed drop-shadow-lg max-w-5xl transition-all duration-500 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
