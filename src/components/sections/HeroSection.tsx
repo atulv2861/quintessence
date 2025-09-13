@@ -64,32 +64,28 @@ const HeroSection: React.FC = () => {
       subtitle: "Advanced Medical Solutions",
       description: "Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility.",
       image: "/images/hero/hero1.webp",
-      icon: Stethoscope,
-      color: "from-blue-600 to-blue-800"
+      icon: Stethoscope
     },
     {
       title: "HEALTHCARE INFRASTRUCTURE DESIGN", 
       subtitle: "Modern Medical Facilities",
       description: "Comprehensive healthcare infrastructure design that ensures optimal patient care, staff efficiency, and regulatory compliance in modern medical facilities.",
       image: "/images/hero/hero2.jpg",
-      icon: Building,
-      color: "from-purple-600 to-purple-800"
+      icon: Building
     },
     {
       title: "MEP SYSTEMS INTEGRATION",
       subtitle: "Seamless Operations",
       description: "Advanced Mechanical, Electrical, and Plumbing systems integration for healthcare facilities ensuring seamless operations and patient safety.",
       image: "/images/hero/hero3.webp",
-      icon: Shield,
-      color: "from-green-600 to-green-800"
+      icon: Shield
     },
     {
       title: "PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES",
       subtitle: "Quality Assurance",
       description: "Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility.",
       image: "/images/hero/hero4.jpg",
-      icon: Award,
-      color: "from-orange-600 to-orange-800"
+      icon: Award
     }
   ]
 
@@ -104,9 +100,8 @@ const HeroSection: React.FC = () => {
           backgroundImage: `url(${currentSlideData.image})`,
         }}
       >
-        {/* Gradient Overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.color} opacity-90`}></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
         
         {/* Floating Medical Icons */}
         <div className="absolute inset-0 opacity-20">
