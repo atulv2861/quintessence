@@ -116,11 +116,11 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold text-lg mb-4">FIND US</h3>
             <ul className="space-y-2">
               {/* add map here */}
-              <div className="h-48 relative">
+              <div className="relative">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.508383624963!2d77.15058017528954!3d28.691256975634517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02347a0e8fbb%3A0xa51d40303c4dbf1a!2sA9%20GDITL%20Northex%20Tower%2C%20Netaji%20Subhash%20Place!5e0!3m2!1sen!2sin!4v0000000000000!5m2!1sen!2sin"
                   // width="600"
-                  // height="450"
+                  height="200"
                   style={{border: 0}}
                   allowFullScreen
                   loading="lazy"
