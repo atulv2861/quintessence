@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
   const currentSlideData = slides[currentSlide]
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-[70vh] overflow-hidden">
       {/* Modern Medical Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
