@@ -171,48 +171,45 @@ const ProjectsPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                 <span className="text-blue-400 font-medium">Portfolio Showcase</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
-                Our
-                <span className="block text-white">
-                  Projects
-                </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Our Projects
               </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-5xl mx-auto mb-6 leading-relaxed">
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
                 Discover our portfolio of innovative healthcare infrastructure projects that are transforming the future of medical facilities.
               </p>
               
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Building className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Building className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
-                  <div className="text-white/70">Projects</div>
+                  <div className="text-2xl font-bold text-white mb-1">{projects.length}</div>
+                  <div className="text-white/70 text-sm">Projects</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">4,350</div>
-                  <div className="text-white/70">Total Beds</div>
+                  <div className="text-2xl font-bold text-white mb-1">4,350</div>
+                  <div className="text-white/70 text-sm">Total Beds</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Award className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">12.5M</div>
-                  <div className="text-white/70">Sq. Mtr.</div>
+                  <div className="text-2xl font-bold text-white mb-1">12.5M</div>
+                  <div className="text-white/70 text-sm">Sq. Mtr.</div>
                 </div>
                 <div className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Calendar className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Calendar className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">16+</div>
-                  <div className="text-white/70">Years</div>
+                  <div className="text-2xl font-bold text-white mb-1">16+</div>
+                  <div className="text-white/70 text-sm">Years</div>
                 </div>
               </div>
             </div>
