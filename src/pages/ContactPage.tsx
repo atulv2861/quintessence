@@ -599,7 +599,7 @@ const ContactPage: React.FC = () => {
       </section> */}
 
       {/* Footer */}
-      <footer className="bg-black text-white py-8">
+      {/* <footer className="bg-black text-white py-8">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
@@ -620,15 +620,15 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
 
       {/* Floating WhatsApp Button */}
-      <button
+      {/* <button
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-50 transition-all duration-300 transform hover:scale-110 group"
       >
         <MessageCircle className="w-8 h-8 group-hover:animate-bounce" />
-      </button>
+      </button> */}
     </div>
   )
 }
