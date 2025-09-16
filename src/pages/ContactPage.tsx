@@ -107,14 +107,14 @@ const ContactPage: React.FC = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Award className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">25+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">60+</h3>
               <p className="text-gray-600">Projects Completed</p>
             </div>
             <div className="text-center group">
               <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">16+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">20+</h3>
               <p className="text-gray-600">Years Experience</p>
             </div>
             <div className="text-center group">
@@ -239,7 +239,7 @@ const ContactPage: React.FC = () => {
                     <div>
                       <h4 className="font-bold text-gray-900 mb-2">Office Address</h4>
                       <p className="text-gray-700 leading-relaxed">
-                        606, GDITL Northex Tower, A-09<br />
+                        303, GDITL Northex Tower, A-09<br />
                         Netaji Subhash Place, Pitampura<br />
                         New Delhi - 110034
                       </p>
@@ -422,7 +422,7 @@ const ContactPage: React.FC = () => {
                     <div>
                       <h4 className="font-bold text-white mb-2">Office Address</h4>
                       <p className="text-white/80 leading-relaxed">
-                        606, GDITL Northex Tower, A-09<br />
+                        303, GDITL Northex Tower, A-09<br />
                         Netaji Subhash Place, Pitampura<br />
                         New Delhi - 110034
                       </p>
@@ -512,7 +512,7 @@ const ContactPage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">16+ Years Experience</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">20+ Years Experience</h3>
               <p className="text-gray-600 leading-relaxed">
                 Decades of expertise in healthcare infrastructure planning and design.
               </p>

@@ -208,7 +208,7 @@ const ProjectsPage: React.FC = () => {
                   <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">16+</div>
+                  <div className="text-2xl font-bold text-white mb-1">20+</div>
                   <div className="text-white/70 text-sm">Years</div>
                 </div>
               </div>

@@ -45,7 +45,8 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <div className="bg-primary-400 text-white p-2 rounded-lg">
-                <span className="font-bold text-xl">SHC</span>
+                {/* <span className="font-bold text-xl">SHC</span> */}
+                <img src="/images/logo/seven_healer.png" alt="SHC" className="w-10 h-10" />
               </div>
               <div className="hidden sm:block">
                 <div className="font-bold text-xl text-gray-900">SHC</div>

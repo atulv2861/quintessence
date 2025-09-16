@@ -102,7 +102,7 @@ const ServiceSlider: React.FC = () => {
                   className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-all duration-300 group/link mt-auto"
                 >
                   <span className="text-sm">READ MORE</span>
-                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center group-hover/link:scale-110 transition-transform duration-300">
+                  <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center group-hover/link:scale-110 transition-transform duration-300">
                     <ArrowRight className="w-3 h-3 text-white" />
                   </div>
                 </Link>

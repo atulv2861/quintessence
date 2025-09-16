@@ -19,11 +19,18 @@ const ServicesSection: React.FC = () => {
         {/* Enhanced Header Section */}
         <div className="text-center mb-20 animate-fade-in">
           {/* Service Badge */}
-          <div className="inline-block mb-6">
+          {/* <div className="inline-block mb-6">
             <div className="bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-3 shadow-lg">
               <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR SERVICES</span>
             </div>
-          </div>
+          </div> */}
+          
+            <div className="inline-block mb-4">
+              <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR SERVICES</span>
+            </div>
+            
+            
+          
 
           {/* Main Title with Enhanced Styling */}
           <div className="relative mb-8">

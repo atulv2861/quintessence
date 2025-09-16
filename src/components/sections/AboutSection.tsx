@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
             <div className="space-y-6">
               <div className="medical-card p-8">
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  <span className="font-bold text-blue-400">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-blue-400">16 years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-400">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
+                  <span className="font-bold text-blue-400">Dr. Nitin Garg</span> is a diligent and experienced professional with over <span className="font-semibold text-blue-400">20+ years</span> of expertise in various aspects of the healthcare industry. Completed his medical education at Pt. B. D. Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak and further pursued a postgraduate degree in Hospital Administration from the prestigious <span className="font-semibold text-blue-400">All India Institute of Medical Sciences (AIIMS)</span>, New Delhi.
                 </p>
               </div>
               
@@ -77,7 +77,7 @@ const AboutSection: React.FC = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Award className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-blue-400 mb-1">16+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-1">20+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               
@@ -85,7 +85,7 @@ const AboutSection: React.FC = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Building className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-blue-400 mb-1">50+</div>
+                <div className="text-2xl font-bold text-blue-400 mb-1">60+</div>
                 <div className="text-sm text-gray-600">Projects</div>
               </div>
               

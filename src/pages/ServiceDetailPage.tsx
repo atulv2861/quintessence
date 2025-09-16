@@ -148,11 +148,11 @@ const ServiceDetailPage: React.FC = () => {
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Experience:</span>
-                        <span className="font-medium">16+ Years</span>
+                        <span className="font-medium">20+ Years</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Projects:</span>
-                        <span className="font-medium">25+</span>
+                        <span className="font-medium">60+</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Area Covered:</span>

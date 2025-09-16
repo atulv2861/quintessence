@@ -9,7 +9,7 @@
 ## Business Analysis
 
 ### Company Profile
-- **Founder:** Dr. Nitin Garg (16+ years experience)
+- **Founder:** Dr. Nitin Garg (20+ years experience)
 - **Education:** 
   - Medical degree from Pt. B. D. Sharma PGIMS, Rohtak
   - Postgraduate in Hospital Administration from AIIMS, New Delhi
@@ -29,7 +29,7 @@
 - **Associates:** 09
 
 ### Contact Information
-- **Address:** 606, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034
+- **Address:** 303, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034
 - **Email:** Info@sevenhealerconsultants.in
 - **Phone:** 011 41664694, +91 9812692333, +91 9728392333
 

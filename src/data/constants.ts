@@ -13,7 +13,7 @@ export const COMPANY_INFO: CompanyInfo = {
       'Postgraduate in Hospital Administration from AIIMS, New Delhi',
       'NABH accreditation specialist (5th edition)'
     ],
-    experience: '16+ years of expertise in healthcare industry',
+    experience: '20+ years of expertise in healthcare industry',
     achievements: [
       'Leadership position in leading private hospital',
       'NABH accreditation team leader',
@@ -23,14 +23,14 @@ export const COMPANY_INFO: CompanyInfo = {
   stats: {
     area: 1395285,
     beds: 19474,
-    projects: 25,
-    associates: 9
+    projects: 60,
+    associates: 20
   }
 }
 
 // Contact Information
 export const CONTACT_INFO: ContactInfo = {
-  address: '606, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034',
+  address: '303, GDITL Tower, A-09 Netaji Subhash Place, Pitampura New Delhi - 110034',
   email: 'Info@sevenhealerconsultants.in',
   phone: '011 41664694',
   phone2: '+91 9812692333',
@@ -223,7 +223,7 @@ export const FAQS: FAQ[] = [
   {
     id: '3',
     question: 'How many projects has Seven Healer completed?',
-    answer: 'We have completed 25+ projects covering over 1.4 million square meters of healthcare infrastructure, planning for 19,474+ beds across various healthcare facilities.',
+    answer: 'We have completed 60+ projects covering over 1.4 million square meters of healthcare infrastructure, planning for 19,474+ beds across various healthcare facilities.',
     category: 'projects',
     sortOrder: 3
   },
