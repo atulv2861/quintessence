@@ -2,23 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SERVICES } from '../../data/constants';
-
-interface Service {
-  id: string;
-  title: string;
-  image: string;
-  description: string;
-  slug: string;
-}
+import { Service } from '../../types';
 
 const ServiceSlider: React.FC = () => {
-  const services: Service[] = SERVICES.map(service => ({
-    id: service.id,
-    title: service.title,
-    image: service.image,
-    description: service.description,
-    slug: service.slug
-  }));
+  const services: Service[] = SERVICES;
 
   const [current, setCurrent] = React.useState(0);
   const [visibleCount, setVisibleCount] = React.useState(3);
@@ -67,26 +54,35 @@ const ServiceSlider: React.FC = () => {
               {/* Service Image */}
               <div className="mb-4 relative z-10">
                 <div className="w-full h-40 bg-gray-100 rounded-xl overflow-hidden group-hover:shadow-xl transition-shadow duration-300">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent) {
-                        parent.innerHTML = `
-                          <div class="flex flex-col items-center justify-center h-full text-gray-600 bg-gradient-to-br from-blue-50 to-blue-100">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-3">
-                              <span class="text-white text-2xl font-bold">${service.title.charAt(0)}</span>
+                  {service.image ? (
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `
+                            <div class="flex flex-col items-center justify-center h-full text-gray-600 bg-gradient-to-br from-blue-50 to-blue-100">
+                              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-3">
+                                <span class="text-white text-2xl font-bold">${service.title.charAt(0)}</span>
+                              </div>
+                              <span class="text-sm font-medium text-center px-2">${service.title}</span>
                             </div>
-                            <span class="text-sm font-medium text-center px-2">${service.title}</span>
-                          </div>
-                        `;
-                      }
-                    }}
-                  />
+                          `;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-gray-600 bg-gradient-to-br from-blue-50 to-blue-100">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-3">
+                        <span className="text-white text-2xl font-bold">{service.title.charAt(0)}</span>
+                      </div>
+                      <span className="text-sm font-medium text-center px-2">{service.title}</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
