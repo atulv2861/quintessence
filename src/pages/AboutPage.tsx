@@ -2,6 +2,7 @@ import React from 'react'
 import { Eye, Building, Heart, Shield, Award, Target } from 'lucide-react'
 // import { COMPANY_INFO } from '../data/constants' Bed, FileText, Users,
 import StatsSection from '../components/sections/StatsSection'
+import ClientSlider from '../components/sections/ClientSlider'
 
 const AboutPage: React.FC = () => {
   // const { stats } = COMPANY_INFO
@@ -97,7 +98,10 @@ const AboutPage: React.FC = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in" style={{animationDelay: '0.6s'}}>
-                <button className="btn-3d text-lg px-8 py-4">
+                <button 
+                className="btn-3d text-lg px-8 py-4"
+                //className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl"
+                >
                   FREE CONSULTATION
                 </button>
                 <button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl">
@@ -202,6 +206,25 @@ const AboutPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+
+            {/* Vision */}
+            <div className="animate-slide-in-right">
+              <div className="medical-card p-12 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500"></div>
+                <div className="relative z-10">
+                  <div className="w-24 h-24 bg-white rounded-full mx-auto mb-8 flex items-center justify-center animate-pulse-slow">
+                    <Eye className="w-12 h-12 text-blue-600" />
+                  </div>
+                  <h4 className="text-3xl font-bold text-white mb-6">Our Vision</h4>
+                  <p className="text-blue-100 leading-relaxed text-xl">
+                    To create sustainable and resilient Infrastructure in Healthcare sector.
+                  </p>
+                </div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full animate-float"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+              </div>
+            </div>
             {/* Mission */}
             <div className="space-y-8 animate-slide-in-left">
               <div className="text-center lg:text-left">
@@ -242,24 +265,6 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Vision */}
-            <div className="animate-slide-in-right">
-              <div className="medical-card p-12 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500"></div>
-                <div className="relative z-10">
-                  <div className="w-24 h-24 bg-white rounded-full mx-auto mb-8 flex items-center justify-center animate-pulse-slow">
-                    <Eye className="w-12 h-12 text-blue-600" />
-                  </div>
-                  <h4 className="text-3xl font-bold text-white mb-6">Our Vision</h4>
-                  <p className="text-blue-100 leading-relaxed text-xl">
-                    To create sustainable and resilient Infrastructure in Healthcare sector.
-                  </p>
-                </div>
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full animate-float"></div>
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
               </div>
             </div>
           </div>
@@ -389,93 +394,7 @@ const AboutPage: React.FC = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-            {/* HKSD Health City */}            
-            <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in">
-              <div className="mb-4">
-                <div className="h-20 w-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-white text-sm font-bold">+</span>
-                    </div>
-                    <span className="text-gray-600 text-xs font-bold">HKSD</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 text-center font-medium">
-                HKSD Health City
-              </p>
-            </div>
-           
-
-            {/* PWD Delhi Government */}
-            <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.1s'}}>
-              <div className="mb-4">
-                <div className="h-20 w-20 bg-white border-2 border-gray-800 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-white text-sm">🌍</span>
-                    </div>
-                    <span className="text-gray-600 text-xs font-bold">PWD</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 text-center font-medium">
-                PWD Delhi Government
-              </p>
-            </div>
-
-            {/* PWD Delhi Government (Tractor) */}
-            <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.2s'}}>
-              <div className="mb-4">
-                <div className="h-20 w-20 bg-white border-2 border-gray-800 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-white text-sm">🚜</span>
-                    </div>
-                    <span className="text-gray-600 text-xs font-bold">PWD</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 text-center font-medium">
-                PWD Delhi Government
-              </p>
-            </div>
-
-            {/* DDF Consultants */}
-            <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.3s'}}>
-              <div className="mb-4">
-                <div className="h-20 w-28 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex space-x-1">
-                    <div className="w-5 h-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-sm"></div>
-                    <div className="w-5 h-5 bg-gray-400 rounded-sm"></div>
-                    <div className="w-5 h-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-sm"></div>
-                    <div className="w-5 h-5 bg-gray-400 rounded-sm"></div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 text-center font-medium">
-                DDF Consultants Private Limited
-              </p>
-            </div>
-
-            {/* Dexterous Designers */}
-            <div className="flex flex-col items-center p-6 medical-card group hover:scale-105 transition-all duration-300 animate-scale-in" style={{animationDelay: '0.4s'}}>
-              <div className="mb-4">
-                <div className="h-20 w-28 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center mr-2">
-                      <span className="text-white text-sm font-bold">d</span>
-                    </div>
-                    <span className="text-white text-sm font-bold">Dexterous</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 text-center font-medium">
-                Dexterous Designers & Associates
-              </p>
-            </div>
-          </div>
+          <ClientSlider/>
         </div>
       </section>
     </div>

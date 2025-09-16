@@ -171,9 +171,9 @@ const ProjectsPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+              {/* <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                 <span className="text-blue-400 font-medium">Portfolio Showcase</span>
-              </div>
+              </div> */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
                 Our Projects
               </h1>
@@ -289,12 +289,12 @@ const ProjectsPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
+            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">Portfolio</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Featured
-              <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+              Featured  
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 pl-2 bg-clip-text text-transparent">
                 Projects
               </span>
             </h2>
@@ -521,7 +521,7 @@ const ProjectsPage: React.FC = () => {
                             </span>
                           ))}
                         </div>
-                        <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                        <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
                           <span>View Details</span>
                           <ArrowRight className="w-4 h-4" />
                         </button>
@@ -536,7 +536,7 @@ const ProjectsPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
+      {/* <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
         <div className="container-custom text-center">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
@@ -544,9 +544,7 @@ const ProjectsPage: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Start Your
-              {/* <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
-                Next Project?
-              </span> */}
+             
               <span className="block text-white">
                 Next Project?
               </span>
@@ -566,7 +564,7 @@ const ProjectsPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

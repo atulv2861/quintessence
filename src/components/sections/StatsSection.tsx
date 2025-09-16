@@ -1,13 +1,38 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { Building, Bed, FileText, Users } from 'lucide-react'
 import { COMPANY_INFO } from '../../data/constants'
 
 const StatsSection: React.FC = () => {
   const { stats } = COMPANY_INFO
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString()
+  // const formatNumber = (num: number) => {
+  //   return num.toLocaleString()
+  // }
+  const [projectsCount, setProjectsCount] = useState(1)
+  const [bedsCount, setBedsCount] = useState(1)
+  const [areaCount, setAreaCount] = useState(1)
+  const [associatesCount, setAssociatesCount] = useState(1)
+  const increaseCount = (num: number, update: (val: number) => void) => {
+    let current = 1
+    const stepTime = 50 // interval step (ms) → adjust for speed
+  
+    const interval = setInterval(() => {
+      update(current) // update UI with current value
+  
+      if (current >= num) {
+        clearInterval(interval)
+      } else {
+        current += 1
+      }
+    }, stepTime)
   }
+  
+  useEffect(() => {
+    increaseCount(stats.projects,setProjectsCount)
+    increaseCount(stats.beds,setBedsCount)
+    increaseCount(stats.area,setAreaCount)
+    increaseCount(stats.associates,setAssociatesCount)
+  }, [])
 
   return (
     <section className="section-padding medical-section-bg relative overflow-hidden">
@@ -42,7 +67,7 @@ const StatsSection: React.FC = () => {
                 <Building className="w-10 h-10 text-white" />
               </div>
               <div className="text-3xl md:text-4xl font-bold mb-2">
-                <span className="text-blue-400">{formatNumber(stats.area)}</span>
+                <span className="text-blue-400">{areaCount}</span>
                 <span className="text-blue-400"> Sqm</span>
               </div>
               <div className="text-gray-600 font-medium text-lg">Area</div>
@@ -55,7 +80,7 @@ const StatsSection: React.FC = () => {
                 <Bed className="w-10 h-10 text-white" />
               </div>
               <div className="text-3xl md:text-4xl font-bold mb-2">
-                <span className="text-blue-400">{formatNumber(stats.beds)}</span>
+                <span className="text-blue-400">{bedsCount}</span>
                 <span className="text-blue-400">*</span>
               </div>
               <div className="text-gray-600 font-medium text-lg">Beds</div>
@@ -68,7 +93,7 @@ const StatsSection: React.FC = () => {
                 <FileText className="w-10 h-10 text-white" />
               </div>
               <div className="text-3xl md:text-4xl font-bold mb-2">
-                <span className="text-blue-400">{stats.projects}</span>
+                <span className="text-blue-400">{projectsCount}</span>
                 <span className="text-blue-400">*</span>
               </div>
               <div className="text-gray-600 font-medium text-lg">Projects</div>
@@ -81,7 +106,7 @@ const StatsSection: React.FC = () => {
                 <Users className="w-10 h-10 text-white" />
               </div>
               <div className="text-3xl md:text-4xl font-bold mb-2">
-                <span className="text-blue-400">{stats.associates}</span>
+                <span className="text-blue-400">{associatesCount}</span>
                 <span className="text-blue-400">*</span>
               </div>
               <div className="text-gray-600 font-medium text-lg">Associates</div>
