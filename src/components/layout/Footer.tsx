@@ -15,7 +15,8 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <div className="bg-primary-600 text-white p-2 rounded-lg">
-                <span className="font-bold text-xl">SHC</span>
+                {/* <span className="font-bold text-xl">SHC</span> */}
+                <img src="/images/logo/seven_healer.png" alt="SHC" className="w-10 h-10" />
               </div>
               <div>
                 <div className="font-bold text-xl">SHC</div>
