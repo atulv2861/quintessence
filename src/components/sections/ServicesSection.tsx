@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Award, Target } from 'lucide-react'
-import { SERVICES } from '../../data/constants'
+import { Heart, Award, Target } from 'lucide-react'
+import ServiceSlider from './ServiceSlider'
 
 const ServicesSection: React.FC = () => {
   //const serviceIcons = [Building, Wrench, Shield, CheckCircle]
@@ -74,63 +73,9 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Horizontal Scrollable Service Cards */}
+        {/* Service Slider */}
         <div className="mb-16">
-          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
-            {SERVICES.map((service, index) => {
-              //const IconComponent = serviceIcons[index] || Building
-              return (
-            <div
-              key={service.id}
-                  className="medical-card p-6 group hover:scale-105 transition-all duration-300 animate-scale-in relative overflow-hidden flex-shrink-0 w-80"
-                  style={{animationDelay: `${index * 0.1}s`}}
-                >
-                  {/* Background Pattern */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
-                  
-                  {/* Service Icon */}
-                  {/* <div className="mb-4 relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                  </div> */}
-                  
-                  {/* Service Image */}
-                  <div className="mb-4 relative z-10">
-                    <div className="w-full h-40 bg-gray-100 rounded-xl overflow-hidden group-hover:shadow-xl transition-shadow duration-300">
-                      <img 
-                        src={service.image} 
-                        alt={service.title} 
-                        className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              </div>
-              
-                  {/* Service Content */}
-                  <div className="relative z-10">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                {service.title.toUpperCase()}
-              </h3>
-              
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                {service.description}
-              </p>
-
-              <Link
-                to={`/services/${service.slug}`}
-                      className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-all duration-300 group/link"
-                    >
-                      <span className="text-sm">READ MORE</span>
-                      <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center group-hover/link:scale-110 transition-transform duration-300">
-                        <ArrowRight className="w-3 h-3 text-white" />
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <ServiceSlider />
         </div>
 
         {/* Feature Highlights */}
