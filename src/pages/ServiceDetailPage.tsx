@@ -258,6 +258,54 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Gas Pipeline System Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Sidebar - Service Categories */}
+            <div className="space-y-4">
+              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-white leading-relaxed">
+                  INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  CREATING TAILORED AND SPECIALIZED SERVICES
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  OPTIMIZED HOSPITAL EQUIPMENT PLANNING
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
+                </h3>
+              </div>
+            </div>
+
+            {/* Right Side - Gas Pipeline System Diagram */}
+            <div className="space-y-8">
+              {/* Gas Pipeline System Diagram */}
+              <div className="bg-gray-100 rounded-xl p-8">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h3>
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-16 h-16 text-white" />
+                    </div>
+                    <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
+                    <p className="text-sm text-gray-500 mt-2">Integrated MEP Planning</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Strategic Design Approach Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
