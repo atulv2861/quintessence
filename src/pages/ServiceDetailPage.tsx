@@ -35,6 +35,11 @@ const ServiceDetailPage: React.FC = () => {
     return <EquipmentPlanningPage />
   }
 
+  // Special handling for Pre-commissioning and Commissioning Activities
+  if (slug === 'pre-commissioning-commissioning') {
+    return <PreCommissioningPage />
+  }
+
   const getServiceIcon = (iconName: string) => {
     const icons = {
       Building2,
@@ -1318,6 +1323,282 @@ const EquipmentPlanningPage: React.FC = () => {
               </h2>
               <p className="text-lg text-blue-100 mb-8 leading-relaxed">
                 If need help! Our equipment planning experts are ready to assist you with comprehensive hospital equipment planning and optimization solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// Pre-commissioning and Commissioning Activities Page Component
+const PreCommissioningPage: React.FC = () => {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/services/pre-commissioning.jpg')"
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-purple-900/80"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container-custom text-center">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+                <span className="text-white font-medium">Pre-commissioning & Commissioning</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                STREAMLINING PRE-COMMISSIONING AND
+                <br />
+                COMMISSIONING ACTIVITIES ENSURING SEAMLESS
+                <br />
+                PROJECTS DEPLOYMENT
+              </h1>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Sidebar - Service Categories */}
+            <div className="space-y-4">
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  CREATING TAILORED AND SPECIALIZED SERVICES
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  OPTIMIZED HOSPITAL EQUIPMENT PLANNING
+                </h3>
+              </div>
+              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-white leading-relaxed">
+                  STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
+                </h3>
+              </div>
+            </div>
+
+            {/* Right Side - Main Graphic and Content */}
+            <div className="space-y-8">
+              {/* Industrial/Construction Infographic */}
+              <div className="bg-gray-100 rounded-xl p-8">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Building2 className="w-16 h-16 text-white" />
+                    </div>
+                    <p className="text-gray-600 font-medium">Pre-commissioning & Commissioning</p>
+                    <p className="text-sm text-gray-500 mt-2">Seamless Project Deployment</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                  ENSURING SEAMLESS PROJECT DEPLOYMENT
+                </h2>
+                <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+                
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins. These activities are essential to ensure that the hospital's systems, equipment, and infrastructure are ready for commissioning and can function as intended. It includes:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    {[
+                      "Design Review",
+                      "Systems Testing",
+                      "Training",
+                      "Mock Drills",
+                      "Compliance Verification"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      "Equipment Inspection",
+                      "Calibration",
+                      "Documentation",
+                      "Safety Checks",
+                      "Handover Preparation"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Design Approach Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                Strategic Design Approach And Associated Requirements
+              </h2>
+              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+              
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                As building systems continue to advance in complexity, the commissioning process has become increasingly significant for ensuring quality, especially in healthcare facilities. Hospital commissioning is a systematic process designed to ensure that building systems are meticulously constructed and meet predefined standards. It involves the fine-tuning of a building's systems and equipment to ensure optimal functionality and performance. This process is crucial for a hospital's long-term success and contributes to the delivery of high-quality healthcare services.
+              </p>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Hospital commissioning activities are the set of organized and systematic tasks that ensure a new or renovated hospital facility is fully functional, meets requirements, and operates as intended. These activities typically include:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  {[
+                    "Functional Testing",
+                    "Integrated Systems Testing",
+                    "Safety and Emergency Preparedness Checks",
+                    "Staff Training",
+                    "Patient Flow and Process Testing",
+                    "Infection Control Assessment"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Documenting Standard Operating Procedures (SOPs)",
+                    "Facility Management Handover",
+                    "Patient Simulation",
+                    "Quality Assurance and Quality Control",
+                    "Performance Monitoring",
+                    "Regulatory Compliance Verification"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-100 rounded-xl p-8">
+              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-48 h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 relative">
+                    <div className="absolute inset-0 rounded-full border-8 border-white/20"></div>
+                    <div className="text-white text-center">
+                      <div className="text-lg font-bold mb-2">EIGHT STAGES OF THE</div>
+                      <div className="text-sm">COMMISSIONING PROCESS</div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 font-medium">Commissioning Process</p>
+                  <p className="text-sm text-gray-500 mt-2">Strategic Implementation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Eight Stages of Commissioning Process */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Eight Stages of the Commissioning Process
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our systematic approach ensures comprehensive commissioning through eight distinct stages, each designed to optimize facility performance and ensure regulatory compliance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { number: "01", title: "Preparation", description: "Initial planning and preparation phase", icon: "Users" },
+              { number: "02", title: "Design", description: "Design review and optimization", icon: "Target" },
+              { number: "03", title: "Pre-construction", description: "Pre-construction planning and setup", icon: "FileText" },
+              { number: "04", title: "Construction", description: "Construction phase monitoring", icon: "Building2" },
+              { number: "05", title: "Commissioning of engineering services", description: "Engineering systems commissioning", icon: "Zap" },
+              { number: "06", title: "Pre-handover", description: "Pre-handover preparation and testing", icon: "CheckCircle" },
+              { number: "07", title: "Initial occupation", description: "Initial facility occupation and testing", icon: "MapPin" },
+              { number: "08", title: "Post-occupancy aftercare", description: "Ongoing support and optimization", icon: "Phone" }
+            ].map((stage, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:bg-gray-100 transition-colors duration-300">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-lg font-bold">{stage.number}</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{stage.title}</h3>
+                <p className="text-sm text-gray-600">{stage.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                  <Phone className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">011 4182 9639</div>
+                  <div className="text-blue-200">or go to contact form:</div>
+                </div>
+              </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center space-x-3 bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <ArrowRight className="w-5 h-5" />
+                <span>Contact Us</span>
+              </Link>
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold mb-6">
+                Contact us now
+              </h2>
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+                If need help! Our pre-commissioning and commissioning experts are ready to assist you with seamless project deployment and facility optimization solutions.
               </p>
             </div>
           </div>
