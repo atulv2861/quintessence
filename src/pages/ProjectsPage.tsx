@@ -344,7 +344,7 @@ const ProjectsPage: React.FC = () => {
                     </div>
 
                     {/* Hover Overlay */}
-                    <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300 ${
+                    {/* <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300 ${
                       hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
                     }`}>
                       <div className="flex space-x-4">
@@ -358,7 +358,7 @@ const ProjectsPage: React.FC = () => {
                           <Share2 className="w-6 h-6 text-white" />
                         </button>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Project Content */}
@@ -392,7 +392,7 @@ const ProjectsPage: React.FC = () => {
                     </div>
 
                     {/* Features */}
-                    <div className="mb-6">
+                    {/* <div className="mb-6">
                       <div className="flex flex-wrap gap-2">
                         {project.features.slice(0, 3).map((feature, index) => (
                           <span
@@ -408,10 +408,10 @@ const ProjectsPage: React.FC = () => {
                           </span>
                         )}
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Engagement Stats */}
-                    <div className="flex items-center justify-between mb-6">
+                    {/* <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-4 text-sm text-gray-500">
                         <div className="flex items-center space-x-1">
                           <Eye className="w-4 h-4" />
@@ -426,10 +426,10 @@ const ProjectsPage: React.FC = () => {
                           <span>{project.stats.shares}</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Action Button */}
-                    <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                    <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                       <span>View Details</span>
                       <ExternalLink className="w-4 h-4" />
                     </button>
@@ -482,7 +482,7 @@ const ProjectsPage: React.FC = () => {
                             {project.title}
                           </h3>
                         </div>
-                        <span className="bg-gradient-to-r from-blue-100 to-blue-400 text-blue-400 px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                           {project.category}
                         </span>
                       </div>
@@ -515,7 +515,7 @@ const ProjectsPage: React.FC = () => {
                           {project.features.slice(0, 4).map((feature, index) => (
                             <span
                               key={index}
-                              className="bg-gradient-to-r from-blue-100 to-blue-400 text-blue-400 px-3 py-1 rounded-full text-sm font-medium"
+                              className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
                             >
                               {feature}
                             </span>
