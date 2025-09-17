@@ -80,11 +80,11 @@ const AboutPage: React.FC = () => {
           <div className="container-custom">
             <div className="max-w-6xl text-center">
               {/* Badge */}
-              <div className="inline-block mb-6 animate-fade-in">
+              {/* <div className="inline-block mb-6 animate-fade-in">
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3">
                   <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
                 </div>
-              </div>
+              </div> */}
 
               {/* Main Title */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight animate-slide-up" style={{animationDelay: '0.2s'}}>
@@ -99,8 +99,8 @@ const AboutPage: React.FC = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in" style={{animationDelay: '0.6s'}}>
                 <button 
-                className="btn-3d text-lg px-8 py-4"
-                //className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl"
+                //className="btn-3d text-lg px-8 py-4"
+                className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg border border-white/30 transform hover:scale-105 hover:shadow-xl"
                 >
                   FREE CONSULTATION
                 </button>
@@ -127,9 +127,9 @@ const AboutPage: React.FC = () => {
             {/* Text Content */}
             <div className="space-y-8 animate-slide-in-left">
               <div>
-                <div className="inline-block mb-4">
+                {/* <div className="inline-block mb-4">
                   <span className="text-blue-400 text-lg font-semibold tracking-wider">ABOUT US</span>
-                </div>
+                </div> */}
                 <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Who Are <span className="text-blue-400">We?</span>
                 </h3>
@@ -196,9 +196,9 @@ const AboutPage: React.FC = () => {
       <section className="section-padding bg-white relative">
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block mb-4">
+            {/* <div className="inline-block mb-4">
               <span className="text-blue-400 text-lg font-semibold tracking-wider">INTRO</span>
-            </div>
+            </div> */}
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Our <span className="text-blue-400">Vision & Mission</span>
             </h3>
@@ -275,9 +275,9 @@ const AboutPage: React.FC = () => {
       <section className="section-padding medical-section-bg relative">
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block mb-4">
+            {/* <div className="inline-block mb-4">
               <span className="text-blue-400 text-lg font-semibold tracking-wider">INTRODUCTION</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {/* <span className="medical-text-gradient">INTRODUCTION</span> */}
               <span className="text-blue-400">INTRODUCTION</span>
@@ -384,9 +384,9 @@ const AboutPage: React.FC = () => {
       <section className="section-padding medical-section-bg relative">
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block mb-4">
+            {/* <div className="inline-block mb-4">
               <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {/* <span className="medical-text-gradient">Our Clients</span> */}
               <span className="text-blue-400">Our Clients</span>

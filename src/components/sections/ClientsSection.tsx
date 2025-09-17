@@ -61,9 +61,9 @@ const ClientsSection: React.FC = () => {
     <section className="section-padding medical-section-bg relative">
         <div className="container-custom">
           <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-block mb-4">
+            {/* <div className="inline-block mb-4">
               <span className="text-blue-400 text-lg font-semibold tracking-wider">OUR CLIENTS</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {/* <span className="medical-text-gradient">Our Clients</span> */}
               <span className="text-blue-400">Our Clients</span>

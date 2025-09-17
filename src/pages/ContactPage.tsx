@@ -49,9 +49,9 @@ const ContactPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+              {/* <div className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/20">
                 <span className="text-blue-400 font-medium text-lg">Let's Connect</span>
-              </div>
+              </div> */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
                 Get in Touch
               </h1>
@@ -132,9 +132,9 @@ const ContactPage: React.FC = () => {
       <section id="contact-form" className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
+            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">Get In Touch</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Let's Start Your
               <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
@@ -493,7 +493,7 @@ const ContactPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-100 to-blue-100 text-blue-400 rounded-full mb-6">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-300 to-blue-400 text-white rounded-full mb-6">
               <span className="font-medium">Why Choose Us</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

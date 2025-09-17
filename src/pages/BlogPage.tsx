@@ -144,9 +144,9 @@ const BlogPage: React.FC = () => {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom">
             <div className="max-w-6xl text-center">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+              {/* <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                 <span className="text-blue-400 font-medium">Latest Insights</span>
-              </div>
+              </div> */}
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
                 Our Blog
               </h1>
@@ -205,15 +205,15 @@ const BlogPage: React.FC = () => {
         <section className="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
           <div className="container-custom">
             <div className="text-center mb-16">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full mb-6">
+              {/* <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full mb-6">
                 <span className="font-medium flex items-center space-x-2">
                   <Star className="w-4 h-4" />
                   <span>Featured</span>
                 </span>
-              </div>
+              </div> */}
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Trending
-                <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                <span className="pl-2 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                   Articles
                 </span>
               </h2>
@@ -316,12 +316,12 @@ const BlogPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
+            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
               <span className="font-medium">All Articles</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Latest
-              <span className="block bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="pl-2 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                 Insights
               </span>
             </h2>
@@ -439,7 +439,7 @@ const BlogPage: React.FC = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
+      {/* <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
         <div className="container-custom text-center">
           <div className="max-w-4xl mx-auto">
             <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
@@ -447,9 +447,9 @@ const BlogPage: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Never Miss an Update
-              {/* <span className="block text-white">
+              <span className="block text-white">
                 Update
-              </span> */}
+              </span>
             </h2>
             <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
               Subscribe to our newsletter for the latest insights on healthcare infrastructure planning and industry trends delivered straight to your inbox.
@@ -470,7 +470,7 @@ const BlogPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
