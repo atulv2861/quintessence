@@ -554,39 +554,73 @@ const SpecializedServicesPage: React.FC = () => {
       {/* Medical Gas Pipeline System Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Zap className="w-20 h-20 text-blue-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Gas Pipeline System</p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Sidebar - Service Categories */}
+            <div className="space-y-4">
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  CREATING TAILORED AND SPECIALIZED SERVICES
+                </h3>
+              </div>
+              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-white leading-relaxed">
+                  OPTIMIZED HOSPITAL EQUIPMENT PLANNING
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
+                </h3>
               </div>
             </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Medical Gas Pipeline System (MGPS)
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant. We prepare a room-wise Design Matrix that includes detailed layouts of the piping, terminal units, connected valves, alarm systems, and manifold/plant rooms, tailored to suit the specific needs of each area. The following steps are to be undertaken in the process:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  "Compliance with Standards",
-                  "Requirement Analysis",
-                  "Detailed Layout Design",
-                  "Collaboration and Coordination with engineers, contractors, and relevant stakeholders",
-                  "Calculation of Flow Rates",
-                  "Design Matrix Preparation",
-                  "Safety and Compliance"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle className="w-4 h-4 text-white" />
+
+            {/* Right Side - Gas Pipeline System Diagram */}
+            <div className="space-y-8">
+              {/* Gas Pipeline System Diagram */}
+              <div className="bg-gray-100 rounded-xl p-8">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h3>
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-16 h-16 text-white" />
                     </div>
-                    <span className="text-gray-700">{item}</span>
+                    <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
+                    <p className="text-sm text-gray-500 mt-2">Technical Diagram</p>
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                  Medical Gas Pipeline System (MGPS)
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant. We prepare a room-wise Design Matrix that includes detailed layouts of the piping, terminal units, connected valves, alarm systems, and manifold/plant rooms, tailored to suit the specific needs of each area. The following steps are to be undertaken in the process:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Compliance with Standards",
+                    "Requirement Analysis",
+                    "Detailed Layout Design",
+                    "Collaboration and Coordination with engineers, contractors, and relevant stakeholders",
+                    "Calculation of Flow Rates",
+                    "Design Matrix Preparation",
+                    "Safety and Compliance"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

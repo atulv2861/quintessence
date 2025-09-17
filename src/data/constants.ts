@@ -262,7 +262,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Services',
-    href: '/services',
+    href: '#',
     children: [
       {
         label: 'Integrated Architectural and MEP Planning',
