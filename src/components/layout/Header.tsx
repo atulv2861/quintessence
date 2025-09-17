@@ -44,12 +44,12 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-primary-400 text-white p-2 rounded-lg">
+              <div className="text-white p-2 rounded-lg">
                 {/* <span className="font-bold text-xl">SHC</span> */}
                 <img src="/images/logo/seven_healer.png" alt="SHC" className="w-10 h-10" />
               </div>
               <div className="hidden sm:block">
-                <div className="font-bold text-xl text-gray-900">SHC</div>
+                <div className="font-bold text-xl text-gray-900">SHCP</div>
                 <div className="text-sm text-gray-600">Seven Healer counsultancy Pvt.Ltd</div>
               </div>
             </Link>
