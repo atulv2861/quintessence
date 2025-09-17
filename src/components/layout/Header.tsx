@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Menu, X, ChevronDown } from 'lucide-react'
@@ -9,6 +9,8 @@ import { NAV_ITEMS } from '../../data/constants'
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const hoverTimeoutRef = useRef<number | null>(null)
   const dispatch = useDispatch()
   const location = useLocation()
   const { isMobileMenuOpen } = useSelector((state: RootState) => state.ui)
@@ -20,7 +22,8 @@ const Header: React.FC = () => {
 
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element
-      if (!target.closest('.relative')) {
+      // Check if click is outside the dropdown container
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setOpenDropdown(null)
       }
     }
@@ -31,6 +34,9 @@ const Header: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
       document.removeEventListener('mousedown', handleClickOutside)
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current)
+      }
     }
   }, [])
 
@@ -47,12 +53,17 @@ const Header: React.FC = () => {
     handleCloseMobileMenu()
   }
 
-  const handleDropdownToggle = (itemLabel: string) => {
-    setOpenDropdown(openDropdown === itemLabel ? null : itemLabel)
+  const handleDropdownOpen = (itemLabel: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+    setOpenDropdown(itemLabel)
   }
 
   const handleDropdownClose = () => {
-    setOpenDropdown(null)
+    hoverTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null)
+    }, 100) // Small delay to prevent flickering
   }
 
   return (
@@ -76,24 +87,27 @@ const Header: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav ref={dropdownRef} className="hidden lg:flex items-center space-x-8">
               {NAV_ITEMS.map((item) => (
-                <div key={item.label} className="relative">
-                  <div
-                    className={`nav-link flex items-center space-x-1 cursor-pointer ${
+                <div 
+                  key={item.label} 
+                  className="relative group"
+                  onMouseEnter={() => item.children && handleDropdownOpen(item.label)}
+                  onMouseLeave={() => item.children && handleDropdownClose()}
+                >
+                  <Link 
+                    to={item.href} 
+                    className={`nav-link flex items-center space-x-1 ${
                       location.pathname === item.href ? 'active' : ''
                     }`}
-                    onClick={() => item.children && handleDropdownToggle(item.label)}
                   >
-                    <Link to={item.href} className="flex items-center space-x-1">
-                      <span>{item.label}</span>
-                      {item.children && (
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
-                          openDropdown === item.label ? 'rotate-180' : ''
-                        }`} />
-                      )}
-                    </Link>
-                  </div>
+                    <span>{item.label}</span>
+                    {item.children && (
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                        openDropdown === item.label ? 'rotate-180' : ''
+                      }`} />
+                    )}
+                  </Link>
                   {item.children && (
                     <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-200 z-50 ${
                       openDropdown === item.label ? 'opacity-100 visible' : 'opacity-0 invisible'
