@@ -324,7 +324,7 @@ const ProjectsPage: React.FC = () => {
                     </div>
                     
                     {/* Status Badge */}
-                    <div className="absolute top-4 left-4">
+                    {/* <div className="absolute top-4 left-4">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                         project.status === 'Completed' 
                           ? 'bg-green-500 text-white' 
@@ -334,7 +334,7 @@ const ProjectsPage: React.FC = () => {
                       }`}>
                         {project.status}
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Category Badge */}
                     <div className="absolute top-4 right-4">
@@ -455,7 +455,7 @@ const ProjectsPage: React.FC = () => {
                           <p className="text-white font-medium text-sm">Project Image</p>
                         </div>
                       </div>
-                      <div className="absolute top-4 left-4">
+                      {/* <div className="absolute top-4 left-4">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                           project.status === 'Completed' 
                             ? 'bg-green-500 text-white' 
@@ -465,7 +465,7 @@ const ProjectsPage: React.FC = () => {
                         }`}>
                           {project.status}
                         </span>
-                      </div>
+                      </div> */}
                     </div>
 
                     {/* Project Details */}
