@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { RootState } from '../../store'
 import { toggleMobileMenu, closeMobileMenu, openConsultationModal } from '../../store/slices/uiSlice'
 import { NAV_ITEMS } from '../../data/constants'
@@ -60,11 +60,14 @@ const Header: React.FC = () => {
                 <div key={item.label} className="relative group">
                   <Link
                     to={item.href}
-                    className={`nav-link ${
+                    className={`nav-link flex items-center space-x-1 ${
                       location.pathname === item.href ? 'active' : ''
                     }`}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {item.children && (
+                      <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                    )}
                   </Link>
                   {item.children && (
                     <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -113,13 +116,16 @@ const Header: React.FC = () => {
                     <Link
                       to={item.href}
                       onClick={handleCloseMobileMenu}
-                      className={`block py-2 px-4 rounded-lg transition-colors ${
+                      className={`flex items-center justify-between py-2 px-4 rounded-lg transition-colors ${
                         location.pathname === item.href
                           ? 'bg-primary-50 text-primary-600'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      {item.children && (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </Link>
                     {item.children && (
                       <div className="ml-4 mt-2 space-y-1">
