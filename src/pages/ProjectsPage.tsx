@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { ArrowRight, MapPin, Building, Users, Calendar, Award, Eye, Heart, Share2, ExternalLink, Grid, List } from 'lucide-react'
+import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
 
 const ProjectsPage: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState('all')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  // const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
   const projects = [
     {
@@ -309,8 +309,8 @@ const ProjectsPage: React.FC = () => {
                 <div
                   key={project.id}
                   className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-                  onMouseEnter={() => setHoveredProject(project.id)}
-                  onMouseLeave={() => setHoveredProject(null)}
+                  //onMouseEnter={() => setHoveredProject(project.id)}
+                  //onMouseLeave={() => setHoveredProject(null)}
                 >
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
