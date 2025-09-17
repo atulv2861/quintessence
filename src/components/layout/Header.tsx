@@ -8,6 +8,7 @@ import { NAV_ITEMS } from '../../data/constants'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const dispatch = useDispatch()
   const location = useLocation()
   const { isMobileMenuOpen } = useSelector((state: RootState) => state.ui)
@@ -17,8 +18,20 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 50)
     }
 
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element
+      if (!target.closest('.relative')) {
+        setOpenDropdown(null)
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('mousedown', handleClickOutside)
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
   }, [])
 
   const handleMobileMenuToggle = () => {
@@ -32,6 +45,14 @@ const Header: React.FC = () => {
   const handleConsultationClick = () => {
     dispatch(openConsultationModal())
     handleCloseMobileMenu()
+  }
+
+  const handleDropdownToggle = (itemLabel: string) => {
+    setOpenDropdown(openDropdown === itemLabel ? null : itemLabel)
+  }
+
+  const handleDropdownClose = () => {
+    setOpenDropdown(null)
   }
 
   return (
@@ -57,25 +78,32 @@ const Header: React.FC = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {NAV_ITEMS.map((item) => (
-                <div key={item.label} className="relative group">
-                  <Link
-                    to={item.href}
-                    className={`nav-link flex items-center space-x-1 ${
+                <div key={item.label} className="relative">
+                  <div
+                    className={`nav-link flex items-center space-x-1 cursor-pointer ${
                       location.pathname === item.href ? 'active' : ''
                     }`}
+                    onClick={() => item.children && handleDropdownToggle(item.label)}
                   >
-                    <span>{item.label}</span>
-                    {item.children && (
-                      <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                    )}
-                  </Link>
+                    <Link to={item.href} className="flex items-center space-x-1">
+                      <span>{item.label}</span>
+                      {item.children && (
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                          openDropdown === item.label ? 'rotate-180' : ''
+                        }`} />
+                      )}
+                    </Link>
+                  </div>
                   {item.children && (
-                    <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-200 z-50 ${
+                      openDropdown === item.label ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}>
                       <div className="py-2">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             to={child.href}
+                            onClick={handleDropdownClose}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
                           >
                             {child.label}
