@@ -30,6 +30,11 @@ const ServiceDetailPage: React.FC = () => {
     return <SpecializedServicesPage />
   }
 
+  // Special handling for Equipment Planning
+  if (slug === 'hospital-equipment-planning') {
+    return <EquipmentPlanningPage />
+  }
+
   const getServiceIcon = (iconName: string) => {
     const icons = {
       Building2,
@@ -1033,6 +1038,286 @@ const SpecializedServicesPage: React.FC = () => {
               </h2>
               <p className="text-lg text-blue-100 mb-8 leading-relaxed">
                 If need help! Our specialized services team is ready to assist you with comprehensive healthcare infrastructure planning and design solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// Equipment Planning Page Component
+const EquipmentPlanningPage: React.FC = () => {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/services/hospital-equipment-planning.jpeg')"
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container-custom text-center">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+                <span className="text-white font-medium">Equipment Planning</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                OPTIMIZED HOSPITAL EQUIPMENT PLANNING
+                <br />
+                ENSURING HEALTHCARE DELIVERY
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Sidebar - Service Categories */}
+            <div className="space-y-4">
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  CREATING TAILORED AND SPECIALIZED SERVICES
+                </h3>
+              </div>
+              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-white leading-relaxed">
+                  OPTIMIZED HOSPITAL EQUIPMENT PLANNING
+                </h3>
+              </div>
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+                  STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
+                </h3>
+              </div>
+            </div>
+
+            {/* Right Side - Main Graphic and Content */}
+            <div className="space-y-8">
+              {/* Medical Infographic */}
+              <div className="bg-gray-100 rounded-xl p-8">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Stethoscope className="w-16 h-16 text-white" />
+                    </div>
+                    <p className="text-gray-600 font-medium">Medical Equipment Planning</p>
+                    <p className="text-sm text-gray-500 mt-2">Integrated Healthcare Solutions</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                  ENSURING EFFICIENT HEALTHCARE DELIVERY
+                </h2>
+                <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+                
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility. This comprehensive approach ensures optimal patient care, increases staff efficiency, and keeps the hospital up-to-date with the latest medical technology. The planning process is crucial during hospital design, construction, renovations, and expansions, as it directly impacts the facility's ability to deliver high-quality healthcare services.
+                </p>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Main considerations of hospital equipment planning:
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    {[
+                      "Identifying Equipment Needs",
+                      "Budgeting and Procurement",
+                      "Safety and Compliance",
+                      "Maintenance and Service Support"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      "Technology Evaluation",
+                      "Space and Workflow Planning",
+                      "Integration with Information Systems"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Equipment Planning Process */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Comprehensive Equipment Planning Process
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Our systematic approach ensures that every piece of medical equipment is strategically placed and integrated to maximize efficiency and patient outcomes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Process Step 1 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Needs Assessment</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Comprehensive evaluation of current and future equipment requirements based on patient volume, specialty services, and clinical workflows.
+              </p>
+            </div>
+
+            {/* Process Step 2 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Technology Evaluation</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Detailed analysis of available technologies, compatibility with existing systems, and future-proofing considerations for long-term value.
+              </p>
+            </div>
+
+            {/* Process Step 3 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Space Planning</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Strategic placement of equipment to optimize workflow, ensure safety compliance, and maximize operational efficiency.
+              </p>
+            </div>
+
+            {/* Process Step 4 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">4</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Budget Planning</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Cost-effective procurement strategies, lifecycle cost analysis, and budget optimization to maximize return on investment.
+              </p>
+            </div>
+
+            {/* Process Step 5 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">5</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Integration Planning</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Seamless integration with hospital information systems, electronic health records, and other digital infrastructure.
+              </p>
+            </div>
+
+            {/* Process Step 6 */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white text-2xl font-bold">6</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Implementation Support</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Comprehensive support during installation, staff training, and ongoing maintenance to ensure optimal performance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Equipment Categories */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Equipment Categories We Plan
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              From diagnostic imaging to life support systems, we plan and integrate all essential medical equipment for comprehensive healthcare delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: Stethoscope, title: "Diagnostic Equipment", description: "MRI, CT, X-ray, Ultrasound" },
+              { icon: Target, title: "Surgical Equipment", description: "Operating tables, surgical lights, monitors" },
+              { icon: Building2, title: "Life Support Systems", description: "Ventilators, dialysis, ECMO" },
+              { icon: FileText, title: "Laboratory Equipment", description: "Analyzers, microscopes, incubators" },
+              { icon: Phone, title: "Patient Monitoring", description: "Vital signs, telemetry, alarms" },
+              { icon: Users, title: "Rehabilitation Equipment", description: "Physical therapy, mobility aids" },
+              { icon: Zap, title: "Emergency Equipment", description: "Defibrillators, crash carts, trauma" },
+              { icon: MapPin, title: "Support Equipment", description: "Beds, wheelchairs, patient lifts" }
+            ].map((category, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:bg-gray-100 transition-colors duration-300">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <category.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{category.title}</h3>
+                <p className="text-sm text-gray-600">{category.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                  <Phone className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">011 4182 9639</div>
+                  <div className="text-blue-200">or go to contact form:</div>
+                </div>
+              </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center space-x-3 bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <ArrowRight className="w-5 h-5" />
+                <span>Contact Us</span>
+              </Link>
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold mb-6">
+                Contact us now
+              </h2>
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+                If need help! Our equipment planning experts are ready to assist you with comprehensive hospital equipment planning and optimization solutions.
               </p>
             </div>
           </div>
