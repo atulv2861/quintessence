@@ -264,7 +264,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left Sidebar - Service Categories */}
             <div className="space-y-4">
-              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+              <div className="bg-blue-400 p-6 rounded-xl border-l-4 border-blue-600">
                 <h3 className="text-sm font-semibold text-white leading-relaxed">
                   INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
                 </h3>
@@ -304,9 +304,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Strategic Design Approach And Associated Requirements
               </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 By implementing design strategy, the organization benefits from a customized healthcare facility that meets their unique needs, complies with national and international standards, and respects the local culture and practices. The following points are considered while implementing design strategy:
               </p>
@@ -351,9 +352,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Distinct Units And Organizational Divisions:
               </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 In consultation with the authorities, the development of the specialty mix undertaken to determine the appropriate allocation of medical specialties within the healthcare facility. Additionally, a matrix is created to guide the bed allotment and positioning of various departments. The following steps will be taken:
               </p>
@@ -383,9 +385,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Optimizing Spatial Arrangements: Strategic Space Planning:
               </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 The allocation of areas for different departments and services determined based on the estimated workload, while taking into consideration relevant rules, statutes, guidelines, norms, and best practices. The following approach will be implemented:
               </p>
@@ -427,14 +430,15 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
               <div className="w-full h-96 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <img src="/images/services/room-pressure-diagram-room.png" alt="Room Data Sheets" className="w-full h-full object-cover" />
-                  <p className="text-gray-600">Room Data Sheets</p>
+                  
                 </div>
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Room Data Sheets
               </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Room Data Sheets (RDS) are prepared for each hospital area, detailing requirements like room names, dimensions, intended usage, equipment, furniture layout, storage, infection control, patient safety, and regulatory compliance.
               </p>
@@ -466,9 +470,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Hospital Traffic Management
               </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 A detailed analysis of intramural man and material movement within the hospital and adjustment of architectural plans accordingly. The segregation of various functional areas implemented based on access levels. The following steps to be determined:
               </p>
@@ -502,6 +507,47 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* Strategizing and Crafting Healthcare Initiatives */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="bg-white rounded-xl p-8">
+              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <img src="/images/services/planning-and-desigining.jpg" alt="Room Data Sheets" className="w-full h-full object-cover" />
+                  
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Strategizing and Crafting Healthcare Initiatives
+              </h3>
+              <div className="w-40 h-1 bg-blue-400 mb-4"></div>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              By conducting a comprehensive review and making necessary modifications, we ensure that the architectural drawings accurately reflect the desired concept brief, setting the foundation for a successful implementation of the project.  We ensure that parameters outlined in the Architect’s brief are strictly adhering to relevant Standards, Guidelines, Statutes, Rules and Regulations, in accordance with the NQUAS/NABH/JCI standards, aligning with either the American, Australasian, or other applicable Health facility guidelines. The aim is to create a well-designed healthcare facility that meets the highest standards of quality, safety, and patient care.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Layout and Space Planning",
+                  "Compliance with NQUAS/NABH/JCI Standards",
+                  "Adherence to Health Facility Guidelines",
+                  "Statutes, Rules, and Regulations"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </div>
   )
 }
@@ -576,7 +622,7 @@ const SpecializedServicesPage: React.FC = () => {
                   INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
                 </h3>
               </div>
-              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+              <div className="bg-blue-400 p-6 rounded-xl border-l-4 border-blue-600">
                 <h3 className="text-sm font-semibold text-white leading-relaxed">
                   CREATING TAILORED AND SPECIALIZED SERVICES
                 </h3>
@@ -598,7 +644,7 @@ const SpecializedServicesPage: React.FC = () => {
               {/* Gas Pipeline System Diagram */}
               <div className="text-lg text-gray-600 leading-relaxed">               
                 <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Creating Tailored And Specialized Services</span>
-                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                focuses on designing solutions that meet the unique needs of individual clients or industries. Unlike generic offerings, tailored services are customized after understanding specific requirements, challenges, and goals. This approach ensures higher efficiency, better alignment with client expectations, and improved outcomes. Specialized services also leverage domain expertise, advanced tools, and innovative practices to deliver measurable value. By offering flexibility and personalization, organizations build stronger client relationships, foster trust, and gain a competitive advantage. Ultimately, tailored and specialized services drive customer satisfaction, operational excellence, and sustainable growth in today’s dynamic and competitive market environment.
                 
               </div>
             </div>
@@ -1189,7 +1235,7 @@ const EquipmentPlanningPage: React.FC = () => {
                   CREATING TAILORED AND SPECIALIZED SERVICES
                 </h3>
               </div>
-              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+              <div className="bg-blue-400 p-6 rounded-xl border-l-4 border-blue-600">
                 <h3 className="text-sm font-semibold text-white leading-relaxed">
                   OPTIMIZED HOSPITAL EQUIPMENT PLANNING
                 </h3>
@@ -1213,7 +1259,7 @@ const EquipmentPlanningPage: React.FC = () => {
                       <Zap className="w-16 h-16 text-white" />
                     </div> */}
                 <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Optimized Hospital Equipment Planning</span>
-                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                ensures the right medical devices are available, functional, and strategically allocated to support efficient healthcare delivery. It involves analyzing patient needs, treatment demands, and facility capacity to create a well-structured equipment roadmap. By integrating technology, predictive analytics, and space utilization, hospitals can minimize equipment downtime, reduce costs, and avoid duplication. Proper planning also supports compliance with healthcare standards while ensuring critical devices are always accessible. Ultimately, optimized equipment planning improves patient care, enhances staff efficiency, and maximizes return on investment, making it an essential part of modern hospital management and sustainable healthcare infrastructure.
                 {/* </div> */}
                 {/* </div> */}
                 {/* </div> */}
@@ -1229,10 +1275,10 @@ const EquipmentPlanningPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Ensuring Efficient Healthcare Delivery
               </h3>
-              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+              <div className="w-40 h-1 bg-blue-500 mb-4"></div>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility. This comprehensive approach ensures optimal patient care, increases staff efficiency, and keeps the hospital up-to-date with the latest medical technology. The planning process is crucial during hospital design, construction, renovations, and expansions, as it directly impacts the facility's ability to deliver high-quality healthcare services.
@@ -1345,7 +1391,7 @@ const PreCommissioningPage: React.FC = () => {
                   OPTIMIZED HOSPITAL EQUIPMENT PLANNING
                 </h3>
               </div>
-              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+              <div className="bg-blue-400 p-6 rounded-xl border-l-4 border-blue-600">
                 <h3 className="text-sm font-semibold text-white leading-relaxed">
                   STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
                 </h3>
@@ -1364,7 +1410,7 @@ const PreCommissioningPage: React.FC = () => {
                       <Zap className="w-16 h-16 text-white" />
                     </div> */}
                 <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Streamlining Pre-commissioning and Commissioning Activities</span>
-                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                is essential to ensure a smooth transition from construction to full-scale operations. By adopting structured workflows, digital checklists, and real-time monitoring tools, project teams can identify issues early, reduce delays, and minimize rework. Integration of BIM, IoT sensors, and testing automation enhances accuracy in verifying system performance, safety, and compliance with regulatory standards. Effective coordination between stakeholders—designers, contractors, and operators—ensures that equipment and systems are validated efficiently. This approach not only accelerates project handover but also improves reliability, reduces costs, and enhances operational readiness for long-term performance and sustainability.
                 {/* </div> */}
                 {/* </div> */}
                 {/* </div> */}
@@ -1380,10 +1426,10 @@ const PreCommissioningPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Ensuring Seamless Project Deployment
               </h3>
-              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+              <div className="w-40 h-1 bg-blue-500 mb-4"></div>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins. These activities are essential to ensure that the hospital's systems, equipment, and infrastructure are ready for commissioning and can function as intended. It includes:
@@ -1448,10 +1494,10 @@ const PreCommissioningPage: React.FC = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Strategic Design Approach And Associated Requirements
               </h2>
-              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+              <div className="w-40 h-1 bg-blue-500 mb-4"></div>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 As building systems continue to advance in complexity, the commissioning process has become increasingly significant for ensuring quality, especially in healthcare facilities. Hospital commissioning is a systematic process designed to ensure that building systems are meticulously constructed and meet predefined standards. It involves the fine-tuning of a building's systems and equipment to ensure optimal functionality and performance. This process is crucial for a hospital's long-term success and contributes to the delivery of high-quality healthcare services.
