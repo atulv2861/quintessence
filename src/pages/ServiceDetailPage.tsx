@@ -65,7 +65,7 @@ const ServiceDetailPage: React.FC = () => {
               <span>Back to Services</span>
             </Link>
           </div>
-          
+
           <div className="text-center">
             <div className="text-primary-200 mb-6 flex justify-center">
               {getServiceIcon(service.icon)}
@@ -114,9 +114,9 @@ const ServiceDetailPage: React.FC = () => {
                       Why Choose Our {service.title}?
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Our team of experienced professionals brings years of expertise in healthcare infrastructure planning. 
-                      We understand the unique challenges of healthcare facilities and provide solutions that are both 
-                      practical and innovative. With our comprehensive approach, we ensure that every aspect of your 
+                      Our team of experienced professionals brings years of expertise in healthcare infrastructure planning.
+                      We understand the unique challenges of healthcare facilities and provide solutions that are both
+                      practical and innovative. With our comprehensive approach, we ensure that every aspect of your
                       project is carefully planned and executed to meet the highest standards of quality and efficiency.
                     </p>
                   </div>
@@ -228,7 +228,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/services/planning-and-desigining.jpg')"
@@ -236,7 +236,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         >
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom text-center">
             <div className="max-w-4xl mx-auto">
@@ -290,18 +290,18 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             <div className="space-y-8">
               {/* Gas Pipeline System Diagram */}
               <div className="text-lg text-gray-600 leading-relaxed">
-              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
                 {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
-                  {/* <div className="text-center"> */}
-                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
-                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                {/* <div className="text-center"> */}
+                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Zap className="w-16 h-16 text-white" />
                     </div> */}
-                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Integrated Architectural and MEP Planning for Efficient Project Execution</span>
-                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
-                  {/* </div> */}
+                <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Integrated Architectural and MEP Planning for Efficient Project Execution</span>
+                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
                 {/* </div> */}
-              {/* </div> */}
+                {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -525,7 +525,7 @@ const SpecializedServicesPage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[80vh] overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/services/tailored-and-specialized-services-design.jpg')"
@@ -533,7 +533,7 @@ const SpecializedServicesPage: React.FC = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-900/80"></div>
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom text-center">
             <div className="max-w-5xl mx-auto">
@@ -571,15 +571,15 @@ const SpecializedServicesPage: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </section>
 
-     {/* CREATING TAILORED AND SPECIALIZED SERVICES */}
-     <section className="section-padding bg-gray-50">
+      {/* CREATING TAILORED AND SPECIALIZED SERVICES */}
+      <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left Sidebar - Service Categories */}
@@ -610,18 +610,18 @@ const SpecializedServicesPage: React.FC = () => {
             <div className="space-y-8">
               {/* Gas Pipeline System Diagram */}
               <div className="text-lg text-gray-600 leading-relaxed">
-              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
                 {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
-                  {/* <div className="text-center"> */}
-                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
-                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                {/* <div className="text-center"> */}
+                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Zap className="w-16 h-16 text-white" />
                     </div> */}
-                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Creating Tailored And Specialized Services</span>
-                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
-                  {/* </div> */}
+                <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Creating Tailored And Specialized Services</span>
+                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
                 {/* </div> */}
-              {/* </div> */}
+                {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -679,7 +679,7 @@ const SpecializedServicesPage: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
 
       {/* Modular Operation Theatre Section */}
       <section className="section-padding bg-gray-50">
@@ -1213,7 +1213,7 @@ const EquipmentPlanningPage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/services/hospital-equipment-planning.jpeg')"
@@ -1221,7 +1221,7 @@ const EquipmentPlanningPage: React.FC = () => {
         >
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom text-center">
             <div className="max-w-4xl mx-auto">
@@ -1270,76 +1270,76 @@ const EquipmentPlanningPage: React.FC = () => {
             <div className="space-y-8">
               {/* Medical Infographic */}
               <div className="text-lg text-gray-600 leading-relaxed">
-              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
                 {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
-                  {/* <div className="text-center"> */}
-                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
-                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                {/* <div className="text-center"> */}
+                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Zap className="w-16 h-16 text-white" />
                     </div> */}
-                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Optimized Hospital Equipment Planning</span>
-                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
-                  {/* </div> */}
+                <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Optimized Hospital Equipment Planning</span>
+                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
                 {/* </div> */}
-              {/* </div> */}
+                {/* </div> */}
+                {/* </div> */}
               </div>
 
               {/* Main Content */}
-             
+
             </div>
           </div>
         </div>
       </section>
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-8">
-                  Ensuring Efficient Healthcare Delivery
-                </h3>
-                <div className="w-20 h-1 bg-blue-500 mb-8"></div>
-                
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility. This comprehensive approach ensures optimal patient care, increases staff efficiency, and keeps the hospital up-to-date with the latest medical technology. The planning process is crucial during hospital design, construction, renovations, and expansions, as it directly impacts the facility's ability to deliver high-quality healthcare services.
-                </p>
-{/* 
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                Ensuring Efficient Healthcare Delivery
+              </h3>
+              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility. This comprehensive approach ensures optimal patient care, increases staff efficiency, and keeps the hospital up-to-date with the latest medical technology. The planning process is crucial during hospital design, construction, renovations, and expansions, as it directly impacts the facility's ability to deliver high-quality healthcare services.
+              </p>
+              {/* 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   Main considerations of hospital equipment planning:
                 </h3> */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-4">
-                    {[
-                      "Identifying Equipment Needs",
-                      "Budgeting and Procurement",
-                      "Safety and Compliance",
-                      "Maintenance and Service Support"
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-700 font-medium">{item}</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  {[
+                    "Identifying Equipment Needs",
+                    "Budgeting and Procurement",
+                    "Safety and Compliance",
+                    "Maintenance and Service Support"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
                       </div>
-                    ))}
-                  </div>
-                  <div className="space-y-4">
-                    {[
-                      "Technology Evaluation",
-                      "Space and Workflow Planning",
-                      "Integration with Information Systems"
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-700 font-medium">{item}</span>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Technology Evaluation",
+                    "Space and Workflow Planning",
+                    "Integration with Information Systems"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
                       </div>
-                    ))}
-                  </div>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="bg-purple-50 rounded-2xl p-8">
+            </div>
+            <div className="bg-purple-50 rounded-2xl p-8">
               <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -1364,7 +1364,7 @@ const PreCommissioningPage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/services/pre-commissioning.jpg')"
@@ -1372,7 +1372,7 @@ const PreCommissioningPage: React.FC = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-purple-900/80"></div>
         </div>
-        
+
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom text-center">
             <div className="max-w-4xl mx-auto">
@@ -1425,62 +1425,84 @@ const PreCommissioningPage: React.FC = () => {
             {/* Right Side - Main Graphic and Content */}
             <div className="space-y-8">
               {/* Industrial/Construction Infographic */}
-              <div className="bg-gray-100 rounded-xl p-8">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Building2 className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-gray-600 font-medium">Pre-commissioning & Commissioning</p>
-                    <p className="text-sm text-gray-500 mt-2">Seamless Project Deployment</p>
-                  </div>
-                </div>
+              <div className="text-lg text-gray-600 leading-relaxed">
+                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
+                {/* <div className="text-center"> */}
+                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-16 h-16 text-white" />
+                    </div> */}
+                <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Streamlining Pre-commissioning and Commissioning Activities</span>
+                construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                {/* </div> */}
+                {/* </div> */}
+                {/* </div> */}
               </div>
 
               {/* Main Content */}
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                  ENSURING SEAMLESS PROJECT DEPLOYMENT
-                </h2>
-                <div className="w-20 h-1 bg-blue-500 mb-8"></div>
-                
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins. These activities are essential to ensure that the hospital's systems, equipment, and infrastructure are ready for commissioning and can function as intended. It includes:
-                </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-4">
-                    {[
-                      "Design Review",
-                      "Systems Testing",
-                      "Training",
-                      "Mock Drills",
-                      "Compliance Verification"
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-700 font-medium">{item}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                Ensuring Seamless Project Deployment
+              </h3>
+              <div className="w-20 h-1 bg-blue-500 mb-8"></div>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins. These activities are essential to ensure that the hospital's systems, equipment, and infrastructure are ready for commissioning and can function as intended. It includes:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  {[
+                    "Design Review",
+                    "Systems Testing",
+                    "Training",
+                    "Mock Drills",
+                    "Compliance Verification"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
                       </div>
-                    ))}
-                  </div>
-                  <div className="space-y-4">
-                    {[
-                      "Equipment Inspection",
-                      "Calibration",
-                      "Documentation",
-                      "Safety Checks",
-                      "Handover Preparation"
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-700 font-medium">{item}</span>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Equipment Inspection",
+                    "Calibration",
+                    "Documentation",
+                    "Safety Checks",
+                    "Handover Preparation"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
                       </div>
-                    ))}
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="bg-purple-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FileText className="w-16 h-16 text-white" />
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Ensuring Efficient Healthcare Delivery</h3>
+                  <p className="text-gray-600 font-medium">Hospital IT System</p>
+                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
                 </div>
               </div>
             </div>
@@ -1489,15 +1511,31 @@ const PreCommissioningPage: React.FC = () => {
       </section>
 
       {/* Strategic Design Approach Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div className="bg-gray-100 rounded-xl p-8">
+              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-48 h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 relative">
+                    <div className="absolute inset-0 rounded-full border-8 border-white/20"></div>
+                    <div className="text-white text-center">
+                      <div className="text-lg font-bold mb-2">EIGHT STAGES OF THE</div>
+                      <div className="text-sm">COMMISSIONING PROCESS</div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 font-medium">Commissioning Process</p>
+                  <p className="text-sm text-gray-500 mt-2">Strategic Implementation</p>
+                </div>
+              </div>
+            </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">
                 Strategic Design Approach And Associated Requirements
               </h2>
               <div className="w-20 h-1 bg-blue-500 mb-8"></div>
-              
+
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 As building systems continue to advance in complexity, the commissioning process has become increasingly significant for ensuring quality, especially in healthcare facilities. Hospital commissioning is a systematic process designed to ensure that building systems are meticulously constructed and meet predefined standards. It involves the fine-tuning of a building's systems and equipment to ensure optimal functionality and performance. This process is crucial for a hospital's long-term success and contributes to the delivery of high-quality healthcare services.
               </p>
@@ -1540,21 +1578,6 @@ const PreCommissioningPage: React.FC = () => {
                       <span className="text-gray-700 font-medium">{item}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-48 h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 relative">
-                    <div className="absolute inset-0 rounded-full border-8 border-white/20"></div>
-                    <div className="text-white text-center">
-                      <div className="text-lg font-bold mb-2">EIGHT STAGES OF THE</div>
-                      <div className="text-sm">COMMISSIONING PROCESS</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 font-medium">Commissioning Process</p>
-                  <p className="text-sm text-gray-500 mt-2">Strategic Implementation</p>
                 </div>
               </div>
             </div>
