@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
+import { ChevronDown } from 'lucide-react'
 import { RootState } from '../../store'
 import { updateFormField, setSubmitting, setSubmitStatus, setErrorMessage, resetForm } from '../../store/slices/contactSlice'
 import { ContactFormData } from '../../types'
@@ -72,26 +73,26 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {errorMessage && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4">
           <p className="text-red-600 text-sm">{errorMessage}</p>
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="form-label">Name *</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Name *</label>
           <input
             type="text"
             {...register('name', { required: 'Name is required' })}
             onChange={(e) => handleFieldChange('name', e.target.value)}
-            className="form-input"
+            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
             placeholder="Your full name"
           />
-          {errors.name && <p className="form-error">{errors.name.message}</p>}
+          {errors.name && <p className="text-red-600 text-sm mt-2">{errors.name.message}</p>}
         </div>
 
         <div>
-          <label className="form-label">Email *</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Email *</label>
           <input
             type="email"
             {...register('email', { 
@@ -102,74 +103,79 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
               }
             })}
             onChange={(e) => handleFieldChange('email', e.target.value)}
-            className="form-input"
+            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
             placeholder="your.email@example.com"
           />
-          {errors.email && <p className="form-error">{errors.email.message}</p>}
+          {errors.email && <p className="text-red-600 text-sm mt-2">{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="form-label">Phone</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Phone</label>
           <input
             type="tel"
             {...register('phone')}
             onChange={(e) => handleFieldChange('phone', e.target.value)}
-            className="form-input"
+            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
             placeholder="+91 9876543210"
           />
         </div>
 
         <div>
-          <label className="form-label">Company</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Company</label>
           <input
             type="text"
             {...register('company')}
             onChange={(e) => handleFieldChange('company', e.target.value)}
-            className="form-input"
+            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
             placeholder="Your company name"
           />
         </div>
       </div>
 
       <div>
-        <label className="form-label">Subject *</label>
-        <select
-          {...register('subject', { required: 'Subject is required' })}
-          onChange={(e) => handleFieldChange('subject', e.target.value)}
-          className="form-input"
-        >
-          <option value="">Select a subject</option>
-          <option value="general-inquiry">General Inquiry</option>
-          <option value="service-consultation">Service Consultation</option>
-          <option value="project-inquiry">Project Inquiry</option>
-          <option value="partnership">Partnership</option>
-          <option value="other">Other</option>
-        </select>
-        {errors.subject && <p className="form-error">{errors.subject.message}</p>}
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Subject *</label>
+        <div className="relative">
+          <select
+            {...register('subject', { required: 'Subject is required' })}
+            onChange={(e) => handleFieldChange('subject', e.target.value)}
+            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 appearance-none cursor-pointer"
+          >
+            <option value="">Select a subject</option>
+            <option value="general-inquiry">General Inquiry</option>
+            <option value="service-consultation">Service Consultation</option>
+            <option value="project-inquiry">Project Inquiry</option>
+            <option value="partnership">Partnership</option>
+            <option value="other">Other</option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+            <ChevronDown className="w-5 h-5 text-gray-400" />
+          </div>
+        </div>
+        {errors.subject && <p className="text-red-600 text-sm mt-2">{errors.subject.message}</p>}
       </div>
 
       <div>
-        <label className="form-label">Message *</label>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Message *</label>
         <textarea
           {...register('message', { required: 'Message is required' })}
           onChange={(e) => handleFieldChange('message', e.target.value)}
-          className="form-textarea"
+          className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500 resize-none"
           rows={5}
           placeholder="Tell us about your project or inquiry..."
         />
-        {errors.message && <p className="form-error">{errors.message.message}</p>}
+        {errors.message && <p className="text-red-600 text-sm mt-2">{errors.message.message}</p>}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg hover:shadow-xl"
       >
         {isSubmitting ? (
           <div className="flex items-center justify-center space-x-2">
-            <div className="loading-spinner"></div>
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             <span>Sending...</span>
           </div>
         ) : (
