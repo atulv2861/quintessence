@@ -545,6 +545,11 @@ const SpecializedServicesPage: React.FC = () => {
                 <br />
                 APPROACH
               </h1>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+
+                By conducting a comprehensive review and making necessary modifications, we ensure that the architectural drawings accurately reflect the desired concept brief.
+
+              </p>
             </div>
           </div>
         </div>
@@ -561,13 +566,13 @@ const SpecializedServicesPage: React.FC = () => {
                   INTEGRATED ARCHITECTURAL AND MEP PLANNING SOLUTION FOR SEAMLESS PROJECT
                 </h3>
               </div>
-              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
-                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
+              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-white leading-relaxed">
                   CREATING TAILORED AND SPECIALIZED SERVICES
                 </h3>
               </div>
-              <div className="bg-blue-500 p-6 rounded-xl border-l-4 border-blue-600">
-                <h3 className="text-sm font-semibold text-white leading-relaxed">
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
                   OPTIMIZED HOSPITAL EQUIPMENT PLANNING
                 </h3>
               </div>
@@ -595,7 +600,42 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
 
               {/* Main Content */}
-              <div>
+              {/* <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                  Medical Gas Pipeline System (MGPS)
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant. We prepare a room-wise Design Matrix that includes detailed layouts of the piping, terminal units, connected valves, alarm systems, and manifold/plant rooms, tailored to suit the specific needs of each area. The following steps are to be undertaken in the process:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Compliance with Standards",
+                    "Requirement Analysis",
+                    "Detailed Layout Design",
+                    "Collaboration and Coordination with engineers, contractors, and relevant stakeholders",
+                    "Calculation of Flow Rates",
+                    "Design Matrix Preparation",
+                    "Safety and Compliance"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/*Medical Gas Pipeline System Section*/}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                   Medical Gas Pipeline System (MGPS)
                 </h2>
@@ -621,10 +661,10 @@ const SpecializedServicesPage: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
+      
 
       {/* Modular Operation Theatre Section */}
       <section className="section-padding bg-gray-50">
