@@ -522,44 +522,64 @@ const SpecializedServicesPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] overflow-hidden">
+      <section className="relative h-[80vh] overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/services/tailored-and-specialized-services-design.jpg')"
           }}
         >
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-900/80"></div>
         </div>
         
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container-custom text-center">
-            <div className="max-w-4xl mx-auto">
-              <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
-                <span className="text-white font-medium">Specialized Services</span>
+            <div className="max-w-5xl mx-auto">
+              <div className="inline-flex items-center px-8 py-3 bg-white/10 backdrop-blur-md rounded-full mb-8 border border-white/20">
+                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-white font-semibold text-lg">Specialized Services</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                CREATING TAILORED AND SPECIALIZED
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent">
+                  CREATING TAILORED
+                </span>
                 <br />
-                SERVICES A COMPREHENSIVE DESIGN
+                <span className="text-white">
+                  AND SPECIALIZED
+                </span>
                 <br />
-                APPROACH
+                <span className="bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent">
+                  SERVICES
+                </span>
               </h1>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-
+              <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
                 By conducting a comprehensive review and making necessary modifications, we ensure that the architectural drawings accurately reflect the desired concept brief.
-
               </p>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <span className="text-white font-medium">Comprehensive Design</span>
+                </div>
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <span className="text-white font-medium">Tailored Solutions</span>
+                </div>
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <span className="text-white font-medium">Expert Planning</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </section>
 
       {/* Medical Gas Pipeline System Section */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left Sidebar - Service Categories */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">            
             <div className="space-y-4">
               <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
                 <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
@@ -581,11 +601,8 @@ const SpecializedServicesPage: React.FC = () => {
                   STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
                 </h3>
               </div>
-            </div>
-
-            {/* Right Side - Gas Pipeline System Diagram */}
-            <div className="space-y-8">
-              {/* Gas Pipeline System Diagram */}
+            </div>            
+            <div className="space-y-8">              
               <div className="bg-gray-100 rounded-xl p-8">
                 <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                   <div className="text-center">
@@ -598,96 +615,55 @@ const SpecializedServicesPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Main Content */}
-              {/* <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                  Medical Gas Pipeline System (MGPS)
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant. We prepare a room-wise Design Matrix that includes detailed layouts of the piping, terminal units, connected valves, alarm systems, and manifold/plant rooms, tailored to suit the specific needs of each area. The following steps are to be undertaken in the process:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    "Compliance with Standards",
-                    "Requirement Analysis",
-                    "Detailed Layout Design",
-                    "Collaboration and Coordination with engineers, contractors, and relevant stakeholders",
-                    "Calculation of Flow Rates",
-                    "Design Matrix Preparation",
-                    "Safety and Compliance"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <CheckCircle className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
             </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Services Overview Section */}
+      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-blue-50">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-2 bg-blue-100 rounded-full mb-6">
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Specialized Services</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Comprehensive Healthcare
+              <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"> Solutions</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              We provide end-to-end specialized services that ensure your healthcare facility meets the highest standards of safety, efficiency, and patient care.
+            </p>
           </div>
         </div>
       </section>
 
       {/*Medical Gas Pipeline System Section*/}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                  Medical Gas Pipeline System (MGPS)
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant. We prepare a room-wise Design Matrix that includes detailed layouts of the piping, terminal units, connected valves, alarm systems, and manifold/plant rooms, tailored to suit the specific needs of each area. The following steps are to be undertaken in the process:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    "Compliance with Standards",
-                    "Requirement Analysis",
-                    "Detailed Layout Design",
-                    "Collaboration and Coordination with engineers, contractors, and relevant stakeholders",
-                    "Calculation of Flow Rates",
-                    "Design Matrix Preparation",
-                    "Safety and Compliance"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <CheckCircle className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+                  <Zap className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Medical Gas Pipeline System</h3>
+                  <p className="text-blue-600 font-medium">(MGPS)</p>
                 </div>
               </div>
-          </div>
-        </div>
-      </section>
-      
-
-      {/* Modular Operation Theatre Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Modular Operation Theatre (MOT)
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The design & development of the Operation Theatre complex, along with its accessory areas, is meticulously crafted to align with the organizational clinical plan and policies. Customized designs are created for specialty and super-specialty operation theatres, ensuring they cater precisely to the unique requirements of each area. Furthermore, the planning of Operation Theatre Integration services takes place with careful consideration of the desired level of integration with BIM/HMIS and other relevant systems. This integration aims to enhance operational efficiency and streamline the overall healthcare workflow. The following steps are undertaken in this comprehensive process:
+                The design and planning of MGPS (Medical Gas Pipeline System) services for various functional areas adhere strictly to the guidelines set forth by HTM, ISO 7396, and NFPA standards. Our team conducts meticulous calculations to determine the necessary flow rates and requirements for essential components such as Liquid Oxygen Tank (LOX), Gas Manifolds, Medical Air Compressor System, Vacuum System, and PSA (Pressure Swing Adsorption) oxygen generation plant.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  "Organizational Clinical Plan and Policies",
-                  "Accessory Areas",
-                  "Infection Control Measures",
-                  "Safety and Regulatory Compliance",
-                  "Technology implementation",
-                  "Design of Specialty and Super-Specialty OTs",
-                  "Operation Theatre Integration (OTI) Services",
-                  "Collaboration and Stakeholder Engagement",
-                  "Analysis of clinical requirements"
+                  "Compliance with Standards",
+                  "Requirement Analysis",
+                  "Detailed Layout Design",
+                  "Collaboration and Coordination",
+                  "Calculation of Flow Rates",
+                  "Design Matrix Preparation",
+                  "Safety and Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -698,12 +674,71 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-green-50 to-green-100 rounded-lg flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <Stethoscope className="w-20 h-20 text-green-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Robotic Surgical System</p>
+                  <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Zap className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Gas Pipeline System</h3>
+                  <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
+                  <p className="text-sm text-gray-500 mt-2">HTM, ISO 7396, NFPA Standards</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      {/* Modular Operation Theatre Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="bg-green-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-green-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Stethoscope className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Modular Operation Theatre</h3>
+                  <p className="text-gray-600 font-medium">Robotic Surgical System</p>
+                  <p className="text-sm text-gray-500 mt-2">Advanced Surgical Technology</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+                  <Stethoscope className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Modular Operation Theatre</h3>
+                  <p className="text-green-600 font-medium">(MOT)</p>
+                </div>
+              </div>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                The design & development of the Operation Theatre complex, along with its accessory areas, is meticulously crafted to align with the organizational clinical plan and policies. Customized designs are created for specialty and super-specialty operation theatres, ensuring they cater precisely to the unique requirements of each area.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "Clinical Plan and Policies",
+                  "Accessory Areas",
+                  "Infection Control Measures",
+                  "Safety and Regulatory Compliance",
+                  "Technology Implementation",
+                  "Specialty and Super-Specialty OTs",
+                  "Operation Theatre Integration (OTI)",
+                  "Stakeholder Engagement",
+                  "Clinical Requirements Analysis"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -714,20 +749,18 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Phone className="w-20 h-20 text-purple-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Nurse Call System</p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Nurse Call System</h3>
+                  <p className="text-purple-600 font-medium">(NCS)</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Nurse Call System (NCS)
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The planning of Nurse Call System (NCS) services for various functional areas conducted in accordance with DIN/VDE or UL standards. Development of a room-wise Design Matrix that outlines the placement and configuration of NCS components in each area. This includes identifying locations for Room Units, Pull Cords, Nurse Station Consoles, Code Blue systems, and Centralized Control Systems. The following steps are undertaken in this process:
+                The planning of Nurse Call System (NCS) services for various functional areas conducted in accordance with DIN/VDE or UL standards. Development of a room-wise Design Matrix that outlines the placement and configuration of NCS components in each area.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -739,12 +772,24 @@ const SpecializedServicesPage: React.FC = () => {
                   "Centralized Control System"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+            <div className="bg-purple-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Phone className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Nurse Call System</h3>
+                  <p className="text-gray-600 font-medium">Emergency Communication</p>
+                  <p className="text-sm text-gray-500 mt-2">DIN/VDE & UL Standards</p>
+                </div>
               </div>
             </div>
           </div>
@@ -755,12 +800,30 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Central Sterile Supply Department (CSSD)
-              </h2>
+            <div className="bg-orange-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-orange-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Building2 className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Central Sterile Supply Department</h3>
+                  <p className="text-gray-600 font-medium">CSSD Three-Zone Design</p>
+                  <p className="text-sm text-gray-500 mt-2">CDC & ASHRAE Standards</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-4">
+                  <Building2 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Central Sterile Supply Department</h3>
+                  <p className="text-orange-600 font-medium">(CSSD)</p>
+                </div>
+              </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The design follows a "three-zone" approach, including accessory areas. It emphasizes adherence to organizational clinical plans, policies, and infection control practices, guided by national and international agencies like the CDC and ASHRAE. The planning also considers integration with Building Management Systems (BMS), Hospital Management Information Systems (HMIS), and Supply Chain modules.
+                The design follows a "three-zone" approach, including accessory areas. It emphasizes adherence to organizational clinical plans, policies, and infection control practices, guided by national and international agencies like the CDC and ASHRAE.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -772,20 +835,12 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Building2 className="w-20 h-20 text-orange-500 mx-auto mb-4" />
-                  <p className="text-gray-600">CSSD Three-Zone Design</p>
-                </div>
               </div>
             </div>
           </div>
@@ -796,20 +851,18 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Target className="w-20 h-20 text-indigo-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Pneumatic Tube System</p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center mr-4">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Pneumatic Tube Transfer System</h3>
+                  <p className="text-indigo-600 font-medium">(PTTS)</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Pneumatic Tube Transfer System (PTTS)
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Designing of Pneumatic Tube System stands as a state-of-the-art computer-controlled system. We design PTS considering ease of accessibility between crucial areas keeping in mind secure transfer points, patient flow, traffic patterns, distances, benefiting both nursing/medical staff and fully automated laboratory lines and pharmacies within the facility in accordance with HTM standards. The main considerations while designing of PTS are as under:
+                Designing of Pneumatic Tube System stands as a state-of-the-art computer-controlled system. We design PTS considering ease of accessibility between crucial areas keeping in mind secure transfer points, patient flow, traffic patterns, distances, benefiting both nursing/medical staff and fully automated laboratory lines and pharmacies within the facility in accordance with HTM standards.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -821,12 +874,24 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+            <div className="bg-indigo-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-indigo-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Target className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Pneumatic Tube System</h3>
+                  <p className="text-gray-600 font-medium">Computer-Controlled System</p>
+                  <p className="text-sm text-gray-500 mt-2">HTM Standards</p>
+                </div>
               </div>
             </div>
           </div>
@@ -837,12 +902,30 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Radio-Diagnostic Services
-              </h2>
+            <div className="bg-cyan-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-cyan-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Stethoscope className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Radio-Diagnostic Services</h3>
+                  <p className="text-gray-600 font-medium">MRI Machine</p>
+                  <p className="text-sm text-gray-500 mt-2">AERB & PCPNDT Standards</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center mr-4">
+                  <Stethoscope className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Radio-Diagnostic Services</h3>
+                  <p className="text-cyan-600 font-medium">(RDS)</p>
+                </div>
+              </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The planning of Radio-diagnostic services, encompassing CT scan, X-ray, and Ultrasound, is meticulously conducted following the guidelines set forth by reputable organizations such as AERB, PCPNDT, and other applicable regulations. These stringent guidelines ensure that all aspects of the services adhere to safety, quality, and ethical standards. Additionally, for the planning of MRI services, particular attention is given to RF and magnetic shielding details, meticulously aligning with both national and international guidelines. This comprehensive approach guarantees that the MRI facilities meet the highest safety standards, protecting patients, staff, and sensitive electronic equipment from potential risks associated with magnetic fields done with utmost precision, ensuring the provision of top-quality medical imaging while safeguarding the well-being of patients and healthcare professionals. The following points to be considered while planning:
+                The planning of Radio-diagnostic services, encompassing CT scan, X-ray, and Ultrasound, is meticulously conducted following the guidelines set forth by reputable organizations such as AERB, PCPNDT, and other applicable regulations.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -854,20 +937,12 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Stethoscope className="w-20 h-20 text-cyan-500 mx-auto mb-4" />
-                  <p className="text-gray-600">MRI Machine</p>
-                </div>
               </div>
             </div>
           </div>
@@ -878,20 +953,18 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <FileText className="w-20 h-20 text-teal-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Laboratory Equipment</p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mr-4">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Lab Diagnostic Services</h3>
+                  <p className="text-teal-600 font-medium">(LDS)</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Lab Diagnostic Services
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The planning of various clinical labs is carried out meticulously, considering presumptive load, efficient workload handling, and strict adherence to infection control guidelines from agencies like CDC and ASHRAE to ensure a safe and hygienic environment. Additionally, our team provides valuable assistance in the formulation of a quality control policy aligned with high standards (NABH, JCI) to ensure quality, accuracy, and patient safety in clinical labs. It emphasizes integrating load considerations, infection control, and robust quality control. The following points to be considered while planning:
+                The planning of various clinical labs is carried out meticulously, considering presumptive load, efficient workload handling, and strict adherence to infection control guidelines from agencies like CDC and ASHRAE to ensure a safe and hygienic environment.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -902,12 +975,24 @@ const SpecializedServicesPage: React.FC = () => {
                   "Lab Design and Layout"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+            <div className="bg-teal-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-teal-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FileText className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Lab Diagnostic Services</h3>
+                  <p className="text-gray-600 font-medium">Laboratory Equipment</p>
+                  <p className="text-sm text-gray-500 mt-2">CDC & ASHRAE Guidelines</p>
+                </div>
               </div>
             </div>
           </div>
@@ -918,12 +1003,30 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Radiation And Other Therapeutic Areas
-              </h2>
+            <div className="bg-red-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-red-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Target className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Radiation And Therapeutic Areas</h3>
+                  <p className="text-gray-600 font-medium">LINAC Machine</p>
+                  <p className="text-sm text-gray-500 mt-2">AERB Compliance</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mr-4">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Radiation And Other Therapeutic Areas</h3>
+                  <p className="text-red-600 font-medium">(RTA)</p>
+                </div>
+              </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The comprehensive planning of Radio-Therapeutic (Radiation) services, including PET CT scan, LINAC, and Brachy-Therapy, emphasizes adherence to guidelines from bodies like AERB (Atomic Energy Regulatory Board) and highlights the critical role of radiation oncology in cancer management, covering diagnosis, coordinated referrals, and long-term patient follow-up. The text also details the engineering challenges involved in building specialized bunkers (shielded rooms) for equipment and the importance of a generic design for future technological advancements.
+                The comprehensive planning of Radio-Therapeutic (Radiation) services, including PET CT scan, LINAC, and Brachy-Therapy, emphasizes adherence to guidelines from bodies like AERB (Atomic Energy Regulatory Board) and highlights the critical role of radiation oncology in cancer management.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -934,20 +1037,12 @@ const SpecializedServicesPage: React.FC = () => {
                   "Radioactive Discharge Disposal Program"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-red-50 to-red-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Target className="w-20 h-20 text-red-500 mx-auto mb-4" />
-                  <p className="text-gray-600">LINAC Machine</p>
-                </div>
               </div>
             </div>
           </div>
@@ -958,18 +1053,16 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Building2 className="w-20 h-20 text-blue-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Hospital Laundry</p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+                  <Building2 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Hospital Laundry Services</h3>
+                  <p className="text-blue-600 font-medium">(HLS)</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Hospital Laundry Services
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Hospital linen and laundry services play a crucial role in patient care, with expertise in designing and planning these services, considering factors like linen volume, textile types, and patient capacity. The emphasis is on efficient and hygienic management, resource utilization, cost-effective planning, and maintaining high standards of cleanliness.
               </p>
@@ -997,6 +1090,18 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Building2 className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Laundry Services</h3>
+                  <p className="text-gray-600 font-medium">Hospital Laundry</p>
+                  <p className="text-sm text-gray-500 mt-2">Two-Zone Design</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1005,12 +1110,30 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Hospital Kitchen Services
-              </h2>
+            <div className="bg-green-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-green-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Building2 className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Kitchen Services</h3>
+                  <p className="text-gray-600 font-medium">Hospital Kitchen</p>
+                  <p className="text-sm text-gray-500 mt-2">Health & Safety Compliance</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+                  <Building2 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Hospital Kitchen Services</h3>
+                  <p className="text-green-600 font-medium">(HKS)</p>
+                </div>
+              </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Careful planning and consideration of several factors are essential when designing a hospital kitchen to ensure its efficient operation. These factors include selecting an appropriate location, ensuring the presence of adequate equipment, complying with health and safety regulations, implementing digital inventory management systems or automated temperature monitoring for refrigeration, and establishing an effective waste management system to handle food waste responsibly and promote recycling wherever feasible. Here are some key steps and factors to consider when planning and designing a hospital kitchen:
+                Careful planning and consideration of several factors are essential when designing a hospital kitchen to ensure its efficient operation. These factors include selecting an appropriate location, ensuring the presence of adequate equipment, complying with health and safety regulations, implementing digital inventory management systems or automated temperature monitoring for refrigeration.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -1027,20 +1150,12 @@ const SpecializedServicesPage: React.FC = () => {
                   "Technology Integration"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-green-50 to-green-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <Building2 className="w-20 h-20 text-green-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Hospital Kitchen</p>
-                </div>
               </div>
             </div>
           </div>
@@ -1051,20 +1166,18 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <FileText className="w-20 h-20 text-purple-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Hospital IT System</p>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Hospital Information System</h3>
+                  <p className="text-purple-600 font-medium">(Hospital IT System)</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Hospital Information System (Hospital IT System)
-              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The primary objective of a Hospital Information Management System is to efficiently manage and streamline various aspects of a hospital's operations and administrative tasks. This includes handling patient registration and demographic data entry, storing and managing patient medical records, managing patient appointments, facilitating billing and insurance processes, overseeing pharmacy and inventory management, integrating with the hospital's laboratory for test orders, results, and sample tracking, and storing and managing medical images such as X-rays, MRIs, and CT scans. Additionally, the system aids in managing financial transactions, expenses, and revenue related to hospital operations, while also generating various reports and analytics to monitor hospital performance and support data-driven decision-making. Primary considerations of planning and designing:
+                The primary objective of a Hospital Information Management System is to efficiently manage and streamline various aspects of a hospital's operations and administrative tasks. This includes handling patient registration and demographic data entry, storing and managing patient medical records, managing patient appointments, facilitating billing and insurance processes.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -1076,7 +1189,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Testing and Quality Assurance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -1084,8 +1197,109 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
+            <div className="bg-purple-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FileText className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Information System</h3>
+                  <p className="text-gray-600 font-medium">Hospital IT System</p>
+                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* Modern Contact Section */}
+      <section className="section-padding bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+              <span className="text-white font-semibold text-sm uppercase tracking-wide">Get In Touch</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Transform Your
+              <span className="bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent"> Healthcare Facility?</span>
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Let our expert team help you create a world-class healthcare environment with our comprehensive specialized services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Call Us Today</h3>
+                  <p className="text-blue-100 mb-2">Speak with our healthcare planning experts</p>
+                  <a href="tel:+1234567890" className="text-white font-semibold text-lg hover:text-blue-200 transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Expert Consultation</h3>
+                  <p className="text-blue-100 mb-2">Schedule a personalized consultation</p>
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-colors"
+                  >
+                    Schedule Consultation
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Custom Solutions</h3>
+                  <p className="text-blue-100">Tailored healthcare infrastructure solutions for your specific needs</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-6">Why Choose Our Specialized Services?</h3>
+              <div className="space-y-4">
+                {[
+                  "Comprehensive healthcare infrastructure planning",
+                  "Compliance with international standards (HTM, ISO, NFPA)",
+                  "Expert team with decades of experience",
+                  "End-to-end project management",
+                  "Customized solutions for every facility",
+                  "24/7 support and maintenance"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-blue-100 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </section>
     </div>
   )
