@@ -258,7 +258,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Gas Pipeline System Section */}
+      {/* Integrated Architectural and MEP Planning for Efficient Project Execution */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -289,17 +289,19 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             {/* Right Side - Gas Pipeline System Diagram */}
             <div className="space-y-8">
               {/* Gas Pipeline System Diagram */}
-              <div className="bg-gray-100 rounded-xl p-8">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h3>
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-lg text-gray-600 leading-relaxed">
+              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
+                  {/* <div className="text-center"> */}
+                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Zap className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
-                    <p className="text-sm text-gray-500 mt-2">Integrated MEP Planning</p>
-                  </div>
-                </div>
+                    </div> */}
+                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Integrated Architectural and MEP Planning for Efficient Project Execution</span>
+                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                  {/* </div> */}
+                {/* </div> */}
+              {/* </div> */}
               </div>
             </div>
           </div>
@@ -311,9 +313,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Strategic Design Approach And Associated Requirements
-              </h2>
+              </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 By implementing design strategy, the organization benefits from a customized healthcare facility that meets their unique needs, complies with national and international standards, and respects the local culture and practices. The following points are considered while implementing design strategy:
               </p>
@@ -360,9 +362,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Distinct Units And Organizational Divisions:
-              </h2>
+              </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 In consultation with the authorities, the development of the specialty mix undertaken to determine the appropriate allocation of medical specialties within the healthcare facility. Additionally, a matrix is created to guide the bed allotment and positioning of various departments. The following steps will be taken:
               </p>
@@ -392,9 +394,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Optimizing Spatial Arrangements: Strategic Space Planning:
-              </h2>
+              </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 The allocation of areas for different departments and services determined based on the estimated workload, while taking into consideration relevant rules, statutes, guidelines, norms, and best practices. The following approach will be implemented:
               </p>
@@ -442,9 +444,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Room Data Sheets
-              </h2>
+              </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Room Data Sheets (RDS) are prepared for each hospital area, detailing requirements like room names, dimensions, intended usage, equipment, furniture layout, storage, infection control, patient safety, and regulatory compliance.
               </p>
@@ -476,9 +478,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
                 Hospital Traffic Management
-              </h2>
+              </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 A detailed analysis of intramural man and material movement within the hospital and adjustment of architectural plans accordingly. The segregation of various functional areas implemented based on access levels. The following steps to be determined:
               </p>
@@ -576,10 +578,11 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </section>
 
-      {/* Medical Gas Pipeline System Section */}
-      {/* <section className="section-padding bg-white">
+     {/* CREATING TAILORED AND SPECIALIZED SERVICES */}
+     <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">            
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Sidebar - Service Categories */}
             <div className="space-y-4">
               <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
                 <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
@@ -591,7 +594,7 @@ const SpecializedServicesPage: React.FC = () => {
                   CREATING TAILORED AND SPECIALIZED SERVICES
                 </h3>
               </div>
-              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-600">
+              <div className="bg-blue-100 p-6 rounded-xl border-l-4 border-blue-500">
                 <h3 className="text-sm font-semibold text-blue-800 leading-relaxed">
                   OPTIMIZED HOSPITAL EQUIPMENT PLANNING
                 </h3>
@@ -601,42 +604,29 @@ const SpecializedServicesPage: React.FC = () => {
                   STREAMLINING PRE-COMMISSIONING AND COMMISSIONING ACTIVITIES
                 </h3>
               </div>
-            </div>            
-            <div className="space-y-8">              
-              <div className="bg-gray-100 rounded-xl p-8">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h3>
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            </div>
+
+            {/* Right Side - Gas Pipeline System Diagram */}
+            <div className="space-y-8">
+              {/* Gas Pipeline System Diagram */}
+              <div className="text-lg text-gray-600 leading-relaxed">
+              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
+                  {/* <div className="text-center"> */}
+                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Zap className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
-                    <p className="text-sm text-gray-500 mt-2">Technical Diagram</p>
-                  </div>
-                </div>
+                    </div> */}
+                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Creating Tailored And Specialized Services</span>
+                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                  {/* </div> */}
+                {/* </div> */}
+              {/* </div> */}
               </div>
             </div>
           </div>
         </div>
-      </section> */}
-
-      {/* Services Overview Section */}
-      {/* <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-blue-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-2 bg-blue-100 rounded-full mb-6">
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Specialized Services</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Healthcare
-              <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"> Solutions</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We provide end-to-end specialized services that ensure your healthcare facility meets the highest standards of safety, efficiency, and patient care.
-            </p>
-          </div>
-        </div>
-      </section> */}
+      </section>
 
       {/*Medical Gas Pipeline System Section*/}
       <section className="section-padding bg-white">
