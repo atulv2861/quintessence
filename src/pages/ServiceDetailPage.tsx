@@ -621,7 +621,7 @@ const SpecializedServicesPage: React.FC = () => {
       </section> */}
 
       {/* Services Overview Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-blue-50">
+      {/* <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-blue-50">
         <div className="container-custom">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-6 py-2 bg-blue-100 rounded-full mb-6">
@@ -636,13 +636,13 @@ const SpecializedServicesPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/*Medical Gas Pipeline System Section*/}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Zap className="w-6 h-6 text-white" />
@@ -707,7 +707,7 @@ const SpecializedServicesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
@@ -749,7 +749,7 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-white" />
@@ -812,7 +812,7 @@ const SpecializedServicesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
@@ -851,7 +851,7 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
@@ -914,7 +914,7 @@ const SpecializedServicesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
@@ -953,7 +953,7 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
@@ -1015,7 +1015,7 @@ const SpecializedServicesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
@@ -1053,7 +1053,7 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
@@ -1122,7 +1122,7 @@ const SpecializedServicesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
@@ -1166,7 +1166,7 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
