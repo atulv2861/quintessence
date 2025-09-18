@@ -1269,32 +1269,43 @@ const EquipmentPlanningPage: React.FC = () => {
             {/* Right Side - Main Graphic and Content */}
             <div className="space-y-8">
               {/* Medical Infographic */}
-              <div className="bg-gray-100 rounded-xl p-8">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Stethoscope className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-gray-600 font-medium">Medical Equipment Planning</p>
-                    <p className="text-sm text-gray-500 mt-2">Integrated Healthcare Solutions</p>
-                  </div>
-                </div>
+              <div className="text-lg text-gray-600 leading-relaxed">
+              {/* <div className="bg-gray-100 rounded-xl p-8"> */}
+                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
+                  {/* <div className="text-center"> */}
+                    {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
+                    {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Zap className="w-16 h-16 text-white" />
+                    </div> */}
+                    <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Optimized Hospital Equipment Planning</span>
+                    construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
+                  {/* </div> */}
+                {/* </div> */}
+              {/* </div> */}
               </div>
 
               {/* Main Content */}
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                  ENSURING EFFICIENT HEALTHCARE DELIVERY
-                </h2>
+             
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                  Ensuring Efficient Healthcare Delivery
+                </h3>
                 <div className="w-20 h-1 bg-blue-500 mb-8"></div>
                 
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Hospital equipment planning is a methodical process that involves identifying, selecting, and strategically arranging medical equipment and technology within a healthcare facility. This comprehensive approach ensures optimal patient care, increases staff efficiency, and keeps the hospital up-to-date with the latest medical technology. The planning process is crucial during hospital design, construction, renovations, and expansions, as it directly impacts the facility's ability to deliver high-quality healthcare services.
                 </p>
-
+{/* 
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   Main considerations of hospital equipment planning:
-                </h3>
+                </h3> */}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
@@ -1326,6 +1337,17 @@ const EquipmentPlanningPage: React.FC = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+              </div>
+              <div className="bg-purple-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FileText className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Ensuring Efficient Healthcare Delivery</h3>
+                  <p className="text-gray-600 font-medium">Hospital IT System</p>
+                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
                 </div>
               </div>
             </div>
