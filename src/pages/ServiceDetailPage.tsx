@@ -1358,9 +1358,9 @@ const PreCommissioningPage: React.FC = () => {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 STREAMLINING PRE-COMMISSIONING AND
                 <br />
-                COMMISSIONING ACTIVITIES ENSURING SEAMLESS
+                COMMISSIONING ACTIVITIES
                 <br />
-                PROJECTS DEPLOYMENT
+                ENSURING SEAMLESS PROJECTS DEPLOYMENT
               </h1>
               <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
                 Hospital pre-commissioning activities refer to the preparatory steps and tasks that take place before the actual commissioning process of a hospital facility begins.
@@ -1473,7 +1473,7 @@ const PreCommissioningPage: React.FC = () => {
             <div className="bg-blue-50 rounded-2xl p-8">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/esrpd.png" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
+                  <img src="/images/services/esrpd.jpg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -1489,7 +1489,7 @@ const PreCommissioningPage: React.FC = () => {
             <div className="bg-gray-100 rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/sdaar.png" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
+                  <img src="/images/services/sdaar.jpg" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
