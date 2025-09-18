@@ -289,19 +289,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             {/* Right Side - Gas Pipeline System Diagram */}
             <div className="space-y-8">
               {/* Gas Pipeline System Diagram */}
-              <div className="text-lg text-gray-600 leading-relaxed">
-                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
-                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
-                {/* <div className="text-center"> */}
-                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
-                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Zap className="w-16 h-16 text-white" />
-                    </div> */}
+              <div className="text-lg text-gray-600 leading-relaxed">                
                 <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Integrated Architectural and MEP Planning for Efficient Project Execution</span>
                 construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
-                {/* </div> */}
-                {/* </div> */}
-                {/* </div> */}
+                
               </div>
             </div>
           </div>
@@ -340,8 +331,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             <div className="bg-gray-100 rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <Building2 className="w-20 h-20 text-blue-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Architectural Design Visualization</p>
+                  <img src="/images/services/Michael-Malone-design-sketch.webp" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -354,10 +344,9 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="bg-white rounded-xl p-8">
-              <div className="w-full h-96 bg-gradient-to-br from-green-50 to-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <Users className="w-20 h-20 text-green-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Medical Team Collaboration</p>
+                  <img src="/images/services/Organizational.jpg" alt="Distinct Units And Organizational Divisions" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -422,8 +411,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             <div className="bg-gray-100 rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <Target className="w-20 h-20 text-purple-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Space Planning Visualization</p>
+                  <img src="/images/services/space-optimised.jpg" alt="Space Planning Visualization" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -438,7 +426,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             <div className="bg-white rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <FileText className="w-20 h-20 text-orange-500 mx-auto mb-4" />
+                  <img src="/images/services/room-pressure-diagram-room.png" alt="Room Data Sheets" className="w-full h-full object-cover" />
                   <p className="text-gray-600">Room Data Sheets</p>
                 </div>
               </div>
@@ -507,8 +495,7 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
             <div className="bg-gray-100 rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <MapPin className="w-20 h-20 text-indigo-500 mx-auto mb-4" />
-                  <p className="text-gray-600">Traffic Flow Analysis</p>
+                  <img src="/images/services/htm.jpeg" alt="Hospital Traffic Management" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -609,19 +596,10 @@ const SpecializedServicesPage: React.FC = () => {
             {/* Right Side - Gas Pipeline System Diagram */}
             <div className="space-y-8">
               {/* Gas Pipeline System Diagram */}
-              <div className="text-lg text-gray-600 leading-relaxed">
-                {/* <div className="bg-gray-100 rounded-xl p-8"> */}
-                {/* <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center"> */}
-                {/* <div className="text-center"> */}
-                {/* <h4 className="text-2xl font-bold text-gray-800 mb-4">Gas Pipeline System</h4> */}
-                {/* <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Zap className="w-16 h-16 text-white" />
-                    </div> */}
+              <div className="text-lg text-gray-600 leading-relaxed">               
                 <span className="text-lg md:text-lg font-bold text-gray-900 pr-2">Creating Tailored And Specialized Services</span>
                 construction projects often face delays and cost overruns due to uncoordinated architectural and MEP planning. An integrated approach resolves this by aligning design and engineering from the conceptual stage. Using BIM and clash detection, conflicts are identified early, ensuring smooth routing of ducts, conduits, and plumbing without interfering with architectural elements. This enhances building performance, energy efficiency, and compliance with regulations. Shared digital models improve collaboration, scheduling, and resource allocation, reducing risks and rework. Ultimately, integrated architectural and MEP planning delivers faster execution, sustainability, cost savings, and higher project accuracy across the entire lifecycle.
-                {/* </div> */}
-                {/* </div> */}
-                {/* </div> */}
+                
               </div>
             </div>
           </div>
@@ -667,12 +645,13 @@ const SpecializedServicesPage: React.FC = () => {
             <div className="bg-blue-50 rounded-2xl p-8">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <img src="/images/services/mgps.jpg" alt="Medical Gas Pipeline System" className="w-full h-full object-cover" />
+                  {/* <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-16 h-16 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">Gas Pipeline System</h3>
                   <p className="text-gray-600 font-medium">Medical Gas Pipeline System</p>
-                  <p className="text-sm text-gray-500 mt-2">HTM, ISO 7396, NFPA Standards</p>
+                  <p className="text-sm text-gray-500 mt-2">HTM, ISO 7396, NFPA Standards</p> */}
                 </div>
               </div>
             </div>
@@ -685,26 +664,27 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-green-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-green-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <img src="/images/services/mot.jpg" alt="Modular Operation Theatre" className="w-full h-full object-cover" />
+                  {/* <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Stethoscope className="w-16 h-16 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">Modular Operation Theatre</h3>
                   <p className="text-gray-600 font-medium">Robotic Surgical System</p>
-                  <p className="text-sm text-gray-500 mt-2">Advanced Surgical Technology</p>
+                  <p className="text-sm text-gray-500 mt-2">Advanced Surgical Technology</p> */}
                 </div>
               </div>
             </div>
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Modular Operation Theatre</h3>
-                  <p className="text-green-600 font-medium">(MOT)</p>
+                  <p className="text-blue-500 font-medium">(MOT)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -723,7 +703,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Clinical Requirements Analysis"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -741,12 +721,12 @@ const SpecializedServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Nurse Call System</h3>
-                  <p className="text-purple-600 font-medium">(NCS)</p>
+                  <p className="text-blue-600 font-medium">(NCS)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -762,7 +742,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Centralized Control System"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -770,15 +750,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-purple-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Phone className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Nurse Call System</h3>
-                  <p className="text-gray-600 font-medium">Emergency Communication</p>
-                  <p className="text-sm text-gray-500 mt-2">DIN/VDE & UL Standards</p>
+                  <img src="/images/services/ncs.jpg" alt="Nurse Call System" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -790,26 +765,21 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-orange-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-orange-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Building2 className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Central Sterile Supply Department</h3>
-                  <p className="text-gray-600 font-medium">CSSD Three-Zone Design</p>
-                  <p className="text-sm text-gray-500 mt-2">CDC & ASHRAE Standards</p>
+                  <img src="/images/services/cssd.jpg" alt="Central Sterile Supply Department" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Central Sterile Supply Department</h3>
-                  <p className="text-orange-600 font-medium">(CSSD)</p>
+                  <p className="text-blue-600 font-medium">(CSSD)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -825,7 +795,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -843,12 +813,12 @@ const SpecializedServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Pneumatic Tube Transfer System</h3>
-                  <p className="text-indigo-600 font-medium">(PTTS)</p>
+                  <p className="text-blue-600 font-medium">(PTTS)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -864,7 +834,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -872,15 +842,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-indigo-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-indigo-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Target className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Pneumatic Tube System</h3>
-                  <p className="text-gray-600 font-medium">Computer-Controlled System</p>
-                  <p className="text-sm text-gray-500 mt-2">HTM Standards</p>
+                  <img src="/images/services/ptts.jpg" alt="Pneumatic Tube Transfer System" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -892,26 +857,21 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-cyan-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-cyan-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Stethoscope className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Radio-Diagnostic Services</h3>
-                  <p className="text-gray-600 font-medium">MRI Machine</p>
-                  <p className="text-sm text-gray-500 mt-2">AERB & PCPNDT Standards</p>
+                  <img src="/images/services/rds.jpg" alt="Radio-Diagnostic Services" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Radio-Diagnostic Services</h3>
-                  <p className="text-cyan-600 font-medium">(RDS)</p>
+                  <p className="text-blue-600 font-medium">(RDS)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -927,7 +887,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Safety and Regulatory Compliance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -945,12 +905,12 @@ const SpecializedServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Lab Diagnostic Services</h3>
-                  <p className="text-teal-600 font-medium">(LDS)</p>
+                  <p className="text-blue-600 font-medium">(LDS)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -965,7 +925,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Lab Design and Layout"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -973,15 +933,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-teal-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-teal-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Lab Diagnostic Services</h3>
-                  <p className="text-gray-600 font-medium">Laboratory Equipment</p>
-                  <p className="text-sm text-gray-500 mt-2">CDC & ASHRAE Guidelines</p>
+                  <img src="/images/services/lds.jpg" alt="Lab Diagnostic Services" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -993,26 +948,21 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-red-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-red-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Target className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Radiation And Therapeutic Areas</h3>
-                  <p className="text-gray-600 font-medium">LINAC Machine</p>
-                  <p className="text-sm text-gray-500 mt-2">AERB Compliance</p>
+                  <img src="/images/services/rta.jpg" alt="Radiation And Other Therapeutic Areas" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Radiation And Other Therapeutic Areas</h3>
-                  <p className="text-red-600 font-medium">(RTA)</p>
+                  <p className="text-blue-600 font-medium">(RTA)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1027,7 +977,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Radioactive Discharge Disposal Program"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -1083,12 +1033,7 @@ const SpecializedServicesPage: React.FC = () => {
             <div className="bg-blue-50 rounded-2xl p-8">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Building2 className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Laundry Services</h3>
-                  <p className="text-gray-600 font-medium">Hospital Laundry</p>
-                  <p className="text-sm text-gray-500 mt-2">Two-Zone Design</p>
+                  <img src="/images/services/hls.jpg" alt="Hospital Laundry Services" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -1100,26 +1045,21 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-green-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-green-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Building2 className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Kitchen Services</h3>
-                  <p className="text-gray-600 font-medium">Hospital Kitchen</p>
-                  <p className="text-sm text-gray-500 mt-2">Health & Safety Compliance</p>
+                  <img src="/images/services/hks.jpg" alt="Hospital Kitchen Services" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Hospital Kitchen Services</h3>
-                  <p className="text-green-600 font-medium">(HKS)</p>
+                  <p className="text-blue-600 font-medium">(HKS)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1140,7 +1080,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Technology Integration"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -1158,12 +1098,12 @@ const SpecializedServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Hospital Information System</h3>
-                  <p className="text-purple-600 font-medium">(Hospital IT System)</p>
+                  <p className="text-blue-600 font-medium">(Hospital IT System)</p>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1179,7 +1119,7 @@ const SpecializedServicesPage: React.FC = () => {
                   "Testing and Quality Assurance"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{item}</span>
@@ -1187,15 +1127,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-purple-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Hospital Information System</h3>
-                  <p className="text-gray-600 font-medium">Hospital IT System</p>
-                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
+                  <img src="/images/services/his.jpg" alt="Hospital IT System" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -1339,15 +1274,10 @@ const EquipmentPlanningPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-purple-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Ensuring Efficient Healthcare Delivery</h3>
-                  <p className="text-gray-600 font-medium">Hospital IT System</p>
-                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
+                  <img src="/images/services/hospital-equipment-planning.jpeg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -1494,15 +1424,10 @@ const PreCommissioningPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-purple-50 rounded-2xl p-8">
-              <div className="w-full h-96 bg-purple-100 rounded-xl flex items-center justify-center">
+            <div className="bg-blue-50 rounded-2xl p-8">
+              <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-16 h-16 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Ensuring Efficient Healthcare Delivery</h3>
-                  <p className="text-gray-600 font-medium">Hospital IT System</p>
-                  <p className="text-sm text-gray-500 mt-2">Complete IT Management</p>
+                  <img src="/images/services/esrpd.png" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -1518,15 +1443,7 @@ const PreCommissioningPage: React.FC = () => {
             <div className="bg-gray-100 rounded-xl p-8">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-48 h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 relative">
-                    <div className="absolute inset-0 rounded-full border-8 border-white/20"></div>
-                    <div className="text-white text-center">
-                      <div className="text-lg font-bold mb-2">EIGHT STAGES OF THE</div>
-                      <div className="text-sm">COMMISSIONING PROCESS</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 font-medium">Commissioning Process</p>
-                  <p className="text-sm text-gray-500 mt-2">Strategic Implementation</p>
+                  <img src="/images/services/sdaar.png" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
