@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { X, ChevronDown } from 'lucide-react'
+import { X } from 'lucide-react'
 import { RootState } from '../../store'
 import { closeConsultationModal } from '../../store/slices/uiSlice'
 import ContactForm from '../forms/ContactForm'
