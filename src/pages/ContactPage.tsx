@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart, ChevronDown } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 
 const ContactPage: React.FC = () => {
@@ -8,6 +8,7 @@ const ContactPage: React.FC = () => {
     email: '',
     phone: '',
     address: '',
+    subject: '',
     message: ''
   })
 
@@ -17,7 +18,7 @@ const ContactPage: React.FC = () => {
     window.open(url, '_blank')
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -197,6 +198,27 @@ const ContactPage: React.FC = () => {
                       required
                     />
                   </div>
+                <div className="group">
+                  <div className="relative">
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 appearance-none cursor-pointer text-gray-500"
+                      required
+                    >
+                      <option value="" className="text-gray-500">Select a subject</option>
+                      <option value="general-inquiry" className="text-gray-900">General Inquiry</option>
+                      <option value="service-consultation" className="text-gray-900">Service Consultation</option>
+                      <option value="project-inquiry" className="text-gray-900">Project Inquiry</option>
+                      <option value="partnership" className="text-gray-900">Partnership</option>
+                      <option value="other" className="text-gray-900">Other</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-6 pointer-events-none">
+                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                    </div>
+                  </div>
+                </div>
                 <div className="group">
                   <textarea
                     name="message"
