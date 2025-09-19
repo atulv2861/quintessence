@@ -66,8 +66,8 @@ export class EmailService {
       subject: formData.subject || 'Contact us',
       message: formData.message,
       name: formData.name,
-      contact: formData.phone,
-      address: formData.address,
+      contact: formData.phone || 'Not provided',
+      address: formData.address || 'Not provided',
       company_name: formData.company || ''
     };
 

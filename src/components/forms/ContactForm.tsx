@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react'
 import { RootState } from '../../store'
 import { updateFormField, setSubmitting, setSubmitStatus, setErrorMessage, resetForm } from '../../store/slices/contactSlice'
 import { ContactFormData } from '../../types'
+import EmailService from '../../services/emailService'
 
 interface ContactFormProps {
   onSuccess?: () => void
@@ -29,22 +30,25 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     dispatch(setErrorMessage(''))
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Send data to backend using EmailService
+      const response = await EmailService.sendContactForm(data)
       
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', data)
-      
-      dispatch(setSubmitStatus('success'))
-      dispatch(resetForm())
-      reset()
-      
-      if (onSuccess) {
-        onSuccess()
+      if (response.status === 'success') {
+        dispatch(setSubmitStatus('success'))
+        dispatch(resetForm())
+        reset()
+        
+        if (onSuccess) {
+          onSuccess()
+        }
+      } else {
+        dispatch(setSubmitStatus('error'))
+        dispatch(setErrorMessage(response.message || 'Failed to send message. Please try again.'))
       }
     } catch (error) {
       dispatch(setSubmitStatus('error'))
       dispatch(setErrorMessage('Failed to send message. Please try again.'))
+      console.error('Form submission error:', error)
     } finally {
       dispatch(setSubmitting(false))
     }
