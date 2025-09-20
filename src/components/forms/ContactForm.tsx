@@ -24,7 +24,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     defaultValues: formData
   })
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async () => {
     dispatch(setSubmitting(true))
     dispatch(setSubmitStatus('idle'))
     dispatch(setErrorMessage(''))
