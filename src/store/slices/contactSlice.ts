@@ -7,7 +7,6 @@ interface ContactFormData {
   address: string
   subject: string
   message: string
-  company: string
 }
 
 interface ContactState {
@@ -24,7 +23,6 @@ const initialFormData: ContactFormData = {
   address: '',
   subject: '',
   message: '',
-  company: '',
 }
 
 const initialState: ContactState = {

@@ -5,7 +5,6 @@ export interface EmailData {
   name: string;
   contact: string;
   address: string;
-  company_name: string;
 }
 
 export interface EmailResponse {
@@ -59,7 +58,6 @@ export class EmailService {
     address: string;
     subject: string;
     message: string;
-    company?: string;
   }): Promise<EmailResponse> {
     const emailData: EmailData = {
       email: formData.email,
@@ -67,8 +65,7 @@ export class EmailService {
       message: formData.message,
       name: formData.name,
       contact: formData.phone || 'Not provided',
-      address: formData.address || 'Not provided',
-      company_name: formData.company || ''
+      address: formData.address || 'Not provided'
     };
 
     return this.sendContactEmail(emailData);

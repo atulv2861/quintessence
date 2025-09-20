@@ -114,28 +114,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Phone</label>
-          <input
-            type="tel"
-            {...register('phone')}
-            onChange={(e) => handleFieldChange('phone', e.target.value)}
-            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
-            placeholder="+91 9876543210"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">Company</label>
-          <input
-            type="text"
-            {...register('company')}
-            onChange={(e) => handleFieldChange('company', e.target.value)}
-            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
-            placeholder="Your company name"
-          />
-        </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Phone</label>
+        <input
+          type="tel"
+          {...register('phone')}
+          onChange={(e) => handleFieldChange('phone', e.target.value)}
+          className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-500"
+          placeholder="+91 9876543210"
+        />
       </div>
 
       <div>

@@ -70,7 +70,6 @@ export interface ContactFormData {
   address: string
   subject: string
   message: string
-  company: string
 }
 
 export interface ContactInfo {
