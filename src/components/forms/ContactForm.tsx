@@ -30,8 +30,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     dispatch(setErrorMessage(''))
 
     try {
-      // Send data to backend using EmailService
-      const response = await EmailService.sendContactForm(data)
+      // Send data to backend using EmailService - use Redux state instead of form data
+      const response = await EmailService.sendContactForm(formData)
       
       if (response.status === 'success') {
         dispatch(setSubmitStatus('success'))
