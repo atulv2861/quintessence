@@ -4,6 +4,7 @@ interface ContactFormData {
   name: string
   email: string
   phone: string
+  address: string
   subject: string
   message: string
   company: string
@@ -20,6 +21,7 @@ const initialFormData: ContactFormData = {
   name: '',
   email: '',
   phone: '',
+  address: '',
   subject: '',
   message: '',
   company: '',
