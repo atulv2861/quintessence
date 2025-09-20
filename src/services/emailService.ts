@@ -14,7 +14,7 @@ export interface EmailResponse {
 }
 
 export class EmailService {
-  private static readonly API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000') + '/api/v1';
+  private static readonly API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://seven-healer-backend.vercel.app') + '/api/v1';
 
   /**
    * Send contact form email
