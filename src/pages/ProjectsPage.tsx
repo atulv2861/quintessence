@@ -574,43 +574,32 @@ const ProjectsPage: React.FC = () => {
   const [bedsCount, setBedsCount] = useState(1)
   const [areaCount, setAreaCount] = useState(1)
   const [associatesCount, setAssociatesCount] = useState(1)
-  const increaseCount = (num: number, type: string, update: (val: number) => void) => {
-    let current = 1
-    let increment = 1
-    let stepTime = 50
-    if(type === "projects"){
-      current = projectsCount
-      increment = 1
-      stepTime = 100
-    }else if(type === "beds"){
-      current = 1000
-      increment = 1000
-      stepTime = 100
-    }else if(type === "area"){
-      current = 1000
-      increment = 1000
-    }else if(type === "associates"){
-      current = associatesCount
-      increment = 1
-      stepTime = 100
-    }
-  
+  const increaseCount = (targetValue: number, update: (val: number) => void) => {
+    const duration = 3000 // Total animation duration in milliseconds
+    const steps = 60 // Number of animation steps
+    const stepTime = duration / steps // Time between each step
+    const increment = targetValue / steps // Increment per step
+    
+    let current = 0
+    let step = 0
+    
     const interval = setInterval(() => {
-      update(current) // update UI with current value
-  
-      if (current >= num) {
+      step++
+      current = Math.min(Math.floor(increment * step), targetValue)
+      update(current)
+      
+      if (step >= steps) {
         clearInterval(interval)
-      } else {
-        current += increment
+        update(targetValue) // Ensure we end exactly at target value
       }
     }, stepTime)
   }
   
   useEffect(() => {
-    increaseCount(60,"projects",setProjectsCount)
-    increaseCount(19474,"beds",setBedsCount)
-    increaseCount(139528,"area",setAreaCount)
-    increaseCount(20,"associates",setAssociatesCount)
+    increaseCount(60,setProjectsCount)
+    increaseCount(19474,setBedsCount)
+    increaseCount(139528,setAreaCount)
+    increaseCount(20,setAssociatesCount)
   }, [])
 
   return (
