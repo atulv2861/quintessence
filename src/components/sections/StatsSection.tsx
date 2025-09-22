@@ -15,20 +15,24 @@ const StatsSection: React.FC = () => {
   const increaseCount = (num: number, type: string, update: (val: number) => void) => {
     let current = 1
     let increment = 1
+    let stepTime = 50
     if(type === "projects"){
       current = projectsCount
       increment = 1
+      stepTime = 200
     }else if(type === "beds"){
       current = 1000
       increment = 1000
+      stepTime = 200
     }else if(type === "area"){
       current = 1000
       increment = 1000
     }else if(type === "associates"){
       current = associatesCount
       increment = 1
+      stepTime = 500
     }
-    const stepTime = 50 // interval step (ms) → adjust for speed
+     // interval step (ms) → adjust for speed
   
     const interval = setInterval(() => {
       update(current) // update UI with current value
