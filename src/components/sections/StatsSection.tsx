@@ -19,18 +19,18 @@ const StatsSection: React.FC = () => {
     if(type === "projects"){
       current = projectsCount
       increment = 1
-      stepTime = 200
+      stepTime = 100
     }else if(type === "beds"){
       current = 1000
       increment = 1000
-      stepTime = 200
+      stepTime = 100
     }else if(type === "area"){
       current = 1000
       increment = 1000
     }else if(type === "associates"){
       current = associatesCount
       increment = 1
-      stepTime = 500
+      stepTime = 100
     }
      // interval step (ms) → adjust for speed
   

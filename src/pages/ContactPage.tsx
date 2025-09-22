@@ -133,7 +133,7 @@ const ContactPage: React.FC = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">100+</h3>
               <p className="text-gray-600">Happy Clients</p>
             </div>
             <div className="text-center group">
