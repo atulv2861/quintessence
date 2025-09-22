@@ -20,7 +20,7 @@ const ProjectsPage: React.FC = () => {
       description: "A state-of-the-art medical facility featuring advanced healthcare infrastructure with cutting-edge technology and patient-centric design.",
       features: ["Emergency Services", "ICU Units", "Operation Theaters", "Diagnostic Center", "Research Labs"],
       images: [
-        "/images/projects/aiims-1.jpg",
+        "/images/projects/AIIMS-Delhi-1.png",
         "/images/projects/aiims-2.jpg"
       ],
       stats: {
@@ -42,7 +42,7 @@ const ProjectsPage: React.FC = () => {
       description: "Modern healthcare complex designed with sustainable architecture and advanced medical technology integration.",
       features: ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics"],
       images: [
-        "/images/projects/jwalapuri-1.jpg",
+        "/images/projects/jwalapuri-1-7.jpg",
         "/images/projects/jwalapuri-2.jpg"
       ],
       stats: {
@@ -64,7 +64,7 @@ const ProjectsPage: React.FC = () => {
       description: "Comprehensive health city featuring multiple specialty centers and wellness facilities in a single campus.",
       features: ["Wellness Center", "Diagnostic Hub", "Rehabilitation", "Mental Health", "Community Health"],
       images: [
-        "/images/projects/sarvesh-1.jpg",
+        "/images/projects/sarvesh-health-city.png",
         "/images/projects/sarvesh-2.jpg"
       ],
       stats: {
@@ -75,18 +75,18 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 4,
-      title: "Metro Healthcare Complex",
-      location: "Gurgaon, Haryana",
+      title: "Adichunagiri Institute of Medical Science Mandya",
+      location: "Mandya, Karnataka",
       beds: "500 Bedded Hospital",
       area: "45,000 Sq. Mtr. (Approx.)",
-      client: "Metro Healthcare Group",
+      client: "Adichunagiri Institute of Medical Science Mandya",
       status: "Planning",
       year: "2025",
       category: "Multi-Specialty",
       description: "Next-generation healthcare facility with smart building technology and AI-powered patient care systems.",
       features: ["Smart ICU", "Telemedicine", "Robotic Surgery", "Digital Health", "Green Building"],
       images: [
-        "/images/projects/metro-1.jpg",
+        "/images/projects/Adichunagiri-Institute-of-Medical-Science.png",
         "/images/projects/metro-2.jpg"
       ],
       stats: {
@@ -97,8 +97,8 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 5,
-      title: "Rural Health Mission Center",
-      location: "Bihar, India",
+      title: "Lok Nayak Jai Prakash Hospital",
+      location: "Delhi, India",
       beds: "150 Bedded Hospital",
       area: "15,000 Sq. Mtr. (Approx.)",
       client: "Government of Bihar",
@@ -108,7 +108,7 @@ const ProjectsPage: React.FC = () => {
       description: "Community-focused healthcare facility designed to serve rural populations with essential medical services.",
       features: ["Primary Care", "Maternal Health", "Child Health", "Emergency Care", "Community Outreach"],
       images: [
-        "/images/projects/rural-1.jpg",
+        "/images/projects/lok-nayak.png",
         "/images/projects/rural-2.jpg"
       ],
       stats: {
@@ -119,18 +119,436 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 6,
-      title: "International Medical Center",
-      location: "Mumbai, Maharashtra",
+      title: "Rao Tula Ram Memorial Govt. Hospital",
+      location: "Jafferpur, Delhi",
       beds: "1200 Bedded Hospital",
       area: "85,000 Sq. Mtr. (Approx.)",
-      client: "International Healthcare Ltd.",
+      client: "Government of Delhi",
       status: "In Progress",
       year: "2024",
       category: "International",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
-        "/images/projects/international-1.jpg",
+        "/images/projects/RTRM-1-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 7,
+      title: "Acharya Shree Bhikshu Govt. Hospital",
+      location: "Moti Nagar, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Acharya-Shree-Bhikshu-Govt.-Hospital.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 8,
+      title: "Guru Gobind Singh Govt. Hospital",
+      location: "Raghubir Nagar, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Guru-Gobind-Singh-Govt.-Hospital.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 9,
+      title: "Shree Dada Dev Matri Avum Shishu Chikitsalya",
+      location: "Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/dada-dev.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 10,
+      title: "Redevelopment of Capital Hospital",
+      location: "Bhubaneswar, Odisha",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Odisha",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Redevelopment-of-Capital-Hospital-odisha.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 11,
+      title: "New Mother & Child Hospital Block, SCB Medical College",
+      location: "Cuttack, Odisha",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/New-Mother-Child-Hospital-Block.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 12,
+      title: "Redevelopment of AHPGI Cancer Hospital",
+      location: "Cuttack, Odisha",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/AHPGIC-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 13,
+      title: "Hospital Block at Satna Medical College & Hospital",
+      location: "Satna, Madhya Pradesh",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Madhya Pradesh",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Hospital-Block-at-Satna-Medical-College.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 14,
+      title: "S.N. Medical College & Hospital",
+      location: "Agra, Uttar Pradesh",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/S.N-Medical-College-Hospital.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 15,
+      title: "Advanced Trauma Centre KGMU",
+      location: "Lucknow, Uttar Pradesh",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Uttar Pradesh",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Advanced-Trauma-Centre-KGMU-Lucknow.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 16,
+      title: "Sant Nirankari Health City",
+      location: "New Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/SNHC-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 17,
+      title: "New Covid Block at Govt. Hospital",
+      location: "Shalimar Bagh, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Shalimar-bagh-1.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 18,
+      title: "New Covid Block at GTB Govt. Hospital",
+      location: "Dilshaad Garden, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/GTB-3-1.jpeg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 19,
+      title: "New Covid Block at CNBC",
+      location: "New Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/CNBC-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 20,
+      title: "New Covid Block",
+      location: "Sarita Vihar, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Sarita-vihar-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 21,
+      title: "New Super Specialty Hospital Blocks",
+      location: "Madipur, Delhi",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Madipur-1.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 22,
+      title: "AIIMS Avantipora",
+      location: "Avantipora, Jammu and Kashmir",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/AIIMS-Avantipora-2.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 23,
+      title: "Community Health center",
+      location: "Jharkhand",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Community-health-center-2.jpg",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 24,
+      title: "Critical care block",
+      location: "Jharkhand",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/Critical-care-block-1.png",
+        "/images/projects/international-2.jpg"
+      ],
+      stats: {
+        views: 1120,
+        likes: 78,
+        shares: 31
+      }
+    },
+    {
+      id: 25,
+      title: "50 Bedded Hospital",
+      location: "Jharkhand",
+      beds: "1200 Bedded Hospital",
+      area: "85,000 Sq. Mtr. (Approx.)",
+      client: "Government of Delhi",
+      status: "In Progress",
+      year: "2024",
+      category: "International",
+      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
+      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
+      images: [
+        "/images/projects/50-bedded-1.jpg",
         "/images/projects/international-2.jpg"
       ],
       stats: {
@@ -355,12 +773,13 @@ const ProjectsPage: React.FC = () => {
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
                     <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                           <Building className="w-10 h-10 text-white" />
                         </div>
                         <p className="text-white font-medium">Project Image</p>
-                      </div>
+                      </div> */}
+                      <img src={project.images[0]} alt={project.title} className="w-full h-64 object-cover" />
                     </div>
                     
                     {/* Status Badge */}
@@ -488,12 +907,13 @@ const ProjectsPage: React.FC = () => {
                     {/* Project Image */}
                     <div className="relative overflow-hidden">
                       <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                        <div className="text-center">
+                        {/* <div className="text-center">
                           <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
                             <Building className="w-8 h-8 text-white" />
                           </div>
                           <p className="text-white font-medium text-sm">Project Image</p>
-                        </div>
+                        </div> */}
+                        <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover" />
                       </div>
                       {/* <div className="absolute top-4 left-4">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
