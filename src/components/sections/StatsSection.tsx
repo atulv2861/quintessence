@@ -12,8 +12,22 @@ const StatsSection: React.FC = () => {
   const [bedsCount, setBedsCount] = useState(1)
   const [areaCount, setAreaCount] = useState(1)
   const [associatesCount, setAssociatesCount] = useState(1)
-  const increaseCount = (num: number, update: (val: number) => void) => {
+  const increaseCount = (num: number, type: string, update: (val: number) => void) => {
     let current = 1
+    let increment = 1
+    if(type === "projects"){
+      current = projectsCount
+      increment = 1
+    }else if(type === "beds"){
+      current = 1000
+      increment = 1000
+    }else if(type === "area"){
+      current = 1000
+      increment = 1000
+    }else if(type === "associates"){
+      current = associatesCount
+      increment = 1
+    }
     const stepTime = 50 // interval step (ms) → adjust for speed
   
     const interval = setInterval(() => {
@@ -22,16 +36,16 @@ const StatsSection: React.FC = () => {
       if (current >= num) {
         clearInterval(interval)
       } else {
-        current += 1
+        current += increment
       }
     }, stepTime)
   }
   
   useEffect(() => {
-    increaseCount(stats.projects,setProjectsCount)
-    increaseCount(stats.beds,setBedsCount)
-    increaseCount(stats.area,setAreaCount)
-    increaseCount(stats.associates,setAssociatesCount)
+    increaseCount(stats.projects,"projects",setProjectsCount)
+    increaseCount(stats.beds,"beds",setBedsCount)
+    increaseCount(stats.area,"area",setAreaCount)
+    increaseCount(stats.associates,"associates",setAssociatesCount)
   }, [])
 
   return (

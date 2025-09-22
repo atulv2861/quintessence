@@ -21,7 +21,7 @@ export const COMPANY_INFO: CompanyInfo = {
     ]
   },
   stats: {
-    area: 1395285,
+    area: 139528,
     beds: 19474,
     projects: 60,
     associates: 20

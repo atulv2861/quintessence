@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
 
 const ProjectsPage: React.FC = () => {
@@ -152,6 +152,46 @@ const ProjectsPage: React.FC = () => {
     return num.toLocaleString()
   }
 
+  const [projectsCount, setProjectsCount] = useState(1)
+  const [bedsCount, setBedsCount] = useState(1)
+  const [areaCount, setAreaCount] = useState(1)
+  const [associatesCount, setAssociatesCount] = useState(1)
+  const increaseCount = (num: number, type: string, update: (val: number) => void) => {
+    let current = 1
+    let increment = 1
+    if(type === "projects"){
+      current = projectsCount
+      increment = 1
+    }else if(type === "beds"){
+      current = 1000
+      increment = 1000
+    }else if(type === "area"){
+      current = 1000
+      increment = 1000
+    }else if(type === "associates"){
+      current = associatesCount
+      increment = 1
+    }
+    const stepTime = 50 // interval step (ms) → adjust for speed
+  
+    const interval = setInterval(() => {
+      update(current) // update UI with current value
+  
+      if (current >= num) {
+        clearInterval(interval)
+      } else {
+        current += increment
+      }
+    }, stepTime)
+  }
+  
+  useEffect(() => {
+    increaseCount(60,"projects",setProjectsCount)
+    increaseCount(19474,"beds",setBedsCount)
+    increaseCount(139528,"area",setAreaCount)
+    increaseCount(20,"associates",setAssociatesCount)
+  }, [])
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Interactive Background */}
@@ -187,28 +227,28 @@ const ProjectsPage: React.FC = () => {
                   <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Building className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">60+</div>
+                  <div className="text-2xl font-bold text-white mb-1">{projectsCount}+</div>
                   <div className="text-white/70 text-sm">Projects</div>
                 </div>
                 <div className="text-center group">
                   <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Users className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">4,350</div>
+                  <div className="text-2xl font-bold text-white mb-1">{bedsCount}+</div>
                   <div className="text-white/70 text-sm">Total Beds</div>
                 </div>
                 <div className="text-center group">
                   <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Award className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">12.5M</div>
+                  <div className="text-2xl font-bold text-white mb-1">{areaCount}+</div>
                   <div className="text-white/70 text-sm">Sq. Mtr.</div>
                 </div>
                 <div className="text-center group">
                   <div className="w-14 h-14 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">20+</div>
+                  <div className="text-2xl font-bold text-white mb-1">{associatesCount}+</div>
                   <div className="text-white/70 text-sm">Years</div>
                 </div>
               </div>
