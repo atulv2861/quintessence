@@ -38,7 +38,7 @@ const contactSlice = createSlice({
   name: 'contact',
   initialState,
   reducers: {
-    updateFormField: (state, action: PayloadAction<{ field: keyof ContactFormData; value: string }>) => {
+    updateFormField: (state, action: PayloadAction<{ field: Exclude<keyof ContactFormData, 'files'>; value: string }>) => {
       state.formData[action.payload.field] = action.payload.value
     },
     updateFiles: (state, action: PayloadAction<File[]>) => {
