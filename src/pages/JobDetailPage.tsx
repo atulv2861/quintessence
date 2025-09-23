@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Briefcase, MapPin, Calendar, Clock } from 'lucide-react'
+import { ArrowLeft, Briefcase, MapPin, Calendar } from 'lucide-react'
 
 interface Job {
   id: string
