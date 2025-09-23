@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Upload, File, X, Cloud } from 'lucide-react'
+import { File, X, Cloud } from 'lucide-react'
 import EmailService from '../services/emailService'
 
 const ApplyPage: React.FC = () => {
