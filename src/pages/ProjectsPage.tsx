@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
 
 const ProjectsPage: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState('all')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   // const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
@@ -15,8 +14,8 @@ const ProjectsPage: React.FC = () => {
       area: "10,00,000 Sq. Mtr. (Approx.)",
       client: "ARCOP",
       status: "Completed",
-      year: "2023",
-      category: "Super Specialty",
+      year: "",
+      category: "",
       description: "A state-of-the-art medical facility featuring advanced healthcare infrastructure with cutting-edge technology and patient-centric design.",
       features: ["Emergency Services", "ICU Units", "Operation Theaters", "Diagnostic Center", "Research Labs"],
       images: [
@@ -31,14 +30,14 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 2,
-      title: "New Super Specialty Hospital Blocks",
+      title: "New Super Specialty Hospital",
       location: "Jwalapuri, Delhi",
       beds: "750 Bedded Hospital",
       area: "70,000 Sq. Mtr (Approx.)",
       client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "Multi-Specialty",
+      year: "",
+      category: "",
       description: "Modern healthcare complex designed with sustainable architecture and advanced medical technology integration.",
       features: ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics"],
       images: [
@@ -59,8 +58,8 @@ const ProjectsPage: React.FC = () => {
       area: "22,000 Sq. Mtr. (Approx.)",
       client: "HKSD Sarvodya Healthcare",
       status: "Completed",
-      year: "2022",
-      category: "Health City",
+      year: "",
+      category: "",
       description: "Comprehensive health city featuring multiple specialty centers and wellness facilities in a single campus.",
       features: ["Wellness Center", "Diagnostic Hub", "Rehabilitation", "Mental Health", "Community Health"],
       images: [
@@ -77,12 +76,12 @@ const ProjectsPage: React.FC = () => {
       id: 4,
       title: "Adichunagiri Institute of Medical Science Mandya",
       location: "Mandya, Karnataka",
-      beds: "500 Bedded Hospital",
-      area: "45,000 Sq. Mtr. (Approx.)",
-      client: "Adichunagiri Institute of Medical Science Mandya",
+      beds: "1400 Bedded Hospital",
+      area: "1,90,000 Sq. Mtr. (Approx.)",
+      client: "Dexterous Designers & Associates Pvt Ltd",
       status: "Planning",
-      year: "2025",
-      category: "Multi-Specialty",
+      year: "",
+      category: "",
       description: "Next-generation healthcare facility with smart building technology and AI-powered patient care systems.",
       features: ["Smart ICU", "Telemedicine", "Robotic Surgery", "Digital Health", "Green Building"],
       images: [
@@ -99,12 +98,12 @@ const ProjectsPage: React.FC = () => {
       id: 5,
       title: "Lok Nayak Jai Prakash Hospital",
       location: "Delhi, India",
-      beds: "150 Bedded Hospital",
-      area: "15,000 Sq. Mtr. (Approx.)",
-      client: "Government of Bihar",
+      beds: "1600 Bedded Hospital",
+      area: "90,000 Sq. Mtr. (Approx.)",
+      client: "Sikka Associates Architects",
       status: "Completed",
-      year: "2021",
-      category: "Rural Healthcare",
+      year: "",
+      category: "",
       description: "Community-focused healthcare facility designed to serve rural populations with essential medical services.",
       features: ["Primary Care", "Maternal Health", "Child Health", "Emergency Care", "Community Outreach"],
       images: [
@@ -121,12 +120,12 @@ const ProjectsPage: React.FC = () => {
       id: 6,
       title: "Rao Tula Ram Memorial Govt. Hospital",
       location: "Jafferpur, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "270 Bedded Hospital",
+      area: "16,031 Sq. Mtr. (Approx.)",
+      client: "SGA Design Lab",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -143,12 +142,12 @@ const ProjectsPage: React.FC = () => {
       id: 7,
       title: "Acharya Shree Bhikshu Govt. Hospital",
       location: "Moti Nagar, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "270 Bedded Hospital",
+      area: "15,708 Sq. Mtr. (Approx.)",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -165,12 +164,12 @@ const ProjectsPage: React.FC = () => {
       id: 8,
       title: "Guru Gobind Singh Govt. Hospital",
       location: "Raghubir Nagar, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "472 Bedded Hospital",
+      area: "38,246 Sq. Mtr. (Approx.)",
+      client: "SGA Design Lab",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -187,12 +186,12 @@ const ProjectsPage: React.FC = () => {
       id: 9,
       title: "Shree Dada Dev Matri Avum Shishu Chikitsalya",
       location: "Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "281 Bedded Hospital",
+      area: "15,000 Sq. Mtr. (Approx.)",
+      client: "SGA Design Lab",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -209,12 +208,12 @@ const ProjectsPage: React.FC = () => {
       id: 10,
       title: "Redevelopment of Capital Hospital",
       location: "Bhubaneswar, Odisha",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Odisha",
+      beds: "2500 Bedded Hospital",
+      area: "2,70,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -231,12 +230,12 @@ const ProjectsPage: React.FC = () => {
       id: 11,
       title: "New Mother & Child Hospital Block, SCB Medical College",
       location: "Cuttack, Odisha",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "585 Bedded Hospital",
+      area: "50,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -253,12 +252,12 @@ const ProjectsPage: React.FC = () => {
       id: 12,
       title: "Redevelopment of AHPGI Cancer Hospital",
       location: "Cuttack, Odisha",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "750 Bedded Hospital",
+      area: "35,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -275,12 +274,12 @@ const ProjectsPage: React.FC = () => {
       id: 13,
       title: "Hospital Block at Satna Medical College & Hospital",
       location: "Satna, Madhya Pradesh",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Madhya Pradesh",
+      beds: "650 Bedded Hospital",
+      area: "55,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -297,12 +296,12 @@ const ProjectsPage: React.FC = () => {
       id: 14,
       title: "S.N. Medical College & Hospital",
       location: "Agra, Uttar Pradesh",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "585 Bedded Hospital",
+      area: "50,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -319,12 +318,12 @@ const ProjectsPage: React.FC = () => {
       id: 15,
       title: "Advanced Trauma Centre KGMU",
       location: "Lucknow, Uttar Pradesh",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Uttar Pradesh",
+      beds: "500 Bedded Hospital",
+      area: "39,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -341,12 +340,12 @@ const ProjectsPage: React.FC = () => {
       id: 16,
       title: "Sant Nirankari Health City",
       location: "New Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "492 Bedded Hospital",
+      area: "65,000 Sq. Mtr. (Approx.)",
+      client: "Sant Nirankari Mission, Delhi",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -363,12 +362,12 @@ const ProjectsPage: React.FC = () => {
       id: 17,
       title: "New Covid Block at Govt. Hospital",
       location: "Shalimar Bagh, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "585 Bedded Hospital",
+      area: "50,000 Sq. Mtr. (Approx.)",
+      client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -385,12 +384,12 @@ const ProjectsPage: React.FC = () => {
       id: 18,
       title: "New Covid Block at GTB Govt. Hospital",
       location: "Dilshaad Garden, Delhi",
-      beds: "1200 Bedded Hospital",
+      beds: "1912 Bedded Hospital",
       area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -407,12 +406,12 @@ const ProjectsPage: React.FC = () => {
       id: 19,
       title: "New Covid Block at CNBC",
       location: "New Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "596 Bedded Hospital",
+      area: "19,000 Sq. Mtr. (Approx.)",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -429,12 +428,12 @@ const ProjectsPage: React.FC = () => {
       id: 20,
       title: "New Covid Block",
       location: "Sarita Vihar, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "336 Bedded Hospital",
+      area: "11,800 Sq. Mtr. (Approx.)",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -451,12 +450,12 @@ const ProjectsPage: React.FC = () => {
       id: 21,
       title: "New Super Specialty Hospital Blocks",
       location: "Madipur, Delhi",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "750 Bedded Hospital",
+      area: "70,000 Sq. Mtr. (Approx.)",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -473,12 +472,12 @@ const ProjectsPage: React.FC = () => {
       id: 22,
       title: "AIIMS Avantipora",
       location: "Avantipora, Jammu and Kashmir",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "1912 Bedded Hospital",
+      area: "78,000 Sq. Mtr. (Approx.)",
+      client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -495,12 +494,12 @@ const ProjectsPage: React.FC = () => {
       id: 23,
       title: "Community Health center",
       location: "Jharkhand",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "30 Bedded Hospital",
+      area: "1,503 Sq. Mtr. (Approx.)",
+      client: "Mass N Void",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -517,12 +516,12 @@ const ProjectsPage: React.FC = () => {
       id: 24,
       title: "Critical care block",
       location: "Jharkhand",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "100 Bedded Hospital",
+      area: "8,767 Sq. Mtr. (Approx.)",
+      client: "Mass N Void",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",      
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -539,12 +538,12 @@ const ProjectsPage: React.FC = () => {
       id: 25,
       title: "50 Bedded Hospital",
       location: "Jharkhand",
-      beds: "1200 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "Government of Delhi",
+      beds: "50 Bedded Hospital",
+      area: "4,229 Sq. Mtr. (Approx.)",
+      client: "Mass N Void",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -559,12 +558,6 @@ const ProjectsPage: React.FC = () => {
     }
   ]
 
-  const categories = ['all', ...Array.from(new Set(projects.map(project => project.category)))]
-
-  const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedFilter === 'all' || project.category === selectedFilter || project.status === selectedFilter
-    return matchesCategory
-  })
 
   const formatNumber = (num: number) => {
     return num.toLocaleString()
@@ -674,41 +667,31 @@ const ProjectsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Filter and View Controls */}
-      <section className="py-12 bg-gradient-to-r from-gray-50 to-blue-50">
-        <div className="container-custom">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => setSelectedFilter('all')}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedFilter === 'all'
-                    ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
-                }`}
-              >
-                All Projects
-              </button>
-              {categories.slice(1).map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedFilter(category)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    selectedFilter === category
-                      ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
 
-            {/* View Mode Toggle */}
-            <div className="flex items-center space-x-4">
+      {/* Projects Grid/List */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="relative mb-16">
+            {/* Centered Content */}
+            <div className="text-center">
+              {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
+                <span className="font-medium">Portfolio</span>
+              </div> */}
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Featured  
+                <span className="bg-gradient-to-r from-blue-400 to-blue-500 pl-2 bg-clip-text text-transparent">
+                  Projects
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Explore our diverse portfolio of healthcare infrastructure projects that showcase innovation, excellence, and impact.
+              </p>
+            </div>
+            
+            {/* View Mode Toggle - Positioned absolutely on the right */}
+            <div className="absolute top-0 right-0 hidden lg:flex items-center space-x-4">
               <span className="text-gray-600 font-medium">View:</span>
-              <div className="flex bg-white rounded-lg p-1 border border-gray-200">
+              <div className="flex bg-white rounded-lg p-1 border border-gray-200 shadow-sm">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-md transition-all duration-200 ${
@@ -731,31 +714,40 @@ const ProjectsPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Grid/List */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
-              <span className="font-medium">Portfolio</span>
-            </div> */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Featured  
-              <span className="bg-gradient-to-r from-blue-400 to-blue-500 pl-2 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our diverse portfolio of healthcare infrastructure projects that showcase innovation, excellence, and impact.
-            </p>
+            
+            {/* View Mode Toggle - For mobile, centered below content */}
+            <div className="flex justify-center mt-8 lg:hidden">
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-600 font-medium">View:</span>
+                <div className="flex bg-white rounded-lg p-1 border border-gray-200 shadow-sm">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'grid'
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <Grid className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'list'
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <List className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {viewMode === 'grid' ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
+              {projects.map((project) => (
                 <div
                   key={project.id}
                   className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
@@ -890,7 +882,7 @@ const ProjectsPage: React.FC = () => {
             </div>
           ) : (
             <div className="space-y-8">
-              {filteredProjects.map((project) => (
+              {projects.map((project) => (
                 <div
                   key={project.id}
                   className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
