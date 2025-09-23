@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Search, Briefcase, MapPin, Calendar, ArrowRight } from 'lucide-react'
+import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Job {
   id: string
@@ -18,6 +18,8 @@ const JobsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedJobType, setSelectedJobType] = useState('')
   const [selectedLocation, setSelectedLocation] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const jobsPerPage = 6
 
   const jobs: Job[] = [
     {
@@ -103,6 +105,111 @@ const JobsPage: React.FC = () => {
         'Develop project proposals and recommendations',
         'Maintain client relationships and ensure satisfaction'
       ]
+    },
+    {
+      id: 'JD-0024',
+      title: 'Project Manager',
+      company: 'Seven Healer Consultants',
+      location: 'New Delhi',
+      type: 'Full Time',
+      postedDate: 'Posted 5 days ago',
+      description: 'We are looking for an experienced Project Manager to oversee healthcare infrastructure projects from planning to completion.',
+      requirements: [
+        'Bachelor\'s degree in Project Management or related field',
+        '5+ years of project management experience',
+        'PMP certification preferred',
+        'Strong leadership and communication skills'
+      ],
+      responsibilities: [
+        'Plan and execute healthcare infrastructure projects',
+        'Coordinate with stakeholders and team members',
+        'Monitor project progress and budgets',
+        'Ensure timely delivery of projects'
+      ]
+    },
+    {
+      id: 'JD-0023',
+      title: 'Business Development Executive',
+      company: 'Seven Healer Consultants',
+      location: 'Bangalore',
+      type: 'Full Time',
+      postedDate: 'Posted 4 days ago',
+      description: 'Join our business development team to identify new opportunities and build relationships with healthcare organizations.',
+      requirements: [
+        'Bachelor\'s degree in Business Administration or related field',
+        '3+ years of business development experience',
+        'Strong networking and negotiation skills',
+        'Knowledge of healthcare industry'
+      ],
+      responsibilities: [
+        'Identify and pursue new business opportunities',
+        'Build and maintain client relationships',
+        'Prepare proposals and presentations',
+        'Meet sales targets and objectives'
+      ]
+    },
+    {
+      id: 'JD-0022',
+      title: 'Quality Assurance Specialist',
+      company: 'Seven Healer Consultants',
+      location: 'Chennai',
+      type: 'Full Time',
+      postedDate: 'Posted 3 days ago',
+      description: 'We need a Quality Assurance Specialist to ensure our healthcare infrastructure projects meet the highest standards.',
+      requirements: [
+        'Bachelor\'s degree in Quality Management or related field',
+        '4+ years of QA experience in healthcare',
+        'Knowledge of healthcare regulations and standards',
+        'Attention to detail and analytical skills'
+      ],
+      responsibilities: [
+        'Develop and implement quality standards',
+        'Conduct quality audits and inspections',
+        'Ensure compliance with regulations',
+        'Document and report quality issues'
+      ]
+    },
+    {
+      id: 'JD-0021',
+      title: 'Technical Writer',
+      company: 'Seven Healer Consultants',
+      location: 'Remote',
+      type: 'Part Time',
+      postedDate: 'Posted 2 days ago',
+      description: 'We are seeking a Technical Writer to create comprehensive documentation for our healthcare infrastructure projects.',
+      requirements: [
+        'Bachelor\'s degree in Technical Writing or related field',
+        '2+ years of technical writing experience',
+        'Strong writing and editing skills',
+        'Knowledge of healthcare terminology'
+      ],
+      responsibilities: [
+        'Create technical documentation and manuals',
+        'Edit and proofread project documents',
+        'Collaborate with technical teams',
+        'Maintain documentation standards'
+      ]
+    },
+    {
+      id: 'JD-0020',
+      title: 'Financial Analyst',
+      company: 'Seven Healer Consultants',
+      location: 'New Delhi',
+      type: 'Full Time',
+      postedDate: 'Posted 1 day ago',
+      description: 'Join our finance team to analyze project costs and provide financial insights for healthcare infrastructure projects.',
+      requirements: [
+        'Bachelor\'s degree in Finance or Accounting',
+        '3+ years of financial analysis experience',
+        'Strong analytical and Excel skills',
+        'Knowledge of project finance'
+      ],
+      responsibilities: [
+        'Analyze project costs and budgets',
+        'Prepare financial reports and forecasts',
+        'Support project financial planning',
+        'Ensure financial compliance'
+      ]
     }
   ]
 
@@ -122,6 +229,22 @@ const JobsPage: React.FC = () => {
 
     return matchesSearch && matchesCategory && matchesJobType && matchesLocation
   })
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage)
+  const startIndex = (currentPage - 1) * jobsPerPage
+  const endIndex = startIndex + jobsPerPage
+  const currentJobs = filteredJobs.slice(startIndex, endIndex)
+
+  // Reset to first page when filters change
+  React.useEffect(() => {
+    setCurrentPage(1)
+  }, [searchTerm, selectedCategory, selectedJobType, selectedLocation])
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -244,7 +367,7 @@ const JobsPage: React.FC = () => {
 
               {/* Search Button */}
               <div className="flex items-end">
-                <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2">
+                <button className="w-full bg-gradient-to-r from-blue-400 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2">
                   <Search className="w-5 h-5" />
                   <span>Search Jobs</span>
                 </button>
@@ -265,17 +388,17 @@ const JobsPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            {filteredJobs.map((job) => (
+            {currentJobs.map((job) => (
               <div key={job.id} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex-1">
                     {/* Company Logo/Initials */}
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center mr-4">
                         <span className="text-white font-bold text-lg">{job.company.charAt(0)}</span>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-green-600 mb-1">
+                        <h3 className="text-xl font-bold text-blue-400 mb-1">
                           {job.title} ({job.id})
                         </h3>
                       </div>
@@ -307,7 +430,7 @@ const JobsPage: React.FC = () => {
 
                   {/* Read More Button */}
                   <div className="lg:ml-6">
-                    <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center space-x-2 group">
+                    <button className="bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center space-x-2 group">
                       <span>Read More</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
@@ -324,6 +447,77 @@ const JobsPage: React.FC = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">No Jobs Found</h3>
               <p className="text-gray-600">Try adjusting your search criteria to find more opportunities.</p>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {filteredJobs.length > 0 && totalPages > 1 && (
+            <div className="mt-12 flex justify-center">
+              <div className="flex items-center space-x-2">
+                {/* Previous Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-1" />
+                  Previous
+                </button>
+
+                {/* Page Numbers */}
+                <div className="flex items-center space-x-1">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                    // Show first page, last page, current page, and pages around current page
+                    const shouldShow = 
+                      page === 1 || 
+                      page === totalPages || 
+                      (page >= currentPage - 1 && page <= currentPage + 1)
+
+                    if (!shouldShow) {
+                      // Show ellipsis for gaps
+                      if (page === currentPage - 2 || page === currentPage + 2) {
+                        return (
+                          <span key={page} className="px-3 py-2 text-sm text-gray-500">
+                            ...
+                          </span>
+                        )
+                      }
+                      return null
+                    }
+
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                          currentPage === page
+                            ? 'bg-blue-500 text-white shadow-md'
+                            : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Pagination Info */}
+          {filteredJobs.length > 0 && (
+            <div className="mt-6 text-center text-sm text-gray-600">
+              Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {filteredJobs.length} jobs
             </div>
           )}
         </div>
