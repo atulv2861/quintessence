@@ -164,9 +164,9 @@ const JobsPage: React.FC = () => {
       <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="bg-gray-50 rounded-2xl p-8 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {/* Keywords Search */}
-              <div>
+              <div className="lg:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Keywords</label>
                 <div className="relative">
                   <input
@@ -241,14 +241,14 @@ const JobsPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Search Button */}
-            <div className="mt-6 flex justify-center">
-              <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 flex items-center space-x-2">
-                <Search className="w-5 h-5" />
-                <span>Search Jobs</span>
-              </button>
+              {/* Search Button */}
+              <div className="flex items-end">
+                <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2">
+                  <Search className="w-5 h-5" />
+                  <span>Search Jobs</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
