@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Upload, X, File, Paperclip } from 'lucide-react'
 import { RootState } from '../../store'
-import { updateFormField, setSubmitting, setSubmitStatus, setErrorMessage, resetForm } from '../../store/slices/contactSlice'
+import { updateFormField, updateFiles, removeFile, setSubmitting, setSubmitStatus, setErrorMessage, resetForm } from '../../store/slices/contactSlice'
 import { ContactFormData } from '../../types'
 import EmailService from '../../services/emailService'
 
@@ -14,6 +14,7 @@ interface ContactFormProps {
 const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   const dispatch = useDispatch()
   const { formData, isSubmitting, submitStatus, errorMessage } = useSelector((state: RootState) => state.contact)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const {
     register,
@@ -56,6 +57,40 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
   const handleFieldChange = (field: keyof ContactFormData, value: string) => {
     dispatch(updateFormField({ field, value }))
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || [])
+    const currentFiles = formData.files || []
+    const newFiles = [...currentFiles, ...files]
+    
+    // Limit to 5 files maximum
+    if (newFiles.length > 5) {
+      dispatch(setErrorMessage('Maximum 5 files allowed'))
+      return
+    }
+    
+    // Check file size (10MB limit per file)
+    const oversizedFiles = newFiles.filter(file => file.size > 10 * 1024 * 1024)
+    if (oversizedFiles.length > 0) {
+      dispatch(setErrorMessage('File size should not exceed 10MB'))
+      return
+    }
+    
+    dispatch(updateFiles(newFiles))
+    dispatch(setErrorMessage(''))
+  }
+
+  const handleRemoveFile = (index: number) => {
+    dispatch(removeFile(index))
+  }
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
   }
 
   if (submitStatus === 'success') {
@@ -168,6 +203,57 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
           placeholder="Tell us about your project or inquiry..."
         />
         {errors.message && <p className="text-red-600 text-sm mt-2">{errors.message.message}</p>}
+      </div>
+
+      {/* File Attachments Section */}
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">Attachments (Optional)</label>
+        
+        {/* File Upload Area */}
+        <div 
+          className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors duration-200 cursor-pointer"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <input
+            ref={fileInputRef}
+            type="file"
+            multiple
+            accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.jpeg,.png,.gif,.txt"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <Paperclip className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+          <p className="text-gray-600 mb-2">
+            <span className="text-blue-600 font-medium">Click to upload</span> or drag and drop
+          </p>
+          <p className="text-sm text-gray-500">
+            PDF, DOC, PPT, XLS, Images (Max 10MB each, up to 5 files)
+          </p>
+        </div>
+
+        {/* File List */}
+        {formData.files && formData.files.length > 0 && (
+          <div className="mt-4 space-y-2">
+            {formData.files.map((file, index) => (
+              <div key={index} className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                <div className="flex items-center space-x-3">
+                  <File className="w-5 h-5 text-blue-500" />
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{file.name}</p>
+                    <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveFile(index)}
+                  className="text-red-500 hover:text-red-700 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <button

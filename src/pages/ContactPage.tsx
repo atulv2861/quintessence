@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart, ChevronDown } from 'lucide-react'
+import React, { useState, useRef } from 'react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart, ChevronDown, Paperclip, File, X } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 import EmailService from '../services/emailService'
 
@@ -12,9 +12,11 @@ const ContactPage: React.FC = () => {
     subject: '',
     message: ''
   })
+  const [files, setFiles] = useState<File[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(WHATSAPP_CONFIG.message)
@@ -29,6 +31,42 @@ const ContactPage: React.FC = () => {
     })
   }
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newFiles = Array.from(e.target.files || [])
+    const updatedFiles = [...files, ...newFiles]
+    
+    // Limit to 5 files maximum
+    if (updatedFiles.length > 5) {
+      setSubmitMessage('Maximum 5 files allowed')
+      setSubmitStatus('error')
+      return
+    }
+    
+    // Check file size (10MB limit per file)
+    const oversizedFiles = updatedFiles.filter(file => file.size > 10 * 1024 * 1024)
+    if (oversizedFiles.length > 0) {
+      setSubmitMessage('File size should not exceed 10MB')
+      setSubmitStatus('error')
+      return
+    }
+    
+    setFiles(updatedFiles)
+    setSubmitMessage('')
+    setSubmitStatus('idle')
+  }
+
+  const handleRemoveFile = (index: number) => {
+    setFiles(files.filter((_, i) => i !== index))
+  }
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -36,7 +74,10 @@ const ContactPage: React.FC = () => {
     setSubmitMessage('')
 
     try {
-      const response = await EmailService.sendContactForm(formData)
+      const response = await EmailService.sendContactForm({
+        ...formData,
+        files: files
+      })
       
       if (response.status === 'success') {
         setSubmitStatus('success')
@@ -50,6 +91,7 @@ const ContactPage: React.FC = () => {
           subject: '',
           message: ''
         })
+        setFiles([])
       } else {
         setSubmitStatus('error')
         setSubmitMessage(response.message || 'Failed to send message. Please try again.')
@@ -285,10 +327,60 @@ const ContactPage: React.FC = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your project..."
-                    rows={6}
-                    className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 resize-none"
+                    rows={4}
+                    className="w-full px-6 py-2 bg-white border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 group-hover:border-blue-300 resize-none"
                     required
                   ></textarea>
+                </div>
+
+                {/* File Attachments Section */}
+                <div className="group">                 
+                  
+                  {/* File Upload Area */}
+                  <div 
+                    className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors duration-200 cursor-pointer"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      multiple
+                      accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.jpeg,.png,.gif,.txt"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                    <Paperclip className="w-8 h-8 text-gray-400 mx-auto mb-3" />
+                    <p className="text-gray-600 mb-2">
+                      <span className="text-blue-600 font-medium">Click to upload</span> or drag and drop
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      PDF, DOC, PPT, XLS, Images (Max 10MB each, up to 5 files)
+                    </p>
+                  </div>
+
+                  {/* File List */}
+                  {files.length > 0 && (
+                    <div className="mt-4 space-y-2">
+                      {files.map((file, index) => (
+                        <div key={index} className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                          <div className="flex items-center space-x-3">
+                            <File className="w-5 h-5 text-blue-500" />
+                            <div>
+                              <p className="text-sm font-medium text-gray-900">{file.name}</p>
+                              <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveFile(index)}
+                            className="text-red-500 hover:text-red-700 transition-colors"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="submit"
