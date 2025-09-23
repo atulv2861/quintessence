@@ -55,7 +55,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
     }
   }
 
-  const handleFieldChange = (field: keyof ContactFormData, value: string) => {
+  const handleFieldChange = (field: Exclude<keyof ContactFormData, 'files'>, value: string) => {
     dispatch(updateFormField({ field, value }))
   }
 
