@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
 
 const ProjectsPage: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState('all')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   // const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
@@ -559,12 +558,6 @@ const ProjectsPage: React.FC = () => {
     }
   ]
 
-  const categories = ['all', ...Array.from(new Set(projects.map(project => project.category)))]
-
-  const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedFilter === 'all' || project.category === selectedFilter || project.status === selectedFilter
-    return matchesCategory
-  })
 
   const formatNumber = (num: number) => {
     return num.toLocaleString()
@@ -674,37 +667,10 @@ const ProjectsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Filter and View Controls */}
+      {/* View Controls */}
       <section className="py-12 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="container-custom">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => setSelectedFilter('all')}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedFilter === 'all'
-                    ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
-                }`}
-              >
-                All Projects
-              </button>
-              {categories.slice(1).map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedFilter(category)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    selectedFilter === category
-                      ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg transform scale-105'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 hover:scale-105 border border-gray-200'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-
+          <div className="flex justify-center">
             {/* View Mode Toggle */}
             <div className="flex items-center space-x-4">
               <span className="text-gray-600 font-medium">View:</span>
@@ -755,7 +721,7 @@ const ProjectsPage: React.FC = () => {
 
           {viewMode === 'grid' ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
+              {projects.map((project) => (
                 <div
                   key={project.id}
                   className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
@@ -890,7 +856,7 @@ const ProjectsPage: React.FC = () => {
             </div>
           ) : (
             <div className="space-y-8">
-              {filteredProjects.map((project) => (
+              {projects.map((project) => (
                 <div
                   key={project.id}
                   className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
