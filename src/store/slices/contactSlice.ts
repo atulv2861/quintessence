@@ -7,6 +7,7 @@ interface ContactFormData {
   address: string
   subject: string
   message: string
+  files?: File[]
 }
 
 interface ContactState {
@@ -23,6 +24,7 @@ const initialFormData: ContactFormData = {
   address: '',
   subject: '',
   message: '',
+  files: [],
 }
 
 const initialState: ContactState = {
@@ -38,6 +40,14 @@ const contactSlice = createSlice({
   reducers: {
     updateFormField: (state, action: PayloadAction<{ field: keyof ContactFormData; value: string }>) => {
       state.formData[action.payload.field] = action.payload.value
+    },
+    updateFiles: (state, action: PayloadAction<File[]>) => {
+      state.formData.files = action.payload
+    },
+    removeFile: (state, action: PayloadAction<number>) => {
+      if (state.formData.files) {
+        state.formData.files.splice(action.payload, 1)
+      }
     },
     resetForm: (state) => {
       state.formData = initialFormData
@@ -58,6 +68,8 @@ const contactSlice = createSlice({
 
 export const {
   updateFormField,
+  updateFiles,
+  removeFile,
   resetForm,
   setSubmitting,
   setSubmitStatus,

@@ -70,6 +70,7 @@ export interface ContactFormData {
   address: string
   subject: string
   message: string
+  files?: File[]
 }
 
 export interface ContactInfo {

@@ -5,6 +5,7 @@ export interface EmailData {
   name: string;
   contact: string;
   address: string;
+  files?: File[];
 }
 
 export interface EmailResponse {
@@ -22,13 +23,29 @@ export class EmailService {
    */
   static async sendContactEmail(data: EmailData): Promise<EmailResponse> {
     try {
+      const formData = new FormData();
+      
+      // Add all required fields
+      formData.append('email', data.email);
+      formData.append('subject', data.subject);
+      formData.append('message', data.message);
+      formData.append('name', data.name);
+      formData.append('contact', data.contact);
+      formData.append('address', data.address);
+      
+      // Add files if provided
+      if (data.files && data.files.length > 0) {
+        data.files.forEach((file) => {
+          formData.append('files', file);
+        });
+      }
+
       const response = await fetch(`${this.API_BASE_URL}/send/email`, {
         method: 'POST',
         headers: {
           'accept': 'application/json',
-          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -58,6 +75,7 @@ export class EmailService {
     address: string;
     subject: string;
     message: string;
+    files?: File[];
   }): Promise<EmailResponse> {
     const emailData: EmailData = {
       email: formData.email,
@@ -65,7 +83,8 @@ export class EmailService {
       message: formData.message,
       name: formData.name,
       contact: formData.phone || 'Not provided',
-      address: formData.address || 'Not provided'
+      address: formData.address || 'Not provided',
+      files: formData.files
     };
 
     return this.sendContactEmail(emailData);
