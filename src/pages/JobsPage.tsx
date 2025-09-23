@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Job {
@@ -14,6 +15,7 @@ interface Job {
 }
 
 const JobsPage: React.FC = () => {
+  const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedJobType, setSelectedJobType] = useState('')
@@ -430,7 +432,10 @@ const JobsPage: React.FC = () => {
 
                   {/* Read More Button */}
                   <div className="lg:ml-6">
-                    <button className="bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center space-x-2 group">
+                    <button 
+                      onClick={() => navigate(`/career/job/${job.id}`)}
+                      className="bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center space-x-2 group"
+                    >
                       <span>Read More</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
