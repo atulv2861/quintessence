@@ -15,7 +15,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "Completed",
       year: "",
-      category: "Super Specialty",
+      category: "",
       description: "A state-of-the-art medical facility featuring advanced healthcare infrastructure with cutting-edge technology and patient-centric design.",
       features: ["Emergency Services", "ICU Units", "Operation Theaters", "Diagnostic Center", "Research Labs"],
       images: [
@@ -37,7 +37,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "Multi-Specialty",
+      category: "",
       description: "Modern healthcare complex designed with sustainable architecture and advanced medical technology integration.",
       features: ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics"],
       images: [
@@ -58,8 +58,8 @@ const ProjectsPage: React.FC = () => {
       area: "22,000 Sq. Mtr. (Approx.)",
       client: "HKSD Sarvodya Healthcare",
       status: "Completed",
-      year: "2022",
-      category: "Health City",
+      year: "",
+      category: "",
       description: "Comprehensive health city featuring multiple specialty centers and wellness facilities in a single campus.",
       features: ["Wellness Center", "Diagnostic Hub", "Rehabilitation", "Mental Health", "Community Health"],
       images: [
@@ -81,7 +81,7 @@ const ProjectsPage: React.FC = () => {
       client: "Dexterous Designers & Associates Pvt Ltd",
       status: "Planning",
       year: "",
-      category: "Multi-Specialty",
+      category: "",
       description: "Next-generation healthcare facility with smart building technology and AI-powered patient care systems.",
       features: ["Smart ICU", "Telemedicine", "Robotic Surgery", "Digital Health", "Green Building"],
       images: [
@@ -103,7 +103,7 @@ const ProjectsPage: React.FC = () => {
       client: "Sikka Associates Architects",
       status: "Completed",
       year: "",
-      category: "Rural Healthcare",
+      category: "",
       description: "Community-focused healthcare facility designed to serve rural populations with essential medical services.",
       features: ["Primary Care", "Maternal Health", "Child Health", "Emergency Care", "Community Outreach"],
       images: [
@@ -125,7 +125,7 @@ const ProjectsPage: React.FC = () => {
       client: "SGA Design Lab",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -147,7 +147,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -169,7 +169,7 @@ const ProjectsPage: React.FC = () => {
       client: "SGA Design Lab",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -191,7 +191,7 @@ const ProjectsPage: React.FC = () => {
       client: "SGA Design Lab",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -213,7 +213,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -234,8 +234,8 @@ const ProjectsPage: React.FC = () => {
       area: "50,000 Sq. Mtr. (Approx.)",
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -257,7 +257,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -279,7 +279,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -301,7 +301,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -323,7 +323,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -345,7 +345,7 @@ const ProjectsPage: React.FC = () => {
       client: "Sant Nirankari Mission, Delhi",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -367,7 +367,7 @@ const ProjectsPage: React.FC = () => {
       client: "DDF Consultants Pvt Ltd",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -389,7 +389,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -411,7 +411,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -433,7 +433,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -454,8 +454,8 @@ const ProjectsPage: React.FC = () => {
       area: "70,000 Sq. Mtr. (Approx.)",
       client: "ARCOP",
       status: "In Progress",
-      year: "2024",
-      category: "International",
+      year: "",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -477,7 +477,7 @@ const ProjectsPage: React.FC = () => {
       client: "ARCOP",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -499,7 +499,7 @@ const ProjectsPage: React.FC = () => {
       client: "Mass N Void",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -521,7 +521,7 @@ const ProjectsPage: React.FC = () => {
       client: "Mass N Void",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",      
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -543,7 +543,7 @@ const ProjectsPage: React.FC = () => {
       client: "Mass N Void",
       status: "In Progress",
       year: "",
-      category: "International",
+      category: "",
       description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
       features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
       images: [
@@ -667,14 +667,31 @@ const ProjectsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* View Controls */}
-      <section className="py-12 bg-gradient-to-r from-gray-50 to-blue-50">
+
+      {/* Projects Grid/List */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="flex justify-center">
-            {/* View Mode Toggle */}
-            <div className="flex items-center space-x-4">
+          <div className="relative mb-16">
+            {/* Centered Content */}
+            <div className="text-center">
+              {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
+                <span className="font-medium">Portfolio</span>
+              </div> */}
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Featured  
+                <span className="bg-gradient-to-r from-blue-400 to-blue-500 pl-2 bg-clip-text text-transparent">
+                  Projects
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Explore our diverse portfolio of healthcare infrastructure projects that showcase innovation, excellence, and impact.
+              </p>
+            </div>
+            
+            {/* View Mode Toggle - Positioned absolutely on the right */}
+            <div className="absolute top-0 right-0 hidden lg:flex items-center space-x-4">
               <span className="text-gray-600 font-medium">View:</span>
-              <div className="flex bg-white rounded-lg p-1 border border-gray-200">
+              <div className="flex bg-white rounded-lg p-1 border border-gray-200 shadow-sm">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-md transition-all duration-200 ${
@@ -697,26 +714,35 @@ const ProjectsPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Grid/List */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
-              <span className="font-medium">Portfolio</span>
-            </div> */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Featured  
-              <span className="bg-gradient-to-r from-blue-400 to-blue-500 pl-2 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our diverse portfolio of healthcare infrastructure projects that showcase innovation, excellence, and impact.
-            </p>
+            
+            {/* View Mode Toggle - For mobile, centered below content */}
+            <div className="flex justify-center mt-8 lg:hidden">
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-600 font-medium">View:</span>
+                <div className="flex bg-white rounded-lg p-1 border border-gray-200 shadow-sm">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'grid'
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <Grid className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'list'
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <List className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {viewMode === 'grid' ? (
