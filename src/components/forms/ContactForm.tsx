@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChevronDown, Upload, X, File, Paperclip } from 'lucide-react'
+import { ChevronDown, X, File, Paperclip } from 'lucide-react'
 import { RootState } from '../../store'
 import { updateFormField, updateFiles, removeFile, setSubmitting, setSubmitStatus, setErrorMessage, resetForm } from '../../store/slices/contactSlice'
 import { ContactFormData } from '../../types'
