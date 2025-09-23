@@ -175,12 +175,46 @@ Current/Last Designation: ${formData.currentDesignation}
   }
 
   return (
-    <div className="min-h-screen bg-purple-50">
-      {/* Header */}
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero2.jpg')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container-custom">
+            <div className="max-w-6xl text-center">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Apply for a Position
+              </h1>
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
+                Ready to join our team? Submit your application and let's start your journey with Seven Healer Consultants.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Enhanced scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-4 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Form Header */}
       <div className="bg-white shadow-sm">
         <div className="container-custom py-6">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-green-600 mb-2">SHCP</h1>
+          <div className="text-center">            
             <h2 className="text-3xl font-bold text-gray-800 mb-2">SHCP - Recruitment</h2>
             <p className="text-lg text-gray-600">Drop your CV here</p>
           </div>
@@ -188,7 +222,7 @@ Current/Last Designation: ${formData.currentDesignation}
       </div>
 
       {/* Form Section */}
-      <div className="container-custom py-12">
+      <div className="container-custom py-12 bg-blue-50">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             {/* Success/Error Messages */}
@@ -518,7 +552,7 @@ Current/Last Designation: ${formData.currentDesignation}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-12 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-blue-400 hover:bg-blue-500 text-white font-semibold py-4 px-12 rounded-2xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
