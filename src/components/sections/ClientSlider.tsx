@@ -8,11 +8,17 @@ interface Client {
 
 const ClientSlider: React.FC = () => {
   const clients: Client[] = [
-    { image: '/images/clients/fortis-logo.png', alt: 'Fortis Healthcare', name: 'Fortis Healthcare' },
-    { image: '/images/clients/max-logo.png', alt: 'Max Healthcare', name: 'Max Healthcare' },
-    { image: '/images/clients/medanta-logo.jpg', alt: 'Medanta Hospital', name: 'Medanta Hospital' },
-    { image: '/images/clients/pwd-logo.jpg', alt: 'PWD Delhi Government', name: 'PWD Delhi Government' },
-    { image: '/images/clients/up-logo.png', alt: 'Uttar Pradesh Government', name: 'Uttar Pradesh Government' },
+    { image: '/images/clients/Arcop.png', alt: 'Arcop', name: 'Fortis Healthcare' },
+    { image: '/images/clients/cpwd-logo.jpg', alt: 'Max Healthcare', name: 'Max Healthcare' },
+    { image: '/images/clients/D.png', alt: 'Medanta Hospital', name: 'Medanta Hospital' },
+    { image: '/images/clients/ddf.png', alt: 'PWD Delhi Government', name: 'PWD Delhi Government' },
+    { image: '/images/clients/delhi-gov.png', alt: 'Uttar Pradesh Government', name: 'Uttar Pradesh Government' },
+    { image: '/images/clients/globe.png', alt: 'Fortis Healthcare', name: 'Fortis Healthcare' },
+    { image: '/images/clients/HKSD.png', alt: 'Max Healthcare', name: 'Max Healthcare' },
+    { image: '/images/clients/mn.png', alt: 'Medanta Hospital', name: 'Medanta Hospital' },
+    { image: '/images/clients/SAA.png', alt: 'PWD Delhi Government', name: 'PWD Delhi Government' },
+    { image: '/images/clients/SGA.png', alt: 'Uttar Pradesh Government', name: 'Uttar Pradesh Government' },
+  
   ];
     const [current, setCurrent] = React.useState(0);
     const [visibleCount, setVisibleCount] = React.useState(4);
