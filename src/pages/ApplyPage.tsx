@@ -115,13 +115,36 @@ ${formData.coverLetter}
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container-custom">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Apply for a Position</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Ready to join our team? Submit your application and let's start your journey with Seven Healer Consultants.
-            </p>
+      <section className="relative h-[70vh] overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero/hero2.jpg')"
+          }}
+        >
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container-custom">
+            <div className="max-w-6xl text-center">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Apply for a Position
+              </h1>
+              <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
+                Ready to join our team? Submit your application and let's start your journey with Seven Healer Consultants.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Enhanced scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-4 bg-white/50 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
