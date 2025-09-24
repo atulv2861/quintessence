@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import AdminLayout from './components/admin/AdminLayout'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
@@ -10,25 +11,46 @@ import JobDetailPage from './pages/JobDetailPage'
 import ApplyPage from './pages/ApplyPage'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import DashboardPage from './pages/admin/DashboardPage'
+import AdminBlogsPage from './pages/admin/BlogsPage'
+import AdminProjectsPage from './pages/admin/ProjectsPage'
+import AdminJobsPage from './pages/admin/JobsPage'
+import AnalyticsPage from './pages/admin/AnalyticsPage'
+import SettingsPage from './pages/admin/SettingsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/:slug" element={<ServiceDetailPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/career/current-openings" element={<JobsPage />} />
-        <Route path="/career/job/:jobId" element={<JobDetailPage />} />
-        <Route path="/career/apply" element={<ApplyPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Layout>
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Layout><HomePage /></Layout>} />
+      <Route path="/about" element={<Layout><AboutPage /></Layout>} />
+      <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
+      <Route path="/services/:slug" element={<Layout><ServiceDetailPage /></Layout>} />
+      <Route path="/projects" element={<Layout><ProjectsPage /></Layout>} />
+      <Route path="/career/current-openings" element={<Layout><JobsPage /></Layout>} />
+      <Route path="/career/job/:jobId" element={<Layout><JobDetailPage /></Layout>} />
+      <Route path="/career/apply" element={<Layout><ApplyPage /></Layout>} />
+      <Route path="/blog" element={<Layout><BlogPage /></Layout>} />
+      <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+      
+      {/* Auth Routes */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      
+      {/* Admin Routes */}
+      <Route path="/admin/dashboard" element={<AdminLayout><DashboardPage /></AdminLayout>} />
+      <Route path="/admin/blogs" element={<AdminLayout><AdminBlogsPage /></AdminLayout>} />
+      <Route path="/admin/projects" element={<AdminLayout><AdminProjectsPage /></AdminLayout>} />
+      <Route path="/admin/jobs" element={<AdminLayout><AdminJobsPage /></AdminLayout>} />
+      <Route path="/admin/analytics" element={<AdminLayout><AnalyticsPage /></AdminLayout>} />
+      <Route path="/admin/settings" element={<AdminLayout><SettingsPage /></AdminLayout>} />
+      
+      {/* 404 Route */}
+      <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
+    </Routes>
   )
 }
 
