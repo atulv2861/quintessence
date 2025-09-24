@@ -303,13 +303,13 @@ const JobDetailPage: React.FC = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-gray-200">
-                <button
+                {/* <button
                   onClick={() => navigate('/career/apply')}
                   className="flex-1 bg-gradient-to-r from-blue-400 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <Briefcase className="w-5 h-5" />
                   <span>Apply Now</span>
-                </button>
+                </button> */}
                 <button
                   onClick={() => navigate('/career/current-openings')}
                   className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2"
