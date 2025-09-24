@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { 
   User, 
-  Mail, 
-  Phone, 
-  MapPin, 
   Save, 
-  Upload, 
   Eye, 
   EyeOff,
   Bell,
   Shield,
   Globe,
-  Palette,
-  Database,
   Key,
   Trash2,
-  Edit,
-  Check,
-  X,
   Camera,
-  Settings as SettingsIcon,
-  Lock,
-  Unlock
+  Settings as SettingsIcon
 } from 'lucide-react'
 
 interface UserProfile {
