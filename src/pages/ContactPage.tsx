@@ -150,10 +150,10 @@ const ContactPage: React.FC = () => {
                   <Send className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
                   <span>Send Message</span>
                 </a>
-                <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-3 text-base">
+                {/* <button className="group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-3 text-base">
                   <Video className="w-6 h-6 group-hover:animate-pulse" />
                   <span>Video Call</span>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
