@@ -29,6 +29,8 @@ const BlogsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
+  console.log(editingBlog)
+  console.log(showModal)
 
   useEffect(() => {
     loadBlogs()
