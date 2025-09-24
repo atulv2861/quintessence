@@ -780,11 +780,11 @@ const ProjectsPage: React.FC = () => {
                     </div> */}
 
                     {/* Category Badge */}
-                    <div className="absolute top-4 right-4">
+                    {/* <div className="absolute top-4 right-4">
                       <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
                         {project.category}
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Hover Overlay */}
                     {/* <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300 ${
