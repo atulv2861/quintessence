@@ -7,14 +7,11 @@ import {
   Eye, 
   Calendar, 
   MapPin,
-  Filter,
   Briefcase,
   Users,
-  DollarSign,
   Clock,
   CheckCircle,
   AlertCircle,
-  Pause,
   User,
   Mail,
   Phone
@@ -56,8 +53,6 @@ const JobsPage: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'paused' | 'closed'>('all')
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
-  const [showModal, setShowModal] = useState(false)
-  const [editingJob, setEditingJob] = useState<Job | null>(null)
   const [activeTab, setActiveTab] = useState<'jobs' | 'applications'>('jobs')
 
   useEffect(() => {
@@ -271,7 +266,6 @@ const JobsPage: React.FC = () => {
   }
 
   const jobTypes = ['all', 'Full Time', 'Part Time', 'Contract', 'Internship']
-  const categories = ['all', 'Marketing', 'Administration', 'Consulting', 'Operations', 'Technical', 'Healthcare']
 
   if (isLoading) {
     return (

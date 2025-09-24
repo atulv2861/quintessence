@@ -5,9 +5,7 @@ import {
   Edit, 
   Trash2, 
   Eye, 
-  Calendar, 
   MapPin,
-  Filter,
   Building2,
   Users,
   DollarSign,
@@ -41,8 +39,6 @@ const ProjectsPage: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<'all' | 'planning' | 'ongoing' | 'completed' | 'on-hold'>('all')
   const [categoryFilter, setCategoryFilter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
-  const [showModal, setShowModal] = useState(false)
-  const [editingProject, setEditingProject] = useState<Project | null>(null)
 
   useEffect(() => {
     loadProjects()
