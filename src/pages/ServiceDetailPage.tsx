@@ -657,13 +657,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Zap className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Medical Gas Pipeline System</h3>
-                  <p className="text-blue-600 font-medium">(MGPS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Medical Gas Pipeline System</h3>
+                  {/* <p className="text-blue-600 font-medium">(MGPS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
