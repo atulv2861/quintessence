@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Building2, Zap, Stethoscope, CheckCircle, ArrowRight, Phone, Target, FileText} from 'lucide-react'
+import { ArrowLeft, Building2, Zap, Stethoscope, CheckCircle, ArrowRight} from 'lucide-react'
 import { SERVICES } from '../data/constants'
 
 const ServiceDetailPage: React.FC = () => {
@@ -657,13 +657,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Zap className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Medical Gas Pipeline System</h3>
-                  <p className="text-blue-600 font-medium">(MGPS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Medical Gas Pipeline System</h3>
+                  {/* <p className="text-blue-600 font-medium">(MGPS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -724,13 +725,14 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
             </div>
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Modular Operation Theatre</h3>
-                  <p className="text-blue-500 font-medium">(MOT)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Modular Operation Theatre</h3>
+                  {/* <p className="text-blue-500 font-medium">(MOT)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -766,13 +768,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Nurse Call System</h3>
-                  <p className="text-blue-600 font-medium">(NCS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Nurse Call System</h3>
+                  {/* <p className="text-blue-600 font-medium">(NCS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -819,13 +822,14 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
             </div>
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Central Sterile Supply Department</h3>
-                  <p className="text-blue-600 font-medium">(CSSD)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Central Sterile Supply Department</h3>
+                  {/* <p className="text-blue-600 font-medium">(CSSD)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -858,13 +862,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Pneumatic Tube Transfer System</h3>
-                  <p className="text-blue-600 font-medium">(PTTS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Pneumatic Tube Transfer System</h3>
+                  {/* <p className="text-blue-600 font-medium">(PTTS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -911,13 +916,14 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
             </div>
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Stethoscope className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Radio-Diagnostic Services</h3>
-                  <p className="text-blue-600 font-medium">(RDS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Radio-Diagnostic Services</h3>
+                  {/* <p className="text-blue-600 font-medium">(RDS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -950,13 +956,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Lab Diagnostic Services</h3>
-                  <p className="text-blue-600 font-medium">(LDS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Lab Diagnostic Services</h3>
+                  {/* <p className="text-blue-600 font-medium">(LDS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1002,13 +1009,14 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
             </div>
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Target className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Radiation And Other Therapeutic Areas</h3>
-                  <p className="text-blue-600 font-medium">(RTA)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Radiation And Other Therapeutic Areas</h3>
+                  {/* <p className="text-blue-600 font-medium">(RTA)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1040,13 +1048,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Hospital Laundry Services</h3>
-                  <p className="text-blue-600 font-medium">(HLS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Hospital Laundry Services</h3>
+                  {/* <p className="text-blue-600 font-medium">(HLS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1099,13 +1108,14 @@ const SpecializedServicesPage: React.FC = () => {
               </div>
             </div>
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Hospital Kitchen Services</h3>
-                  <p className="text-blue-600 font-medium">(HKS)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Hospital Kitchen Services</h3>
+                  {/* <p className="text-blue-600 font-medium">(HKS)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1143,13 +1153,14 @@ const SpecializedServicesPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-2xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+              <div className="flex items-center">
+                {/* <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
                   <FileText className="w-6 h-6 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Hospital Information System</h3>
-                  <p className="text-blue-600 font-medium">(Hospital IT System)</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Hospital Information System</h3>
+                  {/* <p className="text-blue-600 font-medium">(Hospital IT System)</p> */}
+                  <div className="w-40 h-1 bg-blue-400 mb-4"></div>
                 </div>
               </div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
