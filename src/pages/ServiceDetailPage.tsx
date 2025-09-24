@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Building2, Zap, Stethoscope, CheckCircle, ArrowRight, Phone, Target, FileText} from 'lucide-react'
+import { ArrowLeft, Building2, Zap, Stethoscope, CheckCircle, ArrowRight} from 'lucide-react'
 import { SERVICES } from '../data/constants'
 
 const ServiceDetailPage: React.FC = () => {
