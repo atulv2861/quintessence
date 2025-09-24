@@ -288,17 +288,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Career',
-    href: '#',
-    children: [
-      {
-        label: 'Current Openings',
-        href: '/career/current-openings'
-      },
-      {
-        label: 'Apply / Drop Your CV',
-        href: '/career/apply'
-      }
-    ]
+    href: '/career/current-openings'
   },
   {
     label: 'Blog',

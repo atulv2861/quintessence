@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight, Upload, File, X, Cloud } from 'lucide-react'
+import EmailService from '../services/emailService'
 
 interface Job {
   id: string
@@ -22,6 +23,18 @@ const JobsPage: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const jobsPerPage = 6
+
+  // CV Upload form state
+  const [cvFormData, setCvFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  })
+  const [cvFiles, setCvFiles] = useState<File[]>([])
+  const [isSubmittingCv, setIsSubmittingCv] = useState(false)
+  const [cvSubmitStatus, setCvSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [cvSubmitMessage, setCvSubmitMessage] = useState('')
+  const cvFileInputRef = React.useRef<HTMLInputElement>(null)
 
   const jobs: Job[] = [
     {
@@ -248,6 +261,107 @@ const JobsPage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // CV Upload form handlers
+  const handleCvInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setCvFormData({
+      ...cvFormData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleCvFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newFiles = Array.from(e.target.files || [])
+    const updatedFiles = [...cvFiles, ...newFiles]
+    
+    // Limit to 1 file for CV
+    if (updatedFiles.length > 1) {
+      setCvSubmitMessage('Only one CV file is allowed')
+      setCvSubmitStatus('error')
+      return
+    }
+    
+    // Check file size (10MB limit)
+    const oversizedFiles = updatedFiles.filter(file => file.size > 10 * 1024 * 1024)
+    if (oversizedFiles.length > 0) {
+      setCvSubmitMessage('File size should not exceed 10MB')
+      setCvSubmitStatus('error')
+      return
+    }
+    
+    // Check file type (PDF only)
+    const invalidFiles = updatedFiles.filter(file => file.type !== 'application/pdf')
+    if (invalidFiles.length > 0) {
+      setCvSubmitMessage('Only PDF files are allowed')
+      setCvSubmitStatus('error')
+      return
+    }
+    
+    setCvFiles(updatedFiles)
+    setCvSubmitMessage('')
+    setCvSubmitStatus('idle')
+  }
+
+  const handleRemoveCvFile = (index: number) => {
+    setCvFiles(cvFiles.filter((_, i) => i !== index))
+  }
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes === 0) return '0 Bytes'
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+
+  const handleCvSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmittingCv(true)
+    setCvSubmitStatus('idle')
+    setCvSubmitMessage('')
+
+    try {
+      const response = await EmailService.sendContactForm({
+        name: cvFormData.name,
+        email: cvFormData.email,
+        phone: cvFormData.phone,
+        address: '',
+        subject: 'CV Upload - Career Application',
+        message: `
+CV Upload Application
+
+Contact Information:
+Name: ${cvFormData.name}
+Phone: ${cvFormData.phone}
+Email: ${cvFormData.email}
+
+Please find the attached CV for consideration.
+        `,
+        files: cvFiles
+      })
+      
+      if (response.status === 'success') {
+        setCvSubmitStatus('success')
+        setCvSubmitMessage('CV submitted successfully! We\'ll review your application and get back to you soon.')
+        // Reset form
+        setCvFormData({
+          name: '',
+          email: '',
+          phone: ''
+        })
+        setCvFiles([])
+      } else {
+        setCvSubmitStatus('error')
+        setCvSubmitMessage(response.message || 'Failed to submit CV. Please try again.')
+      }
+    } catch (error) {
+      setCvSubmitStatus('error')
+      setCvSubmitMessage('Failed to submit CV. Please try again.')
+      console.error('CV submission error:', error)
+    } finally {
+      setIsSubmittingCv(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -389,7 +503,10 @@ const JobsPage: React.FC = () => {
             <p className="text-gray-600">Showing all available positions</p>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Job Listings - Left Column */}
+            <div className="lg:col-span-2">
+              <div className="space-y-6">
             {currentJobs.map((job) => (
               <div key={job.id} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
@@ -443,88 +560,231 @@ const JobsPage: React.FC = () => {
                 </div>
               </div>
             ))}
+              </div>
+
+              {filteredJobs.length === 0 && (
+                <div className="text-center py-12">
+                  <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Briefcase className="w-12 h-12 text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No Jobs Found</h3>
+                  <p className="text-gray-600">Try adjusting your search criteria to find more opportunities.</p>
+                </div>
+              )}
+
+              {/* Pagination - Centered within job listings */}
+              {filteredJobs.length > 0 && totalPages > 1 && (
+                <div className="mt-8 flex justify-center">
+                  <div className="flex items-center space-x-2">
+                    {/* Previous Button */}
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                    >
+                      <ChevronLeft className="w-4 h-4 mr-1" />
+                      Previous
+                    </button>
+
+                    {/* Page Numbers */}
+                    <div className="flex items-center space-x-1">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                        // Show first page, last page, current page, and pages around current page
+                        const shouldShow = 
+                          page === 1 || 
+                          page === totalPages || 
+                          (page >= currentPage - 1 && page <= currentPage + 1)
+
+                        if (!shouldShow) {
+                          // Show ellipsis for gaps
+                          if (page === currentPage - 2 || page === currentPage + 2) {
+                            return (
+                              <span key={page} className="px-3 py-2 text-sm text-gray-500">
+                                ...
+                              </span>
+                            )
+                          }
+                          return null
+                        }
+
+                        return (
+                          <button
+                            key={page}
+                            onClick={() => handlePageChange(page)}
+                            className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                              currentPage === page
+                                ? 'bg-blue-500 text-white shadow-md'
+                                : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                            }`}
+                          >
+                            {page}
+                          </button>
+                        )
+                      })}
+                    </div>
+
+                    {/* Next Button */}
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                    >
+                      Next
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Pagination Info */}
+              {filteredJobs.length > 0 && (
+                <div className="mt-4 text-center text-sm text-gray-600">
+                  Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {filteredJobs.length} jobs
+                </div>
+              )}
+            </div>
+
+            {/* CV Upload Section - Right Column */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8">
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Upload className="w-8 h-8 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Upload Your CV</h3>
+                    <p className="text-gray-600 text-sm">Quick CV submission for career opportunities</p>
+                  </div>
+
+                  {/* Success/Error Messages */}
+                  {cvSubmitStatus === 'success' && (
+                    <div className="mb-6 bg-green-50 border border-green-200 rounded-xl p-4">
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <p className="text-green-700 text-sm font-medium">{cvSubmitMessage}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {cvSubmitStatus === 'error' && (
+                    <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4">
+                      <div className="flex items-center">
+                        <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                          <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </div>
+                        <p className="text-red-700 text-sm font-medium">{cvSubmitMessage}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  <form onSubmit={handleCvSubmit} className="space-y-4">
+                    {/* Basic Contact Info */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={cvFormData.name}
+                        onChange={handleCvInputChange}
+                        placeholder="Enter your full name"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={cvFormData.email}
+                        onChange={handleCvInputChange}
+                        placeholder="Enter your email"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={cvFormData.phone}
+                        onChange={handleCvInputChange}
+                        placeholder="Enter your phone number"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        required
+                      />
+                    </div>
+
+                    {/* CV Upload */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Upload CV (PDF) *</label>
+                      <div 
+                        className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors duration-200 cursor-pointer"
+                        onClick={() => cvFileInputRef.current?.click()}
+                      >
+                        <input
+                          ref={cvFileInputRef}
+                          type="file"
+                          accept=".pdf"
+                          onChange={handleCvFileChange}
+                          className="hidden"
+                        />
+                        <Cloud className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                        <p className="text-sm text-gray-600 mb-1">
+                          <span className="text-blue-600 font-medium">Click to upload</span> or drag and drop
+                        </p>
+                        <p className="text-xs text-gray-500">PDF files only, max 10MB</p>
+                      </div>
+
+                      {/* File List */}
+                      {cvFiles.length > 0 && (
+                        <div className="mt-3">
+                          {cvFiles.map((file, index) => (
+                            <div key={index} className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                              <div className="flex items-center space-x-2">
+                                <File className="w-4 h-4 text-blue-500" />
+                                <div>
+                                  <p className="text-xs font-medium text-gray-900">{file.name}</p>
+                                  <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveCvFile(index)}
+                                className="text-red-500 hover:text-red-700 transition-colors"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isSubmittingCv || cvFiles.length === 0}
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                    >
+                      <Upload className="w-4 h-4" />
+                      <span>{isSubmittingCv ? 'Submitting...' : 'Submit CV'}</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {filteredJobs.length === 0 && (
-            <div className="text-center py-12">
-              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Briefcase className="w-12 h-12 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No Jobs Found</h3>
-              <p className="text-gray-600">Try adjusting your search criteria to find more opportunities.</p>
-            </div>
-          )}
-
-          {/* Pagination */}
-          {filteredJobs.length > 0 && totalPages > 1 && (
-            <div className="mt-12 flex justify-center">
-              <div className="flex items-center space-x-2">
-                {/* Previous Button */}
-                <button
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
-                </button>
-
-                {/* Page Numbers */}
-                <div className="flex items-center space-x-1">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                    // Show first page, last page, current page, and pages around current page
-                    const shouldShow = 
-                      page === 1 || 
-                      page === totalPages || 
-                      (page >= currentPage - 1 && page <= currentPage + 1)
-
-                    if (!shouldShow) {
-                      // Show ellipsis for gaps
-                      if (page === currentPage - 2 || page === currentPage + 2) {
-                        return (
-                          <span key={page} className="px-3 py-2 text-sm text-gray-500">
-                            ...
-                          </span>
-                        )
-                      }
-                      return null
-                    }
-
-                    return (
-                      <button
-                        key={page}
-                        onClick={() => handlePageChange(page)}
-                        className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                          currentPage === page
-                            ? 'bg-blue-500 text-white shadow-md'
-                            : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    )
-                  })}
-                </div>
-
-                {/* Next Button */}
-                <button
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                  className="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Pagination Info */}
-          {filteredJobs.length > 0 && (
-            <div className="mt-6 text-center text-sm text-gray-600">
-              Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {filteredJobs.length} jobs
-            </div>
-          )}
         </div>
       </section>
     </div>
