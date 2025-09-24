@@ -54,6 +54,10 @@ const JobsPage: React.FC = () => {
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'jobs' | 'applications'>('jobs')
+  const [showModal, setShowModal] = useState(false)
+  const [editingJob, setEditingJob] = useState<Job | null>(null)
+  console.log(editingJob)
+  console.log(showModal)
 
   useEffect(() => {
     loadData()

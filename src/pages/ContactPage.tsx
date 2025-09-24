@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Video, Zap, Shield, Heart, ChevronDown, Paperclip, File, X } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, MessageCircle, Clock, Users, Award, Zap, Shield, Heart, ChevronDown, Paperclip, File, X } from 'lucide-react'
 import { WHATSAPP_CONFIG } from '../data/constants'
 import EmailService from '../services/emailService'
 

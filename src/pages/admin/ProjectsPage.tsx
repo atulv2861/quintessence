@@ -39,6 +39,10 @@ const ProjectsPage: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<'all' | 'planning' | 'ongoing' | 'completed' | 'on-hold'>('all')
   const [categoryFilter, setCategoryFilter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
+  const [showModal, setShowModal] = useState(false)
+  const [editingProject, setEditingProject] = useState<Project | null>(null)
+  console.log(editingProject)
+  console.log(showModal)
 
   useEffect(() => {
     loadProjects()

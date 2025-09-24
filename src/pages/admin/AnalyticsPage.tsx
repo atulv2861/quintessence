@@ -4,21 +4,9 @@ import {
   TrendingDown, 
   Users, 
   Eye, 
-  FileText, 
   Briefcase,
-  Calendar,
   Download,
-  Filter,
-  BarChart3,
-  PieChart,
-  LineChart,
-  Activity,
-  Target,
-  Award,
-  Clock,
   DollarSign,
-  MapPin,
-  Globe
 } from 'lucide-react'
 
 interface AnalyticsData {

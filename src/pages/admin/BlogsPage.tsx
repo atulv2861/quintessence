@@ -4,11 +4,8 @@ import {
   Search, 
   Edit, 
   Trash2, 
-  Eye, 
-  Calendar, 
+  Eye,  
   User,
-  Filter,
-  MoreVertical,
   FileText
 } from 'lucide-react'
 
@@ -30,6 +27,8 @@ const BlogsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<'all' | 'published' | 'draft'>('all')
   const [isLoading, setIsLoading] = useState(true)
+  const [showModal, setShowModal] = useState(false)
+  const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
 
   useEffect(() => {
     loadBlogs()
