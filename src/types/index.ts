@@ -21,7 +21,8 @@ export interface Project {
   status: 'Planning' | 'In Progress' | 'Completed' | 'On Hold'
   description: string
   features: string[]
-  images: string
+  image: string | null
+  image_name: string | null
   created_at: string
   updated_at: string
 }
@@ -35,7 +36,8 @@ export interface ProjectFormData {
   status: 'Planning' | 'In Progress' | 'Completed' | 'On Hold'
   description: string
   features: string[]
-  images: string
+  image: string
+  image_name: string
 }
 
 export interface ProjectsResponse {

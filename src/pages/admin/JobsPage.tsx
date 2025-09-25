@@ -443,13 +443,6 @@ const JobsPage: React.FC = () => {
                     </div>
                     <div className="flex items-center space-x-2 ml-6">
                       <button
-                        onClick={() => window.open(`/career/job/${job.id}`, '_blank')}
-                        className="text-gray-400 hover:text-gray-600 p-2"
-                        title="View"
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button
                         onClick={() => handleEdit(job)}
                         className="text-blue-400 hover:text-blue-600 p-2"
                         title="Edit"

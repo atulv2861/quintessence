@@ -4,7 +4,6 @@ import {
   Search, 
   Edit, 
   Trash2, 
-  Eye, 
   MapPin,
   Building2,
   Users,
@@ -302,7 +301,20 @@ const ProjectsPage: React.FC = () => {
             <div key={project.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
               {/* Project Image */}
               <div className="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 relative">
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                {project.image ? (
+                  <img
+                    src={`data:image/jpeg;base64,${project.image}`}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <Building2 className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                      <p className="text-sm opacity-75">No Image</p>
+                    </div>
+                  </div>
+                )}
                 <div className="absolute top-4 left-4">
                   <span className={getStatusBadge(project.status)}>
                     {getStatusIcon(project.status)}
@@ -364,14 +376,7 @@ const ProjectsPage: React.FC = () => {
                 )}
 
                 {/* Actions */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                  <button
-                    onClick={() => window.open(`/projects/${project.id}`, '_blank')}
-                    className="text-gray-400 hover:text-gray-600 p-2"
-                    title="View"
-                  >
-                    <Eye className="w-4 h-4" />
-                  </button>
+                <div className="flex items-center justify-end pt-4 border-t border-gray-200">
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => handleEdit(project)}

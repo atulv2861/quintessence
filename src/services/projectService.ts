@@ -30,8 +30,8 @@ export const projectService = {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
 
-      const data: Project[] = await response.json()
-      return data
+      const data: ProjectsResponse = await response.json()
+      return data.projects
     } catch (error) {
       console.error('Error fetching projects:', error)
       throw error

@@ -26,10 +26,12 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
     status: 'Planning',
     description: '',
     features: [''],
-    images: ''
+    image: '',
+    image_name: ''
   })
 
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [imagePreview, setImagePreview] = useState<string>('')
 
   useEffect(() => {
     if (project) {
@@ -42,8 +44,10 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
         status: project.status || 'Planning',
         description: project.description || '',
         features: project.features?.length > 0 ? project.features : [''],
-        images: project.images || ''
+        image: project.image || '',
+        image_name: project.image_name || ''
       })
+      setImagePreview(project.image ? `data:image/jpeg;base64,${project.image}` : '')
     } else {
       // Reset form for new project
       setFormData({
@@ -55,8 +59,10 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
         status: 'Planning',
         description: '',
         features: [''],
-        images: ''
+        image: '',
+        image_name: ''
       })
+      setImagePreview('')
     }
     setErrors({})
   }, [project, isOpen])
@@ -129,6 +135,52 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
       ...prev,
       features: prev.features.map((feature, i) => i === index ? value : feature)
     }))
+  }
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        setErrors(prev => ({
+          ...prev,
+          image: 'Please select a valid image file'
+        }))
+        return
+      }
+
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setErrors(prev => ({
+          ...prev,
+          image: 'Image size must be less than 5MB'
+        }))
+        return
+      }
+
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const result = e.target?.result as string
+        // Remove the data:image/...;base64, prefix
+        const base64 = result.split(',')[1]
+        
+        setFormData(prev => ({
+          ...prev,
+          image: base64,
+          image_name: file.name
+        }))
+        setImagePreview(result)
+        
+        // Clear any previous image errors
+        if (errors.image) {
+          setErrors(prev => ({
+            ...prev,
+            image: ''
+          }))
+        }
+      }
+      reader.readAsDataURL(file)
+    }
   }
 
   if (!isOpen) return null
@@ -342,18 +394,37 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
                   )}
                 </div>
 
-                {/* Images */}
+                {/* Image Upload */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Image URL
+                    Project Image
                   </label>
-                  <input
-                    type="url"
-                    value={formData.images}
-                    onChange={(e) => handleInputChange('images', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="https://example.com/project-image.jpg"
-                  />
+                  <div className="space-y-3">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {imagePreview && (
+                      <div className="mt-2">
+                        <img
+                          src={imagePreview}
+                          alt="Preview"
+                          className="w-full h-48 object-cover rounded-lg border border-gray-300"
+                        />
+                        <p className="text-sm text-gray-600 mt-1">
+                          {formData.image_name}
+                        </p>
+                      </div>
+                    )}
+                    {errors.image && (
+                      <p className="mt-1 text-sm text-red-600 flex items-center">
+                        <AlertCircle className="w-4 h-4 mr-1" />
+                        {errors.image}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
