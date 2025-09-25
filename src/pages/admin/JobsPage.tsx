@@ -14,25 +14,12 @@ import {
   AlertCircle,
   User,
   Mail,
-  Phone
+  Phone,
+  RefreshCw
 } from 'lucide-react'
-
-interface Job {
-  id: string
-  title: string
-  company: string
-  location: string
-  type: string
-  postedDate: string
-  description: string
-  requirements: string[]
-  responsibilities: string[]
-  salary: string
-  experience: string
-  status: 'active' | 'paused' | 'closed'
-  applications: number
-  category: string
-}
+import { Job, JobFormData, JobsResponse } from '../../types'
+import { jobService } from '../../services/jobService'
+import JobForm from '../../components/forms/JobForm'
 
 interface Application {
   id: string
@@ -50,18 +37,24 @@ const JobsPage: React.FC = () => {
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([])
   const [applications, setApplications] = useState<Application[]>([])
   const [searchTerm, setSearchTerm] = useState('')
-  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'paused' | 'closed'>('all')
+  const [statusFilter, setStatusFilter] = useState<'all' | 'Active' | 'Inactive'>('all')
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'jobs' | 'applications'>('jobs')
   const [showModal, setShowModal] = useState(false)
   const [editingJob, setEditingJob] = useState<Job | null>(null)
-  console.log(editingJob)
-  console.log(showModal)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const [totalJobs, setTotalJobs] = useState(0)
+  const [limit] = useState(10)
 
   useEffect(() => {
     loadData()
-  }, [])
+  }, [currentPage])
 
   useEffect(() => {
     filterJobs()
@@ -69,126 +62,55 @@ const JobsPage: React.FC = () => {
 
   const loadData = async () => {
     setIsLoading(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    setError(null)
     
-    const mockJobs: Job[] = [
-      {
-        id: 'JD-0028',
-        title: 'Assistant Manager – Marketing',
-        company: 'SNHC',
-        location: 'Sant Nirankari Health City',
-        type: 'Full Time',
-        postedDate: '2024-01-15',
-        description: 'We are looking for a dynamic and strategic Marketing Manager to lead the development and execution of integrated marketing initiatives for our upcoming state-of-the-art hospital.',
-        requirements: [
-          'Bachelor\'s degree in Marketing, Business Administration, or related field',
-          '5+ years of experience in healthcare marketing',
-          'Strong analytical and strategic thinking skills',
-          'Excellent communication and presentation skills'
-        ],
-        responsibilities: [
-          'Develop and execute comprehensive marketing strategies',
-          'Manage brand positioning and messaging',
-          'Coordinate with internal teams and external agencies',
-          'Analyze market trends and competitor activities'
-        ],
-        salary: '₹8,00,000 - ₹12,00,000',
-        experience: '5-8 years',
-        status: 'active',
-        applications: 24,
-        category: 'Marketing'
-      },
-      {
-        id: 'JD-0027',
-        title: 'Sr. Manager/ AGM – Marketing',
-        company: 'SNHC',
-        location: 'Sant Nirankari Health City',
-        type: 'Full Time',
-        postedDate: '2024-01-10',
-        description: 'We are looking for a dynamic and strategic Marketing Manager to lead the development and execution of integrated marketing initiatives for our upcoming state-of-the-art hospital.',
-        requirements: [
-          'Master\'s degree in Marketing, Business Administration, or related field',
-          '8+ years of experience in healthcare marketing',
-          'Proven track record in team leadership',
-          'Strong analytical and strategic thinking skills'
-        ],
-        responsibilities: [
-          'Lead marketing team and strategic initiatives',
-          'Develop and execute comprehensive marketing strategies',
-          'Manage brand positioning and messaging',
-          'Coordinate with internal teams and external agencies'
-        ],
-        salary: '₹15,00,000 - ₹20,00,000',
-        experience: '8-12 years',
-        status: 'active',
-        applications: 18,
-        category: 'Marketing'
-      },
-      {
-        id: 'JD-0026',
-        title: 'Hospital Administrator',
-        company: 'Seven Healer Consultants',
-        location: 'New Delhi',
-        type: 'Full Time',
-        postedDate: '2024-01-05',
-        description: 'We are seeking an experienced Hospital Administrator to oversee daily operations and ensure efficient healthcare service delivery.',
-        requirements: [
-          'Master\'s degree in Hospital Administration or related field',
-          '10+ years of experience in hospital management',
-          'Strong leadership and organizational skills',
-          'Knowledge of healthcare regulations and compliance'
-        ],
-        responsibilities: [
-          'Oversee daily hospital operations',
-          'Manage staff and resources efficiently',
-          'Ensure compliance with healthcare regulations',
-          'Develop and implement operational policies'
-        ],
-        salary: '₹12,00,000 - ₹18,00,000',
-        experience: '10-15 years',
-        status: 'paused',
-        applications: 32,
-        category: 'Administration'
-      }
-    ]
-
-    const mockApplications: Application[] = [
-      {
-        id: 'APP-001',
-        jobId: 'JD-0028',
-        name: 'Priya Sharma',
-        email: 'priya.sharma@email.com',
-        phone: '+91 98765 43210',
-        appliedDate: '2024-01-20',
-        status: 'pending',
-        cvUrl: '/cv/priya-sharma.pdf'
-      },
-      {
-        id: 'APP-002',
-        jobId: 'JD-0028',
-        name: 'Rajesh Kumar',
-        email: 'rajesh.kumar@email.com',
-        phone: '+91 98765 43211',
-        appliedDate: '2024-01-19',
-        status: 'reviewed',
-        cvUrl: '/cv/rajesh-kumar.pdf'
-      },
-      {
-        id: 'APP-003',
-        jobId: 'JD-0027',
-        name: 'Anita Singh',
-        email: 'anita.singh@email.com',
-        phone: '+91 98765 43212',
-        appliedDate: '2024-01-18',
-        status: 'shortlisted',
-        cvUrl: '/cv/anita-singh.pdf'
-      }
-    ]
-    
-    setJobs(mockJobs)
-    setApplications(mockApplications)
-    setIsLoading(false)
+    try {
+      const jobsResponse = await jobService.getJobsPaginated(currentPage, limit)
+      
+      setJobs(jobsResponse.job_openings)
+      setTotalJobs(jobsResponse.total)
+      setTotalPages(Math.ceil(jobsResponse.total / limit))
+      
+      // Mock applications data for now
+      const mockApplications: Application[] = [
+        {
+          id: 'APP-001',
+          jobId: 'JD-0028',
+          name: 'Priya Sharma',
+          email: 'priya.sharma@email.com',
+          phone: '+91 98765 43210',
+          appliedDate: '2024-01-20',
+          status: 'pending',
+          cvUrl: '/cv/priya-sharma.pdf'
+        },
+        {
+          id: 'APP-002',
+          jobId: 'JD-0028',
+          name: 'Rajesh Kumar',
+          email: 'rajesh.kumar@email.com',
+          phone: '+91 98765 43211',
+          appliedDate: '2024-01-19',
+          status: 'reviewed',
+          cvUrl: '/cv/rajesh-kumar.pdf'
+        },
+        {
+          id: 'APP-003',
+          jobId: 'JD-0027',
+          name: 'Anita Singh',
+          email: 'anita.singh@email.com',
+          phone: '+91 98765 43212',
+          appliedDate: '2024-01-18',
+          status: 'shortlisted',
+          cvUrl: '/cv/anita-singh.pdf'
+        }
+      ]
+      setApplications(mockApplications)
+    } catch (error) {
+      console.error('Error loading data:', error)
+      setError('Failed to load jobs. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const filterJobs = () => {
@@ -204,7 +126,7 @@ const JobsPage: React.FC = () => {
     }
 
     if (statusFilter !== 'all') {
-      filtered = filtered.filter(job => job.status === statusFilter)
+      filtered = filtered.filter(job => job.is_active === statusFilter)
     }
 
     if (typeFilter !== 'all') {
@@ -214,10 +136,17 @@ const JobsPage: React.FC = () => {
     setFilteredJobs(filtered)
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (job: Job) => {
     if (window.confirm('Are you sure you want to delete this job posting?')) {
-      setJobs(jobs.filter(job => job.id !== id))
-      setApplications(applications.filter(app => app.jobId !== id))
+      try {
+        await jobService.deleteJob(job.job_id)
+        // Refresh the data to get updated list
+        await loadData()
+        setApplications(applications.filter(app => app.jobId !== job.id))
+      } catch (error) {
+        console.error('Error deleting job:', error)
+        setError('Failed to delete job. Please try again.')
+      }
     }
   }
 
@@ -231,6 +160,32 @@ const JobsPage: React.FC = () => {
     setShowModal(true)
   }
 
+  const handleSubmit = async (jobData: JobFormData) => {
+    setIsSubmitting(true)
+    setError(null)
+    
+    try {
+      if (editingJob) {
+        // Update existing job
+        await jobService.updateJob(editingJob.job_id, jobData)
+      } else {
+        // Create new job
+        await jobService.createJob(jobData)
+      }
+      
+      // Refresh the data to get updated list
+      await loadData()
+      
+      setShowModal(false)
+      setEditingJob(null)
+    } catch (error) {
+      console.error('Error saving job:', error)
+      setError('Failed to save job. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -242,11 +197,9 @@ const JobsPage: React.FC = () => {
   const getStatusBadge = (status: string) => {
     const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
     switch (status) {
-      case 'active':
+      case 'Active':
         return `${baseClasses} bg-green-100 text-green-800`
-      case 'paused':
-        return `${baseClasses} bg-yellow-100 text-yellow-800`
-      case 'closed':
+      case 'Inactive':
         return `${baseClasses} bg-red-100 text-red-800`
       default:
         return `${baseClasses} bg-gray-100 text-gray-800`
@@ -292,15 +245,34 @@ const JobsPage: React.FC = () => {
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Job Management</h1>
               <p className="text-gray-600">Manage job postings and applications</p>
             </div>
-            <button
-              onClick={handleCreate}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors"
-            >
-              <Plus className="w-5 h-5" />
-              <span>Post New Job</span>
-            </button>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={loadData}
+                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span>Refresh</span>
+              </button>
+              <button
+                onClick={handleCreate}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors"
+              >
+                <Plus className="w-5 h-5" />
+                <span>Post New Job</span>
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <AlertCircle className="w-5 h-5 text-red-500 mr-2" />
+              <p className="text-red-700">{error}</p>
+            </div>
+          </div>
+        )}
 
         {/* Tabs */}
         <div className="mb-6">
@@ -339,7 +311,7 @@ const JobsPage: React.FC = () => {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Total Jobs</p>
-                <p className="text-2xl font-bold text-gray-900">{jobs.length}</p>
+                <p className="text-2xl font-bold text-gray-900">{totalJobs}</p>
               </div>
             </div>
           </div>
@@ -351,7 +323,7 @@ const JobsPage: React.FC = () => {
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Active Jobs</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {jobs.filter(job => job.status === 'active').length}
+                  {jobs.filter(job => job.is_active === 'Active').length}
                 </p>
               </div>
             </div>
@@ -406,9 +378,8 @@ const JobsPage: React.FC = () => {
                     className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="all">All Status</option>
-                    <option value="active">Active</option>
-                    <option value="paused">Paused</option>
-                    <option value="closed">Closed</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
                   </select>
                   <select
                     value={typeFilter}
@@ -436,8 +407,8 @@ const JobsPage: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-2">
                         <h3 className="text-lg font-semibold text-gray-900">{job.title}</h3>
-                        <span className={getStatusBadge(job.status)}>
-                          {job.status}
+                        <span className={getStatusBadge(job.is_active)}>
+                          {job.is_active}
                         </span>
                       </div>
                       <div className="flex items-center space-x-6 text-sm text-gray-600 mb-3">
@@ -455,22 +426,18 @@ const JobsPage: React.FC = () => {
                         </div>
                         <div className="flex items-center">
                           <Calendar className="w-4 h-4 mr-1" />
-                          <span>Posted {formatDate(job.postedDate)}</span>
+                          <span>Posted {formatDate(job.posted_date)}</span>
                         </div>
                       </div>
                       <p className="text-gray-600 mb-4 line-clamp-2">{job.description}</p>
                       <div className="flex items-center space-x-6 text-sm">
                         <div>
-                          <span className="text-gray-500">Salary: </span>
-                          <span className="font-medium text-gray-900">{job.salary}</span>
+                          <span className="text-gray-500">Remuneration: </span>
+                          <span className="font-medium text-gray-900">{job.remuneration}</span>
                         </div>
                         <div>
-                          <span className="text-gray-500">Experience: </span>
-                          <span className="font-medium text-gray-900">{job.experience}</span>
-                        </div>
-                        <div>
-                          <span className="text-gray-500">Applications: </span>
-                          <span className="font-medium text-gray-900">{job.applications}</span>
+                          <span className="text-gray-500">Job ID: </span>
+                          <span className="font-medium text-gray-900">{job.job_id}</span>
                         </div>
                       </div>
                     </div>
@@ -490,7 +457,7 @@ const JobsPage: React.FC = () => {
                         <Edit className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => handleDelete(job.id)}
+                        onClick={() => handleDelete(job)}
                         className="text-red-400 hover:text-red-600 p-2"
                         title="Delete"
                       >
@@ -521,6 +488,49 @@ const JobsPage: React.FC = () => {
                     <span>Post Job</span>
                   </button>
                 )}
+              </div>
+            )}
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-between mt-8">
+                <div className="text-sm text-gray-700">
+                  Showing {((currentPage - 1) * limit) + 1} to {Math.min(currentPage * limit, totalJobs)} of {totalJobs} jobs
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                    disabled={currentPage === 1}
+                    className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+                  
+                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                    const pageNum = i + 1
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => setCurrentPage(pageNum)}
+                        className={`px-3 py-2 text-sm font-medium rounded-lg ${
+                          currentPage === pageNum
+                            ? 'bg-blue-600 text-white'
+                            : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    )
+                  })}
+                  
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                    className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             )}
           </>
@@ -618,6 +628,19 @@ const JobsPage: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Job Form Modal */}
+        <JobForm
+          job={editingJob}
+          isOpen={showModal}
+          onClose={() => {
+            setShowModal(false)
+            setEditingJob(null)
+            setError(null)
+          }}
+          onSubmit={handleSubmit}
+          isLoading={isSubmitting}
+        />
       </div>
     </div>
   )

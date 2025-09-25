@@ -123,6 +123,107 @@ export interface FormField {
   options?: { value: string; label: string }[]
 }
 
+// Job types
+export interface KeyResponsibility {
+  category: string
+  items: string[]
+}
+
+export interface Job {
+  id: string
+  job_id: string
+  title: string
+  company: string
+  location: string
+  type: string
+  posted_date: string
+  description: string
+  overview: string
+  key_responsibilities: KeyResponsibility[]
+  qualifications: string[]
+  remuneration: string
+  why_join_us: string
+  requirements: string[]
+  responsibilities: string[]
+  is_active: 'Active' | 'Inactive'
+  created_at: string
+  updated_at: string
+}
+
+export interface JobFormData {
+  job_id: string
+  title: string
+  company: string
+  location: string
+  type: string
+  posted_date: string
+  description: string
+  overview: string
+  key_responsibilities: KeyResponsibility[]
+  qualifications: string[]
+  remuneration: string
+  why_join_us: string
+  requirements: string[]
+  responsibilities: string[]
+  is_active: 'Active' | 'Inactive'
+}
+
+export interface JobsResponse {
+  job_openings: Job[]
+  total: number
+  page: number
+  limit: number
+}
+
+// Authentication types
+export interface SignupRequest {
+  first_name: string
+  last_name: string
+  email: string
+  password: string
+  phone: string
+  role: 'user' | 'admin'
+}
+
+export interface SignupResponse {
+  id: string
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  role: string
+  is_active: boolean
+}
+
+export interface LoginRequest {
+  email: string
+  password: string
+}
+
+export interface LoginResponse {
+  access_token: string
+  token_type: string
+  user: {
+    id: string
+    first_name: string
+    last_name: string
+    email: string
+    phone: string
+    role: string
+    is_active: boolean
+  }
+}
+
+export interface User {
+  id: string
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  role: string
+  is_active: boolean
+}
+
 // API response types
 export interface ApiResponse<T> {
   data: T
