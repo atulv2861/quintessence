@@ -329,10 +329,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8">
+            <div className="bg-gray-100 rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/Michael-Malone-design-sketch.webp" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
+                  <img src="/images/services/Michael-Malone-design-sketch.webp" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -344,10 +344,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-xl p-8">
+            <div className="bg-white rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/Organizational.jpg" alt="Distinct Units And Organizational Divisions" className="w-full h-full object-cover" />
+                  <img src="/images/services/Organizational.jpg" alt="Distinct Units And Organizational Divisions" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -411,10 +411,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8">
+            <div className="bg-gray-100 rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/space-optimised.jpg" alt="Space Planning Visualization" className="w-full h-full object-cover" />
+                  <img src="/images/services/space-optimised.jpg" alt="Space Planning Visualization" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -426,10 +426,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-xl p-8">
+            <div className="bg-white rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/room-pressure-diagram-room.png" alt="Room Data Sheets" className="w-full h-full object-cover" />
+                  <img src="/images/services/room-pressure-diagram-room.jpg" alt="Room Data Sheets" className="w-full h-full rounded-lg object-cover" />
                   
                 </div>
               </div>
@@ -497,10 +497,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8">
+            <div className="bg-gray-100 rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/htm.jpeg" alt="Hospital Traffic Management" className="w-full h-full object-cover" />
+                  <img src="/images/services/htm.jpeg" alt="Hospital Traffic Management" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -511,10 +511,10 @@ const IntegratedArchitecturalMEPPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white rounded-xl p-8">
+            <div className="bg-white rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/planning-and-desigining.jpg" alt="Room Data Sheets" className="w-full h-full object-cover" />
+                  <img src="/images/services/planning-and-desigining.jpg" alt="Room Data Sheets" className="w-full h-full rounded-lg object-cover" />
                   
                 </div>
               </div>
@@ -689,10 +689,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/mgps.jpg" alt="Medical Gas Pipeline System" className="w-full h-full object-cover" />
+                  <img src="/images/services/mgps.jpg" alt="Medical Gas Pipeline System" className="w-full h-full rounded-lg object-cover" />
                   {/* <div className="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-16 h-16 text-white" />
                   </div>
@@ -711,10 +711,10 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/mot.jpg" alt="Modular Operation Theatre" className="w-full h-full object-cover" />
+                  <img src="/images/services/mot.jpg" alt="Modular Operation Theatre" className="w-full h-full rounded-lg object-cover" />
                   {/* <div className="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Stethoscope className="w-16 h-16 text-white" />
                   </div>
@@ -799,10 +799,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/ncs.jpg" alt="Nurse Call System" className="w-full h-full object-cover" />
+                  <img src="/images/services/ncs.jpg" alt="Nurse Call System" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -814,10 +814,10 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/cssd.jpg" alt="Central Sterile Supply Department" className="w-full h-full object-cover" />
+                  <img src="/images/services/cssd.jpg" alt="Central Sterile Supply Department" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -893,10 +893,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/ptts.jpg" alt="Pneumatic Tube Transfer System" className="w-full h-full object-cover" />
+                  <img src="/images/services/ptts.jpg" alt="Pneumatic Tube Transfer System" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -908,10 +908,10 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/rds.jpg" alt="Radio-Diagnostic Services" className="w-full h-full object-cover" />
+                  <img src="/images/services/rds.jpg" alt="Radio-Diagnostic Services" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -986,10 +986,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/lds.jpg" alt="Lab Diagnostic Services" className="w-full h-full object-cover" />
+                  <img src="/images/services/lds.jpg" alt="Lab Diagnostic Services" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1001,10 +1001,10 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/rta.jpg" alt="Radiation And Other Therapeutic Areas" className="w-full h-full object-cover" />
+                  <img src="/images/services/rta.jpg" alt="Radiation And Other Therapeutic Areas" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1085,10 +1085,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/hls.jpg" alt="Hospital Laundry Services" className="w-full h-full object-cover" />
+                  <img src="/images/services/hls.jpg" alt="Hospital Laundry Services" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1100,10 +1100,10 @@ const SpecializedServicesPage: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/hks.jpg" alt="Hospital Kitchen Services" className="w-full h-full object-cover" />
+                  <img src="/images/services/hks.jpg" alt="Hospital Kitchen Services" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1184,10 +1184,10 @@ const SpecializedServicesPage: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/his.jpg" alt="Hospital IT System" className="w-full h-full object-cover" />
+                  <img src="/images/services/his.jpg" alt="Hospital IT System" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1331,10 +1331,10 @@ const EquipmentPlanningPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/hospital-equipment-planning.jpeg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
+                  <img src="/images/services/hospital-equipment-planning.jpeg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1481,10 +1481,10 @@ const PreCommissioningPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl">
               <div className="w-full h-96 bg-blue-100 rounded-xl flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/esrpd.jpg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full object-cover" />
+                  <img src="/images/services/esrpd.jpg" alt="Pre-commissioning and Commissioning Activities" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
@@ -1497,10 +1497,10 @@ const PreCommissioningPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <div className="bg-gray-100 rounded-xl p-8">
+            <div className="bg-gray-100 rounded-xl">
               <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
-                  <img src="/images/services/sdaar.jpg" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full object-cover" />
+                  <img src="/images/services/sdaar.jpg" alt="Strategic Design Approach And Associated Requirements" className="w-full h-full rounded-lg object-cover" />
                 </div>
               </div>
             </div>
