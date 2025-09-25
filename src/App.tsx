@@ -10,6 +10,7 @@ import JobsPage from './pages/JobsPage'
 import JobDetailPage from './pages/JobDetailPage'
 import ApplyPage from './pages/ApplyPage'
 import BlogPage from './pages/BlogPage'
+import BlogDetailPage from './pages/BlogDetailPage'
 import ContactPage from './pages/ContactPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
@@ -34,6 +35,7 @@ function App() {
       <Route path="/career/job/:jobId" element={<Layout><JobDetailPage /></Layout>} />
       <Route path="/career/apply" element={<Layout><ApplyPage /></Layout>} />
       <Route path="/blog" element={<Layout><BlogPage /></Layout>} />
+      <Route path="/blog/:slug" element={<Layout><BlogDetailPage /></Layout>} />
       <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
       
       {/* Auth Routes */}
