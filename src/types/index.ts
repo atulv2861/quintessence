@@ -14,17 +14,35 @@ export interface Service {
 export interface Project {
   id: string
   title: string
-  description: string
-  image: string
-  category: string
   location: string
-  area: number
-  beds: number
-  status: 'planned' | 'ongoing' | 'completed'
-  clientName?: string
-  completionDate?: string
-  isFeatured: boolean
-  slug: string
+  beds: string
+  area: string
+  client: string
+  status: 'Planning' | 'In Progress' | 'Completed' | 'On Hold'
+  description: string
+  features: string[]
+  images: string
+  created_at: string
+  updated_at: string
+}
+
+export interface ProjectFormData {
+  title: string
+  location: string
+  beds: string
+  area: string
+  client: string
+  status: 'Planning' | 'In Progress' | 'Completed' | 'On Hold'
+  description: string
+  features: string[]
+  images: string
+}
+
+export interface ProjectsResponse {
+  projects: Project[]
+  total: number
+  page: number
+  limit: number
 }
 
 // Testimonial types
