@@ -18,7 +18,6 @@ import AdminBlogsPage from './pages/admin/BlogsPage'
 import AdminProjectsPage from './pages/admin/ProjectsPage'
 import AdminJobsPage from './pages/admin/JobsPage'
 import UsersPage from './pages/admin/UsersPage'
-import AnalyticsPage from './pages/admin/AnalyticsPage'
 import SettingsPage from './pages/admin/SettingsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
@@ -47,7 +46,6 @@ function App() {
       <Route path="/admin/projects" element={<AdminLayout><AdminProjectsPage /></AdminLayout>} />
       <Route path="/admin/jobs" element={<AdminLayout><AdminJobsPage /></AdminLayout>} />
       <Route path="/admin/users" element={<AdminLayout><UsersPage /></AdminLayout>} />
-      <Route path="/admin/analytics" element={<AdminLayout><AnalyticsPage /></AdminLayout>} />
       <Route path="/admin/settings" element={<AdminLayout><SettingsPage /></AdminLayout>} />
       
       {/* 404 Route */}
