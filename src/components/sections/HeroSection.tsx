@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
     setIsVisible(false)
     
     setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % 3)
+      setCurrentSlide((prev) => (prev + 1) % 4)
       setIsVisible(true)
       setTimeout(() => setIsAnimating(false), 100)
     }, 300)
@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
     setIsVisible(false)
     
     setTimeout(() => {
-      setCurrentSlide((prev) => (prev - 1 + 3) % 3)
+      setCurrentSlide((prev) => (prev - 1 + 4) % 4)
       setIsVisible(true)
       setTimeout(() => setIsAnimating(false), 100)
     }, 300)
@@ -49,11 +49,11 @@ const HeroSection: React.FC = () => {
     }, 300)
   }
 
-  // Auto-advance slides every 5 seconds
+  // Auto-advance slides every 4 seconds (similar to client slider timing)
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide()
-    }, 5000)
+    }, 4000)
     
     return () => clearInterval(interval)
   }, [isAnimating])
@@ -93,30 +93,40 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-[70vh] overflow-hidden">
-      {/* Modern Medical Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${currentSlideData.image})`,
-        }}
-      >
-        {/* Subtle overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        
-        {/* Floating Medical Icons */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-20 animate-float">
-            <Heart className="w-16 h-16 text-white" />
-          </div>
-          <div className="absolute top-40 right-32 animate-pulse-slow">
-            <Shield className="w-12 h-12 text-white" />
-          </div>
-          <div className="absolute bottom-40 left-32 animate-rotate-slow">
-            <Target className="w-14 h-14 text-white" />
-          </div>
-          <div className="absolute bottom-20 right-20 animate-float" style={{animationDelay: '2s'}}>
-            <Award className="w-10 h-10 text-white" />
-          </div>
+      {/* Modern Medical Background with Sliding Animation */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="w-full h-full flex-shrink-0 bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: `url(${slide.image})`,
+              }}
+            >
+              {/* Subtle overlay for text readability */}
+              <div className="absolute inset-0 bg-black/20"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Floating Medical Icons */}
+      <div className="absolute inset-0 opacity-20 z-10">
+        <div className="absolute top-20 left-20 animate-float">
+          <Heart className="w-16 h-16 text-white" />
+        </div>
+        <div className="absolute top-40 right-32 animate-pulse-slow">
+          <Shield className="w-12 h-12 text-white" />
+        </div>
+        <div className="absolute bottom-40 left-32 animate-rotate-slow">
+          <Target className="w-14 h-14 text-white" />
+        </div>
+        <div className="absolute bottom-20 right-20 animate-float" style={{animationDelay: '2s'}}>
+          <Award className="w-10 h-10 text-white" />
         </div>
       </div>
 
@@ -136,7 +146,7 @@ const HeroSection: React.FC = () => {
       </button>
 
       {/* Modern Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-20 h-full flex items-center justify-center">
         <div className="container-custom">
           <div className="max-w-5xl text-center">
             {/* Icon and Subtitle */}
