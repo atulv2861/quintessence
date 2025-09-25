@@ -12,7 +12,8 @@ import {
   BarChart3,
   Bell,
   Search,
-  User
+  User,
+  UserCheck
 } from 'lucide-react'
 
 interface AdminLayoutProps {
@@ -28,7 +29,8 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'Blogs', href: '/admin/blogs', icon: FileText },
     { name: 'Projects', href: '/admin/projects', icon: Briefcase },
-    { name: 'Jobs', href: '/admin/jobs', icon: Users },
+    { name: 'Jobs', href: '/admin/jobs', icon: Briefcase },
+    { name: 'Users', href: '/admin/users', icon: UserCheck },
     { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
   ]

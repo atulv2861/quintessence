@@ -47,6 +47,36 @@ export interface ProjectsResponse {
   limit: number
 }
 
+// User Management types
+export interface AdminUser {
+  id: string
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  role: 'user' | 'admin'
+  is_active: boolean
+  created_at: string
+  updated_at: string
+}
+
+export interface UserFormData {
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  role: 'user' | 'admin'
+  is_active: boolean
+  password?: string
+}
+
+export interface UsersResponse {
+  users: AdminUser[]
+  total: number
+  page: number
+  limit: number
+}
+
 // Testimonial types
 export interface Testimonial {
   id: string
