@@ -127,18 +127,21 @@ export const userService = {
   },
 
   // Change user password
-  async changePassword(id: string, newPassword: string): Promise<void> {
+  async changePassword(id: string, newPassword: string): Promise<AdminUser> {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/users/${id}/password`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: getHeaders(),
-        body: JSON.stringify({ password: newPassword })
+        body: JSON.stringify({ new_password: newPassword })
       })
 
       if (!response.ok) {
         const errorData = await response.json()
         throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
       }
+
+      const data: AdminUser = await response.json()
+      return data
     } catch (error) {
       console.error('Error changing password:', error)
       throw error

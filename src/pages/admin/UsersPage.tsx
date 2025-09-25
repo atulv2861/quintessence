@@ -14,7 +14,8 @@ import {
   CheckCircle,
   AlertCircle,
   RefreshCw,
-  Key
+  Key,
+  X
 } from 'lucide-react'
 import { AdminUser, UserFormData, UsersResponse } from '../../types'
 import { userService } from '../../services/userService'
@@ -31,6 +32,9 @@ const UsersPage: React.FC = () => {
   const [editingUser, setEditingUser] = useState<AdminUser | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [passwordChangeUser, setPasswordChangeUser] = useState<AdminUser | null>(null)
+  const [newPassword, setNewPassword] = useState('')
+  const [isChangingPassword, setIsChangingPassword] = useState(false)
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1)
@@ -108,6 +112,38 @@ const UsersPage: React.FC = () => {
   const handleCreate = () => {
     setEditingUser(null)
     setShowModal(true)
+  }
+
+  const handlePasswordChange = (user: AdminUser) => {
+    setPasswordChangeUser(user)
+    setNewPassword('')
+  }
+
+  const handlePasswordSubmit = async () => {
+    if (!passwordChangeUser || !newPassword.trim()) {
+      setError('Please enter a new password')
+      return
+    }
+
+    if (newPassword.length < 6) {
+      setError('Password must be at least 6 characters long')
+      return
+    }
+
+    setIsChangingPassword(true)
+    setError(null)
+
+    try {
+      await userService.changePassword(passwordChangeUser.id, newPassword)
+      setPasswordChangeUser(null)
+      setNewPassword('')
+      await loadUsers()
+    } catch (error) {
+      console.error('Error changing password:', error)
+      setError('Failed to change password. Please try again.')
+    } finally {
+      setIsChangingPassword(false)
+    }
   }
 
   const handleSubmit = async (userData: UserFormData) => {
@@ -385,6 +421,13 @@ const UsersPage: React.FC = () => {
                       <Edit className="w-4 h-4" />
                     </button>
                     <button
+                      onClick={() => handlePasswordChange(user)}
+                      className="text-green-400 hover:text-green-600 p-2"
+                      title="Change Password"
+                    >
+                      <Key className="w-4 h-4" />
+                    </button>
+                    <button
                       onClick={() => handleDelete(user)}
                       className="text-red-400 hover:text-red-600 p-2"
                       title="Delete User"
@@ -485,6 +528,79 @@ const UsersPage: React.FC = () => {
           onSubmit={handleSubmit}
           isLoading={isSubmitting}
         />
+
+        {/* Password Change Modal */}
+        {passwordChangeUser && (
+          <div className="fixed inset-0 z-50 overflow-y-auto">
+            <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onClick={() => setPasswordChangeUser(null)}></div>
+
+              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-md sm:w-full">
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      Change Password
+                    </h3>
+                    <button
+                      onClick={() => setPasswordChangeUser(null)}
+                      className="text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
+
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Change password for <strong>{passwordChangeUser.first_name} {passwordChangeUser.last_name}</strong>
+                    </p>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        New Password *
+                      </label>
+                      <input
+                        type="password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Enter new password"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Password must be at least 6 characters long
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                  <button
+                    onClick={handlePasswordSubmit}
+                    disabled={isChangingPassword || !newPassword.trim()}
+                    className="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isChangingPassword ? (
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Changing...
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <Key className="w-4 h-4 mr-2" />
+                        Change Password
+                      </div>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => setPasswordChangeUser(null)}
+                    className="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
