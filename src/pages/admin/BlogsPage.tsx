@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { 
   Plus, 
   Search, 
-  Edit, 
-  Trash2, 
-  Eye,  
-  User,
+    Edit, 
+    Trash2, 
+    User,
+    Eye,
   FileText,
   RefreshCw
 } from 'lucide-react'
@@ -302,32 +302,6 @@ const BlogsPage: React.FC = () => {
                           {blog.excerpt}
                         </div>
                         
-                        {/* Content Sections Preview */}
-                        <div className="text-xs text-gray-600 mb-2">
-                          <div className="font-medium mb-1">Content Sections:</div>
-                          {blog.content.slice(0, 2).map((section, sectionIndex) => (
-                            <div key={sectionIndex} className="mb-1">
-                              <div className="font-medium text-gray-700">
-                                {sectionIndex + 1}. {section.heading}
-                              </div>
-                              <div className="text-gray-500 ml-2 line-clamp-1">
-                                {section.description}
-                              </div>
-                              {section.sub_sections.length > 0 && (
-                                <div className="ml-4 text-gray-400">
-                                  • {section.sub_sections.slice(0, 2).join(' • ')}
-                                  {section.sub_sections.length > 2 && ` • +${section.sub_sections.length - 2} more`}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                          {blog.content.length > 2 && (
-                            <div className="text-gray-400 italic">
-                              +{blog.content.length - 2} more sections
-                            </div>
-                          )}
-                        </div>
-
                         <div className="flex flex-wrap gap-1">
                           {blog.tags.slice(0, 3).map((tag, index) => (
                             <span
@@ -368,17 +342,10 @@ const BlogsPage: React.FC = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {formatDate(blog.created_at)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <div className="flex items-center justify-end space-x-2">
-                        <button
-                          onClick={() => window.open(`/blog/${blog.slug}`, '_blank')}
-                          className="text-gray-400 hover:text-gray-600 p-1"
-                          title="View"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleEdit(blog)}
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div className="flex items-center justify-end space-x-2">
+                          <button
+                            onClick={() => handleEdit(blog)}
                           className="text-blue-400 hover:text-blue-600 p-1"
                           title="Edit"
                         >
