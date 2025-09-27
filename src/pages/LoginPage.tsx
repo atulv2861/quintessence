@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { Eye, EyeOff, Lock, Mail, ArrowRight, Shield } from 'lucide-react'
+import { authService } from '../services/authService'
+import { LoginRequest } from '../types'
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -11,6 +14,10 @@ const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+
+  // Get the intended destination from location state
+  const from = location.state?.from?.pathname || '/admin/dashboard'
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -18,28 +25,58 @@ const LoginPage: React.FC = () => {
       [e.target.name]: e.target.value
     })
     setError('')
+    setSuccess('')
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError('')
+    setSuccess('')
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      // For demo purposes, accept any email/password
-      if (formData.email && formData.password) {
-        // Store auth token in localStorage
-        localStorage.setItem('authToken', 'demo-token-123')
-        localStorage.setItem('userEmail', formData.email)
-        navigate('/admin/dashboard')
-      } else {
-        setError('Please fill in all fields')
+      // Prepare login data
+      const loginData: LoginRequest = {
+        email: formData.email,
+        password: formData.password
       }
-    } catch (error) {
-      setError('Login failed. Please try again.')
+
+      // Call the login API
+      const response = await authService.login(loginData)
+      
+      // Store authentication data
+      authService.storeAuthToken(response.access_token)
+      authService.storeUserData(response.user)
+      localStorage.setItem('userEmail', response.user.email)
+      
+      // Determine redirect destination based on user role and status
+      let redirectPath = '/'
+      
+      if (response.user.role === 'admin' && response.user.is_active) {
+        // Admin users go to admin dashboard or intended destination
+        redirectPath = from
+      } else if (response.user.role === 'user' && response.user.is_active) {
+        // Regular users go to home page
+        redirectPath = '/'
+      } else {
+        // Inactive users or other cases
+        redirectPath = '/'
+      }
+      
+      // Show success message briefly before redirect
+      setSuccess('Login successful! Redirecting...')
+      
+      // Try immediate navigation first
+      navigate(redirectPath, { replace: true })
+      
+      // Also try with a small delay as backup
+      setTimeout(() => {
+        navigate(redirectPath, { replace: true })
+      }, 1000)
+      
+    } catch (error: any) {
+      console.error('Login error:', error)
+      setError(error.message || 'Login failed. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -69,6 +106,13 @@ const LoginPage: React.FC = () => {
           {error && (
             <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4">
               <p className="text-red-700 text-sm text-center">{error}</p>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {success && (
+            <div className="mb-6 bg-green-50 border border-green-200 rounded-xl p-4">
+              <p className="text-green-700 text-sm text-center">{success}</p>
             </div>
           )}
 

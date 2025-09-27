@@ -2,24 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { 
   Plus, 
   Search, 
-  Edit, 
-  Trash2, 
-  Eye,  
-  User,
-  FileText
+    Edit, 
+    Trash2, 
+    User,
+    FileText,
+    CheckCircle,
+  RefreshCw
 } from 'lucide-react'
-
-interface Blog {
-  id: string
-  title: string
-  content: string
-  excerpt: string
-  author: string
-  publishedAt: string
-  status: 'published' | 'draft'
-  views: number
-  tags: string[]
-}
+import { Blog, BlogFormData } from '../../types'
+import { blogService } from '../../services/blogService'
+import BlogForm from '../../components/forms/BlogForm'
 
 const BlogsPage: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([])
@@ -29,12 +21,15 @@ const BlogsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
-  console.log(editingBlog)
-  console.log(showModal)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const [totalBlogs, setTotalBlogs] = useState(0)
+  const [limit] = useState(10)
 
   useEffect(() => {
     loadBlogs()
-  }, [])
+  }, [currentPage])
 
   useEffect(() => {
     filterBlogs()
@@ -42,47 +37,20 @@ const BlogsPage: React.FC = () => {
 
   const loadBlogs = async () => {
     setIsLoading(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    const mockBlogs: Blog[] = [
-      {
-        id: '1',
-        title: 'Healthcare Technology Trends 2024',
-        content: 'Comprehensive overview of emerging technologies in healthcare...',
-        excerpt: 'Discover the latest trends shaping the future of healthcare technology.',
-        author: 'Dr. Nitin Garg',
-        publishedAt: '2024-01-15',
-        status: 'published',
-        views: 1250,
-        tags: ['technology', 'healthcare', 'innovation']
-      },
-      {
-        id: '2',
-        title: 'Hospital Design Best Practices',
-        content: 'Essential principles for designing modern healthcare facilities...',
-        excerpt: 'Learn the key principles for creating efficient and patient-centered hospital designs.',
-        author: 'Dr. Nitin Garg',
-        publishedAt: '2024-01-10',
-        status: 'published',
-        views: 980,
-        tags: ['design', 'architecture', 'healthcare']
-      },
-      {
-        id: '3',
-        title: 'Medical Equipment Planning Guide',
-        content: 'Complete guide to planning and selecting medical equipment...',
-        excerpt: 'A comprehensive guide to medical equipment planning and procurement.',
-        author: 'Dr. Nitin Garg',
-        publishedAt: '2024-01-05',
-        status: 'draft',
-        views: 0,
-        tags: ['equipment', 'planning', 'procurement']
-      }
-    ]
-    
-    setBlogs(mockBlogs)
-    setIsLoading(false)
+    try {
+      const response = await blogService.getBlogsPaginated(currentPage, limit)
+      setBlogs(response.blogs)
+      setTotalBlogs(response.total)
+      setTotalPages(Math.ceil(response.total / limit))
+    } catch (error) {
+      console.error('Error loading blogs:', error)
+      // Fallback to empty array on error
+      setBlogs([])
+      setTotalBlogs(0)
+      setTotalPages(1)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const filterBlogs = () => {
@@ -97,15 +65,21 @@ const BlogsPage: React.FC = () => {
     }
 
     if (statusFilter !== 'all') {
-      filtered = filtered.filter(blog => blog.status === statusFilter)
+      filtered = filtered.filter(blog => blog.is_published === statusFilter)
     }
 
     setFilteredBlogs(filtered)
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (blog: Blog) => {
     if (window.confirm('Are you sure you want to delete this blog post?')) {
-      setBlogs(blogs.filter(blog => blog.id !== id))
+      try {
+        await blogService.deleteBlog(blog.id)
+        await loadBlogs()
+      } catch (error) {
+        console.error('Error deleting blog:', error)
+        alert('Failed to delete blog post. Please try again.')
+      }
     }
   }
 
@@ -117,6 +91,35 @@ const BlogsPage: React.FC = () => {
   const handleCreate = () => {
     setEditingBlog(null)
     setShowModal(true)
+  }
+
+  const handleSubmit = async (data: BlogFormData) => {
+    setIsSubmitting(true)
+    try {
+      console.log('Submitting blog data:', data)
+      if (editingBlog) {
+        console.log('Updating existing blog:', editingBlog.id)
+        await blogService.updateBlog(editingBlog.id, data)
+      } else {
+        console.log('Creating new blog')
+        await blogService.createBlog(data)
+      }
+      setShowModal(false)
+      setEditingBlog(null)
+      setCurrentPage(1) // Reset to first page
+      await loadBlogs()
+    } catch (error) {
+      console.error('Error saving blog:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      alert(`Failed to save blog post: ${errorMessage}`)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleRefresh = () => {
+    setCurrentPage(1)
+    loadBlogs()
   }
 
   const formatDate = (dateString: string) => {
@@ -156,18 +159,27 @@ const BlogsPage: React.FC = () => {
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Blog Management</h1>
               <p className="text-gray-600">Manage your blog posts and content</p>
             </div>
-            <button
-              onClick={handleCreate}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors"
-            >
-              <Plus className="w-5 h-5" />
-              <span>New Blog Post</span>
-            </button>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={handleRefresh}
+                className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span>Refresh</span>
+              </button>
+              <button
+                onClick={handleCreate}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors"
+              >
+                <Plus className="w-5 h-5" />
+                <span>New Blog Post</span>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -175,19 +187,19 @@ const BlogsPage: React.FC = () => {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Total Blogs</p>
-                <p className="text-2xl font-bold text-gray-900">{blogs.length}</p>
+                <p className="text-2xl font-bold text-gray-900">{totalBlogs}</p>
               </div>
             </div>
           </div>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Eye className="w-6 h-6 text-green-600" />
+                <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Published</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {blogs.filter(blog => blog.status === 'published').length}
+                  {blogs.filter(blog => blog.is_published === 'published').length}
                 </p>
               </div>
             </div>
@@ -200,20 +212,7 @@ const BlogsPage: React.FC = () => {
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Drafts</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {blogs.filter(blog => blog.status === 'draft').length}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Eye className="w-6 h-6 text-purple-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Views</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {blogs.reduce((sum, blog) => sum + blog.views, 0).toLocaleString()}
+                  {blogs.filter(blog => blog.is_published === 'draft').length}
                 </p>
               </div>
             </div>
@@ -247,7 +246,7 @@ const BlogsPage: React.FC = () => {
               </select>
             </div>
             <div className="text-sm text-gray-600">
-              Showing {filteredBlogs.length} of {blogs.length} blogs
+              Showing {filteredBlogs.length} of {totalBlogs} blogs
             </div>
           </div>
         </div>
@@ -268,10 +267,10 @@ const BlogsPage: React.FC = () => {
                     Status
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Views
+                    Published
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Published
+                    Created
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
@@ -286,10 +285,11 @@ const BlogsPage: React.FC = () => {
                         <div className="text-sm font-medium text-gray-900 mb-1">
                           {blog.title}
                         </div>
-                        <div className="text-sm text-gray-500 line-clamp-2">
+                        <div className="text-sm text-gray-500 line-clamp-2 mb-2">
                           {blog.excerpt}
                         </div>
-                        <div className="flex flex-wrap gap-1 mt-2">
+                        
+                        <div className="flex flex-wrap gap-1">
                           {blog.tags.slice(0, 3).map((tag, index) => (
                             <span
                               key={index}
@@ -308,8 +308,22 @@ const BlogsPage: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                          <User className="w-4 h-4 text-gray-600" />
+                        <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                          {blog.author_image ? (
+                            <img
+                              src={blog.author_image.startsWith('data:') ? blog.author_image : `/images/hero/${blog.author_image}`}
+                              alt={blog.author}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.nextElementSibling?.classList.remove('hidden');
+                              }}
+                            />
+                          ) : null}
+                          <div className={`w-full h-full bg-gray-300 flex items-center justify-center ${blog.author_image ? 'hidden' : ''}`}>
+                            <User className="w-4 h-4 text-gray-600" />
+                          </div>
                         </div>
                         <div className="ml-3">
                           <div className="text-sm font-medium text-gray-900">
@@ -319,34 +333,27 @@ const BlogsPage: React.FC = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={getStatusBadge(blog.status)}>
-                        {blog.status}
+                      <span className={getStatusBadge(blog.is_published)}>
+                        {blog.is_published}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {blog.views.toLocaleString()}
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {formatDate(blog.published_at)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {formatDate(blog.publishedAt)}
+                      {formatDate(blog.created_at)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <div className="flex items-center justify-end space-x-2">
-                        <button
-                          onClick={() => window.open(`/blog/${blog.id}`, '_blank')}
-                          className="text-gray-400 hover:text-gray-600 p-1"
-                          title="View"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleEdit(blog)}
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div className="flex items-center justify-end space-x-2">
+                          <button
+                            onClick={() => handleEdit(blog)}
                           className="text-blue-400 hover:text-blue-600 p-1"
                           title="Edit"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
                         <button
-                          onClick={() => handleDelete(blog.id)}
+                          onClick={() => handleDelete(blog)}
                           className="text-red-400 hover:text-red-600 p-1"
                           title="Delete"
                         >
@@ -381,6 +388,62 @@ const BlogsPage: React.FC = () => {
               </button>
             )}
           </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-8 flex items-center justify-between">
+            <div className="text-sm text-gray-700">
+              Showing page {currentPage} of {totalPages}
+            </div>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+              
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                const pageNum = i + 1
+                return (
+                  <button
+                    key={pageNum}
+                    onClick={() => setCurrentPage(pageNum)}
+                    className={`px-3 py-2 border rounded-lg text-sm font-medium ${
+                      currentPage === pageNum
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                )
+              })}
+              
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Blog Form Modal */}
+        {showModal && (
+          <BlogForm
+            blog={editingBlog}
+            onSubmit={handleSubmit}
+            onCancel={() => {
+              setShowModal(false)
+              setEditingBlog(null)
+            }}
+            isLoading={isSubmitting}
+          />
         )}
       </div>
     </div>
