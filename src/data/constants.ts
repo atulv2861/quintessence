@@ -116,60 +116,104 @@ export const PROJECTS: Project[] = [
     title: 'Multi-Specialty Hospital - Delhi',
     description: 'A comprehensive 500-bed multi-specialty hospital with advanced medical facilities and modern infrastructure.',
     image: '/images/projects/hospital-delhi.jpg',
+    image_name: 'hospital-delhi.jpg',
     category: 'Multi-Specialty',
     location: 'New Delhi',
     area: '150000',
     beds: '500',
     status: 'Completed',
+    client: 'Delhi Healthcare Group',
     clientName: 'Delhi Healthcare Group',
     completionDate: '2023',
     isFeatured: true,
-    slug: 'multi-specialty-hospital-delhi'
+    slug: 'multi-specialty-hospital-delhi',
+    features: [
+      'Advanced ICU facilities',
+      'Modern operation theaters',
+      'Emergency care unit',
+      'Diagnostic imaging center',
+      'Pharmacy and laboratory services'
+    ],
+    created_at: '2023-01-15T10:00:00Z',
+    updated_at: '2023-12-31T18:00:00Z'
   },
   {
     id: '2',
     title: 'Cardiac Care Center - Mumbai',
     description: 'State-of-the-art cardiac care facility with advanced diagnostic and treatment capabilities.',
     image: '/images/projects/cardiac-mumbai.jpg',
+    image_name: 'cardiac-mumbai.jpg',
     category: 'Cardiac Care',
     location: 'Mumbai',
     area: '75000',
     beds: '200',
     status: 'Completed',
+    client: 'Mumbai Cardiac Institute',
     clientName: 'Mumbai Cardiac Institute',
     completionDate: '2022',
     isFeatured: true,
-    slug: 'cardiac-care-center-mumbai'
+    slug: 'cardiac-care-center-mumbai',
+    features: [
+      'Cardiac catheterization lab',
+      'Advanced imaging systems',
+      'Intensive care units',
+      'Rehabilitation center',
+      'Emergency cardiac services'
+    ],
+    created_at: '2022-03-10T09:00:00Z',
+    updated_at: '2022-11-30T17:00:00Z'
   },
   {
     id: '3',
     title: 'Oncology Center - Bangalore',
     description: 'Comprehensive cancer care facility with advanced radiation therapy and chemotherapy units.',
     image: '/images/projects/oncology-bangalore.jpg',
+    image_name: 'oncology-bangalore.jpg',
     category: 'Oncology',
     location: 'Bangalore',
     area: '100000',
     beds: '150',
     status: 'In Progress',
+    client: 'Bangalore Cancer Institute',
     clientName: 'Bangalore Cancer Institute',
     completionDate: '2024',
     isFeatured: true,
-    slug: 'oncology-center-bangalore'
+    slug: 'oncology-center-bangalore',
+    features: [
+      'Radiation therapy units',
+      'Chemotherapy infusion center',
+      'Surgical oncology suites',
+      'Palliative care unit',
+      'Research and clinical trials'
+    ],
+    created_at: '2023-06-01T08:00:00Z',
+    updated_at: '2024-01-15T16:30:00Z'
   },
   {
     id: '4',
     title: 'Pediatric Hospital - Chennai',
     description: 'Specialized pediatric care facility designed with child-friendly environments and advanced medical equipment.',
     image: '/images/projects/pediatric-chennai.jpg',
+    image_name: 'pediatric-chennai.jpg',
     category: 'Pediatric',
     location: 'Chennai',
     area: '60000',
     beds: '100',
     status: 'Planning',
+    client: 'Chennai Children\'s Hospital',
     clientName: 'Chennai Children\'s Hospital',
     completionDate: '2025',
     isFeatured: false,
-    slug: 'pediatric-hospital-chennai'
+    slug: 'pediatric-hospital-chennai',
+    features: [
+      'Child-friendly design',
+      'Pediatric intensive care',
+      'Neonatal care unit',
+      'Play therapy areas',
+      'Family accommodation'
+    ],
+    created_at: '2024-01-01T12:00:00Z',
+    updated_at: '2024-01-15T14:00:00Z'
   }
 ]
 
