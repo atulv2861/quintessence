@@ -5,8 +5,8 @@ import {
     Edit, 
     Trash2, 
     User,
-    Eye,
-  FileText,
+    FileText,
+    CheckCircle,
   RefreshCw
 } from 'lucide-react'
 import { Blog, BlogFormData } from '../../types'
@@ -179,7 +179,7 @@ const BlogsPage: React.FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -194,7 +194,7 @@ const BlogsPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Eye className="w-6 h-6 text-green-600" />
+                <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Published</p>
@@ -213,19 +213,6 @@ const BlogsPage: React.FC = () => {
                 <p className="text-sm font-medium text-gray-600">Drafts</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {blogs.filter(blog => blog.is_published === 'draft').length}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Eye className="w-6 h-6 text-purple-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Views</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {blogs.reduce((sum, blog) => sum + blog.views, 0).toLocaleString()}
                 </p>
               </div>
             </div>
