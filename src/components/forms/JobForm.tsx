@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { X, Plus, Trash2, Save, AlertCircle } from 'lucide-react'
-import { Job, JobFormData, KeyResponsibility } from '../../types'
+import { Job, JobFormData } from '../../types'
 
 interface JobFormProps {
   job?: Job | null
