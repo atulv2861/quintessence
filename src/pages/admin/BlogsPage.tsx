@@ -308,8 +308,22 @@ const BlogsPage: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                          <User className="w-4 h-4 text-gray-600" />
+                        <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                          {blog.author_image ? (
+                            <img
+                              src={blog.author_image.startsWith('data:') ? blog.author_image : `/images/hero/${blog.author_image}`}
+                              alt={blog.author}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.nextElementSibling?.classList.remove('hidden');
+                              }}
+                            />
+                          ) : null}
+                          <div className={`w-full h-full bg-gray-300 flex items-center justify-center ${blog.author_image ? 'hidden' : ''}`}>
+                            <User className="w-4 h-4 text-gray-600" />
+                          </div>
                         </div>
                         <div className="ml-3">
                           <div className="text-sm font-medium text-gray-900">
