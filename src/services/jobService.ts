@@ -1,4 +1,4 @@
-import { Job, JobFormData, ApiResponse, PaginatedResponse, JobsResponse } from '../types'
+import { Job, JobFormData, ApiResponse, JobsResponse } from '../types'
 
 const API_BASE_URL = 'http://localhost:8000/api/v1'
 

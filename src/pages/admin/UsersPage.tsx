@@ -8,7 +8,6 @@ import {
   User,
   Mail,
   Phone,
-  Shield,
   ShieldCheck,
   Clock,
   CheckCircle,

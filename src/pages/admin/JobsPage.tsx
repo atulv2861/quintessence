@@ -17,7 +17,7 @@ import {
   Phone,
   RefreshCw
 } from 'lucide-react'
-import { Job, JobFormData, JobsResponse } from '../../types'
+import { Job, JobFormData } from '../../types'
 import { jobService } from '../../services/jobService'
 import JobForm from '../../components/forms/JobForm'
 

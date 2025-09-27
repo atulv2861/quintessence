@@ -4,7 +4,6 @@ import {
   FileText, 
   Briefcase, 
   TrendingUp, 
-  Eye, 
   Plus,
   BarChart3
 } from 'lucide-react'

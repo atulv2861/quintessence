@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { 
   Calendar, 
   User, 
@@ -90,12 +90,7 @@ const BLOG_POSTS = [
     authorBio: 'Dr. Nitin Garg is a renowned healthcare infrastructure consultant with over 15 years of experience in planning and designing medical facilities across India.',
     authorImage: '/images/hero/nitin-garg.png',
     publishedAt: '2024-01-15',
-    category: 'Healthcare Planning',
     tags: ['Infrastructure', 'Planning', 'Innovation', 'Healthcare', 'India'],
-    readTime: '8 min read',
-    views: 1250,
-    likes: 89,
-    featured: true
   },
   {
     id: '2',
