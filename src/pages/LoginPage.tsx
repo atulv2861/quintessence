@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { Eye, EyeOff, Lock, Mail, ArrowRight, Shield } from 'lucide-react'
+import { authService } from '../services/authService'
+import { LoginRequest } from '../types'
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate()
@@ -26,20 +28,26 @@ const LoginPage: React.FC = () => {
     setError('')
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      // For demo purposes, accept any email/password
-      if (formData.email && formData.password) {
-        // Store auth token in localStorage
-        localStorage.setItem('authToken', 'demo-token-123')
-        localStorage.setItem('userEmail', formData.email)
-        navigate('/admin/dashboard')
-      } else {
-        setError('Please fill in all fields')
+      // Prepare login data
+      const loginData: LoginRequest = {
+        email: formData.email,
+        password: formData.password
       }
-    } catch (error) {
-      setError('Login failed. Please try again.')
+
+      // Call the login API
+      const response = await authService.login(loginData)
+      
+      // Store authentication data
+      authService.storeAuthToken(response.access_token)
+      authService.storeUserData(response.user)
+      localStorage.setItem('userEmail', response.user.email)
+      
+      // Navigate to admin dashboard
+      navigate('/admin/dashboard')
+      
+    } catch (error: any) {
+      console.error('Login error:', error)
+      setError(error.message || 'Login failed. Please try again.')
     } finally {
       setIsLoading(false)
     }

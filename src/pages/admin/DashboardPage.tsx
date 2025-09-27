@@ -4,16 +4,16 @@ import {
   FileText, 
   Briefcase, 
   TrendingUp, 
-  Eye, 
   Plus,
   BarChart3
 } from 'lucide-react'
+import { userService } from '../../services/userService'
 
 interface DashboardStats {
   totalBlogs: number
   totalProjects: number
   totalJobs: number
-  totalViews: number
+  totalUsers: number
   monthlyGrowth: number
   revenue: number
 }
@@ -23,26 +23,43 @@ const DashboardPage: React.FC = () => {
     totalBlogs: 0,
     totalProjects: 0,
     totalJobs: 0,
-    totalViews: 0,
+    totalUsers: 0,
     monthlyGrowth: 0,
     revenue: 0
   })
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading data
+    // Load dashboard data
     const loadDashboardData = async () => {
       setIsLoading(true)
-      await new Promise(resolve => setTimeout(resolve, 1000))
       
-      setStats({
-        totalBlogs: 24,
-        totalProjects: 18,
-        totalJobs: 12,
-        totalViews: 15420,
-        monthlyGrowth: 23.5,
-        revenue: 125000
-      })
+      try {
+        // Fetch real user data
+        const usersResponse = await userService.getUsersPaginated(1, 1)
+        const totalUsers = usersResponse.total
+        
+        setStats({
+          totalBlogs: 24,
+          totalProjects: 18,
+          totalJobs: 12,
+          totalUsers: totalUsers,
+          monthlyGrowth: 23.5,
+          revenue: 125000
+        })
+      } catch (error) {
+        console.error('Error loading dashboard data:', error)
+        // Fallback to mock data if API fails
+        setStats({
+          totalBlogs: 24,
+          totalProjects: 18,
+          totalJobs: 12,
+          totalUsers: 0,
+          monthlyGrowth: 23.5,
+          revenue: 125000
+        })
+      }
+      
       setIsLoading(false)
     }
 
@@ -207,9 +224,9 @@ const DashboardPage: React.FC = () => {
             changeType="positive"
           />
           <StatCard
-            title="Total Views"
-            value={stats.totalViews.toLocaleString()}
-            icon={Eye}
+            title="Total Users"
+            value={stats.totalUsers.toLocaleString()}
+            icon={Users}
             color="bg-orange-500"
             change="+23% this month"
             changeType="positive"

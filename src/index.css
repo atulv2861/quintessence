@@ -390,3 +390,82 @@
 .mobile-menu.closed {
   @apply -translate-x-full;
 }
+
+/* Blog Detail Page Styles */
+.article-content {
+  @apply text-gray-800 leading-relaxed;
+}
+
+.article-content h2 {
+  @apply text-3xl font-bold text-gray-900 mt-12 mb-6 first:mt-0;
+}
+
+.article-content h3 {
+  @apply text-2xl font-semibold text-gray-800 mt-8 mb-4;
+}
+
+.article-content p {
+  @apply mb-6 text-lg leading-relaxed;
+}
+
+.article-content ul {
+  @apply mb-6 space-y-2;
+}
+
+.article-content li {
+  @apply flex items-start space-x-3;
+}
+
+.article-content li::before {
+  content: "•";
+  @apply text-blue-500 font-bold text-xl leading-none mt-1;
+}
+
+.article-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+.article-content a {
+  @apply text-blue-600 hover:text-blue-800 underline transition-colors;
+}
+
+/* Blog card hover effects */
+.blog-card {
+  @apply transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+.blog-card:hover {
+  @apply -translate-y-2;
+}
+
+/* Share menu animation */
+.share-menu {
+  @apply animate-fadeIn;
+}
+
+/* Reading progress bar */
+.reading-progress {
+  @apply fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 transition-all duration-300;
+}
+
+/* Article navigation */
+.article-nav {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+/* Related articles grid */
+.related-articles {
+  @apply grid gap-8;
+}
+
+@media (min-width: 768px) {
+  .related-articles {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .related-articles {
+    @apply grid-cols-3;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Calendar, User, ArrowRight, Search, BookOpen, Star, Clock, Eye, Heart } from 'lucide-react'
-
+import { Calendar, User, ArrowRight, Search, BookOpen} from 'lucide-react'
+//, Star, Clock, Eye, Heart 
 // Mock blog data - in a real app, this would come from an API
 const BLOG_POSTS = [
   {
@@ -10,15 +10,11 @@ const BLOG_POSTS = [
     slug: 'future-healthcare-infrastructure-india',
     excerpt: 'Exploring the latest trends and innovations in healthcare infrastructure planning and design that are revolutionizing the industry.',
     content: 'Full article content would go here...',
-    featuredImage: '/images/blog/healthcare-future.jpg',
+    image: '/images/blog/healthcare-future.jpg',
     author: 'Dr. Nitin Garg',
     publishedAt: '2024-01-15',
     category: 'Healthcare Planning',
     tags: ['Infrastructure', 'Planning', 'Innovation'],
-    readTime: '5 min read',
-    views: 1250,
-    likes: 89,
-    featured: true
   },
   {
     id: '2',
@@ -106,8 +102,8 @@ const BlogPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
-  const categories = ['all', ...Array.from(new Set(BLOG_POSTS.map(post => post.category)))]
-  const featuredPosts = BLOG_POSTS.filter(post => post.featured)
+  //const categories = ['all', ...Array.from(new Set(BLOG_POSTS.map(post => post.category)))]
+  //const featuredPosts = BLOG_POSTS.filter(post => post.featured)
 
   const filteredPosts = BLOG_POSTS.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -180,7 +176,7 @@ const BlogPage: React.FC = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 bg-white">
+      {/* <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.slice(1).map(category => (
@@ -198,19 +194,19 @@ const BlogPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
+      {/* {featuredPosts.length > 0 && (
         <section className="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
           <div className="container-custom">
             <div className="text-center mb-16">
-              {/* <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full mb-6">
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-full mb-6">
                 <span className="font-medium flex items-center space-x-2">
                   <Star className="w-4 h-4" />
                   <span>Featured</span>
                 </span>
-              </div> */}
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Trending
                 <span className="pl-2 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
@@ -310,15 +306,12 @@ const BlogPage: React.FC = () => {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* All Posts */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            {/* <div className="inline-block px-6 py-2 bg-blue-100 text-blue-400 rounded-full mb-6">
-              <span className="font-medium">All Articles</span>
-            </div> */}
+          <div className="text-center mb-16">           
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Latest
               <span className="pl-2 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
@@ -365,19 +358,19 @@ const BlogPage: React.FC = () => {
                         <p className="text-gray-600 font-medium text-sm">Article Image</p>
                       </div>
                     </div>
-                    <div className="absolute top-4 left-4">
+                    {/* <div className="absolute top-4 left-4">
                       <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                         {post.category}
                       </span>
-                    </div>
-                    {post.featured && (
+                    </div> */}
+                    {/* {post.featured && (
                       <div className="absolute top-4 right-4">
                         <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center space-x-1">
                           <Star className="w-3 h-3" />
                           <span>Featured</span>
                         </span>
                       </div>
-                    )}
+                    )} */}
                   </div>
 
                   <div className="p-6">
@@ -386,10 +379,10 @@ const BlogPage: React.FC = () => {
                         <Calendar className="w-4 h-4" />
                         <span>{formatDate(post.publishedAt)}</span>
                       </div>
-                      <div className="flex items-center space-x-1">
+                      {/* <div className="flex items-center space-x-1">
                         <Clock className="w-4 h-4" />
                         <span>{post.readTime}</span>
-                      </div>
+                      </div> */}
                     </div>
 
                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors leading-tight">
@@ -417,10 +410,10 @@ const BlogPage: React.FC = () => {
                           <User className="w-4 h-4" />
                           <span>{post.author}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
+                        {/* <div className="flex items-center space-x-1">
                           <Eye className="w-4 h-4" />
                           <span>{post.views}</span>
-                        </div>
+                        </div> */}
                       </div>
                       <Link
                         to={`/blog/${post.slug}`}

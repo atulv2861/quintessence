@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Eye, EyeOff, Lock, Mail, User, ArrowRight, Shield, Check } from 'lucide-react'
+import { Eye, EyeOff, Lock, Mail, User, ArrowRight, Shield, Check, Phone } from 'lucide-react'
+import { authService } from '../services/authService'
+import { SignupRequest } from '../types'
 
 const SignupPage: React.FC = () => {
   const navigate = useNavigate()
@@ -9,7 +11,8 @@ const SignupPage: React.FC = () => {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    phone: ''
   })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -26,7 +29,7 @@ const SignupPage: React.FC = () => {
   }
 
   const validateForm = () => {
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.confirmPassword) {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.confirmPassword || !formData.phone) {
       setError('Please fill in all fields')
       return false
     }
@@ -36,6 +39,18 @@ const SignupPage: React.FC = () => {
     }
     if (formData.password.length < 6) {
       setError('Password must be at least 6 characters long')
+      return false
+    }
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address')
+      return false
+    }
+    // Basic phone validation
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
+    if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      setError('Please enter a valid phone number')
       return false
     }
     return true
@@ -50,19 +65,41 @@ const SignupPage: React.FC = () => {
     setError('')
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Prepare signup data according to API structure
+      const signupData: SignupRequest = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        phone: formData.phone,
+        role: 'user' // Default role is always 'user'
+      }
+
+      // Call the signup API
+      const response = await authService.signup(signupData)
       
-      // For demo purposes, simulate successful signup
+      // Store user data for potential future use
+      authService.storeUserData({
+        id: response.id,
+        first_name: response.first_name,
+        last_name: response.last_name,
+        email: response.email,
+        phone: response.phone,
+        role: response.role,
+        is_active: response.is_active
+      })
+      
+      // Show success message
       setSuccess(true)
       
-      // Auto redirect to login after 2 seconds
+      // Auto redirect to login after 3 seconds
       setTimeout(() => {
         navigate('/login')
-      }, 2000)
+      }, 3000)
       
-    } catch (error) {
-      setError('Signup failed. Please try again.')
+    } catch (error: any) {
+      console.error('Signup error:', error)
+      setError(error.message || 'Signup failed. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -77,7 +114,7 @@ const SignupPage: React.FC = () => {
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Account Created!</h2>
           <p className="text-gray-600 mb-6">
-            Your admin account has been created successfully. You will be redirected to the login page shortly.
+            Your account has been created successfully. You will be redirected to the login page shortly.
           </p>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div className="bg-green-600 h-2 rounded-full animate-pulse" style={{ width: '100%' }}></div>
@@ -174,6 +211,27 @@ const SignupPage: React.FC = () => {
                   onChange={handleInputChange}
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 bg-white/50"
                   placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Phone Field */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Phone Number
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Phone className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 bg-white/50"
+                  placeholder="Enter your phone number"
                   required
                 />
               </div>
