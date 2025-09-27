@@ -17,139 +17,76 @@ import {
   Linkedin,
   Mail
 } from 'lucide-react'
+import { Blog } from '../types'
 
-// Mock blog data - in a real app, this would come from an API
-const BLOG_POSTS = [
-  {
-    id: '1',
-    title: 'The Future of Healthcare Infrastructure in India',
-    slug: 'future-healthcare-infrastructure-india',
-    excerpt: 'Exploring the latest trends and innovations in healthcare infrastructure planning and design that are revolutionizing the industry.',
-    content: `
-      <h2>Introduction</h2>
-      <p>The healthcare infrastructure landscape in India is undergoing a remarkable transformation. With the government's ambitious healthcare initiatives and private sector investments, we're witnessing unprecedented growth in medical facilities across the country.</p>
-      
-      <h2>Current State of Healthcare Infrastructure</h2>
-      <p>India's healthcare infrastructure has evolved significantly over the past decade. The country now boasts over 25,000 hospitals, with both public and private sectors contributing to this growth. However, challenges remain in terms of accessibility, quality, and distribution across urban and rural areas.</p>
-      
-      <h3>Key Statistics</h3>
-      <ul>
-        <li>Total hospital beds: 1.8 million</li>
-        <li>Doctor-to-patient ratio: 1:1,404</li>
-        <li>Healthcare expenditure: 3.6% of GDP</li>
-        <li>Digital health adoption: 65% in urban areas</li>
-      </ul>
-      
-      <h2>Emerging Trends</h2>
-      <p>Several key trends are shaping the future of healthcare infrastructure in India:</p>
-      
-      <h3>1. Digital Transformation</h3>
-      <p>The integration of technology in healthcare facilities is revolutionizing patient care. From telemedicine platforms to AI-powered diagnostic tools, digital health solutions are becoming integral to modern healthcare infrastructure.</p>
-      
-      <h3>2. Sustainable Design</h3>
-      <p>Green building practices and sustainable design principles are gaining traction. Healthcare facilities are increasingly incorporating energy-efficient systems, renewable energy sources, and environmentally friendly materials.</p>
-      
-      <h3>3. Modular Construction</h3>
-      <p>Prefabricated and modular construction methods are enabling faster project delivery and cost-effective healthcare facility development, particularly in remote areas.</p>
-      
-      <h2>Innovation in Healthcare Planning</h2>
-      <p>Modern healthcare infrastructure planning involves sophisticated approaches that consider multiple factors:</p>
-      
-      <h3>Patient-Centered Design</h3>
-      <p>Healthcare facilities are being designed with patient experience at the forefront. This includes creating healing environments, reducing wait times, and improving accessibility for all patients.</p>
-      
-      <h3>Technology Integration</h3>
-      <p>Smart building systems, IoT devices, and integrated healthcare information systems are becoming standard features in new healthcare facilities.</p>
-      
-      <h2>Challenges and Opportunities</h2>
-      <p>While the future looks promising, several challenges need to be addressed:</p>
-      
-      <h3>Challenges</h3>
-      <ul>
-        <li>Rural-urban healthcare disparity</li>
-        <li>Skilled workforce shortage</li>
-        <li>Regulatory compliance complexity</li>
-        <li>Funding and investment gaps</li>
-      </ul>
-      
-      <h3>Opportunities</h3>
-      <ul>
-        <li>Public-private partnerships</li>
-        <li>Technology adoption acceleration</li>
-        <li>International collaboration</li>
-        <li>Innovation in service delivery</li>
-      </ul>
-      
-      <h2>Future Outlook</h2>
-      <p>The next decade promises significant advancements in India's healthcare infrastructure. With continued investment, technological innovation, and policy support, India is well-positioned to become a global leader in healthcare infrastructure development.</p>
-      
-      <p>As we move forward, the focus will be on creating sustainable, accessible, and technologically advanced healthcare facilities that can serve the diverse needs of India's population while maintaining the highest standards of care.</p>
-    `,
-    image: '/images/blog/healthcare-future.jpg',
-    author: 'Dr. Nitin Garg',
-    authorBio: 'Dr. Nitin Garg is a renowned healthcare infrastructure consultant with over 15 years of experience in planning and designing medical facilities across India.',
-    authorImage: '/images/hero/nitin-garg.png',
-    publishedAt: '2024-01-15',
-    tags: ['Infrastructure', 'Planning', 'Innovation', 'Healthcare', 'India'],
-  },
-  {
-    id: '2',
-    title: 'NABH Accreditation: A Complete Guide',
-    slug: 'nabh-accreditation-complete-guide',
-    excerpt: 'Everything you need to know about NABH accreditation for healthcare facilities and how to achieve it successfully.',
-    content: `
-      <h2>What is NABH Accreditation?</h2>
-      <p>The National Accreditation Board for Hospitals & Healthcare Providers (NABH) is a constituent board of Quality Council of India, set up to establish and operate accreditation programs for healthcare organizations.</p>
-      
-      <h2>Benefits of NABH Accreditation</h2>
-      <p>NABH accreditation brings numerous benefits to healthcare organizations:</p>
-      <ul>
-        <li>Improved patient safety and quality of care</li>
-        <li>Enhanced credibility and reputation</li>
-        <li>Better operational efficiency</li>
-        <li>Reduced medical errors</li>
-        <li>Increased patient satisfaction</li>
-      </ul>
-      
-      <h2>Accreditation Process</h2>
-      <p>The NABH accreditation process involves several key steps that organizations must follow to achieve certification.</p>
-    `,
-    featuredImage: '/images/blog/nabh-accreditation.jpg',
-    author: 'Dr. Nitin Garg',
-    authorBio: 'Dr. Nitin Garg is a renowned healthcare infrastructure consultant with over 15 years of experience in planning and designing medical facilities across India.',
-    authorImage: '/images/hero/nitin-garg.png',
-    publishedAt: '2024-01-10',
-    category: 'Accreditation',
-    tags: ['NABH', 'Accreditation', 'Standards'],
-    readTime: '8 min read',
-    views: 980,
-    likes: 67,
-    featured: false
-  }
-]
 
 const BlogDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
-//   const navigate = useNavigate()
-//   const [isLiked, setIsLiked] = useState(false)
+  const [currentPost, setCurrentPost] = useState<Blog | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [showShareMenu, setShowShareMenu] = useState(false)
-  const [currentPostIndex, setCurrentPostIndex] = useState(0)
   const [readingProgress, setReadingProgress] = useState(0)
-  console.log(currentPostIndex)
-  // Find the current blog post
-  const currentPost = BLOG_POSTS.find(post => post.slug === slug)
-  
-  // Get related posts (other posts from the same category or recent posts)
-//   const relatedPosts = BLOG_POSTS.filter(post => 
-//     post.slug !== slug && 
-//     (post.category === currentPost?.category || post.featured)
-//   ).slice(0, 3)
 
+  // Fetch blog data
   useEffect(() => {
-    if (currentPost) {
-      setCurrentPostIndex(BLOG_POSTS.findIndex(post => post.slug === slug))
+    const fetchBlog = async () => {
+      if (!slug) return
+      
+      setIsLoading(true)
+      try {
+        // For now, we'll use the mock data structure
+        // In a real app, you'd fetch by slug from the API
+        const mockBlog: Blog = {
+          id: '1',
+          title: 'The Future of Healthcare Infrastructure in India',
+          slug: 'future-healthcare-infrastructure-india',
+          excerpt: 'Exploring the latest trends and innovations in healthcare infrastructure planning and design that are revolutionizing the industry.',
+          content: [
+            {
+              heading: 'Introduction',
+              description: 'The healthcare infrastructure landscape in India is undergoing a remarkable transformation. With the government\'s ambitious healthcare initiatives and private sector investments, we\'re witnessing unprecedented growth in medical facilities across the country.',
+              sub_sections: []
+            },
+            {
+              heading: 'Current State of Healthcare Infrastructure',
+              description: 'India\'s healthcare infrastructure has evolved significantly over the past decade. The country now boasts over 25,000 hospitals, with both public and private sectors contributing to this growth.',
+              sub_sections: [
+                'Total hospital beds: 1.8 million',
+                'Doctor-to-patient ratio: 1:1,404',
+                'Healthcare expenditure: 3.6% of GDP',
+                'Digital health adoption: 65% in urban areas'
+              ]
+            },
+            {
+              heading: 'Emerging Trends',
+              description: 'Several key trends are shaping the future of healthcare infrastructure in India:',
+              sub_sections: [
+                'Digital Transformation - The integration of technology in healthcare facilities is revolutionizing patient care.',
+                'Sustainable Design - Green building practices and sustainable design principles are gaining traction.',
+                'Modular Construction - Prefabricated and modular construction methods are enabling faster project delivery.'
+              ]
+            }
+          ],
+          image: '/images/blog/healthcare-future.jpg',
+          author: 'Dr. Nitin Garg',
+          author_bio: 'Dr. Nitin Garg is a renowned healthcare infrastructure consultant with over 15 years of experience in planning and designing medical facilities across India.',
+          author_image: '/images/hero/nitin-garg.png',
+          published_at: '2024-01-15T00:00:00Z',
+          tags: ['Infrastructure', 'Planning', 'Innovation', 'Healthcare', 'India'],
+          is_published: 'published',
+          created_at: '2024-01-20T14:45:30.000Z',
+          updated_at: '2024-01-20T14:45:30.000Z'
+        }
+        setCurrentPost(mockBlog)
+      } catch (error) {
+        console.error('Error fetching blog:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
-  }, [slug, currentPost])
+
+    fetchBlog()
+  }, [slug])
 
   // Reading progress tracking
   useEffect(() => {
@@ -163,6 +100,17 @@ const BlogDetailPage: React.FC = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading article...</p>
+        </div>
+      </div>
+    )
+  }
 
   if (!currentPost) {
     return (
@@ -311,11 +259,11 @@ const BlogDetailPage: React.FC = () => {
             {/* Category and Date */}
             <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
               <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
-                {currentPost.category}
+                Healthcare
               </span>
               <div className="flex items-center space-x-2">
                 <Calendar className="w-4 h-4" />
-                <span>{formatDate(currentPost.publishedAt)}</span>
+                <span>{formatDate(currentPost.published_at)}</span>
               </div>
               {/* <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4" />
@@ -357,7 +305,7 @@ const BlogDetailPage: React.FC = () => {
               </div>
               <div>
                 <p className="font-semibold text-gray-900">{currentPost.author}</p>
-                <p className="text-sm text-gray-500">{currentPost.authorBio}</p>
+                <p className="text-sm text-gray-500">{currentPost.author_bio}</p>
               </div>
             </div>
           </div>
@@ -369,14 +317,28 @@ const BlogDetailPage: React.FC = () => {
         <div className="container-custom py-12">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
-              <div 
-                className="article-content"
-                dangerouslySetInnerHTML={{ __html: currentPost.content }}
-                style={{
-                  lineHeight: '1.8',
-                  color: '#374151'
-                }}
-              />
+              <div className="article-content" style={{ lineHeight: '1.8', color: '#374151' }}>
+                {currentPost.content.map((section, sectionIndex) => (
+                  <div key={sectionIndex} className="mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 first:mt-0">
+                      {section.heading}
+                    </h2>
+                    <p className="mb-6 text-lg leading-relaxed">
+                      {section.description}
+                    </p>
+                    {section.sub_sections.length > 0 && (
+                      <ul className="mb-6 space-y-2">
+                        {section.sub_sections.map((subSection, subIndex) => (
+                          <li key={subIndex} className="flex items-start space-x-3">
+                            <span className="text-blue-500 font-bold text-xl leading-none mt-1">•</span>
+                            <span className="text-gray-800">{subSection}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

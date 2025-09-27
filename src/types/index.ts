@@ -289,3 +289,47 @@ export interface PaginatedResponse<T> {
   totalPages: number
 }
 
+// Blog types
+export interface BlogContentSection {
+  heading: string
+  description: string
+  sub_sections: string[]
+}
+
+export interface Blog {
+  id: string
+  title: string
+  slug: string
+  excerpt: string
+  content: BlogContentSection[]
+  image: string | null
+  author: string
+  author_bio: string
+  author_image: string
+  published_at: string
+  tags: string[]
+  is_published: 'published' | 'draft'
+  created_at: string
+  updated_at: string
+}
+
+export interface BlogFormData {
+  title: string
+  excerpt: string
+  content: BlogContentSection[]
+  image: string | null
+  author: string
+  author_bio: string
+  author_image: string
+  published_at: string
+  tags: string[]
+  is_published: 'published' | 'draft'
+}
+
+export interface BlogsResponse {
+  blogs: Blog[]
+  total: number
+  page: number
+  limit: number
+}
+
