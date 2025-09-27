@@ -23,6 +23,11 @@ export interface Project {
   features: string[]
   image: string | null
   image_name: string | null
+  category?: string
+  completionDate?: string
+  slug?: string
+  clientName?: string
+  isFeatured?: boolean
   created_at: string
   updated_at: string
 }

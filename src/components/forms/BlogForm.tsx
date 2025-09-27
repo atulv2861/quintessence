@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { X, Plus, Trash2, Calendar } from 'lucide-react'
+import { X, Plus, Trash2 } from 'lucide-react'
 import { Blog, BlogFormData, BlogContentSection } from '../../types'
 
 interface BlogFormProps {
