@@ -55,7 +55,7 @@ const ProjectsSection: React.FC = () => {
               <div className="p-6">
                 <div className="flex items-center space-x-2 mb-3">
                   <Building className="w-4 h-4 text-primary-600" />
-                  <span className="text-sm text-primary-600 font-medium">{project.category}</span>
+                  <span className="text-sm text-primary-600 font-medium">{project.category || 'Healthcare'}</span>
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
@@ -73,16 +73,16 @@ const ProjectsSection: React.FC = () => {
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <Calendar className="w-4 h-4 text-primary-600" />
-                    <span>Completion: {project.completionDate}</span>
+                    <span>Completion: {project.completionDate || 'TBD'}</span>
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <Users className="w-4 h-4 text-primary-600" />
-                    <span>{project.beds} beds • {project.area.toLocaleString()} sqm</span>
+                    <span>{project.beds} beds • {parseInt(project.area).toLocaleString()} sqm</span>
                   </div>
                 </div>
 
                 <Link
-                  to={`/projects/${project.slug}`}
+                  to={`/projects/${project.slug || project.id}`}
                   className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium transition-colors group-hover:translate-x-1 transform duration-200"
                 >
                   <span>View Details</span>

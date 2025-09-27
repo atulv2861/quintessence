@@ -1,4 +1,4 @@
-import { Blog, BlogFormData, BlogsResponse, ApiResponse } from '../types'
+import { Blog, BlogFormData, BlogsResponse } from '../types'
 
 const API_BASE_URL = 'http://localhost:8000/api/v1'
 
