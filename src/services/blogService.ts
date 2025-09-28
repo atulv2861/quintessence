@@ -1,6 +1,6 @@
 import { Blog, BlogFormData, BlogsResponse } from '../types'
 
-const API_BASE_URL = 'http://localhost:8000/api/v1'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 // Get JWT token from localStorage
 const getAuthToken = (): string | null => {
