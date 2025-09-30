@@ -84,9 +84,9 @@ export const blogService = {
     return response.json()
   },
 
-  // Get all blogs
-  async getBlogs(): Promise<Blog[]> {
-    const response = await fetch(`${API_BASE_URL}/blogs/`, {
+  // Get all blogs with pagination (public endpoint)
+  async getBlogs(page: number = 1, limit: number = 6): Promise<BlogsResponse> {
+    const response = await fetch(`${API_BASE_URL}/blogs/?page=${page}&limit=${limit}`, {
       method: 'GET',
       headers: createHeaders()
     })
@@ -95,13 +95,26 @@ export const blogService = {
       throw new Error(`Failed to fetch blogs: ${response.statusText}`)
     }
 
-    const data = await response.json()
-    return data.blogs || data
+    return response.json()
   },
 
   // Get blog by ID
   async getBlogById(id: string): Promise<Blog> {
     const response = await fetch(`${API_BASE_URL}/blogs/${id}`, {
+      method: 'GET',
+      headers: createHeaders()
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blog: ${response.statusText}`)
+    }
+
+    return response.json()
+  },
+
+  // Get blog by slug
+  async getBlogBySlug(slug: string): Promise<Blog> {
+    const response = await fetch(`${API_BASE_URL}/blogs/slug/${slug}`, {
       method: 'GET',
       headers: createHeaders()
     })

@@ -134,6 +134,20 @@ export const PROJECTS: Project[] = [
       'Diagnostic imaging center',
       'Pharmacy and laboratory services'
     ],
+    details: [
+      {
+        heading: 'Architecture',
+        description: 'Modern healthcare facility design with patient-centered approach, featuring open floor plans and natural lighting throughout.'
+      },
+      {
+        heading: 'Technology',
+        description: 'State-of-the-art medical equipment and integrated IT systems for seamless patient care and data management.'
+      },
+      {
+        heading: 'Timeline',
+        description: 'Project completed in 18 months with phased construction approach ensuring minimal disruption to surrounding areas.'
+      }
+    ],
     created_at: '2023-01-15T10:00:00Z',
     updated_at: '2023-12-31T18:00:00Z'
   },
@@ -159,6 +173,20 @@ export const PROJECTS: Project[] = [
       'Intensive care units',
       'Rehabilitation center',
       'Emergency cardiac services'
+    ],
+    details: [
+      {
+        heading: 'Specialized Design',
+        description: 'Purpose-built cardiac care facility with specialized zones for different cardiac procedures and patient care levels.'
+      },
+      {
+        heading: 'Advanced Equipment',
+        description: 'Latest cardiac imaging and intervention equipment including hybrid operating rooms and advanced monitoring systems.'
+      },
+      {
+        heading: 'Patient Flow',
+        description: 'Optimized patient flow design ensuring quick access to emergency cardiac services and efficient post-procedure care.'
+      }
     ],
     created_at: '2022-03-10T09:00:00Z',
     updated_at: '2022-11-30T17:00:00Z'
@@ -186,6 +214,20 @@ export const PROJECTS: Project[] = [
       'Palliative care unit',
       'Research and clinical trials'
     ],
+    details: [
+      {
+        heading: 'Radiation Safety',
+        description: 'Specialized radiation shielding and safety protocols ensuring patient and staff safety during treatment procedures.'
+      },
+      {
+        heading: 'Integrated Care',
+        description: 'Comprehensive cancer care model integrating medical oncology, radiation oncology, and surgical oncology services.'
+      },
+      {
+        heading: 'Research Integration',
+        description: 'Dedicated research facilities for clinical trials and cancer research initiatives in collaboration with leading institutions.'
+      }
+    ],
     created_at: '2023-06-01T08:00:00Z',
     updated_at: '2024-01-15T16:30:00Z'
   },
@@ -211,6 +253,20 @@ export const PROJECTS: Project[] = [
       'Neonatal care unit',
       'Play therapy areas',
       'Family accommodation'
+    ],
+    details: [
+      {
+        heading: 'Child-Centered Design',
+        description: 'Specialized design approach focusing on creating welcoming, non-threatening environments for children and their families.'
+      },
+      {
+        heading: 'Age-Appropriate Care',
+        description: 'Dedicated units for different age groups from neonatal to adolescent with specialized equipment and care protocols.'
+      },
+      {
+        heading: 'Family Integration',
+        description: 'Family-centered care model with accommodation facilities and support services for parents and caregivers.'
+      }
     ],
     created_at: '2024-01-01T12:00:00Z',
     updated_at: '2024-01-15T14:00:00Z'

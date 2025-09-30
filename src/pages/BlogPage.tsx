@@ -1,117 +1,67 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Calendar, User, ArrowRight, Search, BookOpen} from 'lucide-react'
+import { blogService } from '../services/blogService'
+import { Blog } from '../types'
 //, Star, Clock, Eye, Heart 
-// Mock blog data - in a real app, this would come from an API
-const BLOG_POSTS = [
-  {
-    id: '1',
-    title: 'The Future of Healthcare Infrastructure in India',
-    slug: 'future-healthcare-infrastructure-india',
-    excerpt: 'Exploring the latest trends and innovations in healthcare infrastructure planning and design that are revolutionizing the industry.',
-    content: 'Full article content would go here...',
-    image: '/images/blog/healthcare-future.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2024-01-15',
-    category: 'Healthcare Planning',
-    tags: ['Infrastructure', 'Planning', 'Innovation'],
-  },
-  {
-    id: '2',
-    title: 'NABH Accreditation: A Complete Guide',
-    slug: 'nabh-accreditation-complete-guide',
-    excerpt: 'Everything you need to know about NABH accreditation for healthcare facilities and how to achieve it successfully.',
-    content: 'Full article content would go here...',
-    featuredImage: '/images/blog/nabh-accreditation.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2024-01-10',
-    category: 'Accreditation',
-    tags: ['NABH', 'Accreditation', 'Standards'],
-    readTime: '8 min read',
-    views: 980,
-    likes: 67,
-    featured: false
-  },
-  {
-    id: '3',
-    title: 'MEP Systems in Healthcare Facilities',
-    slug: 'mep-systems-healthcare-facilities',
-    excerpt: 'Understanding the importance of Mechanical, Electrical, and Plumbing systems in healthcare infrastructure design.',
-    content: 'Full article content would go here...',
-    featuredImage: '/images/blog/mep-systems.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2024-01-05',
-    category: 'MEP Planning',
-    tags: ['MEP', 'Systems', 'Infrastructure'],
-    readTime: '6 min read',
-    views: 756,
-    likes: 45,
-    featured: false
-  },
-  {
-    id: '4',
-    title: 'Sustainable Healthcare Design Principles',
-    slug: 'sustainable-healthcare-design-principles',
-    excerpt: 'Learn how to create environmentally friendly and sustainable healthcare facilities that benefit both patients and the planet.',
-    content: 'Full article content would go here...',
-    featuredImage: '/images/blog/sustainable-design.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2024-01-01',
-    category: 'Sustainability',
-    tags: ['Sustainability', 'Green Design', 'Environment'],
-    readTime: '7 min read',
-    views: 634,
-    likes: 52,
-    featured: false
-  },
-  {
-    id: '5',
-    title: 'Digital Transformation in Healthcare Infrastructure',
-    slug: 'digital-transformation-healthcare-infrastructure',
-    excerpt: 'How technology is reshaping healthcare infrastructure and what it means for the future of medical facilities.',
-    content: 'Full article content would go here...',
-    featuredImage: '/images/blog/digital-transformation.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2023-12-28',
-    category: 'Technology',
-    tags: ['Digital', 'Technology', 'Innovation'],
-    readTime: '9 min read',
-    views: 1120,
-    likes: 78,
-    featured: true
-  },
-  {
-    id: '6',
-    title: 'Patient Safety in Hospital Design',
-    slug: 'patient-safety-hospital-design',
-    excerpt: 'Critical design considerations that ensure patient safety and improve healthcare outcomes in modern hospitals.',
-    content: 'Full article content would go here...',
-    featuredImage: '/images/blog/patient-safety.jpg',
-    author: 'Dr. Nitin Garg',
-    publishedAt: '2023-12-20',
-    category: 'Patient Safety',
-    tags: ['Safety', 'Design', 'Patient Care'],
-    readTime: '6 min read',
-    views: 892,
-    likes: 61,
-    featured: false
-  }
-]
 
 const BlogPage: React.FC = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const blogsPerPage = 6
 
-  //const categories = ['all', ...Array.from(new Set(BLOG_POSTS.map(post => post.category)))]
-  //const featuredPosts = BLOG_POSTS.filter(post => post.featured)
+  // Load blogs from API
+  useEffect(() => {
+    loadBlogs()
+  }, [currentPage])
 
-  const filteredPosts = BLOG_POSTS.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-    const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory
-    return matchesSearch && matchesCategory
-  })
+  // Filter blogs when search terms change
+  useEffect(() => {
+    filterBlogs()
+  }, [blogs, searchTerm, selectedCategory])
+
+  const loadBlogs = async () => {
+    setIsLoading(true)
+    setError(null)
+    
+    try {
+      const response = await blogService.getBlogs(currentPage, blogsPerPage)
+      setBlogs(response.blogs)
+      setTotalPages(Math.ceil(response.total / blogsPerPage))
+    } catch (error) {
+      console.error('Error loading blogs:', error)
+      setError('Failed to load blogs. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const filterBlogs = () => {
+    let filtered = blogs
+
+    if (searchTerm) {
+      filtered = filtered.filter(blog =>
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      )
+    }
+
+    if (selectedCategory && selectedCategory !== 'all') {
+      // For now, we'll filter by tags since the API doesn't have categories
+      filtered = filtered.filter(blog =>
+        blog.tags.some(tag => tag.toLowerCase().includes(selectedCategory.toLowerCase()))
+      )
+    }
+
+    setFilteredBlogs(filtered)
+  }
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -119,6 +69,11 @@ const BlogPage: React.FC = () => {
       month: 'long',
       day: 'numeric'
     })
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -323,7 +278,26 @@ const BlogPage: React.FC = () => {
             </p>
           </div>
 
-          {filteredPosts.length === 0 ? (
+          {/* Loading State */}
+          {isLoading && (
+            <div className="text-center py-20">
+              <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-gray-600">Loading articles...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+              <div className="flex items-center">
+                <div className="w-5 h-5 text-red-500 mr-2">⚠️</div>
+                <p className="text-red-700">{error}</p>
+              </div>
+            </div>
+          )}
+
+          {/* Blog Posts */}
+          {!isLoading && !error && filteredBlogs.length === 0 ? (
             <div className="text-center py-20">
               <div className="w-24 h-24 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="w-12 h-12 text-blue-500" />
@@ -344,13 +318,25 @@ const BlogPage: React.FC = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
+              {filteredBlogs.map((blog) => (
                 <article
-                  key={post.id}
+                  key={blog.id}
                   className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="relative overflow-hidden">
-                    <div className="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    {blog.image ? (
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-48 object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                    ) : null}
+                    <div className={`w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center ${blog.image ? 'hidden' : ''}`}>
                       <div className="text-center">
                         <div className="w-16 h-16 bg-white/50 rounded-full mx-auto mb-3 flex items-center justify-center">
                           <BookOpen className="w-8 h-8 text-gray-600" />
@@ -377,24 +363,20 @@ const BlogPage: React.FC = () => {
                     <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{formatDate(post.publishedAt)}</span>
+                        <span>{formatDate(blog.published_at)}</span>
                       </div>
-                      {/* <div className="flex items-center space-x-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{post.readTime}</span>
-                      </div> */}
                     </div>
 
                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors leading-tight">
-                      {post.title}
+                      {blog.title}
                     </h3>
 
                     <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                      {post.excerpt}
+                      {blog.excerpt}
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {post.tags.slice(0, 2).map((tag, tagIndex) => (
+                      {blog.tags.slice(0, 2).map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
                           className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs"
@@ -408,16 +390,12 @@ const BlogPage: React.FC = () => {
                       <div className="flex items-center space-x-3 text-sm text-gray-500">
                         <div className="flex items-center space-x-1">
                           <User className="w-4 h-4" />
-                          <span>{post.author}</span>
+                          <span>{blog.author}</span>
                         </div>
-                        {/* <div className="flex items-center space-x-1">
-                          <Eye className="w-4 h-4" />
-                          <span>{post.views}</span>
-                        </div> */}
                       </div>
                       <Link
-                        to={`/blog/${post.slug}`}
-                        className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-00 font-medium transition-colors group-hover:translate-x-1 transform duration-200"
+                        to={`/blog/${blog.slug}`}
+                        className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-600 font-medium transition-colors group-hover:translate-x-1 transform duration-200"
                       >
                         <span>Read More</span>
                         <ArrowRight className="w-4 h-4" />
@@ -426,6 +404,43 @@ const BlogPage: React.FC = () => {
                   </div>
                 </article>
               ))}
+            </div>
+          )}
+
+          {/* Pagination */}
+          {!isLoading && !error && totalPages > 1 && (
+            <div className="flex justify-center items-center space-x-2 mt-12">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                Previous
+              </button>
+              
+              <div className="flex space-x-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`px-4 py-2 rounded-lg transition-colors ${
+                      currentPage === page
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                Next
+              </button>
             </div>
           )}
         </div>

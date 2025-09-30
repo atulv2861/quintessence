@@ -11,6 +11,11 @@ export interface Service {
 }
 
 // Project types
+export interface ProjectDetail {
+  heading: string
+  description: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -23,6 +28,7 @@ export interface Project {
   features: string[]
   image: string | null
   image_name: string | null
+  details: ProjectDetail[]
   category?: string
   completionDate?: string
   slug?: string
@@ -43,6 +49,7 @@ export interface ProjectFormData {
   features: string[]
   image: string
   image_name: string
+  details: ProjectDetail[]
 }
 
 export interface ProjectsResponse {
@@ -198,8 +205,6 @@ export interface Job {
   qualifications: string[]
   remuneration: string
   why_join_us: string
-  requirements: string[]
-  responsibilities: string[]
   is_active: 'Active' | 'Inactive'
   created_at: string
   updated_at: string
@@ -218,8 +223,6 @@ export interface JobFormData {
   qualifications: string[]
   remuneration: string
   why_join_us: string
-  requirements: string[]
-  responsibilities: string[]
   is_active: 'Active' | 'Inactive'
 }
 

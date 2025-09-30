@@ -38,10 +38,30 @@ export const projectService = {
     }
   },
 
-  // Get projects with pagination
-  async getProjectsPaginated(page: number = 1, limit: number = 10): Promise<ProjectsResponse> {
+  // Get public projects with pagination
+  async getPublicProjects(page: number = 1, limit: number = 6): Promise<ProjectsResponse> {
     try {
-      const response = await fetch(`${API_BASE_URL}/projects/?page=${page}&limit=${limit}`, {
+      const response = await fetch(`${API_BASE_URL}/projects/public?page=${page}&limit=${limit}`, {
+        method: 'GET',
+        headers: getHeaders()
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data: ProjectsResponse = await response.json()
+      return data
+    } catch (error) {
+      console.error('Error fetching public projects:', error)
+      throw error
+    }
+  },
+
+  // Get projects with pagination (admin)
+  async getProjectsPaginated(page: number = 1, limit: number = 6): Promise<ProjectsResponse> {
+    try {
+      const response = await fetch(`${API_BASE_URL}/projects/admin/?page=${page}&limit=${limit}`, {
         method: 'GET',
         headers: getHeaders()
       })

@@ -1,28 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight, Upload, File, X, Cloud } from 'lucide-react'
 import EmailService from '../services/emailService'
+import { jobService } from '../services/jobService'
+import { Job } from '../types'
 
-interface Job {
-  id: string
-  title: string
-  company: string
-  location: string
-  type: string
-  postedDate: string
-  description: string
-  requirements: string[]
-  responsibilities: string[]
-}
 
 const JobsPage: React.FC = () => {
   const navigate = useNavigate()
+  const [jobs, setJobs] = useState<Job[]>([])
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedJobType, setSelectedJobType] = useState('')
   const [selectedLocation, setSelectedLocation] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const jobsPerPage = 6
+  const [totalJobs, setTotalJobs] = useState(0)
+  const [totalPages, setTotalPages] = useState(0)
 
   // CV Upload form state
   const [cvFormData, setCvFormData] = useState({
@@ -36,118 +33,73 @@ const JobsPage: React.FC = () => {
   const [cvSubmitMessage, setCvSubmitMessage] = useState('')
   const cvFileInputRef = React.useRef<HTMLInputElement>(null)
 
-  const jobs: Job[] = [
-    {
-      id: 'JD-0028',
-      title: 'Assistant Manager – Marketing',
-      company: 'SNHC',
-      location: 'Sant Nirankari Health City',
-      type: 'Full Time',
-      postedDate: 'Posted 3 weeks ago',
-      description: 'We are looking for a dynamic and strategic Marketing Manager to lead the development and execution of integrated marketing initiatives for our upcoming state-of-the-art hospital. The ideal candidate will have a strong background in healthcare marketing and brand management.',
-      requirements: [
-        'Bachelor\'s degree in Marketing, Business Administration, or related field',
-        '5+ years of experience in healthcare marketing',
-        'Strong analytical and strategic thinking skills',
-        'Excellent communication and presentation skills'
-      ],
-      responsibilities: [
-        'Develop and execute comprehensive marketing strategies',
-        'Manage brand positioning and messaging',
-        'Coordinate with internal teams and external agencies',
-        'Analyze market trends and competitor activities'
-      ]
-    },
-    {
-      id: 'JD-0027',
-      title: 'Sr. Manager/ AGM – Marketing',
-      company: 'SNHC',
-      location: 'Sant Nirankari Health City',
-      type: 'Full Time',
-      postedDate: 'Posted 3 weeks ago',
-      description: 'We are looking for a dynamic and strategic Marketing Manager to lead the development and execution of integrated marketing initiatives for our upcoming state-of-the-art hospital. The ideal candidate will have a strong background in healthcare marketing and brand management.',
-      requirements: [
-        'Master\'s degree in Marketing, Business Administration, or related field',
-        '8+ years of experience in healthcare marketing',
-        'Proven track record in team leadership',
-        'Strong analytical and strategic thinking skills'
-      ],
-      responsibilities: [
-        'Lead marketing team and strategic initiatives',
-        'Develop and execute comprehensive marketing strategies',
-        'Manage brand positioning and messaging',
-        'Coordinate with internal teams and external agencies'
-      ]
-    },
-    {
-      id: 'JD-0026',
-      title: 'Hospital Administrator',
-      company: 'Seven Healer Consultants',
-      location: 'New Delhi',
-      type: 'Full Time',
-      postedDate: 'Posted 2 weeks ago',
-      description: 'We are seeking an experienced Hospital Administrator to oversee daily operations and ensure efficient healthcare service delivery.',
-      requirements: [
-        'Master\'s degree in Hospital Administration or related field',
-        '10+ years of experience in hospital management',
-        'Strong leadership and organizational skills',
-        'Knowledge of healthcare regulations and compliance'
-      ],
-      responsibilities: [
-        'Oversee daily hospital operations',
-        'Manage staff and resources efficiently',
-        'Ensure compliance with healthcare regulations',
-        'Develop and implement operational policies'
-      ]
-    },
-    {
-      id: 'JD-0025',
-      title: 'Healthcare Consultant',
-      company: 'Seven Healer Consultants',
-      location: 'Mumbai',
-      type: 'Full Time',
-      postedDate: 'Posted 1 week ago',
-      description: 'Join our team as a Healthcare Consultant to provide expert advice on healthcare infrastructure planning and development.',
-      requirements: [
-        'Bachelor\'s degree in Healthcare Administration or related field',
-        '3+ years of experience in healthcare consulting',
-        'Strong analytical and problem-solving skills',
-        'Excellent client relationship management skills'
-      ],
-      responsibilities: [
-        'Provide healthcare infrastructure consulting services',
-        'Conduct feasibility studies and market analysis',
-        'Develop project proposals and recommendations',
-        'Maintain client relationships and ensure satisfaction'
-      ]
+  // Load jobs from API
+  useEffect(() => {
+    loadJobs()
+  }, [currentPage])
+
+  // Filter jobs when search terms change
+  useEffect(() => {
+    filterJobs()
+  }, [jobs, searchTerm, selectedCategory, selectedJobType, selectedLocation])
+
+  const loadJobs = async () => {
+    setIsLoading(true)
+    setError(null)
+    
+    try {
+      const response = await jobService.getJobsPaginated(currentPage, jobsPerPage)
+      setJobs(response.job_openings)
+      setTotalJobs(response.total)
+      setTotalPages(Math.ceil(response.total / jobsPerPage))
+    } catch (error) {
+      console.error('Error loading jobs:', error)
+      setError('Failed to load jobs. Please try again.')
+    } finally {
+      setIsLoading(false)
     }
-  ]
+  }
+
+  const filterJobs = () => {
+    let filtered = jobs
+
+    if (searchTerm) {
+      filtered = filtered.filter(job =>
+        job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    }
+
+    if (selectedCategory && selectedCategory !== 'All Categories') {
+      filtered = filtered.filter(job =>
+        job.title.toLowerCase().includes(selectedCategory.toLowerCase())
+      )
+    }
+
+    if (selectedJobType && selectedJobType !== 'All Types') {
+      filtered = filtered.filter(job => job.type === selectedJobType)
+    }
+
+    if (selectedLocation && selectedLocation !== 'All Locations') {
+      filtered = filtered.filter(job => job.location === selectedLocation)
+    }
+
+    setFilteredJobs(filtered)
+  }
 
   const categories = ['All Categories', 'Marketing', 'Administration', 'Consulting', 'Operations']
   const jobTypes = ['All Types', 'Full Time', 'Part Time', 'Contract', 'Internship']
   const locations = ['All Locations', 'New Delhi', 'Mumbai', 'Sant Nirankari Health City', 'Remote']
 
-  const filteredJobs = jobs.filter(job => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === '' || selectedCategory === 'All Categories' || 
-                           job.title.toLowerCase().includes(selectedCategory.toLowerCase())
-    const matchesJobType = selectedJobType === '' || selectedJobType === 'All Types' || 
-                          job.type === selectedJobType
-    const matchesLocation = selectedLocation === '' || selectedLocation === 'All Locations' || 
-                           job.location === selectedLocation
-
-    return matchesSearch && matchesCategory && matchesJobType && matchesLocation
-  })
-
   // Pagination logic
-  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage)
   const startIndex = (currentPage - 1) * jobsPerPage
   const endIndex = startIndex + jobsPerPage
   const currentJobs = filteredJobs.slice(startIndex, endIndex)
 
   // Reset to first page when filters change
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentPage(1)
   }, [searchTerm, selectedCategory, selectedJobType, selectedLocation])
 
@@ -155,6 +107,7 @@ const JobsPage: React.FC = () => {
     setCurrentPage(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
 
   // CV Upload form handlers
   const handleCvInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -401,8 +354,28 @@ Please find the attached CV for consideration.
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Job Listings - Left Column */}
             <div className="lg:col-span-2">
-              <div className="space-y-6">
-            {currentJobs.map((job) => (
+              {/* Loading State */}
+              {isLoading && (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-gray-600">Loading jobs...</p>
+                </div>
+              )}
+
+              {/* Error State */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-center">
+                    <div className="w-5 h-5 text-red-500 mr-2">⚠️</div>
+                    <p className="text-red-700">{error}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Job Listings */}
+              {!isLoading && !error && (
+                <div className="space-y-6">
+                  {currentJobs.map((job) => (
               <div key={job.id} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex-1">
@@ -413,7 +386,7 @@ Please find the attached CV for consideration.
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-blue-400 mb-1">
-                          {job.title} ({job.id})
+                          {job.title} ({job.job_id})
                         </h3>
                       </div>
                     </div>
@@ -437,7 +410,7 @@ Please find the attached CV for consideration.
                       </div>
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-2" />
-                        <span>{job.postedDate}</span>
+                        <span>{job.posted_date}</span>
                       </div>
                     </div>
                   </div>
@@ -445,7 +418,7 @@ Please find the attached CV for consideration.
                   {/* Read More Button */}
                   <div className="lg:ml-6">
                     <button 
-                      onClick={() => navigate(`/career/job/${job.id}`)}
+                      onClick={() => navigate(`/career/job/${job.job_id}`)}
                       className="bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center space-x-2 group"
                     >
                       <span>Read More</span>
@@ -455,9 +428,10 @@ Please find the attached CV for consideration.
                 </div>
               </div>
             ))}
-              </div>
+                </div>
+              )}
 
-              {filteredJobs.length === 0 && (
+              {!isLoading && !error && filteredJobs.length === 0 && (
                 <div className="text-center py-12">
                   <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Briefcase className="w-12 h-12 text-gray-400" />
@@ -468,7 +442,7 @@ Please find the attached CV for consideration.
               )}
 
               {/* Pagination - Centered within job listings */}
-              {filteredJobs.length > 0 && totalPages > 1 && (
+              {!isLoading && !error && totalPages > 1 && (
                 <div className="mt-8 flex justify-center">
                   <div className="flex items-center space-x-2">
                     {/* Previous Button */}
@@ -532,9 +506,9 @@ Please find the attached CV for consideration.
               )}
 
               {/* Pagination Info */}
-              {filteredJobs.length > 0 && (
+              {!isLoading && !error && (
                 <div className="mt-4 text-center text-sm text-gray-600">
-                  Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {filteredJobs.length} jobs
+                  Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {totalJobs} jobs
                 </div>
               )}
             </div>

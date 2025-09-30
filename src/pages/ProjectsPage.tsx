@@ -1,566 +1,48 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
+import { projectService } from '../services/projectService'
+import { Project } from '../types'
 
 const ProjectsPage: React.FC = () => {
+  const navigate = useNavigate()
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+  const [projects, setProjects] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  const projectsPerPage = 6
   // const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
-  const projects = [
-    {
-      id: 1,
-      title: "All India Institute of Medical Sciences (AIIMS), Delhi",
-      location: "New Delhi, India",
-      beds: "2000 Bedded Hospital",
-      area: "10,00,000 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "Completed",
-      year: "",
-      category: "",
-      description: "A state-of-the-art medical facility featuring advanced healthcare infrastructure with cutting-edge technology and patient-centric design.",
-      features: ["Emergency Services", "ICU Units", "Operation Theaters", "Diagnostic Center", "Research Labs"],
-      images: [
-        "/images/projects/AIIMS-Delhi-1.png",
-        "/images/projects/aiims-2.jpg"
-      ],
-      stats: {
-        views: 1250,
-        likes: 89,
-        shares: 23
-      }
-    },
-    {
-      id: 2,
-      title: "New Super Specialty Hospital",
-      location: "Jwalapuri, Delhi",
-      beds: "750 Bedded Hospital",
-      area: "70,000 Sq. Mtr (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "Modern healthcare complex designed with sustainable architecture and advanced medical technology integration.",
-      features: ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics"],
-      images: [
-        "/images/projects/jwalapuri-1-7.jpg",
-        "/images/projects/jwalapuri-2.jpg"
-      ],
-      stats: {
-        views: 980,
-        likes: 67,
-        shares: 18
-      }
-    },
-    {
-      id: 3,
-      title: "Sarvesh Health City",
-      location: "Hisar, Haryana",
-      beds: "400 Bedded Hospital",
-      area: "22,000 Sq. Mtr. (Approx.)",
-      client: "HKSD Sarvodya Healthcare",
-      status: "Completed",
-      year: "",
-      category: "",
-      description: "Comprehensive health city featuring multiple specialty centers and wellness facilities in a single campus.",
-      features: ["Wellness Center", "Diagnostic Hub", "Rehabilitation", "Mental Health", "Community Health"],
-      images: [
-        "/images/projects/sarvesh-health-city.png",
-        "/images/projects/sarvesh-2.jpg"
-      ],
-      stats: {
-        views: 756,
-        likes: 45,
-        shares: 12
-      }
-    },
-    {
-      id: 4,
-      title: "Adichunagiri Institute of Medical Science Mandya",
-      location: "Mandya, Karnataka",
-      beds: "1400 Bedded Hospital",
-      area: "1,90,000 Sq. Mtr. (Approx.)",
-      client: "Dexterous Designers & Associates Pvt Ltd",
-      status: "Planning",
-      year: "",
-      category: "",
-      description: "Next-generation healthcare facility with smart building technology and AI-powered patient care systems.",
-      features: ["Smart ICU", "Telemedicine", "Robotic Surgery", "Digital Health", "Green Building"],
-      images: [
-        "/images/projects/Adichunagiri-Institute-of-Medical-Science.png",
-        "/images/projects/metro-2.jpg"
-      ],
-      stats: {
-        views: 634,
-        likes: 52,
-        shares: 15
-      }
-    },
-    {
-      id: 5,
-      title: "Lok Nayak Jai Prakash Hospital",
-      location: "Delhi, India",
-      beds: "1600 Bedded Hospital",
-      area: "90,000 Sq. Mtr. (Approx.)",
-      client: "Sikka Associates Architects",
-      status: "Completed",
-      year: "",
-      category: "",
-      description: "Community-focused healthcare facility designed to serve rural populations with essential medical services.",
-      features: ["Primary Care", "Maternal Health", "Child Health", "Emergency Care", "Community Outreach"],
-      images: [
-        "/images/projects/lok-nayak.png",
-        "/images/projects/rural-2.jpg"
-      ],
-      stats: {
-        views: 892,
-        likes: 61,
-        shares: 28
-      }
-    },
-    {
-      id: 6,
-      title: "Rao Tula Ram Memorial Govt. Hospital",
-      location: "Jafferpur, Delhi",
-      beds: "270 Bedded Hospital",
-      area: "16,031 Sq. Mtr. (Approx.)",
-      client: "SGA Design Lab",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/RTRM-1-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 7,
-      title: "Acharya Shree Bhikshu Govt. Hospital",
-      location: "Moti Nagar, Delhi",
-      beds: "270 Bedded Hospital",
-      area: "15,708 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Acharya-Shree-Bhikshu-Govt.-Hospital.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 8,
-      title: "Guru Gobind Singh Govt. Hospital",
-      location: "Raghubir Nagar, Delhi",
-      beds: "472 Bedded Hospital",
-      area: "38,246 Sq. Mtr. (Approx.)",
-      client: "SGA Design Lab",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Guru-Gobind-Singh-Govt.-Hospital.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 9,
-      title: "Shree Dada Dev Matri Avum Shishu Chikitsalya",
-      location: "Delhi",
-      beds: "281 Bedded Hospital",
-      area: "15,000 Sq. Mtr. (Approx.)",
-      client: "SGA Design Lab",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/dada-dev.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 10,
-      title: "Redevelopment of Capital Hospital",
-      location: "Bhubaneswar, Odisha",
-      beds: "2500 Bedded Hospital",
-      area: "2,70,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Redevelopment-of-Capital-Hospital-odisha.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 11,
-      title: "New Mother & Child Hospital Block, SCB Medical College",
-      location: "Cuttack, Odisha",
-      beds: "585 Bedded Hospital",
-      area: "50,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/New-Mother-Child-Hospital-Block.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 12,
-      title: "Redevelopment of AHPGI Cancer Hospital",
-      location: "Cuttack, Odisha",
-      beds: "750 Bedded Hospital",
-      area: "35,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/AHPGIC-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 13,
-      title: "Hospital Block at Satna Medical College & Hospital",
-      location: "Satna, Madhya Pradesh",
-      beds: "650 Bedded Hospital",
-      area: "55,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Hospital-Block-at-Satna-Medical-College.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 14,
-      title: "S.N. Medical College & Hospital",
-      location: "Agra, Uttar Pradesh",
-      beds: "585 Bedded Hospital",
-      area: "50,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/S.N-Medical-College-Hospital.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 15,
-      title: "Advanced Trauma Centre KGMU",
-      location: "Lucknow, Uttar Pradesh",
-      beds: "500 Bedded Hospital",
-      area: "39,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Advanced-Trauma-Centre-KGMU-Lucknow.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 16,
-      title: "Sant Nirankari Health City",
-      location: "New Delhi",
-      beds: "492 Bedded Hospital",
-      area: "65,000 Sq. Mtr. (Approx.)",
-      client: "Sant Nirankari Mission, Delhi",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/SNHC-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 17,
-      title: "New Covid Block at Govt. Hospital",
-      location: "Shalimar Bagh, Delhi",
-      beds: "585 Bedded Hospital",
-      area: "50,000 Sq. Mtr. (Approx.)",
-      client: "DDF Consultants Pvt Ltd",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Shalimar-bagh-1.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 18,
-      title: "New Covid Block at GTB Govt. Hospital",
-      location: "Dilshaad Garden, Delhi",
-      beds: "1912 Bedded Hospital",
-      area: "85,000 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/GTB-3-1.jpeg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 19,
-      title: "New Covid Block at CNBC",
-      location: "New Delhi",
-      beds: "596 Bedded Hospital",
-      area: "19,000 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/CNBC-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 20,
-      title: "New Covid Block",
-      location: "Sarita Vihar, Delhi",
-      beds: "336 Bedded Hospital",
-      area: "11,800 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Sarita-vihar-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 21,
-      title: "New Super Specialty Hospital Blocks",
-      location: "Madipur, Delhi",
-      beds: "750 Bedded Hospital",
-      area: "70,000 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Madipur-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 22,
-      title: "AIIMS Avantipora",
-      location: "Avantipora, Jammu and Kashmir",
-      beds: "1912 Bedded Hospital",
-      area: "78,000 Sq. Mtr. (Approx.)",
-      client: "ARCOP",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/AIIMS-Avantipora-2.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 23,
-      title: "Community Health center",
-      location: "Jharkhand",
-      beds: "30 Bedded Hospital",
-      area: "1,503 Sq. Mtr. (Approx.)",
-      client: "Mass N Void",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Community-health-center-2.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 24,
-      title: "Critical care block",
-      location: "Jharkhand",
-      beds: "100 Bedded Hospital",
-      area: "8,767 Sq. Mtr. (Approx.)",
-      client: "Mass N Void",
-      status: "In Progress",
-      year: "",
-      category: "",      
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/Critical-care-block-1.png",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
-    },
-    {
-      id: 25,
-      title: "50 Bedded Hospital",
-      location: "Jharkhand",
-      beds: "50 Bedded Hospital",
-      area: "4,229 Sq. Mtr. (Approx.)",
-      client: "Mass N Void",
-      status: "In Progress",
-      year: "",
-      category: "",
-      description: "World-class medical facility designed to international standards with advanced technology and luxury amenities.",
-      features: ["International Standards", "Luxury Suites", "Advanced Diagnostics", "Specialist Clinics", "Medical Tourism"],
-      images: [
-        "/images/projects/50-bedded-1.jpg",
-        "/images/projects/international-2.jpg"
-      ],
-      stats: {
-        views: 1120,
-        likes: 78,
-        shares: 31
-      }
+  // Load projects from API
+  useEffect(() => {
+    loadProjects()
+  }, [currentPage])
+
+  const loadProjects = async () => {
+    setIsLoading(true)
+    setError(null)
+    
+    try {
+      const response = await projectService.getPublicProjects(currentPage, projectsPerPage)
+      setProjects(response.projects)
+      setTotalPages(Math.ceil(response.total / projectsPerPage))
+    } catch (error) {
+      console.error('Error loading projects:', error)
+      setError('Failed to load projects. Please try again.')
+    } finally {
+      setIsLoading(false)
     }
-  ]
+  }
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString()
+  const handleViewDetails = (projectId: string) => {
+    navigate(`/projects/${projectId}`)
   }
 
   const [projectsCount, setProjectsCount] = useState(1)
@@ -745,26 +227,59 @@ const ProjectsPage: React.FC = () => {
             </div>
           </div>
 
-          {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
+           {/* Loading State */}
+           {isLoading && (
+             <div className="text-center py-20">
+               <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+               <p className="text-gray-600">Loading projects...</p>
+             </div>
+           )}
+
+           {/* Error State */}
+           {error && (
+             <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+               <div className="flex items-center">
+                 <div className="w-5 h-5 text-red-500 mr-2">⚠️</div>
+                 <p className="text-red-700">{error}</p>
+               </div>
+             </div>
+           )}
+
+           {/* Projects Grid/List */}
+           {!isLoading && !error && projects.length > 0 && (
+             <>
+               {viewMode === 'grid' ? (
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                   {projects.map((project) => (
                 <div
                   key={project.id}
                   className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                   //onMouseEnter={() => setHoveredProject(project.id)}
                   //onMouseLeave={() => setHoveredProject(null)}
                 >
-                  {/* Project Image */}
-                  <div className="relative overflow-hidden">
-                    <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                      {/* <div className="text-center">
-                        <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                          <Building className="w-10 h-10 text-white" />
-                        </div>
-                        <p className="text-white font-medium">Project Image</p>
-                      </div> */}
-                      <img src={project.images[0]} alt={project.title} className="w-full h-64 object-cover" />
-                    </div>
+                   {/* Project Image */}
+                   <div className="relative overflow-hidden">
+                     {project.image ? (
+                       <img 
+                         src={`data:image/jpeg;base64,${project.image}`} 
+                         alt={project.title} 
+                         className="w-full h-64 object-cover" 
+                         onError={(e) => {
+                           const target = e.target as HTMLImageElement;
+                           target.style.display = 'none';
+                           target.nextElementSibling?.classList.remove('hidden');
+                         }}
+                       />
+                     ) : null}
+                     <div className={`w-full h-64 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center ${project.image ? 'hidden' : ''}`}>
+                       {/* <div className="text-center">
+                         <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                           <Building className="w-10 h-10 text-white" />
+                         </div>
+                         <p className="text-white font-medium">Project Image</p>
+                       </div> */}
+                       <img src={`data:image/jpeg;base64,${project.image}`} alt={project.title} className="w-full h-64 object-cover" />
+                     </div>
                     
                     {/* Status Badge */}
                     {/* <div className="absolute top-4 left-4">
@@ -806,33 +321,33 @@ const ProjectsPage: React.FC = () => {
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-2 text-sm text-gray-500">
-                        <MapPin className="w-4 h-4" />
-                        <span>{project.location}</span>
-                      </div>
-                      <div className="text-sm text-gray-500">{project.year}</div>
-                    </div>
+                     <div className="flex items-center justify-between mb-4">
+                       <div className="flex items-center space-x-2 text-sm text-gray-500">
+                         <MapPin className="w-4 h-4" />
+                         <span>{project.location}</span>
+                       </div>
+                       <div className="text-sm text-gray-500">{project.client}</div>
+                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
-                      {project.title}
-                    </h3>
+                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                       {project.title}
+                     </h3>
 
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                      {project.description}
-                    </p>
+                     <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                       {project.description}
+                     </p>
 
-                    {/* Project Stats */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="text-center p-3 bg-gray-50 rounded-lg">
-                        <div className="text-lg font-bold text-blue-400">{project.beds}</div>
-                        <div className="text-xs text-gray-500">Capacity</div>
-                      </div>
-                      <div className="text-center p-3 bg-gray-50 rounded-lg">
-                        <div className="text-lg font-bold text-blue-400">{project.area}</div>
-                        <div className="text-xs text-gray-500">Area</div>
-                      </div>
-                    </div>
+                     {/* Project Stats */}
+                     <div className="grid grid-cols-2 gap-4 mb-6">
+                       <div className="text-center p-3 bg-gray-50 rounded-lg">
+                         <div className="text-lg font-bold text-blue-400">{project.beds} beds</div>
+                         <div className="text-xs text-gray-500">Capacity</div>
+                       </div>
+                       <div className="text-center p-3 bg-gray-50 rounded-lg">
+                         <div className="text-lg font-bold text-blue-400">{project.area}</div>
+                         <div className="text-xs text-gray-500">Area</div>
+                       </div>
+                     </div>
 
                     {/* Features */}
                     {/* <div className="mb-6">
@@ -871,11 +386,14 @@ const ProjectsPage: React.FC = () => {
                       </div>
                     </div> */}
 
-                    {/* Action Button */}
-                    <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-                      <span>View Details</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
+                     {/* Action Button */}
+                     <button 
+                       onClick={() => handleViewDetails(project.id)}
+                       className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                     >
+                       <span>View Details</span>
+                       <ExternalLink className="w-4 h-4" />
+                     </button>
                   </div>
                 </div>
               ))}
@@ -888,17 +406,29 @@ const ProjectsPage: React.FC = () => {
                   className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-                    {/* Project Image */}
-                    <div className="relative overflow-hidden">
-                      <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                        {/* <div className="text-center">
-                          <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                            <Building className="w-8 h-8 text-white" />
-                          </div>
-                          <p className="text-white font-medium text-sm">Project Image</p>
-                        </div> */}
-                        <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover" />
-                      </div>
+                     {/* Project Image */}
+                     <div className="relative overflow-hidden">
+                       {project.image ? (
+                         <img 
+                           src={`data:image/jpeg;base64,${project.image}`} 
+                           alt={project.title} 
+                           className="w-full h-64 lg:h-full object-cover" 
+                           onError={(e) => {
+                             const target = e.target as HTMLImageElement;
+                             target.style.display = 'none';
+                             target.nextElementSibling?.classList.remove('hidden');
+                           }}
+                         />
+                       ) : null}
+                       <div className={`w-full h-64 lg:h-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center ${project.image ? 'hidden' : ''}`}>
+                         {/* <div className="text-center">
+                           <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
+                             <Building className="w-8 h-8 text-white" />
+                           </div>
+                           <p className="text-white font-medium text-sm">Project Image</p>
+                         </div> */}
+                         <img src={`data:image/jpeg;base64,${project.image}`} alt={project.title} className="w-full h-64 lg:h-full object-cover" />
+                       </div>
                       {/* <div className="absolute top-4 left-4">
                         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                           project.status === 'Completed' 
@@ -915,69 +445,126 @@ const ProjectsPage: React.FC = () => {
                     {/* Project Details */}
                     <div className="lg:col-span-2 p-8">
                       <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{project.location}</span>
-                            <span>•</span>
-                            <span>{project.year}</span>
-                          </div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors">
-                            {project.title}
-                          </h3>
-                        </div>
-                        <span className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {project.category}
-                        </span>
+                         <div>
+                           <div className="flex items-center space-x-2 text-sm text-gray-500 mb-2">
+                             <MapPin className="w-4 h-4" />
+                             <span>{project.location}</span>
+                             <span>•</span>
+                             <span>{project.client}</span>
+                           </div>
+                           <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-400 transition-colors">
+                             {project.title}
+                           </h3>
+                         </div>
+                         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                           project.status === 'Completed' 
+                             ? 'bg-green-100 text-green-600' 
+                             : project.status === 'In Progress'
+                             ? 'bg-blue-100 text-blue-600'
+                             : 'bg-yellow-100 text-yellow-600'
+                         }`}>
+                           {project.status}
+                         </span>
                       </div>
 
                       <p className="text-gray-600 mb-6 leading-relaxed">
                         {project.description}
                       </p>
 
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-blue-400">{project.beds}</div>
-                          <div className="text-xs text-gray-500">Capacity</div>
-                        </div>
-                        <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-blue-400">{project.area}</div>
-                          <div className="text-xs text-gray-500">Area</div>
-                        </div>
-                        <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-blue-400">{project.client}</div>
-                          <div className="text-xs text-gray-500">Client</div>
-                        </div>
-                        <div className="text-center p-3 bg-gray-50 rounded-lg">
-                          <div className="text-lg font-bold text-blue-400">{formatNumber(project.stats.views)}</div>
-                          <div className="text-xs text-gray-500">Views</div>
-                        </div>
-                      </div>
+                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                         <div className="text-center p-3 bg-gray-50 rounded-lg">
+                           <div className="text-lg font-bold text-blue-400">{project.beds} beds</div>
+                           <div className="text-xs text-gray-500">Capacity</div>
+                         </div>
+                         <div className="text-center p-3 bg-gray-50 rounded-lg">
+                           <div className="text-lg font-bold text-blue-400">{project.area}</div>
+                           <div className="text-xs text-gray-500">Area</div>
+                         </div>
+                         <div className="text-center p-3 bg-gray-50 rounded-lg">
+                           <div className="text-lg font-bold text-blue-400">{project.client}</div>
+                           <div className="text-xs text-gray-500">Client</div>
+                         </div>
+                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-wrap gap-2">
-                          {project.features.slice(0, 4).map((feature, index) => (
-                            <span
-                              key={index}
-                              className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                        <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
-                          <span>View Details</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </div>
+                       <div className="flex items-center justify-between">
+                         <div className="flex flex-wrap gap-2">
+                           {project.features && project.features.slice(0, 4).map((feature, index) => (
+                             <span
+                               key={index}
+                               className="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                             >
+                               {feature}
+                             </span>
+                           ))}
+                         </div>
+                         <button 
+                           onClick={() => handleViewDetails(project.id)}
+                           className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+                         >
+                           <span>View Details</span>
+                           <ArrowRight className="w-4 h-4" />
+                         </button>
+                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-            </div>
-          )}
-        </div>
-      </section>
+             </div>
+           )}
+
+           {/* Pagination */}
+           {!isLoading && !error && totalPages > 1 && (
+             <div className="flex justify-center items-center space-x-2 mt-12">
+               <button
+                 onClick={() => handlePageChange(currentPage - 1)}
+                 disabled={currentPage === 1}
+                 className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+               >
+                 Previous
+               </button>
+               
+               <div className="flex space-x-2">
+                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                   <button
+                     key={page}
+                     onClick={() => handlePageChange(page)}
+                     className={`px-4 py-2 rounded-lg transition-colors ${
+                       currentPage === page
+                         ? 'bg-blue-500 text-white'
+                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                     }`}
+                   >
+                     {page}
+                   </button>
+                 ))}
+               </div>
+               
+               <button
+                 onClick={() => handlePageChange(currentPage + 1)}
+                 disabled={currentPage === totalPages}
+                 className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+               >
+                 Next
+               </button>
+             </div>
+           )}
+
+           {/* No Projects State */}
+           {!isLoading && !error && projects.length === 0 && (
+             <div className="text-center py-20">
+               <div className="w-24 h-24 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                 <Building className="w-12 h-12 text-blue-500" />
+               </div>
+               <h3 className="text-2xl font-bold text-gray-900 mb-4">No projects found</h3>
+               <p className="text-gray-600 mb-8 max-w-md mx-auto">
+                 We're working on adding more projects to our portfolio. Check back soon!
+               </p>
+             </div>
+           )}
+             </>
+           )}
+         </div>
+       </section>
 
       {/* CTA Section */}
       {/* <section className="py-20 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">
