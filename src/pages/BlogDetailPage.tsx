@@ -248,12 +248,7 @@ const BlogDetailPage: React.FC = () => {
                 <img
                   src={currentPost.image}
                   alt={currentPost.title}
-                  className="w-full h-96 object-cover"
-                  onError={(e) => {
-                    // Fallback to a placeholder if image fails to load
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/images/hero/hero1.webp';
-                  }}
+                  className="w-full h-96 object-cover"                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
