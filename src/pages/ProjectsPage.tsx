@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, MapPin, Building, Users, Calendar, Award, ExternalLink, Grid, List } from 'lucide-react'
 import { projectService } from '../services/projectService'
 import { Project } from '../types'
 
 const ProjectsPage: React.FC = () => {
+  const navigate = useNavigate()
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [projects, setProjects] = useState<Project[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -37,6 +39,10 @@ const ProjectsPage: React.FC = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleViewDetails = (projectId: string) => {
+    navigate(`/projects/${projectId}`)
   }
 
   const [projectsCount, setProjectsCount] = useState(1)
@@ -380,11 +386,14 @@ const ProjectsPage: React.FC = () => {
                       </div>
                     </div> */}
 
-                    {/* Action Button */}
-                    <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-                      <span>View Details</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
+                     {/* Action Button */}
+                     <button 
+                       onClick={() => handleViewDetails(project.id)}
+                       className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                     >
+                       <span>View Details</span>
+                       <ExternalLink className="w-4 h-4" />
+                     </button>
                   </div>
                 </div>
               ))}
@@ -488,7 +497,10 @@ const ProjectsPage: React.FC = () => {
                              </span>
                            ))}
                          </div>
-                         <button className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                         <button 
+                           onClick={() => handleViewDetails(project.id)}
+                           className="bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+                         >
                            <span>View Details</span>
                            <ArrowRight className="w-4 h-4" />
                          </button>

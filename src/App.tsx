@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 import ProjectsPage from './pages/ProjectsPage'
+import ProjectDetailPage from './pages/ProjectDetailPage'
 import JobsPage from './pages/JobsPage'
 import JobDetailPage from './pages/JobDetailPage'
 import ApplyPage from './pages/ApplyPage'
@@ -33,6 +34,7 @@ function App() {
       <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
       <Route path="/services/:slug" element={<Layout><ServiceDetailPage /></Layout>} />
       <Route path="/projects" element={<Layout><ProjectsPage /></Layout>} />
+      <Route path="/projects/:id" element={<Layout><ProjectDetailPage /></Layout>} />
       <Route path="/career/current-openings" element={<Layout><JobsPage /></Layout>} />
       <Route path="/career/job/:jobId" element={<Layout><JobDetailPage /></Layout>} />
       <Route path="/career/apply" element={<Layout><ApplyPage /></Layout>} />
