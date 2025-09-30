@@ -1,4 +1,4 @@
-import { Job, JobFormData, ApiResponse, JobsResponse } from '../types'
+import { Job, JobFormData, JobsResponse } from '../types'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
@@ -72,8 +72,8 @@ export const jobService = {
         throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
       }
 
-      const data: ApiResponse<Job> = await response.json()
-      return data.data
+      const data: Job = await response.json()
+      return data
     } catch (error) {
       console.error('Error creating job:', error)
       throw error
