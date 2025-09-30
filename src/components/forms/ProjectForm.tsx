@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { X, Plus, Trash2, Save, AlertCircle } from 'lucide-react'
-import { Project, ProjectFormData } from '../../types'
+import { Project, ProjectFormData, ProjectDetail } from '../../types'
 
 interface ProjectFormProps {
   project?: Project | null
@@ -27,7 +27,8 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
     description: '',
     features: [''],
     image: '',
-    image_name: ''
+    image_name: '',
+    details: [{ heading: '', description: '' }]
   })
 
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -45,7 +46,8 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
         description: project.description || '',
         features: project.features?.length > 0 ? project.features : [''],
         image: project.image || '',
-        image_name: project.image_name || ''
+        image_name: project.image_name || '',
+        details: project.details?.length > 0 ? project.details : [{ heading: '', description: '' }]
       })
       setImagePreview(project.image ? `data:image/jpeg;base64,${project.image}` : '')
     } else {
@@ -60,7 +62,8 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
         description: '',
         features: [''],
         image: '',
-        image_name: ''
+        image_name: '',
+        details: [{ heading: '', description: '' }]
       })
       setImagePreview('')
     }
@@ -134,6 +137,29 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
     setFormData(prev => ({
       ...prev,
       features: prev.features.map((feature, i) => i === index ? value : feature)
+    }))
+  }
+
+  const addDetail = () => {
+    setFormData(prev => ({
+      ...prev,
+      details: [...prev.details, { heading: '', description: '' }]
+    }))
+  }
+
+  const removeDetail = (index: number) => {
+    setFormData(prev => ({
+      ...prev,
+      details: prev.details.filter((_, i) => i !== index)
+    }))
+  }
+
+  const updateDetail = (index: number, field: 'heading' | 'description', value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      details: prev.details.map((detail, i) => 
+        i === index ? { ...detail, [field]: value } : detail
+      )
     }))
   }
 
@@ -392,6 +418,65 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
                       {errors.features}
                     </p>
                   )}
+                </div>
+
+                {/* Project Details */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Details
+                  </label>
+                  {formData.details.map((detail, index) => (
+                    <div key={index} className="border border-gray-200 rounded-lg p-4 mb-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-sm font-medium text-gray-700">
+                          Detail {index + 1}
+                        </h4>
+                        {formData.details.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => removeDetail(index)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Heading
+                          </label>
+                          <input
+                            type="text"
+                            value={detail.heading}
+                            onChange={(e) => updateDetail(index, 'heading', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="e.g., Architecture, Materials, Timeline"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Description
+                          </label>
+                          <textarea
+                            value={detail.description}
+                            onChange={(e) => updateDetail(index, 'description', e.target.value)}
+                            rows={3}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Detailed description..."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={addDetail}
+                    className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
+                  >
+                    <Plus className="w-4 h-4 mr-1" />
+                    Add Detail
+                  </button>
                 </div>
 
                 {/* Image Upload */}
