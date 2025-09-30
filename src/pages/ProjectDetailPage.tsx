@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, MapPin, Building, Users, Calendar, Award, ExternalLink, CheckCircle, Clock, AlertCircle, ArrowRight } from 'lucide-react'
+import { ArrowLeft, Building,CheckCircle,AlertCircle} from 'lucide-react'
 import { projectService } from '../services/projectService'
 import { Project } from '../types'
 
@@ -32,31 +32,6 @@ const ProjectDetailPage: React.FC = () => {
     }
   }
 
-  const getStatusIcon = (status: string) => {
-    switch (status?.toLowerCase()) {
-      case 'completed':
-        return <CheckCircle className="w-5 h-5 text-green-500" />
-      case 'in progress':
-        return <Clock className="w-5 h-5 text-blue-500" />
-      case 'planning':
-        return <AlertCircle className="w-5 h-5 text-yellow-500" />
-      default:
-        return <Clock className="w-5 h-5 text-gray-500" />
-    }
-  }
-
-  const getStatusColor = (status: string) => {
-    switch (status?.toLowerCase()) {
-      case 'completed':
-        return 'bg-green-100 text-green-800'
-      case 'in progress':
-        return 'bg-blue-100 text-blue-800'
-      case 'planning':
-        return 'bg-yellow-100 text-yellow-800'
-      default:
-        return 'bg-gray-100 text-gray-800'
-    }
-  }
 
   if (isLoading) {
     return (
@@ -145,12 +120,7 @@ const ProjectDetailPage: React.FC = () => {
                 <img 
                   src={`data:image/jpeg;base64,${project.image}`} 
                   alt={project.title} 
-                  className="w-full h-full object-cover" 
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.nextElementSibling?.classList.remove('hidden');
-                  }}
+                  className="w-full h-full object-cover"                  
                 />
               ) : null}
               {/* <div className={`absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center ${project.image ? 'hidden' : ''}`}>
