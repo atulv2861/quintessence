@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { X, Plus, Trash2, Save, AlertCircle } from 'lucide-react'
-import { Project, ProjectFormData, ProjectDetail } from '../../types'
+import { Project, ProjectFormData} from '../../types'
 
 interface ProjectFormProps {
   project?: Project | null
