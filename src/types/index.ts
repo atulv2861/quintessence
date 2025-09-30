@@ -205,8 +205,6 @@ export interface Job {
   qualifications: string[]
   remuneration: string
   why_join_us: string
-  requirements: string[]
-  responsibilities: string[]
   is_active: 'Active' | 'Inactive'
   created_at: string
   updated_at: string
@@ -225,8 +223,6 @@ export interface JobFormData {
   qualifications: string[]
   remuneration: string
   why_join_us: string
-  requirements: string[]
-  responsibilities: string[]
   is_active: 'Active' | 'Inactive'
 }
 

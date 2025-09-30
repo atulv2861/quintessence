@@ -30,8 +30,6 @@ const JobForm: React.FC<JobFormProps> = ({
     qualifications: [''],
     remuneration: '',
     why_join_us: '',
-    requirements: [''],
-    responsibilities: [''],
     is_active: 'Active'
   })
 
@@ -54,8 +52,6 @@ const JobForm: React.FC<JobFormProps> = ({
         qualifications: job.qualifications?.length > 0 ? job.qualifications : [''],
         remuneration: job.remuneration || '',
         why_join_us: job.why_join_us || '',
-        requirements: job.requirements?.length > 0 ? job.requirements : [''],
-        responsibilities: job.responsibilities?.length > 0 ? job.responsibilities : [''],
         is_active: job.is_active || 'Active'
       })
     } else {
@@ -73,8 +69,6 @@ const JobForm: React.FC<JobFormProps> = ({
         qualifications: [''],
         remuneration: '',
         why_join_us: '',
-        requirements: [''],
-        responsibilities: [''],
         is_active: 'Active'
       })
     }
@@ -107,15 +101,6 @@ const JobForm: React.FC<JobFormProps> = ({
       newErrors.qualifications = 'At least one qualification is required'
     }
 
-    // Validate requirements
-    if (formData.requirements.length === 0 || formData.requirements.every(r => !r.trim())) {
-      newErrors.requirements = 'At least one requirement is required'
-    }
-
-    // Validate responsibilities
-    if (formData.responsibilities.length === 0 || formData.responsibilities.every(r => !r.trim())) {
-      newErrors.responsibilities = 'At least one responsibility is required'
-    }
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -196,21 +181,21 @@ const JobForm: React.FC<JobFormProps> = ({
     }))
   }
 
-  const addArrayItem = (field: 'qualifications' | 'requirements' | 'responsibilities') => {
+  const addArrayItem = (field: 'qualifications') => {
     setFormData(prev => ({
       ...prev,
       [field]: [...prev[field], '']
     }))
   }
 
-  const removeArrayItem = (field: 'qualifications' | 'requirements' | 'responsibilities', index: number) => {
+  const removeArrayItem = (field: 'qualifications', index: number) => {
     setFormData(prev => ({
       ...prev,
       [field]: prev[field].filter((_, i) => i !== index)
     }))
   }
 
-  const updateArrayItem = (field: 'qualifications' | 'requirements' | 'responsibilities', index: number, value: string) => {
+  const updateArrayItem = (field: 'qualifications', index: number, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: prev[field].map((item, i) => i === index ? value : item)
@@ -540,87 +525,6 @@ const JobForm: React.FC<JobFormProps> = ({
                   )}
                 </div>
 
-                {/* Requirements */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Requirements *
-                  </label>
-                  {formData.requirements.map((req, index) => (
-                    <div key={index} className="flex items-center space-x-2 mb-2">
-                      <input
-                        type="text"
-                        value={req}
-                        onChange={(e) => updateArrayItem('requirements', index, e.target.value)}
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Job requirement..."
-                      />
-                      {formData.requirements.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => removeArrayItem('requirements', index)}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                  <button
-                    type="button"
-                    onClick={() => addArrayItem('requirements')}
-                    className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
-                  >
-                    <Plus className="w-4 h-4 mr-1" />
-                    Add Requirement
-                  </button>
-                  {errors.requirements && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
-                      <AlertCircle className="w-4 h-4 mr-1" />
-                      {errors.requirements}
-                    </p>
-                  )}
-                </div>
-
-                {/* Responsibilities */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Responsibilities *
-                  </label>
-                  {formData.responsibilities.map((resp, index) => (
-                    <div key={index} className="flex items-center space-x-2 mb-2">
-                      <input
-                        type="text"
-                        value={resp}
-                        onChange={(e) => updateArrayItem('responsibilities', index, e.target.value)}
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Job responsibility..."
-                      />
-                      {formData.responsibilities.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => removeArrayItem('responsibilities', index)}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                  <button
-                    type="button"
-                    onClick={() => addArrayItem('responsibilities')}
-                    className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
-                  >
-                    <Plus className="w-4 h-4 mr-1" />
-                    Add Responsibility
-                  </button>
-                  {errors.responsibilities && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
-                      <AlertCircle className="w-4 h-4 mr-1" />
-                      {errors.responsibilities}
-                    </p>
-                  )}
-                </div>
 
                 {/* Remuneration */}
                 <div>
