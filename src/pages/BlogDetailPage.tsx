@@ -18,12 +18,14 @@ import {
   Mail
 } from 'lucide-react'
 import { Blog } from '../types'
+import { blogService } from '../services/blogService'
 
 
 const BlogDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
   const [currentPost, setCurrentPost] = useState<Blog | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [showShareMenu, setShowShareMenu] = useState(false)
   const [readingProgress, setReadingProgress] = useState(0)
 
@@ -33,53 +35,13 @@ const BlogDetailPage: React.FC = () => {
       if (!slug) return
       
       setIsLoading(true)
+      setError(null)
       try {
-        // For now, we'll use the mock data structure
-        // In a real app, you'd fetch by slug from the API
-        const mockBlog: Blog = {
-          id: '1',
-          title: 'The Future of Healthcare Infrastructure in India',
-          slug: 'future-healthcare-infrastructure-india',
-          excerpt: 'Exploring the latest trends and innovations in healthcare infrastructure planning and design that are revolutionizing the industry.',
-          content: [
-            {
-              heading: 'Introduction',
-              description: 'The healthcare infrastructure landscape in India is undergoing a remarkable transformation. With the government\'s ambitious healthcare initiatives and private sector investments, we\'re witnessing unprecedented growth in medical facilities across the country.',
-              sub_sections: []
-            },
-            {
-              heading: 'Current State of Healthcare Infrastructure',
-              description: 'India\'s healthcare infrastructure has evolved significantly over the past decade. The country now boasts over 25,000 hospitals, with both public and private sectors contributing to this growth.',
-              sub_sections: [
-                'Total hospital beds: 1.8 million',
-                'Doctor-to-patient ratio: 1:1,404',
-                'Healthcare expenditure: 3.6% of GDP',
-                'Digital health adoption: 65% in urban areas'
-              ]
-            },
-            {
-              heading: 'Emerging Trends',
-              description: 'Several key trends are shaping the future of healthcare infrastructure in India:',
-              sub_sections: [
-                'Digital Transformation - The integration of technology in healthcare facilities is revolutionizing patient care.',
-                'Sustainable Design - Green building practices and sustainable design principles are gaining traction.',
-                'Modular Construction - Prefabricated and modular construction methods are enabling faster project delivery.'
-              ]
-            }
-          ],
-          image: '/images/blog/healthcare-future.jpg',
-          author: 'Dr. Nitin Garg',
-          author_bio: 'Dr. Nitin Garg is a renowned healthcare infrastructure consultant with over 15 years of experience in planning and designing medical facilities across India.',
-          author_image: '/images/hero/nitin-garg.png',
-          published_at: '2024-01-15T00:00:00Z',
-          tags: ['Infrastructure', 'Planning', 'Innovation', 'Healthcare', 'India'],
-          is_published: 'published',
-          created_at: '2024-01-20T14:45:30.000Z',
-          updated_at: '2024-01-20T14:45:30.000Z'
-        }
-        setCurrentPost(mockBlog)
+        const blog = await blogService.getBlogBySlug(slug)
+        setCurrentPost(blog)
       } catch (error) {
         console.error('Error fetching blog:', error)
+        setError('Failed to load blog post. Please try again.')
       } finally {
         setIsLoading(false)
       }
@@ -112,7 +74,28 @@ const BlogDetailPage: React.FC = () => {
     )
   }
 
-  if (!currentPost) {
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-red-500 text-2xl">⚠️</span>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Error Loading Article</h1>
+          <p className="text-gray-600 mb-8">{error}</p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center space-x-2 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Blog</span>
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  if (!currentPost && !isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
@@ -136,6 +119,11 @@ const BlogDetailPage: React.FC = () => {
       month: 'long',
       day: 'numeric'
     })
+  }
+
+  // Early return if no current post
+  if (!currentPost) {
+    return null
   }
 
 //   const handleLike = () => {
@@ -176,7 +164,7 @@ const BlogDetailPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Reading Progress Bar */}
       <div 
-        className="reading-progress"
+        className="fixed top-0 left-0 h-1 bg-blue-500 z-50 transition-all duration-150 ease-out"
         style={{ width: `${readingProgress}%` }}
       />
       
@@ -215,7 +203,7 @@ const BlogDetailPage: React.FC = () => {
                 </button>
                 
                 {showShareMenu && (
-                  <div className="absolute right-0 top-full mt-2 bg-white rounded-lg shadow-lg border py-2 z-10 share-menu">
+                  <div className="absolute right-0 top-full mt-2 bg-white rounded-lg shadow-lg border py-2 z-10 min-w-[140px]">
                     <button
                       onClick={() => handleShare('facebook')}
                       className="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-50"
@@ -251,7 +239,28 @@ const BlogDetailPage: React.FC = () => {
           </div>
         </div>
       </div>
-
+       {/* Featured Image */}
+       {currentPost.image && (
+        <div className="bg-white">
+          <div className="container-custom py-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                <img
+                  src={currentPost.image}
+                  alt={currentPost.title}
+                  className="w-full h-96 object-cover"
+                  onError={(e) => {
+                    // Fallback to a placeholder if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/images/hero/hero1.webp';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Article Header */}
       <div className="bg-white">
         <div className="container-custom py-12">
@@ -300,7 +309,19 @@ const BlogDetailPage: React.FC = () => {
 
             {/* Author Info */}
             <div className="flex items-center space-x-4 pb-8 border-b border-gray-200">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
+              {currentPost.author_image ? (
+                <img
+                  src={currentPost.author_image}
+                  alt={currentPost.author}
+                  className="w-12 h-12 rounded-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+              ) : null}
+              <div className={`w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center ${currentPost.author_image ? 'hidden' : ''}`}>
                 <User className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -311,6 +332,8 @@ const BlogDetailPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+     
 
       {/* Article Content */}
       <div className="bg-white">
@@ -330,7 +353,7 @@ const BlogDetailPage: React.FC = () => {
                       <ul className="mb-6 space-y-2">
                         {section.sub_sections.map((subSection, subIndex) => (
                           <li key={subIndex} className="flex items-start space-x-3">
-                            <span className="text-blue-500 font-bold text-xl leading-none mt-1">•</span>
+                            {/* <span className="text-blue-500 font-bold text-xl leading-none mt-1">•</span> */}
                             <span className="text-gray-800">{subSection}</span>
                           </li>
                         ))}
