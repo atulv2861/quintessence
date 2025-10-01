@@ -334,7 +334,7 @@ const ProjectsPage: React.FC = () => {
                      </h3>
 
                      <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                       {project.description}
+                       {project.description.slice(0, 200)}...
                      </p>
 
                      {/* Project Stats */}
@@ -468,7 +468,7 @@ const ProjectsPage: React.FC = () => {
                       </div>
 
                       <p className="text-gray-600 mb-6 leading-relaxed">
-                        {project.description}
+                        {project.description.slice(0, 200)}...
                       </p>
 
                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
