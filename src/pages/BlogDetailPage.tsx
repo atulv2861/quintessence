@@ -170,7 +170,7 @@ const BlogDetailPage: React.FC = () => {
       
       {/* Navigation Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="container-custom py-4">
+        <div className="container-custom py-2">
           <div className="flex items-center justify-between">
             <Link
               to="/blog"
@@ -242,7 +242,7 @@ const BlogDetailPage: React.FC = () => {
        {/* Featured Image */}
        {currentPost.image && (
         <div className="bg-white">
-          <div className="container-custom py-8">
+          <div className="container-custom py-4">
             <div className="max-w-4xl mx-auto">
               <div className="relative overflow-hidden rounded-2xl shadow-lg">
                 <img
@@ -258,10 +258,10 @@ const BlogDetailPage: React.FC = () => {
       )}
       {/* Article Header */}
       <div className="bg-white">
-        <div className="container-custom py-12">
+        <div className="container-custom py-6">
           <div className="max-w-4xl mx-auto">
             {/* Category and Date */}
-            <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
+            <div className="flex items-center space-x-6 text-sm text-gray-500 mb-4">
               <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
                 Healthcare
               </span>
@@ -280,17 +280,17 @@ const BlogDetailPage: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               {currentPost.title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-600 mb-6 leading-relaxed">
               {currentPost.excerpt}
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-6">
               {currentPost.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -303,7 +303,7 @@ const BlogDetailPage: React.FC = () => {
             </div>
 
             {/* Author Info */}
-            <div className="flex items-center space-x-4 pb-8 border-b border-gray-200">
+            <div className="flex items-center space-x-4 pb-6 border-b border-gray-200">
               {currentPost.author_image ? (
                 <img
                   src={currentPost.author_image}
@@ -332,20 +332,20 @@ const BlogDetailPage: React.FC = () => {
 
       {/* Article Content */}
       <div className="bg-white">
-        <div className="container-custom py-12">
+        <div className="container-custom py-6">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
               <div className="article-content" style={{ lineHeight: '1.8', color: '#374151' }}>
                 {currentPost.content.map((section, sectionIndex) => (
-                  <div key={sectionIndex} className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 first:mt-0">
+                  <div key={sectionIndex} className="mb-6">
+                    <h2 className="text-3xl font-bold text-gray-900 mt-4 first:mt-0">
                       {section.heading}
                     </h2>
-                    <p className="mb-6 text-lg leading-relaxed">
+                    <p className="mb-4 text-lg leading-relaxed">
                       {section.description}
                     </p>
                     {section.sub_sections.length > 0 && (
-                      <ul className="mb-6 space-y-2">
+                      <ul className="mb-4 space-y-1">
                         {section.sub_sections.map((subSection, subIndex) => (
                           <li key={subIndex} className="flex items-start space-x-3">
                             {/* <span className="text-blue-500 font-bold text-xl leading-none mt-1">•</span> */}
