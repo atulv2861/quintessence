@@ -280,9 +280,9 @@ const BlogDetailPage: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
               {currentPost.title}
-            </h1>
+            </h2>
 
             {/* Excerpt */}
             <p className="text-xl text-gray-600 mb-6 leading-relaxed">
