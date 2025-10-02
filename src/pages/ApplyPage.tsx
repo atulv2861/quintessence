@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { File, X, Cloud } from 'lucide-react'
-import EmailService from '../services/emailService'
+import ApplicationService from '../services/applicationService'
 
 const ApplyPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -85,66 +85,75 @@ const ApplyPage: React.FC = () => {
     setSubmitMessage('')
 
     try {
-      const response = await EmailService.sendContactForm({
-        name: `${formData.prefix} ${formData.firstName} ${formData.surname}`.trim(),
-        email: formData.email,
-        phone: formData.phone,
-        address: `${formData.streetAddress}, ${formData.streetAddress2}, ${formData.city}, ${formData.state} ${formData.postalCode}`.trim(),
-        subject: `CV Application - ${formData.applicationType === 'available' ? formData.availableJob : 'Future Opportunities'}`,
-        message: `
-Application Type: ${formData.applicationType === 'available' ? 'Available Jobs' : 'Future Jobs'}
-${formData.applicationType === 'available' ? `Job Applied For: ${formData.availableJob}` : ''}
-
-Personal Information:
-Name: ${formData.prefix} ${formData.firstName} ${formData.surname}
-Phone: ${formData.phone}
-Email: ${formData.email}
-
-Address:
-${formData.streetAddress}
-${formData.streetAddress2}
-${formData.city}, ${formData.state} ${formData.postalCode}
-
-Professional Information:
-Highest Education: ${formData.education}
-Total Experience: ${formData.experience} years
-Current/Last Employer: ${formData.currentEmployer}
-Current/Last Designation: ${formData.currentDesignation}
-        `,
-        files: files
-      })
-      
-      if (response.status === 'success') {
-        setSubmitStatus('success')
-        setSubmitMessage('CV submitted successfully! We\'ll review your application and get back to you soon.')
-        // Reset form
-        setFormData({
-          applicationType: 'available',
-          availableJob: '',
-          prefix: 'Mr.',
-          firstName: '',
-          surname: '',
-          phone: '9999999999',
-          email: '',
-          streetAddress: '',
-          streetAddress2: '',
-          city: '',
-          state: '',
-          postalCode: '',
-          education: '',
-          experience: '',
-          currentEmployer: '',
-          currentDesignation: ''
-        })
-        setFiles([])
-      } else {
+      // Validate that a CV file is uploaded
+      if (files.length === 0) {
         setSubmitStatus('error')
-        setSubmitMessage(response.message || 'Failed to submit CV. Please try again.')
+        setSubmitMessage('Please upload your CV before submitting.')
+        setIsSubmitting(false)
+        return
       }
+
+      // Convert file to base64
+      const cvFile = files[0]
+      const cvData = await ApplicationService.fileToBase64(cvFile)
+
+      // Get job ID from availableJob if applying for available jobs
+      const selectedJobId = formData.applicationType === 'available' && formData.availableJob 
+        ? formData.availableJob
+        : undefined
+
+      // Prepare application data according to API structure
+      const applicationData = {
+        apply_for_available_jobs: formData.applicationType === 'available',
+        ...(selectedJobId && { selected_job_id: selectedJobId }),
+        title: formData.prefix,
+        first_name: formData.firstName,
+        surname: formData.surname,
+        phone_number: formData.phone,
+        email: formData.email,
+        street_address: formData.streetAddress,
+        ...(formData.streetAddress2 && { street_address_line2: formData.streetAddress2 }),
+        city: formData.city,
+        state_province: formData.state,
+        postal_zip_code: formData.postalCode,
+        highest_education: formData.education,
+        total_experience_years: formData.experience,
+        current_last_employer: formData.currentEmployer,
+        current_last_designation: formData.currentDesignation,
+        cv_filename: cvFile.name,
+        cv_data: cvData,
+        cv_size: cvFile.size.toString()
+      }
+
+      const response = await ApplicationService.submitApplication(applicationData)
+      
+      setSubmitStatus('success')
+      setSubmitMessage(`Application submitted successfully!. We'll review your application and get back to you soon.`)
+      
+      // Reset form
+      setFormData({
+        applicationType: 'available',
+        availableJob: '',
+        prefix: 'Mr.',
+        firstName: '',
+        surname: '',
+        phone: '9999999999',
+        email: '',
+        streetAddress: '',
+        streetAddress2: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        education: '',
+        experience: '',
+        currentEmployer: '',
+        currentDesignation: ''
+      })
+      setFiles([])
     } catch (error) {
       setSubmitStatus('error')
-      setSubmitMessage('Failed to submit CV. Please try again.')
-      console.error('CV submission error:', error)
+      setSubmitMessage('Failed to submit application. Please try again.')
+      console.error('Application submission error:', error)
     } finally {
       setIsSubmitting(false)
     }
@@ -296,11 +305,11 @@ Current/Last Designation: ${formData.currentDesignation}
                       required
                     >
                       <option value="">Please Select</option>
-                      <option value="Assistant Manager – Marketing (JD-0028)">Assistant Manager – Marketing (JD-0028)</option>
-                      <option value="Sr. Manager/ AGM – Marketing (JD-0027)">Sr. Manager/ AGM – Marketing (JD-0027)</option>
-                      <option value="Healthcare Consultant (JD-0025)">Healthcare Consultant (JD-0025)</option>
-                      <option value="Project Manager (JD-0024)">Project Manager (JD-0024)</option>
-                      <option value="Business Development Executive (JD-0023)">Business Development Executive (JD-0023)</option>
+                      <option value="JD-001">Assistant Manager – Marketing (JD-0028)</option>
+                      <option value="JD-002">Sr. Manager/ AGM – Marketing (JD-0027)</option>
+                      <option value="JD-003">Healthcare Consultant (JD-0025)</option>
+                      <option value="JD-004">Project Manager (JD-0024)</option>
+                      <option value="JD-005">Business Development Executive (JD-0023)</option>
                     </select>
                   </div>
                 )}

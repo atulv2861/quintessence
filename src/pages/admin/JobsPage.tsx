@@ -19,17 +19,33 @@ import {
 } from 'lucide-react'
 import { Job, JobFormData } from '../../types'
 import { jobService } from '../../services/jobService'
+import ApplicationService from '../../services/applicationService'
 import JobForm from '../../components/forms/JobForm'
 
 interface Application {
   id: string
-  jobId: string
-  name: string
+  apply_for_available_jobs: boolean
+  selected_job_id?: string
+  title: string
+  first_name: string
+  surname: string
+  phone_number: string
   email: string
-  phone: string
-  appliedDate: string
-  status: 'pending' | 'reviewed' | 'shortlisted' | 'rejected'
-  cvUrl: string
+  street_address: string
+  street_address_line2?: string
+  city: string
+  state_province: string
+  postal_zip_code: string
+  highest_education: string
+  total_experience_years: string
+  current_last_employer: string
+  current_last_designation: string
+  cv_filename: string
+  cv_data: string
+  cv_size: string
+  status: string
+  created_at: string
+  updated_at: string
 }
 
 const JobsPage: React.FC = () => {
@@ -51,10 +67,22 @@ const JobsPage: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1)
   const [totalJobs, setTotalJobs] = useState(0)
   const [limit] = useState(10)
+  
+  // Application pagination state
+  const [currentApplicationPage, setCurrentApplicationPage] = useState(1)
+  const [totalApplicationPages, setTotalApplicationPages] = useState(1)
+  const [totalApplications, setTotalApplications] = useState(0)
+  const [applicationLimit] = useState(10)
 
   useEffect(() => {
     loadData()
   }, [currentPage])
+
+  useEffect(() => {
+    if (activeTab === 'applications') {
+      loadApplications()
+    }
+  }, [currentApplicationPage, activeTab])
 
   useEffect(() => {
     filterJobs()
@@ -70,44 +98,41 @@ const JobsPage: React.FC = () => {
       setJobs(jobsResponse.job_openings)
       setTotalJobs(jobsResponse.total)
       setTotalPages(Math.ceil(jobsResponse.total / limit))
-      
-      // Mock applications data for now
-      const mockApplications: Application[] = [
-        {
-          id: 'APP-001',
-          jobId: 'JD-0028',
-          name: 'Priya Sharma',
-          email: 'priya.sharma@email.com',
-          phone: '+91 98765 43210',
-          appliedDate: '2024-01-20',
-          status: 'pending',
-          cvUrl: '/cv/priya-sharma.pdf'
-        },
-        {
-          id: 'APP-002',
-          jobId: 'JD-0028',
-          name: 'Rajesh Kumar',
-          email: 'rajesh.kumar@email.com',
-          phone: '+91 98765 43211',
-          appliedDate: '2024-01-19',
-          status: 'reviewed',
-          cvUrl: '/cv/rajesh-kumar.pdf'
-        },
-        {
-          id: 'APP-003',
-          jobId: 'JD-0027',
-          name: 'Anita Singh',
-          email: 'anita.singh@email.com',
-          phone: '+91 98765 43212',
-          appliedDate: '2024-01-18',
-          status: 'shortlisted',
-          cvUrl: '/cv/anita-singh.pdf'
-        }
-      ]
-      setApplications(mockApplications)
     } catch (error) {
       console.error('Error loading data:', error)
       setError('Failed to load jobs. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const loadApplications = async () => {
+    setIsLoading(true)
+    setError(null)
+    
+    try {
+      // Get admin token from localStorage
+      const token = localStorage.getItem('authToken')
+      
+      if (!token) {
+        setError('Authentication required. Please login to view applications.')
+        setIsLoading(false)
+        return
+      }
+      
+      const applicationsResponse = await ApplicationService.getApplications(
+        currentApplicationPage, 
+        applicationLimit, 
+        token
+      )
+      
+      setApplications(applicationsResponse.applications)
+      setTotalApplications(applicationsResponse.total)
+      setTotalApplicationPages(Math.ceil(applicationsResponse.total / applicationLimit))
+    } catch (error) {
+      console.error('Error loading applications:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Failed to load applications. Please try again.'
+      setError(errorMessage)
     } finally {
       setIsLoading(false)
     }
@@ -208,15 +233,17 @@ const JobsPage: React.FC = () => {
 
   const getApplicationStatusBadge = (status: string) => {
     const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
-    switch (status) {
+    switch (status.toLowerCase()) {
       case 'pending':
         return `${baseClasses} bg-yellow-100 text-yellow-800`
-      case 'reviewed':
+      case 'under review':
         return `${baseClasses} bg-blue-100 text-blue-800`
       case 'shortlisted':
         return `${baseClasses} bg-green-100 text-green-800`
       case 'rejected':
         return `${baseClasses} bg-red-100 text-red-800`
+      case 'hired':
+        return `${baseClasses} bg-green-100 text-green-800`
       default:
         return `${baseClasses} bg-gray-100 text-gray-800`
     }
@@ -540,7 +567,10 @@ const JobsPage: React.FC = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {applications.map((application) => {
-                    const job = jobs.find(j => j.id === application.jobId)
+                    const job = jobs.find(j => j.id === application.selected_job_id)
+                    const fullName = `${application.title} ${application.first_name} ${application.surname}`.trim()
+                    const address = `${application.street_address}${application.street_address_line2 ? ', ' + application.street_address_line2 : ''}, ${application.city}, ${application.state_province} ${application.postal_zip_code}`
+                    
                     return (
                       <tr key={application.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4">
@@ -550,27 +580,36 @@ const JobsPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900">
-                                {application.name}
+                                {fullName}
                               </div>
                               <div className="text-sm text-gray-500">
                                 {application.email}
                               </div>
                               <div className="text-sm text-gray-500">
-                                {application.phone}
+                                {application.phone_number}
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4">
                           <div className="text-sm font-medium text-gray-900">
-                            {job?.title || 'Unknown Position'}
+                            {application.apply_for_available_jobs 
+                              ? (job?.title || `Job ID: ${application.selected_job_id}`)
+                              : 'Future Opportunities'
+                            }
                           </div>
                           <div className="text-sm text-gray-500">
-                            {job?.company || 'Unknown Company'}
+                            {application.apply_for_available_jobs 
+                              ? (job?.company || 'Unknown Company')
+                              : 'General Application'
+                            }
+                          </div>
+                          <div className="text-xs text-gray-400 mt-1">
+                            {application.highest_education} • {application.total_experience_years} years exp
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {formatDate(application.appliedDate)}
+                          {formatDate(application.created_at)}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={getApplicationStatusBadge(application.status)}>
@@ -580,19 +619,32 @@ const JobsPage: React.FC = () => {
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <div className="flex items-center justify-end space-x-2">
                             <button
-                              onClick={() => window.open(application.cvUrl, '_blank')}
+                              onClick={() => {
+                                // Create a blob from base64 data and open it
+                                const byteCharacters = atob(application.cv_data)
+                                const byteNumbers = new Array(byteCharacters.length)
+                                for (let i = 0; i < byteCharacters.length; i++) {
+                                  byteNumbers[i] = byteCharacters.charCodeAt(i)
+                                }
+                                const byteArray = new Uint8Array(byteNumbers)
+                                const blob = new Blob([byteArray], { type: 'application/pdf' })
+                                const url = URL.createObjectURL(blob)
+                                window.open(url, '_blank')
+                              }}
                               className="text-blue-400 hover:text-blue-600 p-1"
                               title="View CV"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
+                              onClick={() => window.open(`mailto:${application.email}`, '_blank')}
                               className="text-green-400 hover:text-green-600 p-1"
                               title="Contact"
                             >
                               <Mail className="w-4 h-4" />
                             </button>
                             <button
+                              onClick={() => window.open(`tel:${application.phone_number}`, '_blank')}
                               className="text-purple-400 hover:text-purple-600 p-1"
                               title="Call"
                             >
@@ -605,6 +657,49 @@ const JobsPage: React.FC = () => {
                   })}
                 </tbody>
               </table>
+            </div>
+          </div>
+        )}
+
+        {/* Application Pagination */}
+        {activeTab === 'applications' && totalApplicationPages > 1 && (
+          <div className="flex items-center justify-between mt-8">
+            <div className="text-sm text-gray-700">
+              Showing {((currentApplicationPage - 1) * applicationLimit) + 1} to {Math.min(currentApplicationPage * applicationLimit, totalApplications)} of {totalApplications} applications
+            </div>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setCurrentApplicationPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentApplicationPage === 1}
+                className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+              
+              {Array.from({ length: Math.min(5, totalApplicationPages) }, (_, i) => {
+                const pageNum = i + 1
+                return (
+                  <button
+                    key={pageNum}
+                    onClick={() => setCurrentApplicationPage(pageNum)}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg ${
+                      currentApplicationPage === pageNum
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                )
+              })}
+              
+              <button
+                onClick={() => setCurrentApplicationPage(prev => Math.min(prev + 1, totalApplicationPages))}
+                disabled={currentApplicationPage === totalApplicationPages}
+                className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
             </div>
           </div>
         )}
