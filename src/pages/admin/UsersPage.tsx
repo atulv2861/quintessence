@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { AdminUser, UserFormData, UsersResponse } from '../../types'
 import { userService } from '../../services/userService'
+import ConfirmationModal from '../../components/modals/ConfirmationModal'
 import UserForm from '../../components/forms/UserForm'
 
 const UsersPage: React.FC = () => {
@@ -34,6 +35,11 @@ const UsersPage: React.FC = () => {
   const [passwordChangeUser, setPasswordChangeUser] = useState<AdminUser | null>(null)
   const [newPassword, setNewPassword] = useState('')
   const [isChangingPassword, setIsChangingPassword] = useState(false)
+  
+  // User deletion modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [userToDelete, setUserToDelete] = useState<AdminUser | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1)
@@ -91,16 +97,33 @@ const UsersPage: React.FC = () => {
     setFilteredUsers(filtered)
   }
 
-  const handleDelete = async (user: AdminUser) => {
-    if (window.confirm(`Are you sure you want to delete user ${user.first_name} ${user.last_name}?`)) {
-      try {
-        await userService.deleteUser(user.id)
-        await loadUsers()
-      } catch (error) {
-        console.error('Error deleting user:', error)
-        setError('Failed to delete user. Please try again.')
-      }
+  const handleDelete = (user: AdminUser) => {
+    setUserToDelete(user)
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteUser = async () => {
+    if (!userToDelete) return
+
+    setIsDeleting(true)
+    try {
+      await userService.deleteUser(userToDelete.id)
+      await loadUsers()
+      setError(null)
+      setShowDeleteModal(false)
+      setUserToDelete(null)
+    } catch (error) {
+      console.error('Error deleting user:', error)
+      setError('Failed to delete user. Please try again.')
+    } finally {
+      setIsDeleting(false)
     }
+  }
+
+  const cancelDeleteUser = () => {
+    setShowDeleteModal(false)
+    setUserToDelete(null)
+    setIsDeleting(false)
   }
 
   const handleEdit = (user: AdminUser) => {
@@ -526,6 +549,19 @@ const UsersPage: React.FC = () => {
           }}
           onSubmit={handleSubmit}
           isLoading={isSubmitting}
+        />
+
+        {/* Delete Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showDeleteModal}
+          onClose={cancelDeleteUser}
+          onConfirm={confirmDeleteUser}
+          title="Delete User"
+          message={`Are you sure you want to delete user ${userToDelete ? `${userToDelete.first_name} ${userToDelete.last_name}` : 'this user'}? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          type="danger"
+          isLoading={isDeleting}
         />
 
         {/* Password Change Modal */}

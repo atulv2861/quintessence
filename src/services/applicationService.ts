@@ -134,7 +134,7 @@ class ApplicationService {
 
   async updateApplicationStatus(applicationId: string, status: string, token: string): Promise<ApplicationResponse> {
     try {
-      const response = await fetch(`${this.API_BASE_URL}/jobs/applications/${applicationId}/`, {
+      const response = await fetch(`${this.API_BASE_URL}/jobs/applications/${applicationId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

@@ -19,6 +19,7 @@ import { Job, JobFormData } from '../../types'
 import { jobService } from '../../services/jobService'
 import ApplicationService from '../../services/applicationService'
 import JobForm from '../../components/forms/JobForm'
+import ConfirmationModal from '../../components/modals/ConfirmationModal'
 
 interface Application {
   id: string
@@ -59,6 +60,16 @@ const JobsPage: React.FC = () => {
   const [editingJob, setEditingJob] = useState<Job | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  
+  // Confirmation modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [applicationToDelete, setApplicationToDelete] = useState<Application | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
+  
+  // Job deletion modal state
+  const [showJobDeleteModal, setShowJobDeleteModal] = useState(false)
+  const [jobToDelete, setJobToDelete] = useState<Job | null>(null)
+  const [isDeletingJob, setIsDeletingJob] = useState(false)
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1)
@@ -159,27 +170,45 @@ const JobsPage: React.FC = () => {
     setFilteredJobs(filtered)
   }
 
-  const handleDeleteApplication = async (applicationId: string) => {
-    if (window.confirm('Are you sure you want to delete this application?')) {
-      try {
-        const token = localStorage.getItem('authToken')
-        if (!token) {
-          setError('Authentication required. Please login again.')
-          return
-        }
+  const handleDeleteApplication = (application: Application) => {
+    setApplicationToDelete(application)
+    setShowDeleteModal(true)
+  }
 
-        await ApplicationService.deleteApplication(applicationId, token)
-        
-        // Reload applications after deletion
-        await loadApplications()
-        
-        setError(null)
-      } catch (error) {
-        console.error('Error deleting application:', error)
-        const errorMessage = error instanceof Error ? error.message : 'Failed to delete application. Please try again.'
-        setError(errorMessage)
+  const confirmDeleteApplication = async () => {
+    if (!applicationToDelete) return
+
+    setIsDeleting(true)
+    try {
+      const token = localStorage.getItem('authToken')
+      if (!token) {
+        setError('Authentication required. Please login again.')
+        setShowDeleteModal(false)
+        setIsDeleting(false)
+        return
       }
+
+      await ApplicationService.deleteApplication(applicationToDelete.id, token)
+      
+      // Reload applications after deletion
+      await loadApplications()
+      
+      setError(null)
+      setShowDeleteModal(false)
+      setApplicationToDelete(null)
+    } catch (error) {
+      console.error('Error deleting application:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Failed to delete application. Please try again.'
+      setError(errorMessage)
+    } finally {
+      setIsDeleting(false)
     }
+  }
+
+  const cancelDeleteApplication = () => {
+    setShowDeleteModal(false)
+    setApplicationToDelete(null)
+    setIsDeleting(false)
   }
 
   const handleStatusChange = async (applicationId: string, newStatus: string) => {
@@ -205,18 +234,35 @@ const JobsPage: React.FC = () => {
     }
   }
 
-  const handleDelete = async (job: Job) => {
-    if (window.confirm('Are you sure you want to delete this job posting?')) {
-      try {
-        await jobService.deleteJob(job.job_id)
-        // Refresh the data to get updated list
-        await loadData()
-        setApplications(applications.filter(app => app.jobId !== job.id))
-      } catch (error) {
-        console.error('Error deleting job:', error)
-        setError('Failed to delete job. Please try again.')
-      }
+  const handleDelete = (job: Job) => {
+    setJobToDelete(job)
+    setShowJobDeleteModal(true)
+  }
+
+  const confirmDeleteJob = async () => {
+    if (!jobToDelete) return
+
+    setIsDeletingJob(true)
+    try {
+      await jobService.deleteJob(jobToDelete.job_id)
+      // Refresh the data to get updated list
+      await loadData()
+      setApplications(applications.filter(app => app.jobId !== jobToDelete.id))
+      setError(null)
+      setShowJobDeleteModal(false)
+      setJobToDelete(null)
+    } catch (error) {
+      console.error('Error deleting job:', error)
+      setError('Failed to delete job. Please try again.')
+    } finally {
+      setIsDeletingJob(false)
     }
+  }
+
+  const cancelDeleteJob = () => {
+    setShowJobDeleteModal(false)
+    setJobToDelete(null)
+    setIsDeletingJob(false)
   }
 
   const handleEdit = (job: Job) => {
@@ -599,6 +645,9 @@ const JobsPage: React.FC = () => {
                       Job Position
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Professional Details
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Applied Date
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -632,6 +681,9 @@ const JobsPage: React.FC = () => {
                               <div className="text-sm text-gray-500">
                                 {application.phone_number}
                               </div>
+                              <div className="text-xs text-gray-400 mt-1">
+                                {address}
+                              </div>
                             </div>
                           </div>
                         </td>
@@ -648,8 +700,19 @@ const JobsPage: React.FC = () => {
                               : 'General Application'
                             }
                           </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="text-sm font-medium text-gray-900">
+                            {application.highest_education}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {application.total_experience_years} years experience
+                          </div>
                           <div className="text-xs text-gray-400 mt-1">
-                            {application.highest_education} • {application.total_experience_years} years exp
+                            {application.current_last_employer}
+                          </div>
+                          <div className="text-xs text-gray-400">
+                            {application.current_last_designation}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -689,7 +752,7 @@ const JobsPage: React.FC = () => {
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
-                              onClick={() => handleDeleteApplication(application.id)}
+                              onClick={() => handleDeleteApplication(application)}
                               className="text-red-400 hover:text-red-600 p-1"
                               title="Delete Application"
                             >
@@ -760,6 +823,32 @@ const JobsPage: React.FC = () => {
           }}
           onSubmit={handleSubmit}
           isLoading={isSubmitting}
+        />
+
+        {/* Delete Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showDeleteModal}
+          onClose={cancelDeleteApplication}
+          onConfirm={confirmDeleteApplication}
+          title="Delete Application"
+          message={`Are you sure you want to delete the application from ${applicationToDelete ? `${applicationToDelete.title} ${applicationToDelete.first_name} ${applicationToDelete.surname}` : 'this applicant'}? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          type="danger"
+          isLoading={isDeleting}
+        />
+
+        {/* Job Delete Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showJobDeleteModal}
+          onClose={cancelDeleteJob}
+          onConfirm={confirmDeleteJob}
+          title="Delete Job Posting"
+          message={`Are you sure you want to delete the job posting "${jobToDelete?.title}"? This action cannot be undone and will also remove all associated applications.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          type="danger"
+          isLoading={isDeletingJob}
         />
       </div>
     </div>

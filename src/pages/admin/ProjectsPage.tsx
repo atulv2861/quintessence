@@ -16,6 +16,7 @@ import {
 import { Project, ProjectFormData, ProjectsResponse } from '../../types'
 import { projectService } from '../../services/projectService'
 import ProjectForm from '../../components/forms/ProjectForm'
+import ConfirmationModal from '../../components/modals/ConfirmationModal'
 
 const ProjectsPage: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([])
@@ -27,6 +28,11 @@ const ProjectsPage: React.FC = () => {
   const [editingProject, setEditingProject] = useState<Project | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  
+  // Project deletion modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [projectToDelete, setProjectToDelete] = useState<Project | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1)
@@ -78,16 +84,33 @@ const ProjectsPage: React.FC = () => {
     setFilteredProjects(filtered)
   }
 
-  const handleDelete = async (project: Project) => {
-    if (window.confirm('Are you sure you want to delete this project?')) {
-      try {
-        await projectService.deleteProject(project.id)
-        await loadProjects()
-      } catch (error) {
-        console.error('Error deleting project:', error)
-        setError('Failed to delete project. Please try again.')
-      }
+  const handleDelete = (project: Project) => {
+    setProjectToDelete(project)
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteProject = async () => {
+    if (!projectToDelete) return
+
+    setIsDeleting(true)
+    try {
+      await projectService.deleteProject(projectToDelete.id)
+      await loadProjects()
+      setError(null)
+      setShowDeleteModal(false)
+      setProjectToDelete(null)
+    } catch (error) {
+      console.error('Error deleting project:', error)
+      setError('Failed to delete project. Please try again.')
+    } finally {
+      setIsDeleting(false)
     }
+  }
+
+  const cancelDeleteProject = () => {
+    setShowDeleteModal(false)
+    setProjectToDelete(null)
+    setIsDeleting(false)
   }
 
   const handleEdit = (project: Project) => {
@@ -478,6 +501,19 @@ const ProjectsPage: React.FC = () => {
           }}
           onSubmit={handleSubmit}
           isLoading={isSubmitting}
+        />
+
+        {/* Delete Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showDeleteModal}
+          onClose={cancelDeleteProject}
+          onConfirm={confirmDeleteProject}
+          title="Delete Project"
+          message={`Are you sure you want to delete the project "${projectToDelete?.title}"? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          type="danger"
+          isLoading={isDeleting}
         />
       </div>
     </div>
