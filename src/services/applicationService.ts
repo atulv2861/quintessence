@@ -110,6 +110,54 @@ class ApplicationService {
     }
   }
 
+  async deleteApplication(applicationId: string, token: string): Promise<void> {
+    try {
+      const response = await fetch(`${this.API_BASE_URL}/jobs/applications/${applicationId}/`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Authentication failed. Please login again.');
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error deleting application:', error);
+      throw error;
+    }
+  }
+
+  async updateApplicationStatus(applicationId: string, status: string, token: string): Promise<ApplicationResponse> {
+    try {
+      const response = await fetch(`${this.API_BASE_URL}/jobs/applications/${applicationId}/`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status }),
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Authentication failed. Please login again.');
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error('Error updating application status:', error);
+      throw error;
+    }
+  }
+
   // Helper method to convert file to base64
   async fileToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {

@@ -13,8 +13,6 @@ import {
   CheckCircle,
   AlertCircle,
   User,
-  Mail,
-  Phone,
   RefreshCw
 } from 'lucide-react'
 import { Job, JobFormData } from '../../types'
@@ -159,6 +157,52 @@ const JobsPage: React.FC = () => {
     }
 
     setFilteredJobs(filtered)
+  }
+
+  const handleDeleteApplication = async (applicationId: string) => {
+    if (window.confirm('Are you sure you want to delete this application?')) {
+      try {
+        const token = localStorage.getItem('authToken')
+        if (!token) {
+          setError('Authentication required. Please login again.')
+          return
+        }
+
+        await ApplicationService.deleteApplication(applicationId, token)
+        
+        // Reload applications after deletion
+        await loadApplications()
+        
+        setError(null)
+      } catch (error) {
+        console.error('Error deleting application:', error)
+        const errorMessage = error instanceof Error ? error.message : 'Failed to delete application. Please try again.'
+        setError(errorMessage)
+      }
+    }
+  }
+
+  const handleStatusChange = async (applicationId: string, newStatus: string) => {
+    try {
+      const token = localStorage.getItem('authToken')
+      if (!token) {
+        setError('Authentication required. Please login again.')
+        return
+      }
+
+      await ApplicationService.updateApplicationStatus(applicationId, newStatus, token)
+      
+      // Update the local state
+      setApplications(prev => prev.map(app => 
+        app.id === applicationId ? { ...app, status: newStatus } : app
+      ))
+      
+      setError(null)
+    } catch (error) {
+      console.error('Error updating application status:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Failed to update application status. Please try again.'
+      setError(errorMessage)
+    }
   }
 
   const handleDelete = async (job: Job) => {
@@ -612,9 +656,17 @@ const JobsPage: React.FC = () => {
                           {formatDate(application.created_at)}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={getApplicationStatusBadge(application.status)}>
-                            {application.status}
-                          </span>
+                          <select
+                            value={application.status}
+                            onChange={(e) => handleStatusChange(application.id, e.target.value)}
+                            className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="Pending">Pending</option>
+                            <option value="Under Review">Under Review</option>
+                            <option value="Shortlisted">Shortlisted</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Hired">Hired</option>
+                          </select>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <div className="flex items-center justify-end space-x-2">
@@ -637,18 +689,11 @@ const JobsPage: React.FC = () => {
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
-                              onClick={() => window.open(`mailto:${application.email}`, '_blank')}
-                              className="text-green-400 hover:text-green-600 p-1"
-                              title="Contact"
+                              onClick={() => handleDeleteApplication(application.id)}
+                              className="text-red-400 hover:text-red-600 p-1"
+                              title="Delete Application"
                             >
-                              <Mail className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => window.open(`tel:${application.phone_number}`, '_blank')}
-                              className="text-purple-400 hover:text-purple-600 p-1"
-                              title="Call"
-                            >
-                              <Phone className="w-4 h-4" />
+                              <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
                         </td>
