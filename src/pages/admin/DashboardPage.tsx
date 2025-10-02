@@ -7,7 +7,6 @@ import {
   Plus,
   BarChart3
 } from 'lucide-react'
-import { userService } from '../../services/userService'
 import StatsService from '../../services/statsService'
 
 interface DashboardStats {

@@ -125,7 +125,7 @@ const ApplyPage: React.FC = () => {
         cv_size: cvFile.size.toString()
       }
 
-      const response = await ApplicationService.submitApplication(applicationData)
+      await ApplicationService.submitApplication(applicationData)
       
       setSubmitStatus('success')
       setSubmitMessage(`Application submitted successfully!. We'll review your application and get back to you soon.`)

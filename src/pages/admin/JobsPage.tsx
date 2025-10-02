@@ -247,7 +247,7 @@ const JobsPage: React.FC = () => {
       await jobService.deleteJob(jobToDelete.job_id)
       // Refresh the data to get updated list
       await loadData()
-      setApplications(applications.filter(app => app.jobId !== jobToDelete.id))
+      setApplications(applications.filter(app => app.selected_job_id !== jobToDelete.id))
       setError(null)
       setShowJobDeleteModal(false)
       setJobToDelete(null)
@@ -321,23 +321,6 @@ const JobsPage: React.FC = () => {
     }
   }
 
-  const getApplicationStatusBadge = (status: string) => {
-    const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
-    switch (status.toLowerCase()) {
-      case 'pending':
-        return `${baseClasses} bg-yellow-100 text-yellow-800`
-      case 'under review':
-        return `${baseClasses} bg-blue-100 text-blue-800`
-      case 'shortlisted':
-        return `${baseClasses} bg-green-100 text-green-800`
-      case 'rejected':
-        return `${baseClasses} bg-red-100 text-red-800`
-      case 'hired':
-        return `${baseClasses} bg-green-100 text-green-800`
-      default:
-        return `${baseClasses} bg-gray-100 text-gray-800`
-    }
-  }
 
   const jobTypes = ['all', 'Full Time', 'Part Time', 'Contract', 'Internship']
 

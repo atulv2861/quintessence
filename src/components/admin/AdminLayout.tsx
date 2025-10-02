@@ -9,7 +9,6 @@ import {
   Menu, 
   X,
   Bell,
-  Search,
   User,
   UserCheck
 } from 'lucide-react'
