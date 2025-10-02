@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, Briefcase, MapPin, Calendar, ArrowRight, ChevronLeft, ChevronRight, Upload, File, X, Cloud } from 'lucide-react'
-import EmailService from '../services/emailService'
+import CvUploadService from '../services/cvUploadService'
 import { jobService } from '../services/jobService'
 import { Job } from '../types'
 
@@ -168,28 +168,27 @@ const JobsPage: React.FC = () => {
     setCvSubmitMessage('')
 
     try {
-      const response = await EmailService.sendContactForm({
-        name: cvFormData.name,
+      // Validate that a CV file is uploaded
+      if (cvFiles.length === 0) {
+        setCvSubmitStatus('error')
+        setCvSubmitMessage('Please upload your CV before submitting.')
+        setIsSubmittingCv(false)
+        return
+      }
+
+      // Prepare CV upload data
+      const cvUploadData = {
+        full_name: cvFormData.name,
         email: cvFormData.email,
         phone: cvFormData.phone,
-        address: '',
-        subject: 'CV Upload - Career Application',
-        message: `
-CV Upload Application
+        files: cvFiles[0] // Take the first file
+      }
 
-Contact Information:
-Name: ${cvFormData.name}
-Phone: ${cvFormData.phone}
-Email: ${cvFormData.email}
-
-Please find the attached CV for consideration.
-        `,
-        files: cvFiles
-      })
+      const response = await CvUploadService.uploadCv(cvUploadData)
       
       if (response.status === 'success') {
         setCvSubmitStatus('success')
-        setCvSubmitMessage('CV submitted successfully! We\'ll review your application and get back to you soon.')
+        setCvSubmitMessage(response.message || 'CV submitted successfully! We\'ll review your application and get back to you soon.')
         // Reset form
         setCvFormData({
           name: '',

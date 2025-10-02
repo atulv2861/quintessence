@@ -12,6 +12,7 @@ import {
 import { Blog, BlogFormData } from '../../types'
 import { blogService } from '../../services/blogService'
 import BlogForm from '../../components/forms/BlogForm'
+import ConfirmationModal from '../../components/modals/ConfirmationModal'
 
 const BlogsPage: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([])
@@ -22,6 +23,11 @@ const BlogsPage: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  
+  // Blog deletion modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [blogToDelete, setBlogToDelete] = useState<Blog | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [totalBlogs, setTotalBlogs] = useState(0)
@@ -71,16 +77,32 @@ const BlogsPage: React.FC = () => {
     setFilteredBlogs(filtered)
   }
 
-  const handleDelete = async (blog: Blog) => {
-    if (window.confirm('Are you sure you want to delete this blog post?')) {
-      try {
-        await blogService.deleteBlog(blog.id)
-        await loadBlogs()
-      } catch (error) {
-        console.error('Error deleting blog:', error)
-        alert('Failed to delete blog post. Please try again.')
-      }
+  const handleDelete = (blog: Blog) => {
+    setBlogToDelete(blog)
+    setShowDeleteModal(true)
+  }
+
+  const confirmDeleteBlog = async () => {
+    if (!blogToDelete) return
+
+    setIsDeleting(true)
+    try {
+      await blogService.deleteBlog(blogToDelete.id)
+      await loadBlogs()
+      setShowDeleteModal(false)
+      setBlogToDelete(null)
+    } catch (error) {
+      console.error('Error deleting blog:', error)
+      alert('Failed to delete blog post. Please try again.')
+    } finally {
+      setIsDeleting(false)
     }
+  }
+
+  const cancelDeleteBlog = () => {
+    setShowDeleteModal(false)
+    setBlogToDelete(null)
+    setIsDeleting(false)
   }
 
   const handleEdit = (blog: Blog) => {
@@ -445,6 +467,19 @@ const BlogsPage: React.FC = () => {
             isLoading={isSubmitting}
           />
         )}
+
+        {/* Delete Confirmation Modal */}
+        <ConfirmationModal
+          isOpen={showDeleteModal}
+          onClose={cancelDeleteBlog}
+          onConfirm={confirmDeleteBlog}
+          title="Delete Blog Post"
+          message={`Are you sure you want to delete the blog post "${blogToDelete?.title}"? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          type="danger"
+          isLoading={isDeleting}
+        />
       </div>
     </div>
   )
