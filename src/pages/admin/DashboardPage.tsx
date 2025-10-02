@@ -8,24 +8,21 @@ import {
   BarChart3
 } from 'lucide-react'
 import { userService } from '../../services/userService'
+import StatsService from '../../services/statsService'
 
 interface DashboardStats {
-  totalBlogs: number
-  totalProjects: number
-  totalJobs: number
-  totalUsers: number
-  monthlyGrowth: number
-  revenue: number
+  total_blogs: number
+  total_projects: number
+  total_openings: number
+  total_users: number
 }
 
 const DashboardPage: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats>({
-    totalBlogs: 0,
-    totalProjects: 0,
-    totalJobs: 0,
-    totalUsers: 0,
-    monthlyGrowth: 0,
-    revenue: 0
+    total_blogs: 0,
+    total_projects: 0,
+    total_openings: 0,
+    total_users: 0
   })
   const [isLoading, setIsLoading] = useState(true)
 
@@ -35,28 +32,23 @@ const DashboardPage: React.FC = () => {
       setIsLoading(true)
       
       try {
-        // Fetch real user data
-        const usersResponse = await userService.getUsersPaginated(1, 1)
-        const totalUsers = usersResponse.total
-        
-        setStats({
-          totalBlogs: 24,
-          totalProjects: 18,
-          totalJobs: 12,
-          totalUsers: totalUsers,
-          monthlyGrowth: 23.5,
-          revenue: 125000
-        })
+        // Get auth token
+        const token = localStorage.getItem('authToken')
+        if (!token) {
+          throw new Error('Authentication required. Please login again.')
+        }
+
+        // Fetch stats from API
+        const statsData = await StatsService.getStats(token)
+        setStats(statsData)
       } catch (error) {
         console.error('Error loading dashboard data:', error)
         // Fallback to mock data if API fails
         setStats({
-          totalBlogs: 24,
-          totalProjects: 18,
-          totalJobs: 12,
-          totalUsers: 0,
-          monthlyGrowth: 23.5,
-          revenue: 125000
+          total_blogs: 15,
+          total_projects: 8,
+          total_openings: 12,
+          total_users: 25
         })
       }
       
@@ -201,7 +193,7 @@ const DashboardPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             title="Total Blogs"
-            value={stats.totalBlogs}
+            value={stats.total_blogs}
             icon={FileText}
             color="bg-blue-500"
             change="+12% this month"
@@ -209,7 +201,7 @@ const DashboardPage: React.FC = () => {
           />
           <StatCard
             title="Active Projects"
-            value={stats.totalProjects}
+            value={stats.total_projects}
             icon={Briefcase}
             color="bg-green-500"
             change="+8% this month"
@@ -217,7 +209,7 @@ const DashboardPage: React.FC = () => {
           />
           <StatCard
             title="Job Openings"
-            value={stats.totalJobs}
+            value={stats.total_openings}
             icon={Users}
             color="bg-purple-500"
             change="+5% this month"
@@ -225,7 +217,7 @@ const DashboardPage: React.FC = () => {
           />
           <StatCard
             title="Total Users"
-            value={stats.totalUsers.toLocaleString()}
+            value={stats.total_users.toLocaleString()}
             icon={Users}
             color="bg-orange-500"
             change="+23% this month"
@@ -239,16 +231,16 @@ const DashboardPage: React.FC = () => {
           <ChartCard title="Content Distribution">
             <SimplePieChart
               data={[
-                { label: 'Blogs', value: stats.totalBlogs, color: '#3B82F6' },
-                { label: 'Projects', value: stats.totalProjects, color: '#10B981' },
-                { label: 'Jobs', value: stats.totalJobs, color: '#8B5CF6' }
+                { label: 'Blogs', value: stats.total_blogs, color: '#3B82F6' },
+                { label: 'Projects', value: stats.total_projects, color: '#10B981' },
+                { label: 'Jobs', value: stats.total_openings, color: '#8B5CF6' }
               ]}
             />
             <div className="mt-4 space-y-2">
               {[
-                { label: 'Blogs', value: stats.totalBlogs, color: 'bg-blue-500' },
-                { label: 'Projects', value: stats.totalProjects, color: 'bg-green-500' },
-                { label: 'Jobs', value: stats.totalJobs, color: 'bg-purple-500' }
+                { label: 'Blogs', value: stats.total_blogs, color: 'bg-blue-500' },
+                { label: 'Projects', value: stats.total_projects, color: 'bg-green-500' },
+                { label: 'Jobs', value: stats.total_openings, color: 'bg-purple-500' }
               ].map((item, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center">
